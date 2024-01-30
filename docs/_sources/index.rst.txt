@@ -1,0 +1,10 @@
+La langage Python
+=================
+
+
+.. toctree::
+   :maxdepth: 2
+
+   feuilles_de_cours.rst
+   feuilles_d_exercices.rst
+

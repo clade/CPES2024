@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Les fonctions &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="les-fonctions">
+<h1>Les fonctions<a class="headerlink" href="#les-fonctions" title="Permalink to this headline">¶</a></h1>
+<p>Les fonctions sont des sous-programme que l’on peut exécuter. Elles sont en particulier utilisée pour effectuer des tâches répétitives.</p>
+<section id="utiliser-les-fonctions">
+<h2>Utiliser les fonctions<a class="headerlink" href="#utiliser-les-fonctions" title="Permalink to this headline">¶</a></h2>
+<p>Il existe un grand nombre de fonctions déjà définies en Python. Certaines sont des fonctions natives, disponible directement en Python (par exemple la fonction <code class="docutils literal notranslate"><span class="pre">print</span></code>). D’autres sont dans une librairie, par exemples, les fonctions mathématiques sont dans la librairie <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
+<p>Pour executer une fonction (on utilise aussi le mot appeler - call en anglais), il faut suivre le nom de la fonction par des parenthèses avec à l’intérieur les arguments séparés par des virgules.</p>
+<p>Une fonction peut avoir zero argument, un ou plusieurs. Le nombre d’argument n’est pas forcement fixé à l’avance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">()</span> <span class="c1"># Fonction sans arguments</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span> <span class="c1"># on importe la fonction cosinus</span>
+<span class="n">cos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Cette fonction possède un seul argument</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="c1"># La fonction print peut avoir autant d&#39;argument qu&#39;on le souhaite</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour Hello
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsqu’une fonction possède plusieurs argument, il est important de respecter l’ordre. Lorsque l’on ne connait pas cet ordre, il faut regarder la documentation, ce qui peut se faire avec la commande <code class="docutils literal notranslate"><span class="pre">nom_de_la_fonction?</span></code> ou <code class="docutils literal notranslate"><span class="pre">help(nom_de_la_fonction)</span></code>.</p>
+<p>Regardons par exemple le fonction date du module datetime. Cette fonction permet de manipuler des dates avec Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="c1">#date?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La documentation nous donne ;</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>date(year, month, day)
+</pre></div>
+</div>
+<p>Cette fonction nécéssite donc 3 arguments (l’année, le mois et le jour).</p>
+<p>On peut l’utiliser de la façon suivante :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bataille_marignan</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1515</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bataille_marignan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1515-09-13
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour lever l’ambiguité lorsqu’il y a plusieurs arguments, il est possible de nommer explicitement ceux-ci</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bataille_marignan</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1515</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsque les arguments sont nommés, l’ordre n’a plus d’importance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1515</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span><span class="o">==</span><span class="n">date</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">1515</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsqu’une fonction contient beaucoup d’arguments, il peut être utile de regrouper les variables dans une seule variable. Il peut s’agir soit d’une liste ou d’un n-uplet (tuple) auquel cas l’ordre sera important, soit d’un dictionnaire, auquel cas, les clés doivent correspondre aux noms des variables. Pour une liste on précéde l’objet d’une <code class="docutils literal notranslate"><span class="pre">*</span></code> pour un dictionnaire de <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date_tpl</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1515</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">date_dct</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span><span class="mi">1515</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">:</span><span class="mi">13</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="o">*</span><span class="n">date_tpl</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="o">**</span><span class="n">date_dct</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1515-09-13
+1515-09-13
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creation-d-une-fonction">
+<h2>Création d’une fonction<a class="headerlink" href="#creation-d-une-fonction" title="Permalink to this headline">¶</a></h2>
+<section id="principe-general">
+<h3>Principe général<a class="headerlink" href="#principe-general" title="Permalink to this headline">¶</a></h3>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">def</span></code> est utilisé pour créer une fonction. Il doit être suivit de nom de la fonction, des arguments placés entre parenthèse. Comme toute instruction qui sera suivi d’un bloc d’instruction, il faut terminer la ligne par un <code class="docutils literal notranslate"><span class="pre">:</span></code>. Le bloc d’instruction sera alors indenté.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fonction sans argument</span>
+<span class="k">def</span> <span class="nf">affiche_bonjour</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bonjour tout le monde&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+    
+<span class="n">affiche_bonjour</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour tout le monde
+Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour renvoyer une valeur, il faut utiliser l’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">surface_d_un_disque</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">surface_d_un_disque</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28.274333882308138
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python quitte la fonction imédiatement après le return. Il peut y avoir plusieurs return dans une fonction. Python quitte la fonction après le premier return executé. Si il arrive à la fin de la fonction, alors il y a un return implicite. La valeur renvoyée est <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Dans cet exemple, le <code class="docutils literal notranslate"><span class="pre">print('B')</span></code> ne sera jamais executé</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+    <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+    
+<span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># Il n&#39;y a pas de return. Cette fonction ne sert donc à rien</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est possible de renvoyer plusieurs valeurs. Pour cela on les sépare par des virgules. On peut récupérer les valeurs en séparant les variables par des virgules à gauche du signe <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+</section>
+<section id="chaine-de-documentation">
+<h3>Chaîne de documentation<a class="headerlink" href="#chaine-de-documentation" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span>
+<span class="k">def</span> <span class="nf">coordonnees</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">coordonnees</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si la ligne première instruction du bloc d’une fonction est une chaîne de caractère litérale, alors cette chaîne sera la chaîne de documentation de la fonction. Cette chaîne correspond à la description de la fonction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">surface_d_un_disque</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="s2">&quot;Calcule la surface d&#39;un disque de rayon r&quot;</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">surface_d_un_disque</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function surface_d_un_disque in module __main__:
+
+surface_d_un_disque(r)
+    Calcule la surface d&#39;un disque de rayon r
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsque la chaîne de caractère prend plusieurs lignes (ce qui est en générale le cas…), alors il est préférable d’utiliser une chaîne avec triple guillemets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">surface_d_un_disque</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calcule la surface d&#39;un disque</span>
+<span class="sd">    </span>
+<span class="sd">    Utilise simplement la formule $\pi r^2$</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments :</span>
+<span class="sd">        r (float) : rayon du disque</span>
+<span class="sd">        </span>
+<span class="sd">    Renvoie : </span>
+<span class="sd">        float : le surface du disque</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">surface_d_un_disque</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function surface_d_un_disque in module __main__:
+
+surface_d_un_disque(r)
+    Calcule la surface d&#39;un disque
+    
+    Utilise simplement la formule $\pi r^2$
+    
+    Arguments :
+        r (float) : rayon du disque
+        
+    Renvoie : 
+        float : le surface du disque
+</pre></div>
+</div>
+</div>
+</div>
+<p>La chaîne de documentation est différente des commentaires : ces derniers ne sont pas disponible aux utilsateurs, mais seulement à celui qui lira et voudra comprendre le code.</p>
+</section>
+<section id="variables-locales">
+<h3>Variables locales<a class="headerlink" href="#variables-locales" title="Permalink to this headline">¶</a></h3>
+<p>Une variable est locale lorsqu’elle n’est définie que à l’intérieur d’une fonction. Une variable est globale lorsque sa definition est à l’extérieure de la fonction. Il n’y a pas d’interaction entre une variable locale et un variable portant le même nom à l’extérieur de la fonction</p>
+<p>Toutes les variables qui sont affectée dans le fonction (i.e. pour lesquels on a une ligne <code class="docutils literal notranslate"><span class="pre">variable=...</span></code>) ainsi que les arguments de la fonction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span> <span class="c1"># x est une variable globale</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span> <span class="c1"># x est une variable locale</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="arguments-optionels">
+<h3>Arguments optionels<a class="headerlink" href="#arguments-optionels" title="Permalink to this headline">¶</a></h3>
+<p>Il est possible de donner une valeur par défaut à un argument. Celui-ci sera alors optionnel. Cela se fait en avec la syntax <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(arg=...)</span></code>. Les arguments optionels doivent être défini à la fin de la liste des arguments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+25
+16
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fonction-avec-un-nombre-arbitraire-d-arguments">
+<h3>Fonction avec un nombre arbitraire d’arguments<a class="headerlink" href="#fonction-avec-un-nombre-arbitraire-d-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Il est possible de définir une fonction avec un nombre arbitraire d’arguments en utilisant la syntaxe <code class="docutils literal notranslate"><span class="pre">*arg</span></code>. Dans ce cas, la variable arg sera un n-uplet (tuple) qui contiendra tous les arguments suplémentaires.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mafonction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;args = &#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    
+<span class="n">mafonction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  1
+b =  2
+args =  (3, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est aussi possible de définir une fonction avec un nombre arbitraire d’arguments nommés. Dans ce cas, il faut utiliser la syntaxe <code class="docutils literal notranslate"><span class="pre">**kwd</span></code>. La variable <code class="docutils literal notranslate"><span class="pre">kwd</span></code> est alors un dictionnaire dont les clés sont les noms des variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mafonction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwd</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;kwd = &#39;</span><span class="p">,</span> <span class="n">kwd</span><span class="p">)</span>
+    
+<span class="c1"># mafonction(1, 2, 3, 4) # erreur</span>
+<span class="n">mafonction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  1
+b =  2
+kwd =  {&#39;alpha&#39;: 1, &#39;beta&#39;: 3}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
