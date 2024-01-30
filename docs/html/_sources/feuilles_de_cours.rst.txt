@@ -1,0 +1,7 @@
+Feuilles de cours
+=================
+
+.. toctree::
+   :maxdepth: 2
+
+   cours1_fonctions_cours.ipynb

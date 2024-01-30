@@ -1,0 +1,7 @@
+Feuilles d'exercices
+====================
+
+.. toctree::
+   :maxdepth: 2
+
+   cours1_fonctions_exercices.ipynb
