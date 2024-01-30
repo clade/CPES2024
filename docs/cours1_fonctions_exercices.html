@@ -53,33 +53,6 @@
 <li><p>Calculer <span class="math notranslate nohighlight">\(x = \sqrt{2}\)</span> puis calculer <span class="math notranslate nohighlight">\(x^2\)</span>. Que se passe-t-il ?</p></li>
 <li><p>Calculer <span class="math notranslate nohighlight">\(\arccos{\frac{\sqrt{2}}{2}}\)</span> et comparer à sa valeur théorique.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.302585092994046
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-<span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0000000000000004
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="fonction-datetime">
 <h2>Fonction datetime<a class="headerlink" href="#fonction-datetime" title="Permalink to this headline">¶</a></h2>
@@ -171,65 +144,9 @@ est divisible par les entiers successifs à partir de 2.</p>
 <ol class="arabic simple">
 <li><p>On souhaite calculer <span class="math notranslate nohighlight">\(\sum \frac{1}{i}\)</span>. Quelle est la différence entre les différentes fonctions si dessous ? Laquelle est la ‘bonne’ fonction</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">serie_1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-        
-<span class="k">def</span> <span class="nf">serie_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
-        <span class="k">return</span> <span class="n">output</span>
-        
-<span class="k">def</span> <span class="nf">serie_3</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-        
-<span class="k">def</span> <span class="nf">serie_4</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
-    <span class="k">return</span> <span class="n">output</span>
-</pre></div>
-</div>
-</div>
-</div>
 <ol class="arabic simple" start="2">
 <li><p>Parmis tous les appels de la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> ci dessous, lequels font faire une erreur ? Quelle sera l’erreur ?</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="n">Bonjour</span><span class="p">,</span> <span class="n">Hello</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">f</span><span class="p">(</span><span class="s2">&quot;Bonjour, Hello&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">p</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 
