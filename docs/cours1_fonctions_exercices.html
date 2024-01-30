@@ -46,13 +46,156 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="exercices">
 <h1>Exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h1>
-<section id="fonctions-mathematiques">
-<h2>Fonctions mathématiques<a class="headerlink" href="#fonctions-mathematiques" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Est ce que la fonction log est le logarithme décimal ou népérien ?</p></li>
-<li><p>Calculer <span class="math notranslate nohighlight">\(x = \sqrt{2}\)</span> puis calculer <span class="math notranslate nohighlight">\(x^2\)</span>. Que se passe-t-il ?</p></li>
-<li><p>Calculer <span class="math notranslate nohighlight">\(\arccos{\frac{\sqrt{2}}{2}}\)</span> et comparer à sa valeur théorique.</p></li>
-</ul>
+<section id="que-fait-cette-fonction">
+<h2>Que fait cette fonction ?<a class="headerlink" href="#que-fait-cette-fonction" title="Permalink to this headline">¶</a></h2>
+<p>Répondre aux questions de cet exercice sans s’aider de l’ordinateur, puis vérifier.</p>
+<ol class="arabic simple">
+<li><p>On souhaite calculer <span class="math notranslate nohighlight">\(\sum \frac{1}{i}\)</span>. Quelle est la différence entre les différentes fonctions si dessous ? Laquelle est la ‘bonne’ fonction</p></li>
+</ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">serie_1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        
+<span class="n">serie_1</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        
+<span class="k">def</span> <span class="nf">serie_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
+        <span class="k">return</span> <span class="n">output</span>
+
+<span class="n">serie_2</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>    
+    
+<span class="k">def</span> <span class="nf">serie_3</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    
+<span class="n">serie_3</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+        
+<span class="k">def</span> <span class="nf">serie_4</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="n">serie_4</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Parmis tous les appels de la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> ci dessous, lequels vont faire une erreur ? Quelle sera l’erreur ?</p></li>
+</ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">Bonjour</span><span class="p">,</span> <span class="n">Hello</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">f</span><span class="p">(</span><span class="s2">&quot;Bonjour, Hello&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">p</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Qu’est il affiché ?</p></li>
+</ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">def</span> <span class="nf">f4</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">f1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">f1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">f2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    
+<span class="n">f3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">f4</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Attention, il y a un piège ici.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Qu’est il affiché ?</p></li>
+</ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
+
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589793</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">())</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Qu’est il affiché ?</p></li>
+</ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="fonction-datetime">
 <h2>Fonction datetime<a class="headerlink" href="#fonction-datetime" title="Permalink to this headline">¶</a></h2>
@@ -63,28 +206,30 @@
 <li><p>Dans un dictionnaire</p></li>
 </ol>
 </section>
-<section id="fonction-date-en-francais">
-<h2>Fonction date en français<a class="headerlink" href="#fonction-date-en-francais" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">date_en_francais</span></code> qui renvoie un objet <code class="docutils literal notranslate"><span class="pre">date</span></code> mais dont les arguments sont en français (<code class="docutils literal notranslate"><span class="pre">annee</span></code>, <code class="docutils literal notranslate"><span class="pre">mois</span></code>, <code class="docutils literal notranslate"><span class="pre">jours</span></code>)</p></li>
-<li><p>Idem avec le fonction <code class="docutils literal notranslate"><span class="pre">datetime</span></code> (il faudra rajouter les arguments optionels <code class="docutils literal notranslate"><span class="pre">heure</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">seconde</span></code>)</p></li>
-</ol>
-</section>
 <section id="fonction-cos-deg">
 <h2>Fonction cos_deg<a class="headerlink" href="#fonction-cos-deg" title="Permalink to this headline">¶</a></h2>
-<p>Ecrire une fonction qui renvoit le cosinus d’un angle exprimé en degré</p>
+<p>Ecrire une fonction qui renvoie le cosinus d’un angle exprimé en degré</p>
 </section>
 <section id="volume-d-un-cone">
 <h2>Volume d’un cône<a class="headerlink" href="#volume-d-un-cone" title="Permalink to this headline">¶</a></h2>
-<p>1/ Ecrire une fonction qui renoit le volume d’un cône de rayon <span class="math notranslate nohighlight">\(r\)</span> et hauteur <span class="math notranslate nohighlight">\(h\)</span>.
-2/ Ecrire une fonction qui envoit le volume d’un tronc de cône de rayon <span class="math notranslate nohighlight">\(r_1\)</span> et <span class="math notranslate nohighlight">\(r_2\)</span>.
-3/ Ecrire une seule fonction pour laquelle le tronc de cône est par défaut un cône (i.e. <span class="math notranslate nohighlight">\(r_2=1\)</span>)</p>
+<ol class="arabic simple">
+<li><p>Ecrire une fonction qui renoit le volume d’un cône de rayon <span class="math notranslate nohighlight">\(r\)</span> et hauteur <span class="math notranslate nohighlight">\(h\)</span>.</p></li>
+<li><p>Ecrire une fonction qui envoit le volume d’un tronc de cône de rayon <span class="math notranslate nohighlight">\(r_1\)</span> et <span class="math notranslate nohighlight">\(r_2\)</span>.</p></li>
+<li><p>Ecrire une seule fonction pour laquelle le tronc de cône est par défaut un cône (i.e. <span class="math notranslate nohighlight">\(r_2=1\)</span>)</p></li>
+</ol>
+</section>
+<section id="fonction-date-en-francais">
+<h2>Fonction date en français<a class="headerlink" href="#fonction-date-en-francais" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">date_en_francais</span></code> qui renvoie un objet <code class="docutils literal notranslate"><span class="pre">date</span></code> mais dont les arguments sont en français (<code class="docutils literal notranslate"><span class="pre">annee</span></code>, <code class="docutils literal notranslate"><span class="pre">mois</span></code>, <code class="docutils literal notranslate"><span class="pre">jour</span></code>)</p></li>
+<li><p>Idem avec la fonction <code class="docutils literal notranslate"><span class="pre">datetime</span></code> du module <code class="docutils literal notranslate"><span class="pre">datetime</span></code> (il faudra rajouter les arguments optionels <code class="docutils literal notranslate"><span class="pre">heure</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">seconde</span></code>)</p></li>
+</ol>
 </section>
 <section id="polynomes">
 <h2>Polynômes<a class="headerlink" href="#polynomes" title="Permalink to this headline">¶</a></h2>
 <p>On considère un polynôme de degrés <span class="math notranslate nohighlight">\(n\)</span> : <span class="math notranslate nohighlight">\(a_0 + a_1x + a_2x^2 + ... + a_n x^n\)</span>.</p>
 <ol class="arabic">
-<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">eval_polynome_troisieme_degres(x,</span> <span class="pre">a_0,</span> <span class="pre">a_1,</span> <span class="pre">a_2,a_3)</span></code> qui évalue un tel polynôme en <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">eval_polynome_troisieme_degres(x,</span> <span class="pre">a_0,</span> <span class="pre">a_1,</span> <span class="pre">a_2,</span> <span class="pre">a_3)</span></code> qui évalue un tel polynôme en <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
 <li><p>Ecrire une fonction qui permettra d’évaluer un polynôme de degré inférieur à 4 est que l’on pourra utiliser de la façon suivante :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> eval_polynome(x, 3, 4) # 3x + 4
  eval_polynome(x, a_0=2, a_2=4) # 4x^2 + 4
@@ -96,7 +241,7 @@
 </section>
 <section id="equation-du-second-degre">
 <h2>Equation du second degré<a class="headerlink" href="#equation-du-second-degre" title="Permalink to this headline">¶</a></h2>
-<p>On souhaite trouver les solutions de l’équation : <span class="math notranslate nohighlight">\(ax^2 + bx + c\)</span>. On rappelle que pour cela on calcule le discriminant <span class="math notranslate nohighlight">\(\Delta = b^2 - 4*a*c\)</span>.</p>
+<p>On souhaite trouver les solutions de l’équation : <span class="math notranslate nohighlight">\(ax^2 + bx + c=0\)</span>. On rappelle que pour cela on calcule le discriminant <span class="math notranslate nohighlight">\(\Delta = b^2 - 4*a*c\)</span>.</p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(\Delta&gt;0\)</span>, les solutions sont <span class="math notranslate nohighlight">\(\frac{-b \pm \sqrt{Delta}}{2a}\)</span></p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(\Delta=0\)</span>, il y a une solution (double) <span class="math notranslate nohighlight">\(\frac{-b }{2a}\)</span></p></li>
@@ -114,19 +259,18 @@
 <p>On considère une nombre complexe <span class="math notranslate nohighlight">\(z\)</span> et sa représentation polaire : <span class="math notranslate nohighlight">\(z = re^{i\theta}\)</span></p>
 <ol class="arabic simple">
 <li><p>Ecrire une fonction qui à partir de <span class="math notranslate nohighlight">\(r\)</span> et <span class="math notranslate nohighlight">\(\theta\)</span> renvoie <span class="math notranslate nohighlight">\(z\)</span></p></li>
-<li><p>Ecrire une fonction qui renvoie <span class="math notranslate nohighlight">\(r\)</span> et <span class="math notranslate nohighlight">\(\theta\)</span> en fonction de <span class="math notranslate nohighlight">\(z\)</span>. On choisira <span class="math notranslate nohighlight">\(\theta \in ]-\pi, \pi]\)</span>.</p></li>
 </ol>
-<p>On utilsera la fonction <code class="docutils literal notranslate"><span class="pre">atan</span></code> du module <code class="docutils literal notranslate"><span class="pre">math</span></code>. Tester votre code</p>
 </section>
 <section id="nombre-premier">
 <h2>Nombre premier<a class="headerlink" href="#nombre-premier" title="Permalink to this headline">¶</a></h2>
 <p>Ecrire une fonction qui renvoie True si un nombre est premier et False sinon. Pour cela, on testera si le nombre
 est divisible par les entiers successifs à partir de 2.</p>
-<ul class="simple">
-<li><p>Montrez que si <span class="math notranslate nohighlight">\(n\)</span> n’est pas premier, alors il existe un entier tel que <span class="math notranslate nohighlight">\(𝑝^2 \le 𝑛\)</span> qui est un diviseur de 𝑛.</p></li>
+<ol class="arabic simple">
+<li><p>Montrez que si <span class="math notranslate nohighlight">\(n\)</span> n’est pas premier, alors il existe un entier tel que <span class="math notranslate nohighlight">\(p^2 \le n\)</span> qui est un diviseur de <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
 <li><p>Ecrire la fonction à l’aide d’une boucle.</p></li>
 <li><p>Combien y a t-il d’années au XXIème siècle qui sont des nombres premiers ?</p></li>
-</ul>
+<li><p>Si vous n’êtes pas convaincu que c’est mieux avec des fonctions, faites le sans…</p></li>
+</ol>
 </section>
 <section id="fonction-pour-loguer-des-donnees">
 <h2>Fonction pour loguer des données<a class="headerlink" href="#fonction-pour-loguer-des-donnees" title="Permalink to this headline">¶</a></h2>
@@ -136,17 +280,8 @@ est divisible par les entiers successifs à partir de 2.</p>
     f.writeln(message)
 </pre></div>
 </div>
-<p>où <code class="docutils literal notranslate"><span class="pre">filename</span></code> est le nom du ficher et message une chaîne de caractère.</p>
+<p>où <code class="docutils literal notranslate"><span class="pre">filename</span></code> est le nom du ficher et message une chaîne de caractère. Le <code class="docutils literal notranslate"><span class="pre">'a'</span></code> signifie que l’on ajoute (append en anglais) les données à la fin du fichier.</p>
 <p>Ecrire une fonction qui par défaut affiche le message (<code class="docutils literal notranslate"><span class="pre">print</span></code>) et le sauve dans un fichier si celui-ci est donnée comme argument optionel.</p>
-</section>
-<section id="que-fait-cette-fonction">
-<h2>Que fait cette fonction ?<a class="headerlink" href="#que-fait-cette-fonction" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>On souhaite calculer <span class="math notranslate nohighlight">\(\sum \frac{1}{i}\)</span>. Quelle est la différence entre les différentes fonctions si dessous ? Laquelle est la ‘bonne’ fonction</p></li>
-</ol>
-<ol class="arabic simple" start="2">
-<li><p>Parmis tous les appels de la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> ci dessous, lequels font faire une erreur ? Quelle sera l’erreur ?</p></li>
-</ol>
 </section>
 </section>
 

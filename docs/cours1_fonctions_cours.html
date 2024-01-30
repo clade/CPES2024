@@ -210,13 +210,26 @@ Hello World!
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">tan</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">case</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">case</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">case</span><span class="o">==</span><span class="s1">&#39;B&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">case</span><span class="o">==</span><span class="s1">&#39;C&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Il est possible de renvoyer plusieurs valeurs. Pour cela on les sépare par des virgules. On peut récupérer les valeurs en séparant les variables par des virgules à gauche du signe <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
-</section>
-<section id="chaine-de-documentation">
-<h3>Chaîne de documentation<a class="headerlink" href="#chaine-de-documentation" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span>
+
 <span class="k">def</span> <span class="nf">coordonnees</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
@@ -225,7 +238,10 @@ Hello World!
 </div>
 </div>
 </div>
-<p>Si la ligne première instruction du bloc d’une fonction est une chaîne de caractère litérale, alors cette chaîne sera la chaîne de documentation de la fonction. Cette chaîne correspond à la description de la fonction.</p>
+</section>
+<section id="chaine-de-documentation">
+<h3>Chaîne de documentation<a class="headerlink" href="#chaine-de-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Si la première ligne du bloc d’instruction d’une fonction est une chaîne de caractère litérale, alors cette chaîne sera la chaîne de documentation de la fonction. Cette chaîne correspond à la description de la fonction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">surface_d_un_disque</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -282,7 +298,7 @@ surface_d_un_disque(r)
 </div>
 </div>
 </div>
-<p>La chaîne de documentation est différente des commentaires : ces derniers ne sont pas disponible aux utilsateurs, mais seulement à celui qui lira et voudra comprendre le code.</p>
+<p>La chaîne de documentation est différente des commentaires (<code class="docutils literal notranslate"><span class="pre">#</span></code>): ces derniers ne sont pas disponibles aux utilsateurs, mais seulement à celui qui lira et voudra comprendre le code.</p>
 </section>
 <section id="variables-locales">
 <h3>Variables locales<a class="headerlink" href="#variables-locales" title="Permalink to this headline">¶</a></h3>
