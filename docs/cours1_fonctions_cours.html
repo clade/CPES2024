@@ -47,12 +47,12 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="les-fonctions">
 <h1>Les fonctions<a class="headerlink" href="#les-fonctions" title="Permalink to this headline">¶</a></h1>
-<p>Les fonctions sont des sous-programme que l’on peut exécuter. Elles sont en particulier utilisée pour effectuer des tâches répétitives.</p>
+<p>Les fonctions sont des sous-programme que l’on peut exécuter. Elles sont en particulier utilisées pour effectuer des tâches répétitives.</p>
 <section id="utiliser-les-fonctions">
 <h2>Utiliser les fonctions<a class="headerlink" href="#utiliser-les-fonctions" title="Permalink to this headline">¶</a></h2>
-<p>Il existe un grand nombre de fonctions déjà définies en Python. Certaines sont des fonctions natives, disponible directement en Python (par exemple la fonction <code class="docutils literal notranslate"><span class="pre">print</span></code>). D’autres sont dans une librairie, par exemples, les fonctions mathématiques sont dans la librairie <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
-<p>Pour executer une fonction (on utilise aussi le mot appeler - call en anglais), il faut suivre le nom de la fonction par des parenthèses avec à l’intérieur les arguments séparés par des virgules.</p>
-<p>Une fonction peut avoir zero argument, un ou plusieurs. Le nombre d’argument n’est pas forcement fixé à l’avance.</p>
+<p>Il existe un grand nombre de fonctions déjà définies en Python. Certaines sont des fonctions natives, disponibles directement en Python (par exemple la fonction <code class="docutils literal notranslate"><span class="pre">print</span></code>). D’autres sont dans une librairie, par exemples, les fonctions mathématiques sont dans la librairie <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
+<p>Pour exécuter une fonction (on utilise aussi le mot appeler - call en anglais), il faut faire suivre le nom de la fonction par des parenthèses avec à l’intérieur les arguments séparés par des virgules.</p>
+<p>Une fonction peut avoir zero argument, un ou plusieurs. Le nombre d’arguments n’est pas forcement fixé à l’avance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">()</span> <span class="c1"># Fonction sans arguments</span>
@@ -70,8 +70,8 @@
 </div>
 </div>
 </div>
-<p>Lorsqu’une fonction possède plusieurs argument, il est important de respecter l’ordre. Lorsque l’on ne connait pas cet ordre, il faut regarder la documentation, ce qui peut se faire avec la commande <code class="docutils literal notranslate"><span class="pre">nom_de_la_fonction?</span></code> ou <code class="docutils literal notranslate"><span class="pre">help(nom_de_la_fonction)</span></code>.</p>
-<p>Regardons par exemple le fonction date du module datetime. Cette fonction permet de manipuler des dates avec Python.</p>
+<p>Lorsqu’une fonction possède plusieurs arguments, il est important de respecter l’ordre. Lorsque l’on ne connait pas cet ordre, il faut regarder la documentation, ce qui peut se faire avec la commande <code class="docutils literal notranslate"><span class="pre">nom_de_la_fonction?</span></code> ou <code class="docutils literal notranslate"><span class="pre">help(nom_de_la_fonction)</span></code>.</p>
+<p>Regardons par exemple la fonction date du module datetime. Cette fonction permet de manipuler des dates avec Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
@@ -115,6 +115,30 @@
 </div>
 </div>
 </div>
+<p>Attention, Python ne peut pas deviner ne nom de l’argument à partir du nom de la variable. Ceci ne fonctionnera pas :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span><span class="o">=</span><span class="mi">1515</span>
+<span class="n">month</span><span class="o">=</span><span class="mi">9</span>
+<span class="n">day</span><span class="o">=</span><span class="mi">13</span>
+
+<span class="n">date</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="mi">7</span><span class="n">f1fd051047c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">day</span><span class="o">=</span><span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">date</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: day is out of range for month
+</pre></div>
+</div>
+</div>
+</div>
 <p>Lorsqu’une fonction contient beaucoup d’arguments, il peut être utile de regrouper les variables dans une seule variable. Il peut s’agir soit d’une liste ou d’un n-uplet (tuple) auquel cas l’ordre sera important, soit d’un dictionnaire, auquel cas, les clés doivent correspondre aux noms des variables. Pour une liste on précéde l’objet d’une <code class="docutils literal notranslate"><span class="pre">*</span></code> pour un dictionnaire de <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -138,7 +162,7 @@
 <h2>Création d’une fonction<a class="headerlink" href="#creation-d-une-fonction" title="Permalink to this headline">¶</a></h2>
 <section id="principe-general">
 <h3>Principe général<a class="headerlink" href="#principe-general" title="Permalink to this headline">¶</a></h3>
-<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">def</span></code> est utilisé pour créer une fonction. Il doit être suivit de nom de la fonction, des arguments placés entre parenthèse. Comme toute instruction qui sera suivi d’un bloc d’instruction, il faut terminer la ligne par un <code class="docutils literal notranslate"><span class="pre">:</span></code>. Le bloc d’instruction sera alors indenté.</p>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">def</span></code> est utilisé pour créer une fonction. Il doit être suivit du nom de la fonction, des arguments placés entre parenthèse. Comme toute instruction qui sera suivi d’un bloc d’instruction, il faut terminer la ligne par un <code class="docutils literal notranslate"><span class="pre">:</span></code>. Le bloc d’instruction sera alors indenté.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fonction sans argument</span>
@@ -225,7 +249,7 @@ Hello World!
 </div>
 </div>
 </div>
-<p>Il est possible de renvoyer plusieurs valeurs. Pour cela on les sépare par des virgules. On peut récupérer les valeurs en séparant les variables par des virgules à gauche du signe <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<p>Une fonction peut renvoyer plusieurs valeurs. Pour cela on les sépare par des virgules. On peut récupérer les valeurs en séparant les variables par des virgules à gauche du signe <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span>
@@ -302,8 +326,8 @@ surface_d_un_disque(r)
 </section>
 <section id="variables-locales">
 <h3>Variables locales<a class="headerlink" href="#variables-locales" title="Permalink to this headline">¶</a></h3>
-<p>Une variable est locale lorsqu’elle n’est définie que à l’intérieur d’une fonction. Une variable est globale lorsque sa definition est à l’extérieure de la fonction. Il n’y a pas d’interaction entre une variable locale et un variable portant le même nom à l’extérieur de la fonction</p>
-<p>Toutes les variables qui sont affectée dans le fonction (i.e. pour lesquels on a une ligne <code class="docutils literal notranslate"><span class="pre">variable=...</span></code>) ainsi que les arguments de la fonction.</p>
+<p>Une variable est locale lorsqu’elle n’est définie que à l’intérieur d’une fonction. Une variable est globale lorsque sa definition est à l’extérieure de la fonction. Il n’y a pas d’interaction entre une variable locale et une variable portant le même nom à l’extérieur de la fonction</p>
+<p>Toutes les variables qui sont affectée dans le fonction (i.e. pour lesquels on a une ligne <code class="docutils literal notranslate"><span class="pre">variable=...</span></code>) ainsi que les arguments de la fonction sont des variables locales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
