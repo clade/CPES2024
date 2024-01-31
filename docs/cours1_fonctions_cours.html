@@ -254,7 +254,7 @@
 <section id="variables-locales">
 <h3>Variables locales<a class="headerlink" href="#variables-locales" title="Permalink to this headline">¶</a></h3>
 <p>Une variable est locale lorsqu’elle n’est définie que à l’intérieur d’une fonction. Une variable est globale lorsque sa definition est à l’extérieure de la fonction. Il n’y a pas d’interaction entre une variable locale et une variable portant le même nom à l’extérieur de la fonction</p>
-<p>Toutes les variables qui sont affectée dans le fonction (i.e. pour lesquels on a une ligne <code class="docutils literal notranslate"><span class="pre">variable=...</span></code>) ainsi que les arguments de la fonction sont des variables locales.</p>
+<p>Toutes les variables qui sont affectées dans la fonction (i.e. pour lesquels on a une ligne <code class="docutils literal notranslate"><span class="pre">variable=...</span></code>) ainsi que les arguments de la fonction sont des variables locales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -280,10 +280,34 @@
 </div>
 </div>
 </div>
+<p>La valeur prise par une variable globale est la valeur au moment de l’exection de la fonction et non au moment de la définition de la fonction</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### NE FONCTIONNE PAS ###</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">coef</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">coef</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">def</span> <span class="nf">triple</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">coef</span><span class="o">*</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">double</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">triple</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+9
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="arguments-optionels">
 <h3>Arguments optionels<a class="headerlink" href="#arguments-optionels" title="Permalink to this headline">¶</a></h3>
-<p>Il est possible de donner une valeur par défaut à un argument. Celui-ci sera alors optionnel. Cela se fait en avec la syntax <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(arg=...)</span></code>. Les arguments optionels doivent être définis à la fin de la liste des arguments.</p>
+<p>Il est possible de donner une valeur par défaut à un argument. Celui-ci sera alors optionnel. Cela se fait avec la syntaxe <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(..,</span> <span class="pre">arg=default_value)</span></code>. Les arguments optionels doivent être définis à la fin de la liste des arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>

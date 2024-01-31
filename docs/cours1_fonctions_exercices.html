@@ -50,7 +50,7 @@
 <h2>Que fait cette fonction ?<a class="headerlink" href="#que-fait-cette-fonction" title="Permalink to this headline">¶</a></h2>
 <p>Répondre aux questions de cet exercice sans s’aider de l’ordinateur, puis vérifier.</p>
 <ol class="arabic simple">
-<li><p>On souhaite calculer <span class="math notranslate nohighlight">\(\sum \frac{1}{i}\)</span>. Quelle est la différence entre les différentes fonctions si dessous ? Laquelle est la ‘bonne’ fonction</p></li>
+<li><p>On souhaite calculer <span class="math notranslate nohighlight">\(\sum \frac{1}{i}\)</span>. Quelle est la différence entre les différentes fonctions si dessous ? Laquelle est la “bonne” fonction, laquelle la “pire”</p></li>
 </ol>
 <div class="cell tag_keep docutils container">
 <div class="cell_input docutils container">
@@ -91,7 +91,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Parmis tous les appels de la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> ci dessous, lequels vont faire une erreur ? Quelle sera l’erreur ?</p></li>
+<li><p>Parmi tous les appels de la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> ci dessous, lequels vont faire une erreur ? Quelle sera l’erreur ?</p></li>
 </ol>
 <div class="cell tag_keep docutils container">
 <div class="cell_input docutils container">
@@ -121,7 +121,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Qu’est il affiché ?</p></li>
+<li><p>Qu’est il affiché ? Dans quels fonction <code class="docutils literal notranslate"><span class="pre">x</span></code> est une variable globale ?</p></li>
 </ol>
 <div class="cell tag_keep docutils container">
 <div class="cell_input docutils container">
@@ -197,15 +197,6 @@
 </div>
 </div>
 </section>
-<section id="fonction-datetime">
-<h2>Fonction datetime<a class="headerlink" href="#fonction-datetime" title="Permalink to this headline">¶</a></h2>
-<p>Importer la fonction <code class="docutils literal notranslate"><span class="pre">datetime</span></code> du module <code class="docutils literal notranslate"><span class="pre">datetime</span></code> et regarder se documentation.</p>
-<ol class="arabic simple">
-<li><p>Utiliser cette fonction pour entrer votre date de naissance (et l’heure si vous la connaissez) en nomant explicitement les arguments.</p></li>
-<li><p>Même question mais après avoir mis les arguments dans une liste</p></li>
-<li><p>Dans un dictionnaire</p></li>
-</ol>
-</section>
 <section id="fonction-cos-deg">
 <h2>Fonction cos_deg<a class="headerlink" href="#fonction-cos-deg" title="Permalink to this headline">¶</a></h2>
 <p>Ecrire une fonction qui renvoie le cosinus d’un angle exprimé en degré</p>
@@ -216,6 +207,15 @@
 <li><p>Ecrire une fonction qui renoit le volume d’un cône de rayon <span class="math notranslate nohighlight">\(r\)</span> et hauteur <span class="math notranslate nohighlight">\(h\)</span>.</p></li>
 <li><p>Ecrire une fonction qui envoit le volume d’un tronc de cône de rayon <span class="math notranslate nohighlight">\(r_1\)</span> et <span class="math notranslate nohighlight">\(r_2\)</span>.</p></li>
 <li><p>Ecrire une seule fonction pour laquelle le tronc de cône est par défaut un cône (i.e. <span class="math notranslate nohighlight">\(r_2=1\)</span>)</p></li>
+</ol>
+</section>
+<section id="fonction-datetime">
+<h2>Fonction datetime<a class="headerlink" href="#fonction-datetime" title="Permalink to this headline">¶</a></h2>
+<p>Importer la fonction <code class="docutils literal notranslate"><span class="pre">datetime</span></code> du module <code class="docutils literal notranslate"><span class="pre">datetime</span></code> et regarder se documentation.</p>
+<ol class="arabic simple">
+<li><p>Utiliser cette fonction pour entrer votre date de naissance (et l’heure si vous la connaissez) en nomant explicitement les arguments.</p></li>
+<li><p>Même question mais après avoir mis les arguments dans une liste</p></li>
+<li><p>Dans un dictionnaire</p></li>
 </ol>
 </section>
 <section id="fonction-date-en-francais">
@@ -271,17 +271,6 @@ est divisible par les entiers successifs à partir de 2.</p>
 <li><p>Combien y a t-il d’années au XXIème siècle qui sont des nombres premiers ?</p></li>
 <li><p>Si vous n’êtes pas convaincu que c’est mieux avec des fonctions, faites le sans…</p></li>
 </ol>
-</section>
-<section id="fonction-pour-loguer-des-donnees">
-<h2>Fonction pour loguer des données<a class="headerlink" href="#fonction-pour-loguer-des-donnees" title="Permalink to this headline">¶</a></h2>
-<p>Lorsque l’on devellope un programme, il est souvent utile de pouvoir garder une trace de l’excution de celui ci. Cela peut se faire soit en affichant un message, soit en sauvant celui-ci dans un fichier.</p>
-<p>Pour écrire un message dans un fichier, on peut utiliser les lignes suivante :</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(filename, &#39;a&#39;) as f:
-    f.writeln(message)
-</pre></div>
-</div>
-<p>où <code class="docutils literal notranslate"><span class="pre">filename</span></code> est le nom du ficher et message une chaîne de caractère. Le <code class="docutils literal notranslate"><span class="pre">'a'</span></code> signifie que l’on ajoute (append en anglais) les données à la fin du fichier.</p>
-<p>Ecrire une fonction qui par défaut affiche le message (<code class="docutils literal notranslate"><span class="pre">print</span></code>) et le sauve dans un fichier si celui-ci est donnée comme argument optionel.</p>
 </section>
 </section>
 
