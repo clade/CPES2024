@@ -64,11 +64,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour Hello
-</pre></div>
-</div>
-</div>
 </div>
 <p>Lorsqu’une fonction possède plusieurs arguments, il est important de respecter l’ordre. Lorsque l’on ne connait pas cet ordre, il faut regarder la documentation, ce qui peut se faire avec la commande <code class="docutils literal notranslate"><span class="pre">nom_de_la_fonction?</span></code> ou <code class="docutils literal notranslate"><span class="pre">help(nom_de_la_fonction)</span></code>.</p>
 <p>Regardons par exemple la fonction date du module datetime. Cette fonction permet de manipuler des dates avec Python.</p>
@@ -90,11 +85,6 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bataille_marignan</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1515</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bataille_marignan</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1515-09-13
 </pre></div>
 </div>
 </div>
@@ -126,18 +116,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="mi">7</span><span class="n">f1fd051047c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">day</span><span class="o">=</span><span class="mi">13</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">date</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: day is out of range for month
-</pre></div>
-</div>
-</div>
 </div>
 <p>Lorsqu’une fonction contient beaucoup d’arguments, il peut être utile de regrouper les variables dans une seule variable. Il peut s’agir soit d’une liste ou d’un n-uplet (tuple) auquel cas l’ordre sera important, soit d’un dictionnaire, auquel cas, les clés doivent correspondre aux noms des variables. Pour une liste on précéde l’objet d’une <code class="docutils literal notranslate"><span class="pre">*</span></code> pour un dictionnaire de <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
 <div class="cell docutils container">
@@ -147,12 +125,6 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="o">*</span><span class="n">date_tpl</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="o">**</span><span class="n">date_dct</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1515-09-13
-1515-09-13
 </pre></div>
 </div>
 </div>
@@ -174,12 +146,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour tout le monde
-Hello World!
-</pre></div>
-</div>
-</div>
 </div>
 <p>Pour renvoyer une valeur, il faut utiliser l’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
 <div class="cell docutils container">
@@ -190,11 +156,6 @@ Hello World!
     <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
 
 <span class="n">surface_d_un_disque</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28.274333882308138
 </pre></div>
 </div>
 </div>
@@ -212,11 +173,6 @@ Hello World!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -225,11 +181,6 @@ Hello World!
     <span class="c1"># Il n&#39;y a pas de return. Cette fonction ne sert donc à rien</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
 </pre></div>
 </div>
 </div>
@@ -276,14 +227,6 @@ Hello World!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function surface_d_un_disque in module __main__:
-
-surface_d_un_disque(r)
-    Calcule la surface d&#39;un disque de rayon r
-</pre></div>
-</div>
-</div>
 </div>
 <p>Lorsque la chaîne de caractère prend plusieurs lignes (ce qui est en générale le cas…), alors il est préférable d’utiliser une chaîne avec triple guillemets.</p>
 <div class="cell docutils container">
@@ -305,22 +248,6 @@ surface_d_un_disque(r)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function surface_d_un_disque in module __main__:
-
-surface_d_un_disque(r)
-    Calcule la surface d&#39;un disque
-    
-    Utilise simplement la formule $\pi r^2$
-    
-    Arguments :
-        r (float) : rayon du disque
-        
-    Renvoie : 
-        float : le surface du disque
-</pre></div>
-</div>
-</div>
 </div>
 <p>La chaîne de documentation est différente des commentaires (<code class="docutils literal notranslate"><span class="pre">#</span></code>): ces derniers ne sont pas disponibles aux utilsateurs, mais seulement à celui qui lira et voudra comprendre le code.</p>
 </section>
@@ -338,11 +265,6 @@ surface_d_un_disque(r)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -357,18 +279,11 @@ surface_d_un_disque(r)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-3
-1
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="arguments-optionels">
 <h3>Arguments optionels<a class="headerlink" href="#arguments-optionels" title="Permalink to this headline">¶</a></h3>
-<p>Il est possible de donner une valeur par défaut à un argument. Celui-ci sera alors optionnel. Cela se fait en avec la syntax <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(arg=...)</span></code>. Les arguments optionels doivent être défini à la fin de la liste des arguments.</p>
+<p>Il est possible de donner une valeur par défaut à un argument. Celui-ci sera alors optionnel. Cela se fait en avec la syntax <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(arg=...)</span></code>. Les arguments optionels doivent être définis à la fin de la liste des arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -377,13 +292,6 @@ surface_d_un_disque(r)
 <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-25
-16
 </pre></div>
 </div>
 </div>
@@ -397,16 +305,9 @@ surface_d_un_disque(r)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mafonction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;args = &#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;args =&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
     
 <span class="n">mafonction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  1
-b =  2
-args =  (3, 4)
 </pre></div>
 </div>
 </div>
@@ -421,13 +322,6 @@ args =  (3, 4)
     
 <span class="c1"># mafonction(1, 2, 3, 4) # erreur</span>
 <span class="n">mafonction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  1
-b =  2
-kwd =  {&#39;alpha&#39;: 1, &#39;beta&#39;: 3}
 </pre></div>
 </div>
 </div>
