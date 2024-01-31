@@ -117,7 +117,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e8405367",
+   "id": "2ac9baa1",
    "metadata": {},
    "source": [
     "Attention, Python ne peut pas deviner ne nom de l'argument à partir du nom de la variable. Ceci ne fonctionnera pas :"
@@ -126,7 +126,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "c5236e1f",
+   "id": "2283db8d",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -139,7 +139,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4ecf0998",
+   "id": "047d1b02",
    "metadata": {},
    "source": [
     "Lorsqu'une fonction contient beaucoup d'arguments, il peut être utile de regrouper les variables dans une seule variable. Il peut s'agir soit d'une liste ou d'un n-uplet (tuple) auquel cas l'ordre sera important, soit d'un dictionnaire, auquel cas, les clés doivent correspondre aux noms des variables. Pour une liste on précéde l'objet d'une ``*`` pour un dictionnaire de ``**``."
@@ -148,7 +148,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "34f2b9d5",
+   "id": "ff7269b1",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -162,7 +162,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "dc8f6809",
+   "id": "eba605bf",
    "metadata": {},
    "outputs": [],
    "source": []
@@ -196,7 +196,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "64321696",
+   "id": "4cdc08a2",
    "metadata": {},
    "source": [
     "Pour renvoyer une valeur, il faut utiliser l'instruction ``return``. "
@@ -230,7 +230,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "5b9bd3e5",
+   "id": "8eb90765",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -259,7 +259,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "9d30f4cd",
+   "id": "32e63ec9",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -276,7 +276,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c61826ad",
+   "id": "e11b3b73",
    "metadata": {},
    "source": [
     "Une fonction peut renvoyer plusieurs valeurs. Pour cela on les sépare par des virgules. On peut récupérer les valeurs en séparant les variables par des virgules à gauche du signe ``=``. "
@@ -299,7 +299,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "10919bad",
+   "id": "797e1973",
    "metadata": {},
    "source": [
     "### Chaîne de documentation"
@@ -307,7 +307,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "19d5dffc",
+   "id": "fbcc1b0a",
    "metadata": {},
    "source": [
     "Si la première ligne du bloc d'instruction d'une fonction est une chaîne de caractère litérale, alors cette chaîne sera la chaîne de documentation de la fonction. Cette chaîne correspond à la description de la fonction. "
@@ -316,7 +316,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "99625445",
+   "id": "8f07ff80",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -329,7 +329,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9240bf23",
+   "id": "6ae0ee80",
    "metadata": {},
    "source": [
     "Lorsque la chaîne de caractère prend plusieurs lignes (ce qui est en générale le cas...), alors il est préférable d'utiliser une chaîne avec triple guillemets. "
@@ -338,7 +338,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "deee1844",
+   "id": "5ba8a09a",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -360,7 +360,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "16b51325",
+   "id": "7b14294a",
    "metadata": {},
    "source": [
     "La chaîne de documentation est différente des commentaires (``#``): ces derniers ne sont pas disponibles aux utilsateurs, mais seulement à celui qui lira et voudra comprendre le code. "
@@ -411,7 +411,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a4a5c4b8",
+   "id": "31ca5391",
    "metadata": {},
    "source": [
     "La valeur prise par une variable globale est la valeur au moment de l'exection de la fonction et non au moment de la définition de la fonction"
@@ -420,7 +420,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "eaccd67b",
+   "id": "f4ace7a7",
    "metadata": {},
    "outputs": [
     {
@@ -459,7 +459,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "d37370e4",
+   "id": "2be4b5af",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -473,7 +473,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b5b43716",
+   "id": "99fcd195",
    "metadata": {},
    "source": [
     "### Fonction avec un nombre arbitraire d'arguments\n",
@@ -484,7 +484,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "02e0c6dc",
+   "id": "eb4f8c9c",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -498,7 +498,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "713dc888",
+   "id": "97203896",
    "metadata": {},
    "source": [
     "Il est aussi possible de définir une fonction avec un nombre arbitraire d'arguments nommés. Dans ce cas, il faut utiliser la syntaxe ``**kwd``. La variable ``kwd`` est alors un dictionnaire dont les clés sont les noms des variables. "
@@ -507,7 +507,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "ee6894d6",
+   "id": "1caf6451",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -523,7 +523,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "1b211696",
+   "id": "8e091bcf",
    "metadata": {},
    "outputs": [],
    "source": []
