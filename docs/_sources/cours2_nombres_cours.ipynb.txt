@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "a269bbf2",
+   "id": "fb34488c",
    "metadata": {},
    "source": [
     "# Les nombres\n",
@@ -17,7 +17,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "700f2e20",
+   "id": "7a621526",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -28,7 +28,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a7444ae0",
+   "id": "465d87d0",
    "metadata": {},
    "source": [
     "En Python la taille des entiers est illimitée. Par exemple:"
@@ -37,7 +37,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "9e6f96e3",
+   "id": "9192f5ee",
    "metadata": {},
    "outputs": [
     {
@@ -54,7 +54,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c73a5ec6",
+   "id": "bef0c479",
    "metadata": {},
    "source": [
     "Attention, ce n'est plus le cas lorsque l'on utilise des librairies de calcul numérique (comme numpy ou pandas). Dans ce cas, les nombres sont enregistrés sous une taille finie. Par défaut, il s'agit de nombre enregistré avec 64 bits, en tenant compte du signe, les entiers sont alors compris entre $-2^63$ et $2^63$ (exclu)\n",
@@ -64,8 +64,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
-   "id": "b3c02158",
+   "execution_count": 3,
+   "id": "0970b333",
    "metadata": {},
    "outputs": [
     {
@@ -74,7 +74,7 @@
        "array([-2984622845537545263])"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -88,7 +88,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "959c5705",
+   "id": "5b894cf0",
    "metadata": {},
    "source": [
     "Lorsqu'un nombre est enregistré sous un format de taille finie, il faut s'imaginer qu'il fonctionne comme une calculatrice dont ont aurait caché les premiers chiffres. Nous allons raisonner en décimal, mais dans la réalité ce sont des bits qui sont manipulés. \n",
@@ -101,25 +101,25 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "d7fece2a",
+   "id": "4623c69f",
    "metadata": {},
    "outputs": [],
    "source": []
   },
   {
    "cell_type": "markdown",
-   "id": "190d7e6b",
+   "id": "d1988aa6",
    "metadata": {},
    "source": [
-    "## Nombre à virgule flottante\n",
+    "## Les ombres à virgule flottante\n",
     "\n",
     "Type ``float``. Il existe plusieurs façon d'entrer un entier sous forme litérale : soit en mettant explicitement un ``.`` décimal, soit en utilisant le ``e`` de la notation scientifique\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
-   "id": "84de46f1",
+   "execution_count": 4,
+   "id": "afcdb49a",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -129,7 +129,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "cb2cf60b",
+   "id": "90110051",
    "metadata": {},
    "source": [
     "Attention, le comportement d'un nombre à virgule flottante est différent de celui d'un entier, même lorsqu'il représente un entier"
@@ -137,8 +137,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
-   "id": "72309859",
+   "execution_count": 5,
+   "id": "f17b0345",
    "metadata": {},
    "outputs": [
     {
@@ -159,7 +159,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ccc3868f",
+   "id": "09d24377",
    "metadata": {},
    "source": [
     "Les nombres sont enregistrés en [double précision](http://fr.wikipedia.org/wiki/IEEE_754), sur 64 bits. Il sont enregistrés sous la forme $s\\times m \\times 2^e$ où $s$ est le signe ($\\pm 1$ sur un bit), $m$ la mantisse, un nombre entre 0 et 1 sous la forme $0.xxxxx$ avec en tout 52 bits, et $e$ l'exposant, un nombre entier signé sur 11 bits (soit entre -1024 et 1023).  "
@@ -167,7 +167,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "85f95b6a",
+   "id": "7917238c",
    "metadata": {},
    "source": [
     "Attention, la précision des nombre à virgule flottante est limitée. Elle vaut $2^{-52}$, soit environ $10^{-16}$"
@@ -176,7 +176,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "89f793da",
+   "id": "8a6086d9",
    "metadata": {},
    "outputs": [
     {
@@ -196,7 +196,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9b4ec7b2",
+   "id": "b1b0d250",
    "metadata": {},
    "source": [
     "## Les nombres complexes\n",
@@ -209,7 +209,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "f5714bca",
+   "id": "795e3a7f",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -219,7 +219,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f96b4581",
+   "id": "cb6c45ca",
    "metadata": {},
    "source": [
     "Il faut forcement précéder le ``j`` d'un nombre. Le symbole ``j`` seul désignant une variable. Notons que si il est possible de placer des chiffres dans le nom d'un variable (par exemple ``x1``), il n'est pas possible de commencer une variable par un chiffre. Par exemple ``j1`` pourra désigner une variable mais pas ``1j``."
@@ -227,7 +227,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f73a8fba",
+   "id": "575e9d82",
    "metadata": {},
    "source": [
     "On peut facilement accéder à la partie réelle et imaginaire des nombres complexe, ce sont des attributs du nombre"
@@ -236,7 +236,7 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "19592d38",
+   "id": "1aa8421c",
    "metadata": {},
    "outputs": [
     {
@@ -256,7 +256,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f07f20cc",
+   "id": "4308b7ab",
    "metadata": {},
    "source": [
     "## Opérations sur le nombres \n",
@@ -281,14 +281,14 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "bcdb7a33",
+   "id": "9db20187",
    "metadata": {},
    "outputs": [],
    "source": []
   },
   {
    "cell_type": "markdown",
-   "id": "07c71949",
+   "id": "cd5e6519",
    "metadata": {},
    "source": [
     "## Les booléens et comparaison\n",
@@ -303,7 +303,7 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "id": "14b0be1c",
+   "id": "b28b322b",
    "metadata": {},
    "outputs": [
     {
@@ -322,7 +322,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3dd5d3be",
+   "id": "1a4d4725",
    "metadata": {},
    "source": [
     "Les opérations ``and`` et ``or`` effectuent en fait un test conditionnel. L'instruction ``A and B`` est interprétée comme ``B if not A else A``, de même ``A or B`` équivaut à ``A if A else B``. "
@@ -331,7 +331,7 @@
   {
    "cell_type": "code",
    "execution_count": 10,
-   "id": "2a261ec4",
+   "id": "bde9127c",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -352,7 +352,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "760df2a0",
+   "id": "5659e8f2",
    "metadata": {},
    "source": [
     "```{warning} \n",
@@ -362,8 +362,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
-   "id": "06127199",
+   "execution_count": 11,
+   "id": "0c48c96b",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -373,8 +373,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
-   "id": "0080652e",
+   "execution_count": 12,
+   "id": "b47bbadd",
    "metadata": {},
    "outputs": [
     {
@@ -397,7 +397,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9751d4f1",
+   "id": "30836260",
    "metadata": {},
    "source": [
     "Conclusion : il est préférable de toujours mettre des parenthèses...."
@@ -406,7 +406,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "d7e6156a",
+   "id": "6596c14a",
    "metadata": {},
    "outputs": [],
    "source": []

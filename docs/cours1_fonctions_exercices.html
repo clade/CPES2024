@@ -92,6 +92,19 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+1.5
+1.8333333333333333
+2.083333333333333
+2.283333333333333
+2.283333333333333
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.283333333333333
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Parmi tous les appels de la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> ci dessous, lequels vont faire une erreur ? Quelle sera l’erreur ?</p></li>
@@ -154,6 +167,32 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+3
+16
+5
+3
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">bf7078096a9a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">f3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">f4</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-3-bf7078096a9a&gt;</span> in <span class="ni">f4</span><span class="nt">(y)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">def</span> <span class="nf">f4</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;x&#39; referenced before assignment
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>Qu’est il affiché ?</p></li>
@@ -179,6 +218,14 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+1.0
+0.0
+0.0
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>Qu’est il affiché ?</p></li>
@@ -198,11 +245,29 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
+321
+132
+111
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="fonction-cos-deg">
 <h2>Fonction cos_deg<a class="headerlink" href="#fonction-cos-deg" title="Permalink to this headline">¶</a></h2>
 <p>Ecrire une fonction qui renvoie le cosinus d’un angle exprimé en degré</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">cos_deg</span><span class="p">(</span><span class="n">angle</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="volume-d-un-cone">
 <h2>Volume d’un cône<a class="headerlink" href="#volume-d-un-cone" title="Permalink to this headline">¶</a></h2>
@@ -211,6 +276,22 @@
 <li><p>Ecrire une fonction qui envoit le volume d’un tronc de cône de rayon <span class="math notranslate nohighlight">\(r_1\)</span> et <span class="math notranslate nohighlight">\(r_2\)</span>.</p></li>
 <li><p>Ecrire une seule fonction pour laquelle le tronc de cône est par défaut un cône (i.e. <span class="math notranslate nohighlight">\(r_2=1\)</span>)</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">volume_cone</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">volume_tronc_cone</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">r1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">r2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">volume_tronc_cone</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">r1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">r2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="fonction-datetime">
 <h2>Fonction datetime<a class="headerlink" href="#fonction-datetime" title="Permalink to this headline">¶</a></h2>
@@ -220,6 +301,30 @@
 <li><p>Même question mais après avoir mis les arguments dans une liste</p></li>
 <li><p>Dans un dictionnaire</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2011</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="o">*</span><span class="n">liste</span><span class="p">))</span>
+
+<span class="n">parametre</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;year&#39;</span><span class="p">:</span><span class="mi">2011</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="o">**</span><span class="n">parametre</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2011-06-02
+2011-06-02
+2011-06-02
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="fonction-date-en-francais">
 <h2>Fonction date en français<a class="headerlink" href="#fonction-date-en-francais" title="Permalink to this headline">¶</a></h2>
@@ -227,6 +332,27 @@
 <li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">date_en_francais</span></code> qui renvoie un objet <code class="docutils literal notranslate"><span class="pre">date</span></code> mais dont les arguments sont en français (<code class="docutils literal notranslate"><span class="pre">annee</span></code>, <code class="docutils literal notranslate"><span class="pre">mois</span></code>, <code class="docutils literal notranslate"><span class="pre">jour</span></code>)</p></li>
 <li><p>Idem avec la fonction <code class="docutils literal notranslate"><span class="pre">datetime</span></code> du module <code class="docutils literal notranslate"><span class="pre">datetime</span></code> (il faudra rajouter les arguments optionels <code class="docutils literal notranslate"><span class="pre">heure</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">seconde</span></code>)</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">date_fr</span><span class="p">(</span><span class="n">annee</span><span class="p">,</span> <span class="n">mois</span><span class="p">,</span> <span class="n">jour</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">(</span><span class="n">annee</span><span class="p">,</span> <span class="n">mois</span><span class="p">,</span> <span class="n">jour</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date_fr</span><span class="p">(</span><span class="n">annee</span><span class="o">=</span><span class="mi">2011</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">jour</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">datetime_fr</span><span class="p">(</span><span class="n">annee</span><span class="p">,</span> <span class="n">mois</span><span class="p">,</span> <span class="n">jour</span><span class="p">,</span> <span class="n">heure</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">seconde</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="p">(</span><span class="n">annee</span><span class="p">,</span> <span class="n">mois</span><span class="p">,</span> <span class="n">jour</span><span class="p">,</span> <span class="n">heure</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">seconde</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime_fr</span><span class="p">(</span><span class="n">annee</span><span class="o">=</span><span class="mi">2011</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">jour</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">heure</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2011-06-02
+2011-06-02 15:00:00
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="polynomes">
 <h2>Polynômes<a class="headerlink" href="#polynomes" title="Permalink to this headline">¶</a></h2>
@@ -241,6 +367,31 @@
 </li>
 <li><p>Faire en sorte que cette fonction marche pour n’importe quel degré.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eval_polynome_troisieme_degres</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a_0</span><span class="p">,</span> <span class="n">a_1</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">a_3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a_0</span> <span class="o">+</span> <span class="n">a_1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a_2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">a_3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">eval_polynome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_4</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a_0</span> <span class="o">+</span> <span class="n">a_1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a_2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">a_3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">a_4</span><span class="o">**</span><span class="mi">4</span>
+
+<span class="k">def</span> <span class="nf">eval_polynome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val_a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="n">val_a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">output</span>
+   
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">eval_polynome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="equation-du-second-degre">
 <h2>Equation du second degré<a class="headerlink" href="#equation-du-second-degre" title="Permalink to this headline">¶</a></h2>
@@ -256,6 +407,45 @@
 <li><p>Ecrire une fonction qui résout une équation du premier degré.</p></li>
 <li><p>Faire en sorte que cette fonction soit appelée lorsque <span class="math notranslate nohighlight">\(a=0\)</span>.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="k">def</span> <span class="nf">equation_seconde_degre</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">Delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    <span class="k">if</span> <span class="n">Delta</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Delta</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Delta</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">Delta</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">J</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">Delta</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">J</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">equation_seconde_degre</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">equation_premier_degre</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">a</span>
+
+<span class="k">def</span> <span class="nf">equation_seconde_degre</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">equation_premier_degra</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">Delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    <span class="k">if</span> <span class="n">Delta</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Delta</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Delta</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">Delta</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">J</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">Delta</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">J</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Dans cet exercice, les else ou elif sont inutiles.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.0, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="coordonnee-polaire-d-un-nombre-complexe">
 <h2>Coordonnée polaire d’un nombre complexe<a class="headerlink" href="#coordonnee-polaire-d-un-nombre-complexe" title="Permalink to this headline">¶</a></h2>
@@ -263,6 +453,23 @@
 <ol class="arabic simple">
 <li><p>Ecrire une fonction qui à partir de <span class="math notranslate nohighlight">\(r\)</span> et <span class="math notranslate nohighlight">\(\theta\)</span> renvoie <span class="math notranslate nohighlight">\(z\)</span></p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">from_polar</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">J</span><span class="o">*</span> <span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    
+<span class="n">from_polar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6.123233995736766e-17+1j)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="nombres-premiers">
 <h2>Nombres premiers<a class="headerlink" href="#nombres-premiers" title="Permalink to this headline">¶</a></h2>
@@ -274,10 +481,47 @@ est divisible par les entiers successifs à partir de 2.</p>
 <li><p>Combien y a t-il d’années au XXIème siècle qui sont des nombres premiers ?</p></li>
 <li><p>Si vous n’êtes pas convaincu que c’est mieux avec des fonctions, faites le sans…</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">est_premier</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="k">p</span>==0:
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">est_premier</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">count_premier</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">annee</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span> <span class="mi">2101</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">est_premier</span><span class="p">(</span><span class="n">annee</span><span class="p">):</span>
+        <span class="n">count_premier</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Il y a </span><span class="si">{</span><span class="n">count_premier</span><span class="si">}</span><span class="s1"> années premières aux XXI siècle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="mention">
 <h2>Mention<a class="headerlink" href="#mention" title="Permalink to this headline">¶</a></h2>
 <p>Ecrire une fonction qui à partir de la note sur 20 donne la mention</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mention</span><span class="p">(</span><span class="n">note</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">note</span><span class="o">&gt;=</span><span class="mi">18</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Felicitation&#39;</span>
+    <span class="k">if</span> <span class="n">note</span><span class="o">&gt;=</span><span class="mi">16</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Très bien&#39;</span>
+    <span class="k">if</span> <span class="n">note</span><span class="o">&gt;=</span><span class="mi">14</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Bien&quot;</span>
+    <span class="k">if</span> <span class="n">note</span><span class="o">&gt;=</span><span class="mi">12</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Assez bien&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;Pas de mention&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -297,6 +541,7 @@ est divisible par les entiers successifs à partir de 2.</p>
 <li class="toctree-l2"><a class="reference internal" href="cours2_nombres_exercices.html">Exercices</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
 </ul>
 
           <div role="search">
