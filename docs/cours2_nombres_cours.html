@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Les nombres &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feuilles d’exercices" href="feuilles_d_exercices.html" />
+    <link rel="prev" title="Les fonctions" href="cours1_fonctions_cours.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours1_fonctions_cours.html" title="Les fonctions"
+             accesskey="P">previous</a> |
+          <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="les-nombres">
+<h1>Les nombres<a class="headerlink" href="#les-nombres" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="les-entiers">
+<h1>Les entiers<a class="headerlink" href="#les-entiers" title="Permalink to this headline">¶</a></h1>
+<p>Type <code class="docutils literal notranslate"><span class="pre">int</span></code> en Python.</p>
+<p>Il existe plusieurs façon d’entrer un entier sous forme litérale</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Décimal</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mb">0b1001</span> <span class="c1"># binaire</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mh">0x23</span> <span class="c1"># hexadécimal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En Python la taille des entiers en infinie. Par exemple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>515377520732011331036461129765621272702107522001
+</pre></div>
+</div>
+</div>
+</div>
+<p>Attention, ce n’est plus le cas lorsque l’on utilise des librairies de calcul numérique (comme numpy ou pandas). Dans ce cas, les nombre sont enregistré sous une taille finie.</p>
+<p>Attention, lorsqu’il y a un débordement (overflow), il n’y a pas d’erreur et le comportement est inattendu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">a</span><span class="o">**</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2984622845537545263])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsqu’un nombre est enregistré sous un format de taille finie, il faut s’imaginer qu’il fonctionne comme les chiffres d’une calculatrice dont ont aurait caché les premiers chiffres. Nous allons raisonner en décimal, mais dans la réalité ce sont de bits qui sont manipulés.</p>
+<p>Si on ne regarde que les trois derniers chiffres (resp. 64 bits) alors les opérations sont faire modulo 1000 (resp. module <span class="math notranslate nohighlight">\(2^64\)</span>). Par exemple <span class="math notranslate nohighlight">\(50 \times 50 = 2500 = 500\)</span>. C’est ce que l’on appel un débordement.</p>
+<p>Les nombres négatifs sont enregistré en utilisant une astuce : regardons l’opération (modulo 1000) suivante : <span class="math notranslate nohighlight">\(997 + 3 = 0\)</span>. Le nombre 997 est donc le nombre qui sont lui rajoute 3 donne 0, c’est donc <span class="math notranslate nohighlight">\(-3\)</span>. Cela explique pourquoir dans l’exemple précédent on obtient un nombre négatif.</p>
+</section>
+<section id="nombre-a-virgule-flottante">
+<h1>Nombre à virgule flottante<a class="headerlink" href="#nombre-a-virgule-flottante" title="Permalink to this headline">¶</a></h1>
+<p>Type <code class="docutils literal notranslate"><span class="pre">float</span></code>. Il existe plusieurs façon d’entrer un entier sous forme litérale : soit en mettant explicitement un ‘.’ décimal, soit en utilisant le <code class="docutils literal notranslate"><span class="pre">e</span></code> de la notation scientifique</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1234.567</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">3e8</span> <span class="c1"># ou 3E8 soit 3 fois 10 à la puissance 8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Attention, le comportement d’un nombre à virgule flottante est différent de celui d’un entier, même lorsqu’il représente un entier</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>515377520732011331036461129765621272702107522001
+5.153775207320113e+47
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les nombres sont enregistrés en <a class="reference external" href="http://fr.wikipedia.org/wiki/IEEE_754">double précision</a>, sur 64 bits. Il sont tous enregistré sous la forme <span class="math notranslate nohighlight">\(s\times m \times 2^e\)</span> où <span class="math notranslate nohighlight">\(s\)</span> est le signe (<span class="math notranslate nohighlight">\(\pm 1\)</span> sur un bit), m la mantisse, un nombre entre 0 et 1 sous la forme <span class="math notranslate nohighlight">\(0.xxxxx\)</span> avec en tout 52 bits, et <span class="math notranslate nohighlight">\(e\)</span> l’exposant, un nombre entier signé sur 11 bits (soit entre -1024 et 1023).</p>
+<p>Attention, la précision des nombre à virgule flottante est limitée. Elle vaut <span class="math notranslate nohighlight">\(2^{-52}\)</span>, soit environ <span class="math notranslate nohighlight">\(10^{-16}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">1E-15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">1E-16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="les-nombres-complexes">
+<h1>Les nombres complexes<a class="headerlink" href="#les-nombres-complexes" title="Permalink to this headline">¶</a></h1>
+<p>Type <code class="docutils literal notranslate"><span class="pre">complex</span></code></p>
+<p>Il sont toujours enregistrés sous la forme de deux nombres à virgule flottante. Il faut utiliser le <code class="docutils literal notranslate"><span class="pre">J</span></code> ou <code class="docutils literal notranslate"><span class="pre">j</span></code> pour écrire un nombre complexe sous forme litérale</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">1.123</span><span class="n">j</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il faut forcement précéder le <code class="docutils literal notranslate"><span class="pre">j</span></code> d’un nombre. Le symbole <code class="docutils literal notranslate"><span class="pre">j</span></code> désignera une variable. Notons que si il est possible de placer des chiffres dans le nom d’un variable (par exemple <code class="docutils literal notranslate"><span class="pre">x1</span></code>), il n’est pas possible de commencer une variable par un chiffre. Par exemple <code class="docutils literal notranslate"><span class="pre">j1</span></code> pourra désigner une variable mais pas <code class="docutils literal notranslate"><span class="pre">1j</span></code>.</p>
+<p>On peut facilement accéder à la partie réelle et imaginaire des nombres complexe, ce sont des attribut du nombre</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="n">J</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operations-sur-le-nombres">
+<h1>Opérations sur le nombres<a class="headerlink" href="#operations-sur-le-nombres" title="Permalink to this headline">¶</a></h1>
+<p>Les opérations sur les nombres sont les suivantes :</p>
+<ul class="simple">
+<li><p>somme : <code class="docutils literal notranslate"><span class="pre">+</span></code></p></li>
+<li><p>produit : <code class="docutils literal notranslate"><span class="pre">*</span></code></p></li>
+<li><p>différence ou négation : <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p>division : <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+<li><p>division entière : <code class="docutils literal notranslate"><span class="pre">//</span></code></p></li>
+<li><p>modulo : <code class="docutils literal notranslate"><span class="pre">%</span></code> (par exemple <code class="docutils literal notranslate"><span class="pre">7%2</span></code>)</p></li>
+<li><p>puissance : <code class="docutils literal notranslate"><span class="pre">**</span></code> (par exemple <code class="docutils literal notranslate"><span class="pre">2**10</span></code>)</p></li>
+</ul>
+</section>
+<section id="les-booleens-et-comparaison">
+<h1>Les booléens et comparaison<a class="headerlink" href="#les-booleens-et-comparaison" title="Permalink to this headline">¶</a></h1>
+<p>Il existe deux valeurs : <code class="docutils literal notranslate"><span class="pre">True</span></code> et <code class="docutils literal notranslate"><span class="pre">False</span></code> (attention à la casse).</p>
+<p>Les comparaisons se font à l’aide des symboles <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> et <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. Pour savoir si deux valeurs sont différentes, on utilise <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
+<p>Les opérations sont par ordre de priorité : <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les opérations <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">or</span></code> effectuent en fait un test conditionnel. L’instruction <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">and</span> <span class="pre">B</span></code> est interprétée comme <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">if</span> <span class="pre">not</span> <span class="pre">A</span> <span class="pre">else</span> <span class="pre">A</span></code>, de même <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">or</span> <span class="pre">B</span></code> équivaut à <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">if</span> <span class="pre">A</span> <span class="pre">else</span> <span class="pre">B</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;.</span><span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+        
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;.</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">{warning}Les</span> <span class="pre">symboles</span> <span class="pre">``&amp;``</span> <span class="pre">et</span> <span class="pre">``|``</span> <span class="pre">sont</span> <span class="pre">des</span> <span class="pre">opérateurs</span> <span class="pre">binaires.</span> <span class="pre">Ils</span> <span class="pre">réalisent</span> <span class="pre">les</span> <span class="pre">opérations</span> <span class="pre">and</span> <span class="pre">et</span> <span class="pre">or</span> <span class="pre">sur</span> <span class="pre">les</span> <span class="pre">entiers</span> <span class="pre">bit</span> <span class="pre">par</span> <span class="pre">bit</span> <span class="pre">en</span> <span class="pre">binaire</span> <span class="pre">(par</span> <span class="pre">exemple</span> <span class="pre">``6</span> <span class="pre">&amp;</span> <span class="pre">5``</span> <span class="pre">donne</span> <span class="pre">``4``).</span> <span class="pre">Il</span> <span class="pre">ne</span> <span class="pre">faut</span> <span class="pre">pas</span> <span class="pre">les</span> <span class="pre">utiliser</span> <span class="pre">pour</span> <span class="pre">les</span> <span class="pre">opérations</span> <span class="pre">sur</span> <span class="pre">des</span> <span class="pre">booléens.</span> </code></p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_cours.html">Les fonctions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-entiers">Les entiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nombre-a-virgule-flottante">Nombre à virgule flottante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-nombres-complexes">Les nombres complexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operations-sur-le-nombres">Opérations sur le nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-booleens-et-comparaison">Les booléens et comparaison</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours1_fonctions_cours.html" title="Les fonctions"
+              >previous</a> |
+            <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours2_nombres_cours.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

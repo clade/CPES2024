@@ -5,3 +5,4 @@ Feuilles de cours
    :maxdepth: 2
 
    cours1_fonctions_cours.ipynb
+   cours2_nombres_cours.ipynb
