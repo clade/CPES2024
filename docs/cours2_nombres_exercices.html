@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exercices &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Exercices" href="cours1_fonctions_exercices.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours1_fonctions_exercices.html" title="Exercices"
+             accesskey="P">previous</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="exercices">
+<h1>Exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h1>
+<section id="fonctions-mathematiques">
+<h2>Fonctions mathématiques<a class="headerlink" href="#fonctions-mathematiques" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Est ce que la fonction log est le logarithme décimal ou népérien ?</p></li>
+<li><p>Calculer <span class="math notranslate nohighlight">\(x = \sqrt{2}\)</span> puis calculer <span class="math notranslate nohighlight">\(x^2\)</span>. Que se passe-t-il ?</p></li>
+<li><p>Calculer <span class="math notranslate nohighlight">\(\arccos{\frac{\sqrt{2}}{2}}\)</span> et comparer à sa valeur théorique.</p></li>
+</ul>
+</section>
+<section id="constante-de-structure-fine">
+<h2>Constante de structure fine<a class="headerlink" href="#constante-de-structure-fine" title="Permalink to this headline">¶</a></h2>
+<p>La constante de structure fine est définie en physique comme étant égale à</p>
+<div class="math notranslate nohighlight">
+\[ 
+\alpha = \frac{e^2}{2\epsilon_0 h c}
+\]</div>
+<p>où</p>
+<ul class="simple">
+<li><p>e est la charge de l’électron et vaut <span class="math notranslate nohighlight">\(1.602176634 \times 10^{−19} C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span> est la constante de Planck et vaut <span class="math notranslate nohighlight">\(6.626\,070\,15  \times 10^{−34} J s\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon_0\)</span> la permitivité du vide et vaut <span class="math notranslate nohighlight">\(8.8541878128 \times 10^{−12} F/m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> la célérité de la lumière dans le vide, <span class="math notranslate nohighlight">\(c=299792458 m/s\)</span></p></li>
+</ul>
+<p>Définissez en Python les variables <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">hbar</span></code>, <code class="docutils literal notranslate"><span class="pre">epsilon_0</span></code> et <code class="docutils literal notranslate"><span class="pre">c</span></code>. Calculez <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(1/\alpha\)</span></p>
+</section>
+<section id="precision-des-nombres">
+<h2>Précision des nombres<a class="headerlink" href="#precision-des-nombres" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Soit <span class="math notranslate nohighlight">\(x=1\)</span> et <span class="math notranslate nohighlight">\(\epsilon = 10^{-15}\)</span>. Calculez <span class="math notranslate nohighlight">\(y=x + \epsilon\)</span> et ensuite <span class="math notranslate nohighlight">\(y - x\)</span>.</p></li>
+<li><p>Pourquoi le résultat est différent de <span class="math notranslate nohighlight">\(10^{-15}\)</span>.</p></li>
+<li><p>Que vaut cette valeur ?</p></li>
+</ul>
+</section>
+<section id="calcul-d-une-derivee">
+<h2>Calcul d’une dérivée<a class="headerlink" href="#calcul-d-une-derivee" title="Permalink to this headline">¶</a></h2>
+<p>On considère une fonction <span class="math notranslate nohighlight">\(f(x)\)</span>. On rappelle que la dérivée peut se définir comme</p>
+<div class="math notranslate nohighlight">
+\[
+f^\prime(x) = \lim_{\epsilon\rightarrow0}\frac{f(x+\epsilon) - f(x)}{\epsilon}
+\]</div>
+<p>Pour calculer numériquement une dérivée, il faut évaluer la limite en prenant une valeur ‘petite’ de <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>On prendra comme exemple <span class="math notranslate nohighlight">\(f(x) = \sin(x)\)</span>.</p>
+<ul class="simple">
+<li><p>Calculer numériquement la dérivée de <span class="math notranslate nohighlight">\(f\)</span> en <span class="math notranslate nohighlight">\(\pi/4\)</span> en utilisant la formule pour <span class="math notranslate nohighlight">\(\epsilon = 10^{-6}\)</span>.</p></li>
+<li><p>Comparer à la valeur théorique <span class="math notranslate nohighlight">\(\cos(x)\)</span> pour différentes valeurs de <span class="math notranslate nohighlight">\(\epsilon\)</span> que l’on prendra comme puissance de 10 (<span class="math notranslate nohighlight">\(\epsilon = 10^{-n}\)</span>). Que se passe-t-il si <span class="math notranslate nohighlight">\(\epsilon\)</span> est trop petit ? trop grand ?</p></li>
+<li><p>Ecrire la fonction <code class="docutils literal notranslate"><span class="pre">sin_prime(x,</span> <span class="pre">epsilon)</span></code> qui calcule la dérivée de sin en <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p>Ecrire une fonction qui prend une fonction quelconque et renvoie la fonction dérivée.</p></li>
+</ul>
+</section>
+<section id="nombre-complexe">
+<h2>Nombre complexe<a class="headerlink" href="#nombre-complexe" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ecrire une fonction qui calcule le module d’un nombre complexe <span class="math notranslate nohighlight">\(z\)</span></p></li>
+<li><p>Ecrire une fonction qui à partir de <span class="math notranslate nohighlight">\(r\)</span> et <span class="math notranslate nohighlight">\(\theta\)</span> renvoie le nombre <span class="math notranslate nohighlight">\(z = re^{i\theta} = r\cos(\theta) + ir\sin(\theta)\)</span></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_exercices.html">Exercices</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercices</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours1_fonctions_exercices.html" title="Exercices"
+              >previous</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours2_nombres_exercices.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

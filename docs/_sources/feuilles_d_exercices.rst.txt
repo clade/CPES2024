@@ -5,3 +5,4 @@ Feuilles d'exercices
    :maxdepth: 2
 
    cours1_fonctions_exercices.ipynb
+   cours2_nombres_exercices.ipynb
