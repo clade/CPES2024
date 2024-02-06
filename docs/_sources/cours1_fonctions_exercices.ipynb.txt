@@ -5,7 +5,7 @@
    "id": "f5ca56dc",
    "metadata": {},
    "source": [
-    "# Exercices\n",
+    "# Exercices sur les fonctions\n",
     "\n"
    ]
   },
