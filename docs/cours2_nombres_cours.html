@@ -47,11 +47,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="les-nombres">
+  <section class="tex2jax_ignore mathjax_ignore" id="les-nombres">
 <h1>Les nombres<a class="headerlink" href="#les-nombres" title="Permalink to this headline">¶</a></h1>
-</section>
 <section id="les-entiers">
-<h1>Les entiers<a class="headerlink" href="#les-entiers" title="Permalink to this headline">¶</a></h1>
+<h2>Les entiers<a class="headerlink" href="#les-entiers" title="Permalink to this headline">¶</a></h2>
 <p>Type <code class="docutils literal notranslate"><span class="pre">int</span></code> en Python.</p>
 <p>Il existe plusieurs façon d’entrer un entier sous forme litérale</p>
 <div class="cell docutils container">
@@ -98,7 +97,7 @@
 <p>Les nombres négatifs sont enregistré en utilisant une astuce : regardons l’opération (modulo 1000) suivante : <span class="math notranslate nohighlight">\(997 + 3 = 0\)</span>. Le nombre 997 est donc le nombre qui sont lui rajoute 3 donne 0, c’est donc <span class="math notranslate nohighlight">\(-3\)</span>. Cela explique pourquoir dans l’exemple précédent on obtient un nombre négatif.</p>
 </section>
 <section id="nombre-a-virgule-flottante">
-<h1>Nombre à virgule flottante<a class="headerlink" href="#nombre-a-virgule-flottante" title="Permalink to this headline">¶</a></h1>
+<h2>Nombre à virgule flottante<a class="headerlink" href="#nombre-a-virgule-flottante" title="Permalink to this headline">¶</a></h2>
 <p>Type <code class="docutils literal notranslate"><span class="pre">float</span></code>. Il existe plusieurs façon d’entrer un entier sous forme litérale : soit en mettant explicitement un ‘.’ décimal, soit en utilisant le <code class="docutils literal notranslate"><span class="pre">e</span></code> de la notation scientifique</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -144,7 +143,7 @@ True
 </div>
 </section>
 <section id="les-nombres-complexes">
-<h1>Les nombres complexes<a class="headerlink" href="#les-nombres-complexes" title="Permalink to this headline">¶</a></h1>
+<h2>Les nombres complexes<a class="headerlink" href="#les-nombres-complexes" title="Permalink to this headline">¶</a></h2>
 <p>Type <code class="docutils literal notranslate"><span class="pre">complex</span></code></p>
 <p>Il sont toujours enregistrés sous la forme de deux nombres à virgule flottante. Il faut utiliser le <code class="docutils literal notranslate"><span class="pre">J</span></code> ou <code class="docutils literal notranslate"><span class="pre">j</span></code> pour écrire un nombre complexe sous forme litérale</p>
 <div class="cell docutils container">
@@ -174,7 +173,7 @@ True
 </div>
 </section>
 <section id="operations-sur-le-nombres">
-<h1>Opérations sur le nombres<a class="headerlink" href="#operations-sur-le-nombres" title="Permalink to this headline">¶</a></h1>
+<h2>Opérations sur le nombres<a class="headerlink" href="#operations-sur-le-nombres" title="Permalink to this headline">¶</a></h2>
 <p>Les opérations sur les nombres sont les suivantes :</p>
 <ul class="simple">
 <li><p>somme : <code class="docutils literal notranslate"><span class="pre">+</span></code></p></li>
@@ -187,7 +186,7 @@ True
 </ul>
 </section>
 <section id="les-booleens-et-comparaison">
-<h1>Les booléens et comparaison<a class="headerlink" href="#les-booleens-et-comparaison" title="Permalink to this headline">¶</a></h1>
+<h2>Les booléens et comparaison<a class="headerlink" href="#les-booleens-et-comparaison" title="Permalink to this headline">¶</a></h2>
 <p>Il existe deux valeurs : <code class="docutils literal notranslate"><span class="pre">True</span></code> et <code class="docutils literal notranslate"><span class="pre">False</span></code> (attention à la casse).</p>
 <p>Les comparaisons se font à l’aide des symboles <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> et <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. Pour savoir si deux valeurs sont différentes, on utilise <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
 <p>Les opérations sont par ordre de priorité : <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
@@ -211,6 +210,9 @@ False
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1">#if sqrt(x)&gt;.2:</span>
+<span class="c1">#        print(&#39;Hello&#39;)</span>
+
 <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;.</span><span class="mi">2</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
@@ -223,6 +225,15 @@ False
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">{warning}Les</span> <span class="pre">symboles</span> <span class="pre">``&amp;``</span> <span class="pre">et</span> <span class="pre">``|``</span> <span class="pre">sont</span> <span class="pre">des</span> <span class="pre">opérateurs</span> <span class="pre">binaires.</span> <span class="pre">Ils</span> <span class="pre">réalisent</span> <span class="pre">les</span> <span class="pre">opérations</span> <span class="pre">and</span> <span class="pre">et</span> <span class="pre">or</span> <span class="pre">sur</span> <span class="pre">les</span> <span class="pre">entiers</span> <span class="pre">bit</span> <span class="pre">par</span> <span class="pre">bit</span> <span class="pre">en</span> <span class="pre">binaire</span> <span class="pre">(par</span> <span class="pre">exemple</span> <span class="pre">``6</span> <span class="pre">&amp;</span> <span class="pre">5``</span> <span class="pre">donne</span> <span class="pre">``4``).</span> <span class="pre">Il</span> <span class="pre">ne</span> <span class="pre">faut</span> <span class="pre">pas</span> <span class="pre">les</span> <span class="pre">utiliser</span> <span class="pre">pour</span> <span class="pre">les</span> <span class="pre">opérations</span> <span class="pre">sur</span> <span class="pre">des</span> <span class="pre">booléens.</span> </code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#if (x&gt;0) &amp; (sqrt(x)&gt;0):</span>
+<span class="c1">#    print(&#39;Hello&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -238,11 +249,6 @@ False
 <li class="toctree-l1 current"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_cours.html">Les fonctions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Les nombres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#les-entiers">Les entiers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nombre-a-virgule-flottante">Nombre à virgule flottante</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#les-nombres-complexes">Les nombres complexes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#operations-sur-le-nombres">Opérations sur le nombres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#les-booleens-et-comparaison">Les booléens et comparaison</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
