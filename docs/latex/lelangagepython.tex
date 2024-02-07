@@ -664,6 +664,457 @@ On souhaite calculer \(\sum \frac{1}{i}\). Quelle est la différence entre les d
 
 \PYG{n}{serie\PYGZus{}4}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}
 \end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+Parmi tous les appels de la fonction \sphinxcode{\sphinxupquote{f}} ci dessous, lequels vont faire une erreur ? Quelle sera l’erreur ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{a}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{b}
+
+\PYG{n}{p} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{f}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{Bonjour}\PYG{p}{,} \PYG{n}{Hello}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{a}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{b}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{a}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Bonjour}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Hello}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}
+\PYG{n}{f}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Bonjour, Hello}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{n}{p}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{o}{*}\PYG{n}{p}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+Qu’est il affiché ? Dans quels fonction \sphinxcode{\sphinxupquote{x}} est une variable globale ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{f1}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{f2}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{15}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{f3}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{p}{)}
+    \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{15}
+
+\PYG{k}{def} \PYG{n+nf}{f4}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{p}{)}
+    \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{15}
+
+\PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n}{f1}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{5}
+\PYG{n}{f1}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{f2}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}    
+\PYG{n}{f3}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{f4}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Attention, il y a un piège ici.}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Qu’est il affiché ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{sin}
+
+\PYG{n}{pi} \PYG{o}{=} \PYG{l+m+mf}{3.141592653589793}
+
+\PYG{k}{def} \PYG{n+nf}{g}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+    
+\PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{pi} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{return} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{g}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{pi} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{g}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Qu’est il affiché ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{o}{*}\PYG{n}{a} \PYG{o}{+} \PYG{l+m+mi}{10}\PYG{o}{*}\PYG{n}{b} \PYG{o}{+} \PYG{n}{c}\PYG{p}{)}
+
+\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{b} \PYG{o}{=} \PYG{l+m+mi}{2}
+\PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{3}
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{c}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{o}{=}\PYG{n}{c}\PYG{p}{,} \PYG{n}{c}\PYG{o}{=}\PYG{n}{b}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{o}{=}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{o}{=}\PYG{n}{a}\PYG{p}{,} \PYG{n}{c}\PYG{o}{=}\PYG{n}{a}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Fonction cos\_deg}
+\label{\detokenize{cours1_fonctions_exercices:fonction-cos-deg}}
+\sphinxAtStartPar
+Ecrire une fonction qui renvoie le cosinus d’un angle exprimé en degré
+
+
+\subsubsection{Volume d’un cône}
+\label{\detokenize{cours1_fonctions_exercices:volume-d-un-cone}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui renoit le volume d’un cône de rayon \(r\) et hauteur \(h\).
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui envoit le volume d’un tronc de cône de rayon \(r_1\) et \(r_2\).
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une seule fonction pour laquelle le tronc de cône est par défaut un cône (i.e. \(r_2=1\))
+
+\end{enumerate}
+
+
+\subsubsection{Fonction datetime}
+\label{\detokenize{cours1_fonctions_exercices:fonction-datetime}}
+\sphinxAtStartPar
+Importer la fonction \sphinxcode{\sphinxupquote{datetime}} du module \sphinxcode{\sphinxupquote{datetime}} et regarder se documentation.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Utiliser cette fonction pour entrer votre date de naissance (et l’heure si vous la connaissez) en nomant explicitement les arguments.
+
+\item {} 
+\sphinxAtStartPar
+Même question mais après avoir mis les arguments dans une liste
+
+\item {} 
+\sphinxAtStartPar
+Dans un dictionnaire
+
+\end{enumerate}
+
+
+\subsubsection{Fonction date en français}
+\label{\detokenize{cours1_fonctions_exercices:fonction-date-en-francais}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction \sphinxcode{\sphinxupquote{date\_en\_francais}} qui renvoie un objet \sphinxcode{\sphinxupquote{date}} mais dont les arguments sont en français (\sphinxcode{\sphinxupquote{annee}}, \sphinxcode{\sphinxupquote{mois}}, \sphinxcode{\sphinxupquote{jour}})
+
+\item {} 
+\sphinxAtStartPar
+Idem avec la fonction \sphinxcode{\sphinxupquote{datetime}} du module \sphinxcode{\sphinxupquote{datetime}} (il faudra rajouter les arguments optionels \sphinxcode{\sphinxupquote{heure}}, \sphinxcode{\sphinxupquote{minute}}, \sphinxcode{\sphinxupquote{seconde}})
+
+\end{enumerate}
+
+
+\subsubsection{Polynômes}
+\label{\detokenize{cours1_fonctions_exercices:polynomes}}
+\sphinxAtStartPar
+On considère un polynôme de degrés \(n\) : \(a_0 + a_1x + a_2x^2 + ... + a_n x^n\).
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction \sphinxcode{\sphinxupquote{eval\_polynome\_troisieme\_degres(x, a\_0, a\_1, a\_2, a\_3)}} qui évalue un tel polynôme en \(x\).
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui permettra d’évaluer un polynôme de degré inférieur à 4 est que l’on pourra utiliser de la façon suivante :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+ eval\PYGZus{}polynome(x, 3, 4) \PYGZsh{} 3x + 4
+ eval\PYGZus{}polynome(x, a\PYGZus{}0=2, a\PYGZus{}2=4) \PYGZsh{} 4x\PYGZca{}2 + 4
+\end{sphinxVerbatim}
+
+\item {} 
+\sphinxAtStartPar
+Faire en sorte que cette fonction marche pour n’importe quel degré.
+
+\end{enumerate}
+
+
+\subsubsection{Equation du second degré}
+\label{\detokenize{cours1_fonctions_exercices:equation-du-second-degre}}
+\sphinxAtStartPar
+On souhaite trouver les solutions de l’équation : \(ax^2 + bx + c=0\). On rappelle que pour cela on calcule le discriminant \(\Delta = b^2 - 4*a*c\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Si \(\Delta>0\), les solutions sont \(\frac{-b \pm \sqrt{Delta}}{2a}\)
+
+\item {} 
+\sphinxAtStartPar
+Si \(\Delta=0\), il y a une solution (double) \(\frac{-b }{2a}\)
+
+\item {} 
+\sphinxAtStartPar
+Si \(\Delta<0\), les solutions sont \(\frac{-b \pm i\sqrt{Delta}}{2a}\)
+
+\end{itemize}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction equation\_second\_degre qui donne les solutions.
+
+\item {} 
+\sphinxAtStartPar
+Tester l’équation \(x^2 -3x + 2\)
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui résout une équation du premier degré.
+
+\item {} 
+\sphinxAtStartPar
+Faire en sorte que cette fonction soit appelée lorsque \(a=0\).
+
+\end{enumerate}
+
+
+\subsubsection{Coordonnée polaire d’un nombre complexe}
+\label{\detokenize{cours1_fonctions_exercices:coordonnee-polaire-d-un-nombre-complexe}}
+\sphinxAtStartPar
+On considère une nombre complexe \(z\) et sa représentation polaire : \(z = re^{i\theta}\)
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui à partir de \(r\) et \(\theta\) renvoie \(z\)
+
+\end{enumerate}
+
+
+\subsubsection{Nombres premiers}
+\label{\detokenize{cours1_fonctions_exercices:nombres-premiers}}
+\sphinxAtStartPar
+Ecrire une fonction qui renvoie True si un nombre est premier et False sinon. Pour cela, on testera si le nombre
+est divisible par les entiers successifs à partir de 2.
+
+\sphinxAtStartPar
+On admet que si \(n\) n’est pas premier, alors il existe un entier \(p \ge 2\) tel que \(p^2 \le n\) qui est un diviseur de \(n\).
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire la fonction à l’aide d’une boucle.
+
+\item {} 
+\sphinxAtStartPar
+Combien y a t\sphinxhyphen{}il d’années au XXIème siècle qui sont des nombres premiers ?
+
+\item {} 
+\sphinxAtStartPar
+Si vous n’êtes pas convaincu que c’est mieux avec des fonctions, faites le sans…
+
+\end{enumerate}
+
+
+\subsubsection{Mention}
+\label{\detokenize{cours1_fonctions_exercices:mention}}
+\sphinxAtStartPar
+Ecrire une fonction qui à partir de la note sur 20 donne la mention
+
+
+\subsection{Exercices sur les nombres}
+\label{\detokenize{cours2_nombres_exercices:exercices-sur-les-nombres}}\label{\detokenize{cours2_nombres_exercices::doc}}
+
+\subsubsection{Fonctions mathématiques}
+\label{\detokenize{cours2_nombres_exercices:fonctions-mathematiques}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Est ce que la fonction log est le logarithme décimal ou népérien ?
+
+\item {} 
+\sphinxAtStartPar
+Calculer \(x = \sqrt{2}\) puis calculer \(x^2\). Que se passe\sphinxhyphen{}t\sphinxhyphen{}il ?
+
+\item {} 
+\sphinxAtStartPar
+Calculer \(\arccos{\frac{\sqrt{2}}{2}}\) et comparer à sa valeur théorique.
+
+\end{itemize}
+
+
+\subsubsection{Constante de structure fine}
+\label{\detokenize{cours2_nombres_exercices:constante-de-structure-fine}}
+\sphinxAtStartPar
+La constante de structure fine est définie en physique comme étant égale à
+\begin{equation*}
+\begin{split} 
+\alpha = \frac{e^2}{2\epsilon_0 h c}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+où
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(e\) est la charge de l’électron et vaut \(1.602176634 \times 10^{-19} C\)
+
+\item {} 
+\sphinxAtStartPar
+\(h\) est la constante de Planck et vaut \(6.626\,070\,15 \times 10^{-34} J s\)
+
+\item {} 
+\sphinxAtStartPar
+\(\epsilon_0\) la permitivité du vide et vaut \(8.8541878128 \times 10^{-12} F/m\)
+
+\item {} 
+\sphinxAtStartPar
+\(c\) la célérité de la lumière dans le vide, \(c=299792458 m/s\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+Définissez en Python les variables \sphinxcode{\sphinxupquote{e}}, \sphinxcode{\sphinxupquote{hbar}}, \sphinxcode{\sphinxupquote{epsilon\_0}} et \sphinxcode{\sphinxupquote{c}}. Calculez \(\alpha\) et \(1/\alpha\)
+
+
+\subsubsection{Précision des nombres}
+\label{\detokenize{cours2_nombres_exercices:precision-des-nombres}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Soit \(x=1\) et \(\epsilon = 10^{-15}\). Calculez \(y=x + \epsilon\) et ensuite \(y - x\).
+
+\item {} 
+\sphinxAtStartPar
+Pourquoi le résultat est différent de \(10^{-15}\).
+
+\item {} 
+\sphinxAtStartPar
+Que vaut cette valeur ?
+
+\end{itemize}
+
+
+\subsubsection{Calcul d’une dérivée}
+\label{\detokenize{cours2_nombres_exercices:calcul-d-une-derivee}}
+\sphinxAtStartPar
+On considère une fonction \(f(x)\). On rappelle que la dérivée peut se définir comme
+\begin{equation*}
+\begin{split}
+f^\prime(x) = \lim_{\epsilon\rightarrow0}\frac{f(x+\epsilon) - f(x)}{\epsilon}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Pour calculer numériquement une dérivée, il faut évaluer la limite en prenant une valeur ‘petite’ de \(\epsilon\).
+
+\sphinxAtStartPar
+On prendra comme exemple \(f(x) = \sin(x)\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Calculer numériquement la dérivée de \(f\) en \(\pi/4\) en utilisant la formule pour \(\epsilon = 10^{-6}\).
+
+\item {} 
+\sphinxAtStartPar
+Comparer à la valeur théorique \(\cos(x)\) pour différentes valeurs de \(\epsilon\) que l’on prendra comme puissance de 10 (\(\epsilon = 10^{-n}\)). Que se passe\sphinxhyphen{}t\sphinxhyphen{}il si \(\epsilon\) est trop petit ? trop grand ?
+
+\item {} 
+\sphinxAtStartPar
+Ecrire la fonction \sphinxcode{\sphinxupquote{sin\_prime(x, epsilon)}} qui calcule la dérivée de sin en \(x\)
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui prend une fonction quelconque et renvoie la fonction dérivée.
+
+\end{itemize}
+
+
+\subsubsection{Nombre complexe}
+\label{\detokenize{cours2_nombres_exercices:nombre-complexe}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui calcule le module d’un nombre complexe \(z\)
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui à partir de \(r\) et \(\theta\) renvoie le nombre \(z = re^{i\theta} = r\cos(\theta) + ir\sin(\theta)\)
+
+\end{itemize}
+
+
+\section{Correction}
+\label{\detokenize{correction:correction}}\label{\detokenize{correction::doc}}
+
+\subsection{Exercices sur les fonctions}
+\label{\detokenize{cours1_fonctions_corr_exercices:exercices-sur-les-fonctions}}\label{\detokenize{cours1_fonctions_corr_exercices::doc}}
+
+\subsubsection{Que fait cette fonction ?}
+\label{\detokenize{cours1_fonctions_corr_exercices:que-fait-cette-fonction}}
+\sphinxAtStartPar
+Répondre aux questions de cet exercice sans s’aider de l’ordinateur, puis vérifier.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+On souhaite calculer \(\sum \frac{1}{i}\). Quelle est la différence entre les différentes fonctions si dessous ? Laquelle est la “bonne” fonction, laquelle la “pire”
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{serie\PYGZus{}1}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{output} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{output} \PYG{o}{=} \PYG{n}{output} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{i}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{output}\PYG{p}{)}
+        
+\PYG{n}{serie\PYGZus{}1}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}
+        
+\PYG{k}{def} \PYG{n+nf}{serie\PYGZus{}2}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{output} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{output} \PYG{o}{=} \PYG{n}{output} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{i}
+        \PYG{k}{return} \PYG{n}{output}
+
+\PYG{n}{serie\PYGZus{}2}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}    
+    
+\PYG{k}{def} \PYG{n+nf}{serie\PYGZus{}3}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{output} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{output} \PYG{o}{=} \PYG{n}{output} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{i}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{output}\PYG{p}{)}
+    
+\PYG{n}{serie\PYGZus{}3}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}
+
+        
+\PYG{k}{def} \PYG{n+nf}{serie\PYGZus{}4}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{output} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{output} \PYG{o}{=} \PYG{n}{output} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{i}
+    \PYG{k}{return} \PYG{n}{output}
+
+\PYG{n}{serie\PYGZus{}4}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 1.0
@@ -831,7 +1282,7 @@ Qu’est il affiché ?
 
 
 \subsubsection{Fonction cos\_deg}
-\label{\detokenize{cours1_fonctions_exercices:fonction-cos-deg}}
+\label{\detokenize{cours1_fonctions_corr_exercices:fonction-cos-deg}}
 \sphinxAtStartPar
 Ecrire une fonction qui renvoie le cosinus d’un angle exprimé en degré
 
@@ -844,7 +1295,7 @@ Ecrire une fonction qui renvoie le cosinus d’un angle exprimé en degré
 
 
 \subsubsection{Volume d’un cône}
-\label{\detokenize{cours1_fonctions_exercices:volume-d-un-cone}}\begin{enumerate}
+\label{\detokenize{cours1_fonctions_corr_exercices:volume-d-un-cone}}\begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
@@ -875,7 +1326,7 @@ Ecrire une seule fonction pour laquelle le tronc de cône est par défaut un cô
 
 
 \subsubsection{Fonction datetime}
-\label{\detokenize{cours1_fonctions_exercices:fonction-datetime}}
+\label{\detokenize{cours1_fonctions_corr_exercices:fonction-datetime}}
 \sphinxAtStartPar
 Importer la fonction \sphinxcode{\sphinxupquote{datetime}} du module \sphinxcode{\sphinxupquote{datetime}} et regarder se documentation.
 \begin{enumerate}
@@ -916,7 +1367,7 @@ Dans un dictionnaire
 
 
 \subsubsection{Fonction date en français}
-\label{\detokenize{cours1_fonctions_exercices:fonction-date-en-francais}}\begin{enumerate}
+\label{\detokenize{cours1_fonctions_corr_exercices:fonction-date-en-francais}}\begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
@@ -947,7 +1398,7 @@ Idem avec la fonction \sphinxcode{\sphinxupquote{datetime}} du module \sphinxcod
 
 
 \subsubsection{Polynômes}
-\label{\detokenize{cours1_fonctions_exercices:polynomes}}
+\label{\detokenize{cours1_fonctions_corr_exercices:polynomes}}
 \sphinxAtStartPar
 On considère un polynôme de degrés \(n\) : \(a_0 + a_1x + a_2x^2 + ... + a_n x^n\).
 \begin{enumerate}
@@ -994,7 +1445,7 @@ Faire en sorte que cette fonction marche pour n’importe quel degré.
 
 
 \subsubsection{Equation du second degré}
-\label{\detokenize{cours1_fonctions_exercices:equation-du-second-degre}}
+\label{\detokenize{cours1_fonctions_corr_exercices:equation-du-second-degre}}
 \sphinxAtStartPar
 On souhaite trouver les solutions de l’équation : \(ax^2 + bx + c=0\). On rappelle que pour cela on calcule le discriminant \(\Delta = b^2 - 4*a*c\).
 \begin{itemize}
@@ -1068,7 +1519,7 @@ Faire en sorte que cette fonction soit appelée lorsque \(a=0\).
 
 
 \subsubsection{Coordonnée polaire d’un nombre complexe}
-\label{\detokenize{cours1_fonctions_exercices:coordonnee-polaire-d-un-nombre-complexe}}
+\label{\detokenize{cours1_fonctions_corr_exercices:coordonnee-polaire-d-un-nombre-complexe}}
 \sphinxAtStartPar
 On considère une nombre complexe \(z\) et sa représentation polaire : \(z = re^{i\theta}\)
 \begin{enumerate}
@@ -1094,7 +1545,7 @@ Ecrire une fonction qui à partir de \(r\) et \(\theta\) renvoie \(z\)
 
 
 \subsubsection{Nombres premiers}
-\label{\detokenize{cours1_fonctions_exercices:nombres-premiers}}
+\label{\detokenize{cours1_fonctions_corr_exercices:nombres-premiers}}
 \sphinxAtStartPar
 Ecrire une fonction qui renvoie True si un nombre est premier et False sinon. Pour cela, on testera si le nombre
 est divisible par les entiers successifs à partir de 2.
@@ -1137,7 +1588,7 @@ Si vous n’êtes pas convaincu que c’est mieux avec des fonctions, faites le 
 
 
 \subsubsection{Mention}
-\label{\detokenize{cours1_fonctions_exercices:mention}}
+\label{\detokenize{cours1_fonctions_corr_exercices:mention}}
 \sphinxAtStartPar
 Ecrire une fonction qui à partir de la note sur 20 donne la mention
 
@@ -1154,127 +1605,6 @@ Ecrire une fonction qui à partir de la note sur 20 donne la mention
     \PYG{k}{return} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pas de mention}\PYG{l+s+s1}{\PYGZsq{}}
 \end{sphinxVerbatim}
 
-
-\subsection{Exercices sur les nombres}
-\label{\detokenize{cours2_nombres_exercices:exercices-sur-les-nombres}}\label{\detokenize{cours2_nombres_exercices::doc}}
-
-\subsubsection{Fonctions mathématiques}
-\label{\detokenize{cours2_nombres_exercices:fonctions-mathematiques}}\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Est ce que la fonction log est le logarithme décimal ou népérien ?
-
-\item {} 
-\sphinxAtStartPar
-Calculer \(x = \sqrt{2}\) puis calculer \(x^2\). Que se passe\sphinxhyphen{}t\sphinxhyphen{}il ?
-
-\item {} 
-\sphinxAtStartPar
-Calculer \(\arccos{\frac{\sqrt{2}}{2}}\) et comparer à sa valeur théorique.
-
-\end{itemize}
-
-
-\subsubsection{Constante de structure fine}
-\label{\detokenize{cours2_nombres_exercices:constante-de-structure-fine}}
-\sphinxAtStartPar
-La constante de structure fine est définie en physique comme étant égale à
-\begin{equation*}
-\begin{split} 
-\alpha = \frac{e^2}{2\epsilon_0 h c}
-\end{split}
-\end{equation*}
-\sphinxAtStartPar
-où
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\(e\) est la charge de l’électron et vaut \(1.602176634 \times 10^{-19} C\)
-
-\item {} 
-\sphinxAtStartPar
-\(h\) est la constante de Planck et vaut \(6.626\,070\,15 \times 10^{-34} J s\)
-
-\item {} 
-\sphinxAtStartPar
-\(\epsilon_0\) la permitivité du vide et vaut \(8.8541878128 \times 10^{-12} F/m\)
-
-\item {} 
-\sphinxAtStartPar
-\(c\) la célérité de la lumière dans le vide, \(c=299792458 m/s\)
-
-\end{itemize}
-
-\sphinxAtStartPar
-Définissez en Python les variables \sphinxcode{\sphinxupquote{e}}, \sphinxcode{\sphinxupquote{hbar}}, \sphinxcode{\sphinxupquote{epsilon\_0}} et \sphinxcode{\sphinxupquote{c}}. Calculez \(\alpha\) et \(1/\alpha\)
-
-
-\subsubsection{Précision des nombres}
-\label{\detokenize{cours2_nombres_exercices:precision-des-nombres}}\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Soit \(x=1\) et \(\epsilon = 10^{-15}\). Calculez \(y=x + \epsilon\) et ensuite \(y - x\).
-
-\item {} 
-\sphinxAtStartPar
-Pourquoi le résultat est différent de \(10^{-15}\).
-
-\item {} 
-\sphinxAtStartPar
-Que vaut cette valeur ?
-
-\end{itemize}
-
-
-\subsubsection{Calcul d’une dérivée}
-\label{\detokenize{cours2_nombres_exercices:calcul-d-une-derivee}}
-\sphinxAtStartPar
-On considère une fonction \(f(x)\). On rappelle que la dérivée peut se définir comme
-\begin{equation*}
-\begin{split}
-f^\prime(x) = \lim_{\epsilon\rightarrow0}\frac{f(x+\epsilon) - f(x)}{\epsilon}
-\end{split}
-\end{equation*}
-\sphinxAtStartPar
-Pour calculer numériquement une dérivée, il faut évaluer la limite en prenant une valeur ‘petite’ de \(\epsilon\).
-
-\sphinxAtStartPar
-On prendra comme exemple \(f(x) = \sin(x)\).
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Calculer numériquement la dérivée de \(f\) en \(\pi/4\) en utilisant la formule pour \(\epsilon = 10^{-6}\).
-
-\item {} 
-\sphinxAtStartPar
-Comparer à la valeur théorique \(\cos(x)\) pour différentes valeurs de \(\epsilon\) que l’on prendra comme puissance de 10 (\(\epsilon = 10^{-n}\)). Que se passe\sphinxhyphen{}t\sphinxhyphen{}il si \(\epsilon\) est trop petit ? trop grand ?
-
-\item {} 
-\sphinxAtStartPar
-Ecrire la fonction \sphinxcode{\sphinxupquote{sin\_prime(x, epsilon)}} qui calcule la dérivée de sin en \(x\)
-
-\item {} 
-\sphinxAtStartPar
-Ecrire une fonction qui prend une fonction quelconque et renvoie la fonction dérivée.
-
-\end{itemize}
-
-
-\subsubsection{Nombre complexe}
-\label{\detokenize{cours2_nombres_exercices:nombre-complexe}}\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Ecrire une fonction qui calcule le module d’un nombre complexe \(z\)
-
-\item {} 
-\sphinxAtStartPar
-Ecrire une fonction qui à partir de \(r\) et \(\theta\) renvoie le nombre \(z = re^{i\theta} = r\cos(\theta) + ir\sin(\theta)\)
-
-\end{itemize}
-
-
-\section{Correction}
-\label{\detokenize{correction:correction}}\label{\detokenize{correction::doc}}
 
 
 \renewcommand{\indexname}{Index}

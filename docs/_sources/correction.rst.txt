@@ -4,4 +4,4 @@ Correction
 .. toctree::
    :maxdepth: 2
 
-   cours1_fonctions_exercices.ipynb
+   cours1_fonctions_corr_exercices.ipynb
