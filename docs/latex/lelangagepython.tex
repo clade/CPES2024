@@ -60,7 +60,7 @@
 
 
 \title{Le langage Python}
-\date{Feb 07, 2024}
+\date{Mar 05, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -434,8 +434,8 @@ Si on ne regarde que les trois derniers chiffres (resp. 64 bits) alors les opér
 Les nombres négatifs sont enregistré en utilisant une astuce : regardons l’opération (modulo 1000) suivante : \(997 + 3 = 0\). Le nombre 997 est donc le nombre qui lorsqu’on lui rajoute 3 donne 0, c’est donc \(-3\). Cela explique pourquoi dans l’exemple précédent on obtient un nombre négatif.
 
 
-\subsubsection{Les ombres à virgule flottante}
-\label{\detokenize{cours2_nombres_cours:les-ombres-a-virgule-flottante}}
+\subsubsection{Les nombres à virgule flottante}
+\label{\detokenize{cours2_nombres_cours:les-nombres-a-virgule-flottante}}
 \sphinxAtStartPar
 Type \sphinxcode{\sphinxupquote{float}}. Il existe plusieurs façon d’entrer un entier sous forme litérale : soit en mettant explicitement un \sphinxcode{\sphinxupquote{.}} décimal, soit en utilisant le \sphinxcode{\sphinxupquote{e}} de la notation scientifique
 
@@ -1604,6 +1604,244 @@ Ecrire une fonction qui à partir de la note sur 20 donne la mention
         \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Assez bien}\PYG{l+s+s2}{\PYGZdq{}}
     \PYG{k}{return} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pas de mention}\PYG{l+s+s1}{\PYGZsq{}}
 \end{sphinxVerbatim}
+
+
+\subsection{Exercices sur les nombres}
+\label{\detokenize{cours2_nombres_corr_exercices:exercices-sur-les-nombres}}\label{\detokenize{cours2_nombres_corr_exercices::doc}}
+
+\subsubsection{Fonctions mathématiques}
+\label{\detokenize{cours2_nombres_corr_exercices:fonctions-mathematiques}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Est ce que la fonction log est le logarithme décimal ou népérien ?
+
+\item {} 
+\sphinxAtStartPar
+Calculer \(x = \sqrt{2}\) puis calculer \(x^2\). Que se passe\sphinxhyphen{}t\sphinxhyphen{}il ?
+
+\item {} 
+\sphinxAtStartPar
+Calculer \(\arccos{\frac{\sqrt{2}}{2}}\) et comparer à sa valeur théorique.
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{log}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+2.302585092994046
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{sqrt}
+\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+2.0000000000000004
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{acos}\PYG{p}{,} \PYG{n}{pi}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{acos}\PYG{p}{(}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0.7853981633974483
+0.7853981633974483
+\end{sphinxVerbatim}
+
+
+\subsubsection{Constante de structure fine}
+\label{\detokenize{cours2_nombres_corr_exercices:constante-de-structure-fine}}
+\sphinxAtStartPar
+La constante de structure fine est définie en physique comme étant égale à
+\begin{equation*}
+\begin{split} 
+\alpha = \frac{e^2}{2\epsilon_0 h c}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+où
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(e\) est la charge de l’électron et vaut \(1.602176634 \times 10^{-19} C\)
+
+\item {} 
+\sphinxAtStartPar
+\(h\) est la constante de Planck et vaut \(6.626\,070\,15 \times 10^{-34} J s\)
+
+\item {} 
+\sphinxAtStartPar
+\(\epsilon_0\) la permitivité du vide et vaut \(8.8541878128 \times 10^{-12} F/m\)
+
+\item {} 
+\sphinxAtStartPar
+\(c\) la célérité de la lumière dans le vide, \(c=299792458 m/s\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+Définissez en Python les variables \sphinxcode{\sphinxupquote{e}}, \sphinxcode{\sphinxupquote{hbar}}, \sphinxcode{\sphinxupquote{epsilon\_0}} et \sphinxcode{\sphinxupquote{c}}. Calculez \(\alpha\) et \(1/\alpha\)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{pi}
+
+\PYG{n}{e} \PYG{o}{=} \PYG{l+m+mf}{1.602176634E\PYGZhy{}19}
+\PYG{n}{h} \PYG{o}{=} \PYG{l+m+mf}{6.62607015E\PYGZhy{}34}
+\PYG{n}{epsilon\PYGZus{}0} \PYG{o}{=} \PYG{l+m+mf}{8.8541878128E\PYGZhy{}12}
+\PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{299792458}
+
+
+\PYG{n}{alpha} \PYG{o}{=} \PYG{n}{e}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{epsilon\PYGZus{}0}\PYG{o}{*}\PYG{n}{h}\PYG{o}{*}\PYG{n}{c}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{alpha}\PYG{p}{)}
+              
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+137.0359990841083
+\end{sphinxVerbatim}
+
+
+\subsubsection{Précision des nombres}
+\label{\detokenize{cours2_nombres_corr_exercices:precision-des-nombres}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Soit \(x=1\) et \(\epsilon = 10^{-15}\). Calculez \(y=x + \epsilon\) et ensuite \(y - x\).
+
+\item {} 
+\sphinxAtStartPar
+Pourquoi le résultat est différent de \(10^{-15}\).
+
+\item {} 
+\sphinxAtStartPar
+Que vaut cette valeur ?
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{epsilon} \PYG{o}{=} \PYG{l+m+mf}{1E\PYGZhy{}15}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{x} \PYG{o}{+} \PYG{n}{epsilon}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{n}{x}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+1.1102230246251565e\PYGZhy{}15
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{o}{*}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{52}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+1.1102230246251565e\PYGZhy{}15
+\end{sphinxVerbatim}
+
+
+\subsubsection{Calcul d’une dérivée}
+\label{\detokenize{cours2_nombres_corr_exercices:calcul-d-une-derivee}}
+\sphinxAtStartPar
+On considère une fonction \(f(x)\). On rappelle que la dérivée peut se définir comme
+\begin{equation*}
+\begin{split}
+f^\prime(x) = \lim_{\epsilon\rightarrow0}\frac{f(x+\epsilon) - f(x)}{\epsilon}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Pour calculer numériquement une dérivée, il faut évaluer la limite en prenant une valeur ‘petite’ de \(\epsilon\).
+
+\sphinxAtStartPar
+On prendra comme exemple \(f(x) = \sin(x)\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Calculer numériquement la dérivée de \(f\) en \(\pi/4\) en utilisant la formule pour \(\epsilon = 10^{-6}\).
+
+\item {} 
+\sphinxAtStartPar
+Comparer à la valeur théorique \(\cos(x)\) pour différentes valeurs de \(\epsilon\) que l’on prendra comme puissance de 10 (\(\epsilon = 10^{-n}\)). Que se passe\sphinxhyphen{}t\sphinxhyphen{}il si \(\epsilon\) est trop petit ? trop grand ?
+
+\item {} 
+\sphinxAtStartPar
+Ecrire la fonction \sphinxcode{\sphinxupquote{sin\_prime(x, epsilon)}} qui calcule la dérivée de sin en \(x\)
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui prend une fonction quelconque et renvoie la fonction dérivée.
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{sin}\PYG{p}{,} \PYG{n}{pi}\PYG{p}{,} \PYG{n}{cos}
+
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{pi}\PYG{o}{/}\PYG{l+m+mi}{4}
+\PYG{n}{epsilon} \PYG{o}{=} \PYG{l+m+mf}{1E\PYGZhy{}11}
+
+\PYG{n}{d} \PYG{o}{=} \PYG{p}{(}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{epsilon}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{/}\PYG{n}{epsilon} \PYG{o}{\PYGZhy{}} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{n} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{15}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{epsilon} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{n}\PYG{p}{)}
+    \PYG{n}{d} \PYG{o}{=} \PYG{p}{(}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{epsilon}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{/}\PYG{n}{epsilon} \PYG{o}{\PYGZhy{}} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{n=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{n}\PYG{p}{,} \PYG{n}{d}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Lorsque epsilon est trop petit, il y a des erreurs d\PYGZsq{}arrondi. Lorsque epsilon est trop grand, nous}
+\PYG{c+c1}{\PYGZsh{} sommes loin de la limite}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+5.365427460879424e\PYGZhy{}06
+n= 1 \PYGZhy{}0.03650380828255784
+n= 2 \PYGZhy{}0.0035472894973379576
+n= 3 \PYGZhy{}0.0003536712121802177
+n= 4 \PYGZhy{}3.535651724428934e\PYGZhy{}05
+n= 5 \PYGZhy{}3.5355413900983734e\PYGZhy{}06
+n= 6 \PYGZhy{}3.5344236126721995e\PYGZhy{}07
+n= 7 \PYGZhy{}3.5807553921962665e\PYGZhy{}08
+n= 8 3.050251939917814e\PYGZhy{}09
+n= 9 3.635694267867251e\PYGZhy{}08
+n= 10 9.245353623787977e\PYGZhy{}07
+n= 11 5.365427460879424e\PYGZhy{}06
+n= 12 \PYGZhy{}5.7368027853721415e\PYGZhy{}06
+n= 13 0.00010528549967714351
+n= 14 0.003435954573552613
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{sin\PYGZus{}prime}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{epsilon}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{epsilon}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{/}\PYG{n}{epsilon}
+
+\PYG{k}{def} \PYG{n+nf}{derivee}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{n}{epsilon}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf}{f\PYGZus{}prime}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{n}{epsilon}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{/}\PYG{n}{epsilon}
+    \PYG{k}{return} \PYG{n}{f\PYGZus{}prime}
+
+\PYG{n}{derivee}\PYG{p}{(}\PYG{n}{sin}\PYG{p}{,} \PYG{n}{epsilon}\PYG{o}{=}\PYG{l+m+mf}{1E\PYGZhy{}8}\PYG{p}{)}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+3.050251939917814e\PYGZhy{}09
+\end{sphinxVerbatim}
+
+
+\subsubsection{Nombre complexe}
+\label{\detokenize{cours2_nombres_corr_exercices:nombre-complexe}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui calcule le module d’un nombre complexe \(z\)
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une fonction qui à partir de \(r\) et \(\theta\) renvoie le nombre \(z = re^{i\theta} = r\cos(\theta) + ir\sin(\theta)\)
+
+\end{itemize}
 
 
 

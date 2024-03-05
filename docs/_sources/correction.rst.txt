@@ -5,3 +5,4 @@ Correction
    :maxdepth: 2
 
    cours1_fonctions_corr_exercices.ipynb
+   cours2_nombres_corr_exercices.ipynb

@@ -96,8 +96,8 @@
 <p>Si on ne regarde que les trois derniers chiffres (resp. 64 bits) alors les opérations sont faire modulo 1000 (resp. module <span class="math notranslate nohighlight">\(2^64\)</span>). Par exemple <span class="math notranslate nohighlight">\(50 \times 50 = 2500 = 500\)</span>. C’est ce que l’on appel un débordement (overflow).</p>
 <p>Les nombres négatifs sont enregistré en utilisant une astuce : regardons l’opération (modulo 1000) suivante : <span class="math notranslate nohighlight">\(997 + 3 = 0\)</span>. Le nombre 997 est donc le nombre qui lorsqu’on lui rajoute 3 donne 0, c’est donc <span class="math notranslate nohighlight">\(-3\)</span>. Cela explique pourquoi dans l’exemple précédent on obtient un nombre négatif.</p>
 </section>
-<section id="les-ombres-a-virgule-flottante">
-<h2>Les ombres à virgule flottante<a class="headerlink" href="#les-ombres-a-virgule-flottante" title="Permalink to this headline">¶</a></h2>
+<section id="les-nombres-a-virgule-flottante">
+<h2>Les nombres à virgule flottante<a class="headerlink" href="#les-nombres-a-virgule-flottante" title="Permalink to this headline">¶</a></h2>
 <p>Type <code class="docutils literal notranslate"><span class="pre">float</span></code>. Il existe plusieurs façon d’entrer un entier sous forme litérale : soit en mettant explicitement un <code class="docutils literal notranslate"><span class="pre">.</span></code> décimal, soit en utilisant le <code class="docutils literal notranslate"><span class="pre">e</span></code> de la notation scientifique</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
