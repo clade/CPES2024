@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exercices sur les conteneurs &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Correction" href="correction.html" />
+    <link rel="prev" title="Exercices sur les nombres" href="cours2_nombres_exercices.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours2_nombres_exercices.html" title="Exercices sur les nombres"
+             accesskey="P">previous</a> |
+          <a href="correction.html" title="Correction"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-les-conteneurs">
+<h1>Exercices sur les conteneurs<a class="headerlink" href="#exercices-sur-les-conteneurs" title="Permalink to this headline">¶</a></h1>
+<section id="manipulation-des-listes">
+<h2>Manipulation des listes<a class="headerlink" href="#manipulation-des-listes" title="Permalink to this headline">¶</a></h2>
+<p>On considère la liste [1, 5, 3, 5, 6, 2]</p>
+<ol class="arabic simple">
+<li><p>Écrire une fonction ‘somme’ qui renvoie la somme des éléments d’une liste de nombres. On fera explicitement la boucle for.</p></li>
+<li><p>Écrire une fonction ‘maximum’ qui renvoie le maximum des éléments d’une liste de nombres. On fera explicitement la boucle for.</p></li>
+<li><p>Écrire une fonction ‘arg_maximum’ qui renvoie l’indice du maximum d’une liste de nombres. On fera explicitement la boucle for.</p></li>
+<li><p>Écrire une fonction ‘trouve’ qui renvoie l’indice correspondant à l’argument. On fera explicitement la boucle for.</p></li>
+<li><p>Comment répondre aux question 1, 2, 4 en utilisant des fonctions déjà existantes ?</p></li>
+</ol>
+</section>
+<section id="liste-comprehension">
+<h2>Liste comprehension<a class="headerlink" href="#liste-comprehension" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Créer une liste nomée <code class="docutils literal notranslate"><span class="pre">nombres</span></code> contenant les entier de 0 à 9 inclus</p></li>
+<li><p>Créer une liste contenant la racince carré des éléments de <code class="docutils literal notranslate"><span class="pre">nombres</span></code> (on utilisera une comprehension de liste)</p></li>
+<li><p>Créer une lsite contenant tous les nombres pairs de la listes <code class="docutils literal notranslate"><span class="pre">nombres</span></code> (on utilisera une comprehension de liste)</p></li>
+<li><p>Toujours en utilisant un comprehension de lsite, considérant deux listes <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l2</span></code>, créer une nouvelle liste contenant les couples pris deux à deux de l1 et l2. On supposera que les deux liste ont la même longueur</p></li>
+</ol>
+</section>
+<section id="exercice-de-base-sur-les-dictionnaires">
+<h2>Exercice de base sur les dictionnaires<a class="headerlink" href="#exercice-de-base-sur-les-dictionnaires" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Tout d’abord, nous allons créer un petit dictionnaire qui contient des informations sur un étudiant. Utilisons les clés et valeurs suivantes en exemple :</p>
+<ul class="simple">
+<li><p>‘nom’: ‘Jean Dupont’</p></li>
+<li><p>‘âge’: 20</p></li>
+<li><p>‘filière’: ‘Informatique’</p></li>
+</ul>
+</li>
+<li><p>Modifier l’age pour qu’il soit égal à 21</p></li>
+<li><p>Afficher le genre de l’étudiant si il possède un telle clé sinon afficher un message</p></li>
+</ol>
+</section>
+<section id="exercice-sur-les-ensembles">
+<h2>Exercice sur les ensembles<a class="headerlink" href="#exercice-sur-les-ensembles" title="Permalink to this headline">¶</a></h2>
+<p>La fonction chr permet de convertir un code ASCII en un caractère. La liste des lettres majuscules peut être obtenue à partir de la commande suivante :</p>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_majuscules</span> <span class="o">=</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On souhaite vérifier qu’un mot de passe entré par un utilisateur est sufisament compliqué. Voici les règles :</p>
+<ul class="simple">
+<li><p>Il doit contenir 12 caractères différents</p></li>
+<li><p>Il doit contenir au moins 2 majuscules différentes</p></li>
+<li><p>Il doit contenir au moins un caractère de ponctuation <code class="docutils literal notranslate"><span class="pre">.,;:!?</span></code></p></li>
+<li><p>Il ne doit pas contenir d’espace</p></li>
+</ul>
+<p>Ecrire une fonction qui renvoie True si toutes les conditions sont vérifiées et False sinon</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_exercices.html">Exercices sur les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_exercices.html">Exercices sur les nombres</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercices sur les conteneurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours2_nombres_exercices.html" title="Exercices sur les nombres"
+              >previous</a> |
+            <a href="correction.html" title="Correction"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours3_conteneur_exercices.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

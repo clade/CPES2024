@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Les conteneurs en Python &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feuilles d’exercices" href="feuilles_d_exercices.html" />
+    <link rel="prev" title="Les nombres" href="cours2_nombres_cours.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours2_nombres_cours.html" title="Les nombres"
+             accesskey="P">previous</a> |
+          <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="les-conteneurs-en-python">
+<h1>Les conteneurs en Python<a class="headerlink" href="#les-conteneurs-en-python" title="Permalink to this headline">¶</a></h1>
+<section id="notions-globales">
+<h2>Notions globales<a class="headerlink" href="#notions-globales" title="Permalink to this headline">¶</a></h2>
+<p>On appelle conteneur (container) un objet ayant vocation à en contenir d’autres</p>
+<p>Il existe plusieurs types de conteneurs :</p>
+<ul class="simple">
+<li><p>liste</p></li>
+<li><p>dictionnaire</p></li>
+<li><p>ensemble</p></li>
+<li><p>n-uplet</p></li>
+</ul>
+<p>Dans un certaine mesure, on peut aussi considérer les chaînes de caractères comme des conteneurs</p>
+<p>Voici quelque exemples :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Bonjour&quot;</span> <span class="c1"># chaîne de caractère</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;bonjour&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="c1"># liste</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span><span class="mf">123.45</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s2">&quot;bonjour&quot;</span><span class="p">}</span> <span class="c1"># Dictionnaire</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="c1"># ensemble</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1"># n-uplet / tuple</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="l-operateur-in">
+<h3>L’opérateur in<a class="headerlink" href="#l-operateur-in" title="Permalink to this headline">¶</a></h3>
+<p>Il permet de tester si un le conteneur contient un objet donné.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)</span> <span class="c1"># Pour les dictionnaires, c&#39;est la clé</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;on&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span> <span class="c1"># Pour les chaînes de caratères, n&#39;importe quelle sous-chaîne</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="longueur">
+<h3>Longueur<a class="headerlink" href="#longueur" title="Permalink to this headline">¶</a></h3>
+<p>Un autre point commun partagé par de nombreux conteneurs est qu’ils possèdent une taille. C’est-à-dire qu’ils contiennent un nombre fini et connu d’éléments, et peuvent être passés en paramètre à la fonction len.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="objet-subscriptables">
+<h3>Objet subscriptables<a class="headerlink" href="#objet-subscriptables" title="Permalink to this headline">¶</a></h3>
+<p>Cela désigne les objets sur lesquels l’opérateur [] peut être utilisé. L’ensemble des types cités sont subscriptables, à l’exception de l’ensemble (set), qui n’implémente pas l’opération []</p>
+<p>Parmis les objets subscriptables, on distingues ceux qui sont indexables par un entier et ceux qui sont sliceables.</p>
+<p>Les dictionnaires ne sont pas indexables. Les liste et les chaînes de caractères sont indexable et sliceables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123.45
+bonjour
+o
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour les objets indexables, on rappel que le premier élément est l’élément 0. Le dernier est dont n-1 ou n est la taille de l’objet.</p>
+<p>Les slices permettent de récupérer une partie de l’objet initial.
+La syntaxe est <code class="docutils literal notranslate"><span class="pre">[start:stop:step]</span></code>. Si on omet step, alors le pas est de 1. Si on omet stop, alors il s’agit de n, si on omet start, il s’agit de 0.</p>
+<p>La taille de l’objet renvoyé est (stop - start)//step .</p>
+<p>ATTENTION : si on indexe avec [i:j], alors le dernier élément est j-1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>onj
+[2]
+Bnor
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les indices négatifs, sont pris modulo la taille du conteneur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Tous les éléments sauf le dernier</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conteneurs-modifiables">
+<h3>Conteneurs modifiables<a class="headerlink" href="#conteneurs-modifiables" title="Permalink to this headline">¶</a></h3>
+<p>Les listes, les dictionnaires et les ensembles sont modifiables. Les n-uplet et les chaines de caratères ne le sont pas.</p>
+<p>Par modifiable, on entent par exemple que l’on peut rajouter, suprimer ou remplacer un élément.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">]</span>
+<span class="n">liste1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">liste1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Salut&#39;</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">liste1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">liste1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Coucou&#39;</span>
+<span class="n">liste1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Salut&#39;, &#39;Coucou&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Une liste, c’est comme un classeur, on peut rajouter ou suprimer des feuilles. Ce sera toujours le même classeur. Un objet non modifiable ne possède par la méthode append, insert. On ne peut pas faire objet[i] = qqc. C’est comme un livre, il n’est pas possible de le modifier. La seule chose que l’on peut faire, c’est imprimer un nouveau livre avec une modification.</p>
+<p>Si vous acheter deux livres identiques, il seront toujours identiques. Si vous achetez deux classeurs identiques, leur contenu pourra être différent.</p>
+<p>En Python, la plupart des objets sont modifiables. Les exceptions sont les nombres, les n-uplets et les chaines de caractères.</p>
+</section>
+<section id="conteneurs-iterables">
+<h3>Conteneurs iterables<a class="headerlink" href="#conteneurs-iterables" title="Permalink to this headline">¶</a></h3>
+<p>C’est le cas des conteneurs que l’on peut utiliser dans un boucle for. Tous les conteneurs ci dessus sont iterables.
+Dans la mesure du possible, il est important de faire la boucle for directement sur l’objet, plutôt que par exemple sur ses indices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">lettre</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lettre</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B
+o
+n
+j
+o
+u
+r
+1
+2
+bonjour
+[1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour les dictionnaires, il est possible d’itérer sur les clés, les valeurs, ou les deux:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span> <span class="c1"># On peut utiliser d.keys()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key1
+3
+123.45
+bonjour
+key1 123.45
+3 bonjour
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si on souhaite parcourir une liste et avoir l’indice, il est possible d’utiliser la fonction enumerate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;item numero </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> est </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;item numero 0 est 1
+L&#39;item numero 1 est 2
+L&#39;item numero 2 est bonjour
+L&#39;item numero 3 est [1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="list-comprehension">
+<h3>List comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">¶</a></h3>
+<p>Il arrive fréquement que l’on souhaite créer un conteneur à partir d’un autre. Par exemple, on a une liste et on souhaite appliquer une fonction sur tous les élements. On souhaite filter un dictionnaire, …</p>
+<p>Un façon simple consiste à créer un conteneur vide et ensuite le remplir au fur et à mesure :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ancienne_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">nouvelle_liste</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ancienne_liste</span><span class="p">:</span>
+    <span class="n">nouvelle_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La technique de list comprehension permet de le faire en une seule ligne</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouvelle_liset</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ancienne_liste</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cette methode fonctionne aussi pour les dictionnaires ou les ensembles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bonjour&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">val</span><span class="p">:</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">liste2</span><span class="p">)})</span>
+
+<span class="p">{</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;bonjour&#39;: 0, &#39;hello&#39;: 1}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0, 1, 4, 9, 16, 25}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est possible en plus de filtrer une liste</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>==0 and i%3!=1]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 6, 8, 12, 14, 18]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="les-differents-types-de-conteneurs">
+<h2>Les différents types de conteneurs<a class="headerlink" href="#les-differents-types-de-conteneurs" title="Permalink to this headline">¶</a></h2>
+<section id="les-listes">
+<h3>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">¶</a></h3>
+<p>Pour créer une liste, on utiliser les []. Il est aussi possible de créer une liste à partir d’un objet itérable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;B&#39;, &#39;o&#39;, &#39;n&#39;, &#39;j&#39;, &#39;o&#39;, &#39;u&#39;, &#39;r&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voici quelques méthodes et fonctions :</p>
+<ul class="simple">
+<li><p>append : rajoute un élément à la fin</p></li>
+<li><p>insert : rajoute un élément à la position i</p></li>
+<li><p>extend : étend la liste en rajoutant les éléments d’un autre liste</p></li>
+<li><p>l1 + l2 : crée une nouvelle liste en concaténant les deux listes.</p></li>
+<li><p>sort : modifie la liste en la triant (la fonction sorted renvoie une nouvelle liste)</p></li>
+<li><p>index : trouve l’indice d’un élément (ou renvoie une ValueError si il n’existe pas)</p></li>
+<li><p>count : compte le nombre d’élément ayant la valeur donnée en argument</p></li>
+<li><p>pop : suprime et renvoie le dernier élément</p></li>
+</ul>
+</section>
+<section id="les-dictionnaires">
+<h3>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Permalink to this headline">¶</a></h3>
+<p>Pour créer un dictionnaire :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ces trois dictionnaires sont identiques</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span><span class="s1">&#39;Hello&#39;</span><span class="p">}</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Quelques méthodes:</p>
+<ul class="simple">
+<li><p>keys, values, items : renvoie une ‘liste’ (en fait ce n’est pas vraiment une liste) sur laquelle on peut faire une boucle for (voir ci-dessus)</p></li>
+<li><p>get : récupère une clé, l’intérêt est la possibilité d’utiliser une valeur par défaut si la clé n’existe pas</p></li>
+<li><p>setdefault : défini une valeur si celle ci n’existe pas</p></li>
+<li><p>update : modifie le dictionnaire à partir d’un nouveau dictionnaire. Il n’est pas possible de faire un ‘+’ ente deux dictionnaires</p></li>
+</ul>
+<p>Remarques sur les clés : souvent les clés sont des chaînes de caractères, mais ce n’est pas obligatoire. On peut utiliser n’importe quel objet non modifiable ne contenant pas d’objet modifiable: nombre, chaine de caractère ou tuple contenant des objets non modifiables.</p>
+</section>
+<section id="les-ensembles">
+<h3>Les ensembles<a class="headerlink" href="#les-ensembles" title="Permalink to this headline">¶</a></h3>
+<p>Correspond à la notion mathématique. Il ne peuvent contenir deux objets identiques. Ils sont rarement utilisés, mais pratique lorsque l’on en a besoin. On peut aussi créer un ensemble à partir de n’importe quel objet itérable</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Opérations sur les ensembles :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> : intersection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> : union</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> : difference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> : difference symétrique</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">^</span> <span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2, 3, 4}
+{1, 2, 3, 4, 5}
+{1}
+{1, 5}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="les-n-uplets">
+<h3>Les n-uplets<a class="headerlink" href="#les-n-uplets" title="Permalink to this headline">¶</a></h3>
+<p>Similaires aux listes, il ne sont pas modofiables, ce qui permet de les utiliser comme clé dans un dictionnaires. Les n-uplets (tuple en anglais) sont aussi utilisé lorsqu’un fonction renvoie plusieurs éléments.</p>
+<p>Il sont créé avec des (). Attention aux cas particulier du 1-uplet</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">()</span> 
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="c1"># (1) n&#39;est pas un 1-uplet, mais juste le nombre 1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Seules les méthode count et index existent (et font la même chose que pour une liste)
+Le <code class="docutils literal notranslate"><span class="pre">+</span></code> permet la concaténation</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_cours.html">Les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_cours.html">Les nombres</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Les conteneurs en Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours2_nombres_cours.html" title="Les nombres"
+              >previous</a> |
+            <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours3_conteneur_cours.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

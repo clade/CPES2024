@@ -6,3 +6,4 @@ Feuilles de cours
 
    cours1_fonctions_cours.ipynb
    cours2_nombres_cours.ipynb
+   cours3_conteneur_cours.ipynb

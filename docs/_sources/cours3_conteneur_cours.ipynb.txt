@@ -1,0 +1,738 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "cf97a52d",
+   "metadata": {},
+   "source": [
+    "# Les conteneurs en Python\n",
+    "\n",
+    "## Notions globales\n",
+    "\n",
+    "On appelle conteneur (container) un objet ayant vocation à en contenir d’autres\n",
+    "\n",
+    "Il existe plusieurs types de conteneurs : \n",
+    "- liste\n",
+    "- dictionnaire\n",
+    "- ensemble\n",
+    "- n-uplet\n",
+    "\n",
+    "Dans un certaine mesure, on peut aussi considérer les chaînes de caractères comme des conteneurs\n",
+    "\n",
+    "Voici quelque exemples : "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "d5391051",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = \"Bonjour\" # chaîne de caractère\n",
+    "l = [1, 2, \"bonjour\", [1, 2]] # liste\n",
+    "d = {'key1':123.45, 3:\"bonjour\"} # Dictionnaire\n",
+    "e = {1, 2, 4} # ensemble\n",
+    "t = (1, 2, [1, 2]) # n-uplet / tuple"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "215974d5",
+   "metadata": {},
+   "source": [
+    "### L'opérateur in\n",
+    "\n",
+    "Il permet de tester si un le conteneur contient un objet donné. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "8a3b1f79",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "True\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(1 in l)\n",
+    "print(3 in d) # Pour les dictionnaires, c'est la clé\n",
+    "print('on' in s) # Pour les chaînes de caratères, n'importe quelle sous-chaîne"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "748f5df1",
+   "metadata": {},
+   "source": [
+    "### Longueur\n",
+    "Un autre point commun partagé par de nombreux conteneurs est qu’ils possèdent une taille. C’est-à-dire qu’ils contiennent un nombre fini et connu d’éléments, et peuvent être passés en paramètre à la fonction len."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "91d3bef7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(len(t))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "eb61914b",
+   "metadata": {},
+   "source": [
+    "### Objet subscriptables\n",
+    "\n",
+    "Cela désigne les objets sur lesquels l’opérateur [] peut être utilisé. L’ensemble des types cités sont subscriptables, à l’exception de l’ensemble (set), qui n’implémente pas l’opération []\n",
+    "\n",
+    "Parmis les objets subscriptables, on distingues ceux qui sont indexables par un entier et ceux qui sont sliceables.\n",
+    "\n",
+    "Les dictionnaires ne sont pas indexables. Les liste et les chaînes de caractères sont indexable et sliceables."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "edc5a720",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "123.45\n",
+      "bonjour\n",
+      "o\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(d[\"key1\"])\n",
+    "\n",
+    "print(l[2])\n",
+    "print(s[1])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "21ddb825",
+   "metadata": {},
+   "source": [
+    "Pour les objets indexables, on rappel que le premier élément est l'élément 0. Le dernier est dont n-1 ou n est la taille de l'objet."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c6404025",
+   "metadata": {},
+   "source": [
+    "Les slices permettent de récupérer une partie de l'objet initial. \n",
+    "La syntaxe est ``[start:stop:step]``. Si on omet step, alors le pas est de 1. Si on omet stop, alors il s'agit de n, si on omet start, il s'agit de 0. \n",
+    "\n",
+    "La taille de l'objet renvoyé est (stop - start)//step .\n",
+    "\n",
+    "ATTENTION : si on indexe avec [i:j], alors le dernier élément est j-1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "a2a1b2d7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "onj\n",
+      "[2]\n",
+      "Bnor\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(s[1:4])\n",
+    "print(l[1:2])\n",
+    "print(s[::2])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7c5a9331",
+   "metadata": {},
+   "source": [
+    "Les indices négatifs, sont pris modulo la taille du conteneur. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1e60bea5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(l[:-1]) # Tous les éléments sauf le dernier"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "590f7ef0",
+   "metadata": {},
+   "source": [
+    "### Conteneurs modifiables\n",
+    "\n",
+    "Les listes, les dictionnaires et les ensembles sont modifiables. Les n-uplet et les chaines de caratères ne le sont pas. \n",
+    "\n",
+    "Par modifiable, on entent par exemple que l'on peut rajouter, suprimer ou remplacer un élément. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "80625c92",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Salut', 'Coucou']"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "liste1 = ['Bonjour']\n",
+    "liste1.append('Hello')\n",
+    "liste1.insert(1, 'Salut')\n",
+    "del liste1[0]\n",
+    "liste1[1] = 'Coucou'\n",
+    "liste1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1f8921de",
+   "metadata": {},
+   "source": [
+    "Une liste, c'est comme un classeur, on peut rajouter ou suprimer des feuilles. Ce sera toujours le même classeur. Un objet non modifiable ne possède par la méthode append, insert. On ne peut pas faire objet[i] = qqc. C'est comme un livre, il n'est pas possible de le modifier. La seule chose que l'on peut faire, c'est imprimer un nouveau livre avec une modification. \n",
+    "\n",
+    "Si vous acheter deux livres identiques, il seront toujours identiques. Si vous achetez deux classeurs identiques, leur contenu pourra être différent. \n",
+    "\n",
+    "En Python, la plupart des objets sont modifiables. Les exceptions sont les nombres, les n-uplets et les chaines de caractères. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8b2d95cd",
+   "metadata": {},
+   "source": [
+    "### Conteneurs iterables\n",
+    "\n",
+    "C'est le cas des conteneurs que l'on peut utiliser dans un boucle for. Tous les conteneurs ci dessus sont iterables.\n",
+    "Dans la mesure du possible, il est important de faire la boucle for directement sur l'objet, plutôt que par exemple sur ses indices. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "684338ac",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "B\n",
+      "o\n",
+      "n\n",
+      "j\n",
+      "o\n",
+      "u\n",
+      "r\n",
+      "1\n",
+      "2\n",
+      "bonjour\n",
+      "[1, 2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "for lettre in s:\n",
+    "    print(lettre)\n",
+    "    \n",
+    "for item in l:\n",
+    "    print(item)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "96966962",
+   "metadata": {},
+   "source": [
+    "Pour les dictionnaires, il est possible d'itérer sur les clés, les valeurs, ou les deux:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "180e56b8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "key1\n",
+      "3\n",
+      "123.45\n",
+      "bonjour\n",
+      "key1 123.45\n",
+      "3 bonjour\n"
+     ]
+    }
+   ],
+   "source": [
+    "for key in d: # On peut utiliser d.keys()\n",
+    "    print(key)\n",
+    "    \n",
+    "for val in d.values():\n",
+    "    print(val)\n",
+    "    \n",
+    "for key, val in d.items():\n",
+    "    print(key, val)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ddd9f329",
+   "metadata": {},
+   "source": [
+    "Si on souhaite parcourir une liste et avoir l'indice, il est possible d'utiliser la fonction enumerate:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "7fc00f36",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "L'item numero 0 est 1\n",
+      "L'item numero 1 est 2\n",
+      "L'item numero 2 est bonjour\n",
+      "L'item numero 3 est [1, 2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i, item in enumerate(l):\n",
+    "    print(f\"L'item numero {i} est {item}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "30bf9b7a",
+   "metadata": {},
+   "source": [
+    "### List comprehension\n",
+    "\n",
+    "Il arrive fréquement que l'on souhaite créer un conteneur à partir d'un autre. Par exemple, on a une liste et on souhaite appliquer une fonction sur tous les élements. On souhaite filter un dictionnaire, ...\n",
+    "\n",
+    "Un façon simple consiste à créer un conteneur vide et ensuite le remplir au fur et à mesure : "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "ea3c47b4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ancienne_liste = [1, 4, 6, 3]\n",
+    "nouvelle_liste = []\n",
+    "for val in ancienne_liste:\n",
+    "    nouvelle_liste.append(val/2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ba6b8915",
+   "metadata": {},
+   "source": [
+    "La technique de list comprehension permet de le faire en une seule ligne"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "9a95e31d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nouvelle_liset = [val**2 for val in ancienne_liste]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ab622faf",
+   "metadata": {},
+   "source": [
+    "Cette methode fonctionne aussi pour les dictionnaires ou les ensembles"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "82c94800",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'bonjour': 0, 'hello': 1}\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{0, 1, 4, 9, 16, 25}"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "liste2 = [\"bonjour\", \"hello\"]\n",
+    "print({val:i for i, val in enumerate(liste2)})\n",
+    "\n",
+    "{i**2 for i in range(-5, 5)}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9c497b62",
+   "metadata": {},
+   "source": [
+    "Il est possible en plus de filtrer une liste "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "610638ba",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 2, 6, 8, 12, 14, 18]"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[i for i in range(20) if i%2==0 and i%3!=1]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f5ad4156",
+   "metadata": {},
+   "source": [
+    "## Les différents types de conteneurs\n",
+    "\n",
+    "### Les listes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "20a914bb",
+   "metadata": {},
+   "source": [
+    "Pour créer une liste, on utiliser les []. Il est aussi possible de créer une liste à partir d'un objet itérable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "d2c3c527",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['B', 'o', 'n', 'j', 'o', 'u', 'r']"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "l = [1, 2]\n",
+    "l = list('Bonjour')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9db7df38",
+   "metadata": {},
+   "source": [
+    "Voici quelques méthodes et fonctions : \n",
+    "* append : rajoute un élément à la fin\n",
+    "* insert : rajoute un élément à la position i    \n",
+    "* extend : étend la liste en rajoutant les éléments d'un autre liste \n",
+    "* l1 + l2 : crée une nouvelle liste en concaténant les deux listes.\n",
+    "* sort : modifie la liste en la triant (la fonction sorted renvoie une nouvelle liste)\n",
+    "* index : trouve l'indice d'un élément (ou renvoie une ValueError si il n'existe pas)\n",
+    "* count : compte le nombre d'élément ayant la valeur donnée en argument\n",
+    "* pop : suprime et renvoie le dernier élément"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "02dabc73",
+   "metadata": {},
+   "source": [
+    "### Les dictionnaires\n",
+    "\n",
+    "Pour créer un dictionnaire :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "ea9a84d3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# ces trois dictionnaires sont identiques\n",
+    "d = {'key1':'Bonjour', 'key2':'Hello'}\n",
+    "d = dict(key1=\"Bonjour\", key2=\"Hello\")\n",
+    "l = [('key1', 'Bonjour'), ('key2', 'Hello')]\n",
+    "d = dict(l)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dc941a22",
+   "metadata": {},
+   "source": [
+    "Quelques méthodes:\n",
+    "* keys, values, items : renvoie une 'liste' (en fait ce n'est pas vraiment une liste) sur laquelle on peut faire une boucle for (voir ci-dessus)\n",
+    "* get : récupère une clé, l'intérêt est la possibilité d'utiliser une valeur par défaut si la clé n'existe pas\n",
+    "* setdefault : défini une valeur si celle ci n'existe pas\n",
+    "* update : modifie le dictionnaire à partir d'un nouveau dictionnaire. Il n'est pas possible de faire un '+' ente deux dictionnaires\n",
+    "\n",
+    "Remarques sur les clés : souvent les clés sont des chaînes de caractères, mais ce n'est pas obligatoire. On peut utiliser n'importe quel objet non modifiable ne contenant pas d'objet modifiable: nombre, chaine de caractère ou tuple contenant des objets non modifiables."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b705523c",
+   "metadata": {},
+   "source": [
+    "### Les ensembles\n",
+    "\n",
+    "Correspond à la notion mathématique. Il ne peuvent contenir deux objets identiques. Ils sont rarement utilisés, mais pratique lorsque l'on en a besoin. On peut aussi créer un ensemble à partir de n'importe quel objet itérable"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "34c1c55a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = {1, 5}\n",
+    "s = set(range(3))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c1aab564",
+   "metadata": {},
+   "source": [
+    "Opérations sur les ensembles : \n",
+    "* ``&`` : intersection\n",
+    "* ``|`` : union\n",
+    "* ``-`` : difference\n",
+    "* ``^`` : difference symétrique"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "0638f94e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{2, 3, 4}\n",
+      "{1, 2, 3, 4, 5}\n",
+      "{1}\n",
+      "{1, 5}\n"
+     ]
+    }
+   ],
+   "source": [
+    "s1 = {1, 2, 3, 4}\n",
+    "s2 = {2, 3, 4, 5}\n",
+    "\n",
+    "print(s1 & s2)\n",
+    "print(s1 | s2)\n",
+    "print(s1 - s2)\n",
+    "print(s1 ^ s2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1ce7349e",
+   "metadata": {},
+   "source": [
+    "### Les n-uplets\n",
+    "\n",
+    "Similaires aux listes, il ne sont pas modofiables, ce qui permet de les utiliser comme clé dans un dictionnaires. Les n-uplets (tuple en anglais) sont aussi utilisé lorsqu'un fonction renvoie plusieurs éléments. \n",
+    "\n",
+    "Il sont créé avec des (). Attention aux cas particulier du 1-uplet "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "f95a9534",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "t = () \n",
+    "t = (1,) # (1) n'est pas un 1-uplet, mais juste le nombre 1\n",
+    "t = (1, 2, 56)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e3a4dc77",
+   "metadata": {},
+   "source": [
+    "Seules les méthode count et index existent (et font la même chose que pour une liste)\n",
+    "Le ``+`` permet la concaténation "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a7eb13f2",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "be96ba95",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "936e34df",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1b096474",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
