@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "6db75a08",
+   "id": "9f153808",
    "metadata": {},
    "source": [
     "# Chaine de caractère\n",
@@ -19,7 +19,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "0e160779",
+   "id": "ce99dfe3",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -30,7 +30,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "bda57b8a",
+   "id": "a8aaecba",
    "metadata": {},
    "source": [
     "Pour créer une chaîne de caractère sur plus d'une ligne on utilise ``'''`` ou ``\"\"\"``"
@@ -39,7 +39,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "25ca231b",
+   "id": "0dfa234e",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -49,7 +49,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "be56f9e2",
+   "id": "32872df8",
    "metadata": {},
    "source": [
     "Les **caractères spéciaux** sont les caractères qui ne sont pas affichables et en tant que tel. \n",
@@ -64,7 +64,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "53b21a60",
+   "id": "8bef692f",
    "metadata": {},
    "outputs": [
     {
@@ -85,7 +85,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "dd7d4577",
+   "id": "4016f5c8",
    "metadata": {},
    "source": [
     "L'antislash sert aussi à insérer un guillemet dans une chaîne :"
@@ -94,7 +94,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "2c8e550a",
+   "id": "0e641741",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -103,7 +103,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2e418188",
+   "id": "95c59908",
    "metadata": {},
    "source": [
     "## Manipulation des chaînes de caractères\n",
@@ -115,7 +115,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "0e7763b6",
+   "id": "08830b9d",
    "metadata": {},
    "outputs": [
     {
@@ -135,7 +135,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e0e12438",
+   "id": "8a41d590",
    "metadata": {},
    "source": [
     "Cependant, il n'est pas possible de modifier une chaîne de caractères (l'opération ``s[0]='p'`` échoue)."
@@ -143,7 +143,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "131cef13",
+   "id": "77bdbfeb",
    "metadata": {},
    "source": [
     "L'opérateur ```+``` permet de concaténer des chaînes de caractères. L'opérateur ```*``` permet de répeter ```n``` fois la même chaîne de caractère"
@@ -152,7 +152,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "9ae845f8",
+   "id": "cd3e6742",
    "metadata": {},
    "outputs": [
     {
@@ -172,7 +172,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "fa934011",
+   "id": "16f84908",
    "metadata": {},
    "outputs": [
     {
@@ -189,7 +189,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "96ecad93",
+   "id": "f4946fb0",
    "metadata": {},
    "source": [
     "## Formatage des chaînes de caractère"
@@ -197,7 +197,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "cd45a713",
+   "id": "81022425",
    "metadata": {},
    "source": [
     "Le formatage d'une chaîne de caractère consiste à mettre dans une chaine un élément variable. Cette opération est souvent utilisée lorsque l'on veut afficher proprement \n",
@@ -207,7 +207,7 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "e8b1409d",
+   "id": "176e3fa8",
    "metadata": {},
    "outputs": [
     {
@@ -229,7 +229,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6af4741c",
+   "id": "35d34fba",
    "metadata": {},
    "source": [
     "Pour insérer un élément ou plusieurs éléments variables \n",
@@ -244,7 +244,7 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "id": "76e77cac",
+   "id": "0f69daca",
    "metadata": {},
    "outputs": [
     {
@@ -264,7 +264,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5e0e9d68",
+   "id": "96e9ab25",
    "metadata": {},
    "source": [
     "Depuis la version 3.6 de Python, il est possible de demander à Python d'utiliser automatiquement les variables locales à l'aide du préfix ``f``."
@@ -273,7 +273,7 @@
   {
    "cell_type": "code",
    "execution_count": 10,
-   "id": "015ae67b",
+   "id": "2b46c5a6",
    "metadata": {},
    "outputs": [
     {
@@ -293,7 +293,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "95668239",
+   "id": "6fa46690",
    "metadata": {},
    "source": [
     "Il est aussi possible de demander d'utiliser un attribut d'un objet : \n"
@@ -302,7 +302,7 @@
   {
    "cell_type": "code",
    "execution_count": 11,
-   "id": "09dc897b",
+   "id": "5ee39519",
    "metadata": {},
    "outputs": [
     {
@@ -320,7 +320,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f8db3345",
+   "id": "2896c7c2",
    "metadata": {},
    "source": [
     "En utilisant le formatage de chaîne de caractère, il est possible de spécifier en détail comment ce nombre doit s'afficher. Par exemple, si il s'agit d'un nombre à virgule flottante, combien de décimales faut-il afficher, faut il utiliser la notation scientifique, etc. Pour cela, on rajoute à l'intérieur des accolades un code particulier. Ce code est précédé du signe ':'. "
@@ -329,7 +329,7 @@
   {
    "cell_type": "code",
    "execution_count": 12,
-   "id": "d452517c",
+   "id": "b6300502",
    "metadata": {},
    "outputs": [
     {
@@ -352,7 +352,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "001345a7",
+   "id": "205c386c",
    "metadata": {},
    "source": [
     "Le 'f' indique que l'on veut une notation a virgule fixe, le 'e' une notation scientifique. Le chiffre que l'on indique après le '.' donne le nombre de chiffre après la virgule que l'on souhaite.\n"
@@ -360,7 +360,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a1f38185",
+   "id": "4d88fd9a",
    "metadata": {},
    "source": [
     "[L'aide en ligne](https://docs.python.org/fr/3.5/library/string.html#formatstrings) de Python fournit d'autres exemples et des détails. "
@@ -368,7 +368,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9d5b5baa",
+   "id": "67f61064",
    "metadata": {},
    "source": [
     "## Quelques méthodes utiles\n",
@@ -377,13 +377,14 @@
     "* ``split`` (coupe la chaine et renvoie une liste de chaîne)\n",
     "* ``join`` (inverse de slit : rassemble une liste de chaîne avec un chaîne)\n",
     "* ``startswith``, ``endswith``\n",
-    "* ``lower``, ``upper`` (convertit en minuscule ou majuscule)"
+    "* ``lower``, ``upper`` (convertit en minuscule ou majuscule)\n",
+    "* ``replace``"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 13,
-   "id": "dc1006d3",
+   "id": "899cc569",
    "metadata": {},
    "outputs": [
     {
@@ -412,7 +413,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f4f3dceb",
+   "id": "71cd3ba9",
    "metadata": {},
    "source": [
     "## Unicode\n",
@@ -425,7 +426,7 @@
   {
    "cell_type": "code",
    "execution_count": 14,
-   "id": "70257262",
+   "id": "73ff9928",
    "metadata": {},
    "outputs": [
     {
@@ -445,7 +446,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a1901122",
+   "id": "15521a7f",
    "metadata": {},
    "source": [
     "Il est possible de convertir un caractère en nombre et vice-versa"
@@ -454,7 +455,7 @@
   {
    "cell_type": "code",
    "execution_count": 15,
-   "id": "75e8fd0a",
+   "id": "100b9779",
    "metadata": {},
    "outputs": [
     {
@@ -474,7 +475,7 @@
   {
    "cell_type": "code",
    "execution_count": 16,
-   "id": "7d318aec",
+   "id": "b153e94c",
    "metadata": {},
    "outputs": [
     {
@@ -494,7 +495,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2b5f9b64",
+   "id": "511b0ce0",
    "metadata": {},
    "source": [
     "On trouve même des émoticones"
@@ -503,7 +504,7 @@
   {
    "cell_type": "code",
    "execution_count": 17,
-   "id": "96f6e737",
+   "id": "a29df054",
    "metadata": {},
    "outputs": [
     {
@@ -521,7 +522,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0594f2fb",
+   "id": "7b59bae6",
    "metadata": {},
    "source": [
     "On peut aussi utilier le nom unicode"
@@ -530,7 +531,7 @@
   {
    "cell_type": "code",
    "execution_count": 18,
-   "id": "9946c7fa",
+   "id": "59fcbad7",
    "metadata": {},
    "outputs": [
     {
@@ -548,7 +549,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "40d649ef",
+   "id": "8afa23aa",
    "metadata": {},
    "outputs": [],
    "source": []

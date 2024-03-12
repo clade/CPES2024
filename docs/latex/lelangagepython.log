@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2023.6.4)  12 MAR 2024 22:55
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2023.6.4)  12 MAR 2024 23:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,25 +1014,25 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2716.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2752.
  [33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2716.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2752.
  (./lelangagepython.aux
 LaTeX Info: Redefining \rmfamily on input line 19.
 LaTeX Info: Redefining \sffamily on input line 19.
 LaTeX Info: Redefining \ttfamily on input line 19.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2716.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2716.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2752.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2752.
 
 Package rerunfilecheck Info: File `lelangagepython.out' has not changed.
-(rerunfilecheck)             Checksum: AC907A705ED1EF0E3836245770AC3C7D;13156.
+(rerunfilecheck)             Checksum: 0272FCF74F3F10959C1B5744451CF7DB;13961.
  ) 
 Here is how much of TeX's memory you used:
- 16714 strings out of 481749
- 311197 string characters out of 5935476
- 683240 words of memory out of 5000000
- 33361 multiletter control sequences out of 15000+600000
+ 16720 strings out of 481749
+ 311494 string characters out of 5935476
+ 687361 words of memory out of 5000000
+ 33367 multiletter control sequences out of 15000+600000
  536278 words of font info for 81 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  43i,15n,79p,831b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
