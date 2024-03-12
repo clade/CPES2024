@@ -1,0 +1,607 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "6db75a08",
+   "metadata": {},
+   "source": [
+    "# Chaine de caractère\n",
+    "\n",
+    "## Création d'une chaine\n",
+    "\n",
+    "On peut les créer avec des ``'`` ou ``\"``.  Ces caractères servent à délimiter les \n",
+    "début et la fin du texte de la chaîne de caractère. Les guillemets \n",
+    "simples ``'`` et doubles ``\"`` sont équivalents. On pourra choisir l'un ou \n",
+    "l'autre. Il sera cependant judicieux, si une chaîne de caractère doit contenir\n",
+    "un de ces guillemets, d'utiliser l'autre pour le début et la fin de la chaîne. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "0e160779",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = \"Bonjour\"\n",
+    "s = 'Bonjour'\n",
+    "s = \"Aujourd'hui\"\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bda57b8a",
+   "metadata": {},
+   "source": [
+    "Pour créer une chaîne de caractère sur plus d'une ligne on utilise ``'''`` ou ``\"\"\"``"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "25ca231b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = \"\"\"Bonjour, \n",
+    "Comment allez-vous ?\"\"\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "be56f9e2",
+   "metadata": {},
+   "source": [
+    "Les **caractères spéciaux** sont les caractères qui ne sont pas affichables et en tant que tel. \n",
+    "Par exemple, il existe un caractère pour le retour à la ligne. Il est possible\n",
+    "d'utiliser ce caractère dans une chaîne en utilisant ``\\n``. L'antislash sert\n",
+    "ici de caractère d'échappement pour indiquer que l'on va entrer un caractère\n",
+    "spécial. La lettre ``n`` indique ici qu'il s'agit d'un retour à la ligne. \n",
+    "\n",
+    "Dans les exemples suivants, le retour à la ligne est un caractère. On peut le créer en utilisant ```\\n```."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "53b21a60",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = \"\"\"a\n",
+    "b\"\"\"\n",
+    "print(len(s))\n",
+    "s2 = \"a\\nb\"\n",
+    "assert s==s2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dd7d4577",
+   "metadata": {},
+   "source": [
+    "L'antislash sert aussi à insérer un guillemet dans une chaîne :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "2c8e550a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = 'Aujourd\\'hui'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2e418188",
+   "metadata": {},
+   "source": [
+    "## Manipulation des chaînes de caractères\n",
+    "\n",
+    "Comme tout conteneur indexable, il est possible d'accéder à chaque caractère d'une chaîne ou à une partie d'une \n",
+    "chaîne. La longueur de la chaîne s'obtient avec la fonction ``len``. On peut aussi faire une boucle ``for`` sur chacun des éléments de la chaîne."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "0e7763b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "P\n",
+      "er\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = \"Pierre\"\n",
+    "print(s[0])\n",
+    "print(s[2:4])\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e0e12438",
+   "metadata": {},
+   "source": [
+    "Cependant, il n'est pas possible de modifier une chaîne de caractères (l'opération ``s[0]='p'`` échoue)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "131cef13",
+   "metadata": {},
+   "source": [
+    "L'opérateur ```+``` permet de concaténer des chaînes de caractères. L'opérateur ```*``` permet de répeter ```n``` fois la même chaîne de caractère"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "9ae845f8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bonjour tout le monde\n"
+     ]
+    }
+   ],
+   "source": [
+    "s1 = \"Bonjour\"\n",
+    "s2 = 'tout le monde'\n",
+    "print(s1 + ' ' + s2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "fa934011",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ha!ha!ha!ha!ha!ha!ha!ha!ha!ha!\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('ha!'*10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "96ecad93",
+   "metadata": {},
+   "source": [
+    "## Formatage des chaînes de caractère"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cd45a713",
+   "metadata": {},
+   "source": [
+    "Le formatage d'une chaîne de caractère consiste à mettre dans une chaine un élément variable. Cette opération est souvent utilisée lorsque l'on veut afficher proprement \n",
+    "un résultat"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "e8b1409d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Il est 15h30'"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "heure = 15\n",
+    "minute = 30\n",
+    "\"Il est {0}h{1}\".format(heure, minute)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6af4741c",
+   "metadata": {},
+   "source": [
+    "Pour insérer un élément ou plusieurs éléments variables \n",
+    "dans une chaîne de caractère, on crée d'abord cette chaîne en mettant à la \n",
+    "place des ces éléments une accolade avec un numéro d'ordre ``{i}``. En appliquant la \n",
+    "méthode ``format`` sur cette chaîne, les accolades seront remplacées par \n",
+    "le ième argument. \n",
+    "\n",
+    "Il est possible de passer l'argument par nom dans ce cas la clé est le nom de l'argument. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "76e77cac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Il est 15h30'"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"Il est {heure}h{minute}\".format(heure=heure, minute=minute)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5e0e9d68",
+   "metadata": {},
+   "source": [
+    "Depuis la version 3.6 de Python, il est possible de demander à Python d'utiliser automatiquement les variables locales à l'aide du préfix ``f``."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "015ae67b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Il est 15h30'"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f\"Il est {heure}h{minute}\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "95668239",
+   "metadata": {},
+   "source": [
+    "Il est aussi possible de demander d'utiliser un attribut d'un objet : \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "09dc897b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Re(z) = 1.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "z = 1 + 2J\n",
+    "print(f'Re(z) = {z.real}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f8db3345",
+   "metadata": {},
+   "source": [
+    "En utilisant le formatage de chaîne de caractère, il est possible de spécifier en détail comment ce nombre doit s'afficher. Par exemple, si il s'agit d'un nombre à virgule flottante, combien de décimales faut-il afficher, faut il utiliser la notation scientifique, etc. Pour cela, on rajoute à l'intérieur des accolades un code particulier. Ce code est précédé du signe ':'. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "d452517c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'c = 2.998e+08 m/s'"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from math import pi\n",
+    "'{0:.5f}'.format(pi)\n",
+    "c = 299792458. # Vitesse de la lumière en m/s\n",
+    "'c = {0:.3e} m/s'.format(c)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "001345a7",
+   "metadata": {},
+   "source": [
+    "Le 'f' indique que l'on veut une notation a virgule fixe, le 'e' une notation scientifique. Le chiffre que l'on indique après le '.' donne le nombre de chiffre après la virgule que l'on souhaite.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a1f38185",
+   "metadata": {},
+   "source": [
+    "[L'aide en ligne](https://docs.python.org/fr/3.5/library/string.html#formatstrings) de Python fournit d'autres exemples et des détails. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9d5b5baa",
+   "metadata": {},
+   "source": [
+    "## Quelques méthodes utiles\n",
+    "\n",
+    "* ``strip`` (enlève les espaces blanc au début et fin de la chaîne)\n",
+    "* ``split`` (coupe la chaine et renvoie une liste de chaîne)\n",
+    "* ``join`` (inverse de slit : rassemble une liste de chaîne avec un chaîne)\n",
+    "* ``startswith``, ``endswith``\n",
+    "* ``lower``, ``upper`` (convertit en minuscule ou majuscule)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "dc1006d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "     bonjour   \n",
+      "bonjour\n",
+      "['un', 'deux', 'trois']\n",
+      "pomme, pêche, poire, abricot\n"
+     ]
+    }
+   ],
+   "source": [
+    "s=\"     bonjour   \"\n",
+    "print(s)\n",
+    "print(s.strip())\n",
+    "\n",
+    "s='un deux trois'\n",
+    "print(s.split())\n",
+    "\n",
+    "l = ['pomme', 'pêche', 'poire', 'abricot']\n",
+    "s = ', '.join(l)\n",
+    "print(s)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f4f3dceb",
+   "metadata": {},
+   "source": [
+    "## Unicode\n",
+    "\n",
+    "Unicode est un standard informatique qui permet des échanges de textes dans différentes langues, à un niveau mondial. Il vise au codage de texte écrit en donnant à tout caractère de n'importe quel système d'écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plateforme informatique ou le logiciel utilisé. \n",
+    "\n",
+    "On peut créer des chaînes directement en unicode. On peut aussi utiliser le code en hexadecimal."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "70257262",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Rayon γ\n"
+     ]
+    }
+   ],
+   "source": [
+    "s1 = \"Rayon γ\"\n",
+    "s2 = \"Rayon \\u03B3\"\n",
+    "print(s2)\n",
+    "assert s1==s2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a1901122",
+   "metadata": {},
+   "source": [
+    "Il est possible de convertir un caractère en nombre et vice-versa"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "75e8fd0a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "8364\n",
+      "0x20ac\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(ord('€'))\n",
+    "print(hex(ord('€')))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "7d318aec",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'a b c d e f g h i j k l m n o p q r s t u v w x y z'"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "' '.join([chr(97 + i) for i in range(26)])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2b5f9b64",
+   "metadata": {},
+   "source": [
+    "On trouve même des émoticones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "96f6e737",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "😀\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = \"\\U0001f600\"\n",
+    "print(s)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0594f2fb",
+   "metadata": {},
+   "source": [
+    "On peut aussi utilier le nom unicode"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "9946c7fa",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "🙂\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"\\N{slightly smiling face}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "40d649ef",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

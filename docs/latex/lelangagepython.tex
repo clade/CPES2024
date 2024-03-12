@@ -60,7 +60,7 @@
 
 
 \title{Le langage Python}
-\date{Mar 06, 2024}
+\date{Mar 12, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1056,6 +1056,291 @@ Seules les méthode count et index existent (et font la même chose que pour une
 Le \sphinxcode{\sphinxupquote{+}} permet la concaténation
 
 
+\subsection{Chaine de caractère}
+\label{\detokenize{cours4_chaine_caractere_cours:chaine-de-caractere}}\label{\detokenize{cours4_chaine_caractere_cours::doc}}
+
+\subsubsection{Création d’une chaine}
+\label{\detokenize{cours4_chaine_caractere_cours:creation-d-une-chaine}}
+\sphinxAtStartPar
+On peut les créer avec des \sphinxcode{\sphinxupquote{\textquotesingle{}}} ou \sphinxcode{\sphinxupquote{"}}.  Ces caractères servent à délimiter les
+début et la fin du texte de la chaîne de caractère. Les guillemets
+simples \sphinxcode{\sphinxupquote{\textquotesingle{}}} et doubles \sphinxcode{\sphinxupquote{"}} sont équivalents. On pourra choisir l’un ou
+l’autre. Il sera cependant judicieux, si une chaîne de caractère doit contenir
+un de ces guillemets, d’utiliser l’autre pour le début et la fin de la chaîne.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Bonjour}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Bonjour}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Aujourd}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{hui}\PYG{l+s+s2}{\PYGZdq{}}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Pour créer une chaîne de caractère sur plus d’une ligne on utilise \sphinxcode{\sphinxupquote{\textquotesingle{}\textquotesingle{}\textquotesingle{}}} ou \sphinxcode{\sphinxupquote{"""}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{l+s+s2}{Bonjour, }
+\PYG{l+s+s2}{Comment allez\PYGZhy{}vous ?}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les \sphinxstylestrong{caractères spéciaux} sont les caractères qui ne sont pas affichables et en tant que tel.
+Par exemple, il existe un caractère pour le retour à la ligne. Il est possible
+d’utiliser ce caractère dans une chaîne en utilisant \sphinxcode{\sphinxupquote{\textbackslash{}n}}. L’antislash sert
+ici de caractère d’échappement pour indiquer que l’on va entrer un caractère
+spécial. La lettre \sphinxcode{\sphinxupquote{n}} indique ici qu’il s’agit d’un retour à la ligne.
+
+\sphinxAtStartPar
+Dans les exemples suivants, le retour à la ligne est un caractère. On peut le créer en utilisant \sphinxcode{\sphinxupquote{\textbackslash{}n}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{l+s+s2}{a}
+\PYG{l+s+s2}{b}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{s2} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{a}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{b}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{assert} \PYG{n}{s}\PYG{o}{==}\PYG{n}{s2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+3
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+L’antislash sert aussi à insérer un guillemet dans une chaîne :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Aujourd}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{hui}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Manipulation des chaînes de caractères}
+\label{\detokenize{cours4_chaine_caractere_cours:manipulation-des-chaines-de-caracteres}}
+\sphinxAtStartPar
+Comme tout conteneur indexable, il est possible d’accéder à chaque caractère d’une chaîne ou à une partie d’une
+chaîne. La longueur de la chaîne s’obtient avec la fonction \sphinxcode{\sphinxupquote{len}}. On peut aussi faire une boucle \sphinxcode{\sphinxupquote{for}} sur chacun des éléments de la chaîne.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Pierre}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+P
+er
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Cependant, il n’est pas possible de modifier une chaîne de caractères (l’opération \sphinxcode{\sphinxupquote{s{[}0{]}=\textquotesingle{}p\textquotesingle{}}} échoue).
+
+\sphinxAtStartPar
+L’opérateur \sphinxcode{\sphinxupquote{+}} permet de concaténer des chaînes de caractères. L’opérateur \sphinxcode{\sphinxupquote{*}} permet de répeter \sphinxcode{\sphinxupquote{n}} fois la même chaîne de caractère
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s1} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Bonjour}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{s2} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{tout le monde}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s1} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n}{s2}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Bonjour tout le monde
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ha!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{*}\PYG{l+m+mi}{10}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+ha!ha!ha!ha!ha!ha!ha!ha!ha!ha!
+\end{sphinxVerbatim}
+
+
+\subsubsection{Formatage des chaînes de caractère}
+\label{\detokenize{cours4_chaine_caractere_cours:formatage-des-chaines-de-caractere}}
+\sphinxAtStartPar
+Le formatage d’une chaîne de caractère consiste à mettre dans une chaine un élément variable. Cette opération est souvent utilisée lorsque l’on veut afficher proprement
+un résultat
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{heure} \PYG{o}{=} \PYG{l+m+mi}{15}
+\PYG{n}{minute} \PYG{o}{=} \PYG{l+m+mi}{30}
+\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Il est }\PYG{l+s+si}{\PYGZob{}0\PYGZcb{}}\PYG{l+s+s2}{h}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{heure}\PYG{p}{,} \PYG{n}{minute}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}Il est 15h30\PYGZsq{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Pour insérer un élément ou plusieurs éléments variables
+dans une chaîne de caractère, on crée d’abord cette chaîne en mettant à la
+place des ces éléments une accolade avec un numéro d’ordre \sphinxcode{\sphinxupquote{\{i\}}}. En appliquant la
+méthode \sphinxcode{\sphinxupquote{format}} sur cette chaîne, les accolades seront remplacées par
+le ième argument.
+
+\sphinxAtStartPar
+Il est possible de passer l’argument par nom dans ce cas la clé est le nom de l’argument.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Il est }\PYG{l+s+si}{\PYGZob{}heure\PYGZcb{}}\PYG{l+s+s2}{h}\PYG{l+s+si}{\PYGZob{}minute\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{heure}\PYG{o}{=}\PYG{n}{heure}\PYG{p}{,} \PYG{n}{minute}\PYG{o}{=}\PYG{n}{minute}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}Il est 15h30\PYGZsq{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Depuis la version 3.6 de Python, il est possible de demander à Python d’utiliser automatiquement les variables locales à l’aide du préfix \sphinxcode{\sphinxupquote{f}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Il est }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{heure}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{h}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{minute}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}Il est 15h30\PYGZsq{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Il est aussi possible de demander d’utiliser un attribut d’un objet :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{z} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{n}{J}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Re(z) = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{z}\PYG{o}{.}\PYG{n}{real}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Re(z) = 1.0
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+En utilisant le formatage de chaîne de caractère, il est possible de spécifier en détail comment ce nombre doit s’afficher. Par exemple, si il s’agit d’un nombre à virgule flottante, combien de décimales faut\sphinxhyphen{}il afficher, faut il utiliser la notation scientifique, etc. Pour cela, on rajoute à l’intérieur des accolades un code particulier. Ce code est précédé du signe ‘:’.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{pi}
+\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}0:.5f\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{pi}\PYG{p}{)}
+\PYG{n}{c} \PYG{o}{=} \PYG{l+m+mf}{299792458.} \PYG{c+c1}{\PYGZsh{} Vitesse de la lumière en m/s}
+\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{c = }\PYG{l+s+si}{\PYGZob{}0:.3e\PYGZcb{}}\PYG{l+s+s1}{ m/s}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}c = 2.998e+08 m/s\PYGZsq{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Le ‘f’ indique que l’on veut une notation a virgule fixe, le ‘e’ une notation scientifique. Le chiffre que l’on indique après le ‘.’ donne le nombre de chiffre après la virgule que l’on souhaite.
+
+\sphinxAtStartPar
+\sphinxhref{https://docs.python.org/fr/3.5/library/string.html\#formatstrings}{L’aide en ligne} de Python fournit d’autres exemples et des détails.
+
+
+\subsubsection{Quelques méthodes utiles}
+\label{\detokenize{cours4_chaine_caractere_cours:quelques-methodes-utiles}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{strip}} (enlève les espaces blanc au début et fin de la chaîne)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{split}} (coupe la chaine et renvoie une liste de chaîne)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{join}} (inverse de slit : rassemble une liste de chaîne avec un chaîne)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{startswith}}, \sphinxcode{\sphinxupquote{endswith}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{lower}}, \sphinxcode{\sphinxupquote{upper}} (convertit en minuscule ou majuscule)
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{     bonjour   }\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{s}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{un deux trois}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{l} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{pomme}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{pêche}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{poire}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{abricot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{, }\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+     bonjour   
+bonjour
+[\PYGZsq{}un\PYGZsq{}, \PYGZsq{}deux\PYGZsq{}, \PYGZsq{}trois\PYGZsq{}]
+pomme, pêche, poire, abricot
+\end{sphinxVerbatim}
+
+
+\subsubsection{Unicode}
+\label{\detokenize{cours4_chaine_caractere_cours:unicode}}
+\sphinxAtStartPar
+Unicode est un standard informatique qui permet des échanges de textes dans différentes langues, à un niveau mondial. Il vise au codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plateforme informatique ou le logiciel utilisé.
+
+\sphinxAtStartPar
+On peut créer des chaînes directement en unicode. On peut aussi utiliser le code en hexadecimal.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s1} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Rayon γ}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{s2} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Rayon }\PYG{l+s+se}{\PYGZbs{}u03B3}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s2}\PYG{p}{)}
+\PYG{k}{assert} \PYG{n}{s1}\PYG{o}{==}\PYG{n}{s2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Rayon γ
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Il est possible de convertir un caractère en nombre et vice\sphinxhyphen{}versa
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\texteuro{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{hex}\PYG{p}{(}\PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\texteuro{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+8364
+0x20ac
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{[}\PYG{n+nb}{chr}\PYG{p}{(}\PYG{l+m+mi}{97} \PYG{o}{+} \PYG{n}{i}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{26}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}a b c d e f g h i j k l m n o p q r s t u v w x y z\PYGZsq{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+On trouve même des émoticones
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}U0001f600}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+😀
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+On peut aussi utilier le nom unicode
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}N\PYGZob{}slightly smiling face\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+🙂
+\end{sphinxVerbatim}
+
+
 \section{Feuilles d’exercices}
 \label{\detokenize{feuilles_d_exercices:feuilles-d-exercices}}\label{\detokenize{feuilles_d_exercices::doc}}
 
@@ -1552,11 +1837,15 @@ Créer une liste contenant la racince carré des éléments de \sphinxcode{\sphi
 
 \item {} 
 \sphinxAtStartPar
-Créer une lsite contenant tous les nombres pairs de la listes \sphinxcode{\sphinxupquote{nombres}} (on utilisera une comprehension de liste)
+Créer une liste contenant tous les nombres pairs de la listes \sphinxcode{\sphinxupquote{nombres}} (on utilisera une comprehension de liste)
 
 \item {} 
 \sphinxAtStartPar
-Toujours en utilisant un comprehension de lsite, considérant deux listes \sphinxcode{\sphinxupquote{l1}} et \sphinxcode{\sphinxupquote{l2}}, créer une nouvelle liste contenant les couples pris deux à deux de l1 et l2. On supposera que les deux liste ont la même longueur
+Toujours en utilisant un comprehension de liste, considérant deux listes \sphinxcode{\sphinxupquote{l1}} et \sphinxcode{\sphinxupquote{l2}}, créer une nouvelle liste contenant les couples pris deux à deux de l1 et l2. On supposera que les deux liste ont la même longueur. Quelle fonction python fait la même chose ?
+
+\item {} 
+\sphinxAtStartPar
+En utilisant la fonction de la question 4 et la liste de la question 2 vérifier que l’on a bien \(y=x^2\) pour chaque élément.
 
 \end{enumerate}
 

@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chaine de caractère &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feuilles d’exercices" href="feuilles_d_exercices.html" />
+    <link rel="prev" title="Les conteneurs en Python" href="cours3_conteneur_cours.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours3_conteneur_cours.html" title="Les conteneurs en Python"
+             accesskey="P">previous</a> |
+          <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="chaine-de-caractere">
+<h1>Chaine de caractère<a class="headerlink" href="#chaine-de-caractere" title="Permalink to this headline">¶</a></h1>
+<section id="creation-d-une-chaine">
+<h2>Création d’une chaine<a class="headerlink" href="#creation-d-une-chaine" title="Permalink to this headline">¶</a></h2>
+<p>On peut les créer avec des <code class="docutils literal notranslate"><span class="pre">'</span></code> ou <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>.  Ces caractères servent à délimiter les
+début et la fin du texte de la chaîne de caractère. Les guillemets
+simples <code class="docutils literal notranslate"><span class="pre">'</span></code> et doubles <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> sont équivalents. On pourra choisir l’un ou
+l’autre. Il sera cependant judicieux, si une chaîne de caractère doit contenir
+un de ces guillemets, d’utiliser l’autre pour le début et la fin de la chaîne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Bonjour&quot;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Aujourd&#39;hui&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour créer une chaîne de caractère sur plus d’une ligne on utilise <code class="docutils literal notranslate"><span class="pre">'''</span></code> ou <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Bonjour, </span>
+<span class="s2">Comment allez-vous ?&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les <strong>caractères spéciaux</strong> sont les caractères qui ne sont pas affichables et en tant que tel.
+Par exemple, il existe un caractère pour le retour à la ligne. Il est possible
+d’utiliser ce caractère dans une chaîne en utilisant <code class="docutils literal notranslate"><span class="pre">\n</span></code>. L’antislash sert
+ici de caractère d’échappement pour indiquer que l’on va entrer un caractère
+spécial. La lettre <code class="docutils literal notranslate"><span class="pre">n</span></code> indique ici qu’il s’agit d’un retour à la ligne.</p>
+<p>Dans les exemples suivants, le retour à la ligne est un caractère. On peut le créer en utilisant <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;a</span>
+<span class="s2">b&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;a</span><span class="se">\n</span><span class="s2">b&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">==</span><span class="n">s2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’antislash sert aussi à insérer un guillemet dans une chaîne :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Aujourd</span><span class="se">\&#39;</span><span class="s1">hui&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulation-des-chaines-de-caracteres">
+<h2>Manipulation des chaînes de caractères<a class="headerlink" href="#manipulation-des-chaines-de-caracteres" title="Permalink to this headline">¶</a></h2>
+<p>Comme tout conteneur indexable, il est possible d’accéder à chaque caractère d’une chaîne ou à une partie d’une
+chaîne. La longueur de la chaîne s’obtient avec la fonction <code class="docutils literal notranslate"><span class="pre">len</span></code>. On peut aussi faire une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> sur chacun des éléments de la chaîne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Pierre&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+er
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cependant, il n’est pas possible de modifier une chaîne de caractères (l’opération <code class="docutils literal notranslate"><span class="pre">s[0]='p'</span></code> échoue).</p>
+<p>L’opérateur <code class="docutils literal notranslate"><span class="pre">+</span></code> permet de concaténer des chaînes de caractères. L’opérateur <code class="docutils literal notranslate"><span class="pre">*</span></code> permet de répeter <code class="docutils literal notranslate"><span class="pre">n</span></code> fois la même chaîne de caractère</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Bonjour&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;tout le monde&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour tout le monde
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ha!&#39;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ha!ha!ha!ha!ha!ha!ha!ha!ha!ha!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="formatage-des-chaines-de-caractere">
+<h2>Formatage des chaînes de caractère<a class="headerlink" href="#formatage-des-chaines-de-caractere" title="Permalink to this headline">¶</a></h2>
+<p>Le formatage d’une chaîne de caractère consiste à mettre dans une chaine un élément variable. Cette opération est souvent utilisée lorsque l’on veut afficher proprement
+un résultat</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heure</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">minute</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="s2">&quot;Il est </span><span class="si">{0}</span><span class="s2">h</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">heure</span><span class="p">,</span> <span class="n">minute</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Il est 15h30&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour insérer un élément ou plusieurs éléments variables
+dans une chaîne de caractère, on crée d’abord cette chaîne en mettant à la
+place des ces éléments une accolade avec un numéro d’ordre <code class="docutils literal notranslate"><span class="pre">{i}</span></code>. En appliquant la
+méthode <code class="docutils literal notranslate"><span class="pre">format</span></code> sur cette chaîne, les accolades seront remplacées par
+le ième argument.</p>
+<p>Il est possible de passer l’argument par nom dans ce cas la clé est le nom de l’argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Il est </span><span class="si">{heure}</span><span class="s2">h</span><span class="si">{minute}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">heure</span><span class="o">=</span><span class="n">heure</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">minute</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Il est 15h30&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Depuis la version 3.6 de Python, il est possible de demander à Python d’utiliser automatiquement les variables locales à l’aide du préfix <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;Il est </span><span class="si">{</span><span class="n">heure</span><span class="si">}</span><span class="s2">h</span><span class="si">{</span><span class="n">minute</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Il est 15h30&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est aussi possible de demander d’utiliser un attribut d’un objet :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">J</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Re(z) = </span><span class="si">{</span><span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Re(z) = 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>En utilisant le formatage de chaîne de caractère, il est possible de spécifier en détail comment ce nombre doit s’afficher. Par exemple, si il s’agit d’un nombre à virgule flottante, combien de décimales faut-il afficher, faut il utiliser la notation scientifique, etc. Pour cela, on rajoute à l’intérieur des accolades un code particulier. Ce code est précédé du signe ‘:’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="s1">&#39;</span><span class="si">{0:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">299792458.</span> <span class="c1"># Vitesse de la lumière en m/s</span>
+<span class="s1">&#39;c = </span><span class="si">{0:.3e}</span><span class="s1"> m/s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;c = 2.998e+08 m/s&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le ‘f’ indique que l’on veut une notation a virgule fixe, le ‘e’ une notation scientifique. Le chiffre que l’on indique après le ‘.’ donne le nombre de chiffre après la virgule que l’on souhaite.</p>
+<p><a class="reference external" href="https://docs.python.org/fr/3.5/library/string.html#formatstrings">L’aide en ligne</a> de Python fournit d’autres exemples et des détails.</p>
+</section>
+<section id="quelques-methodes-utiles">
+<h2>Quelques méthodes utiles<a class="headerlink" href="#quelques-methodes-utiles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code> (enlève les espaces blanc au début et fin de la chaîne)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">split</span></code> (coupe la chaine et renvoie une liste de chaîne)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">join</span></code> (inverse de slit : rassemble une liste de chaîne avec un chaîne)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startswith</span></code>, <code class="docutils literal notranslate"><span class="pre">endswith</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">upper</span></code> (convertit en minuscule ou majuscule)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;     bonjour   &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+<span class="n">s</span><span class="o">=</span><span class="s1">&#39;un deux trois&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;pêche&#39;</span><span class="p">,</span> <span class="s1">&#39;poire&#39;</span><span class="p">,</span> <span class="s1">&#39;abricot&#39;</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     bonjour   
+bonjour
+[&#39;un&#39;, &#39;deux&#39;, &#39;trois&#39;]
+pomme, pêche, poire, abricot
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unicode">
+<h2>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h2>
+<p>Unicode est un standard informatique qui permet des échanges de textes dans différentes langues, à un niveau mondial. Il vise au codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plateforme informatique ou le logiciel utilisé.</p>
+<p>On peut créer des chaînes directement en unicode. On peut aussi utiliser le code en hexadecimal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Rayon γ&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;Rayon </span><span class="se">\u03B3</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">s1</span><span class="o">==</span><span class="n">s2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rayon γ
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est possible de convertir un caractère en nombre et vice-versa</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;€&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;€&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8364
+0x20ac
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="mi">97</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a b c d e f g h i j k l m n o p q r s t u v w x y z&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>On trouve même des émoticones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\U0001f600</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>😀
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut aussi utilier le nom unicode</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\N{slightly smiling face}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🙂
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_cours.html">Les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_cours.html">Les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_cours.html">Les conteneurs en Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Chaine de caractère</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours3_conteneur_cours.html" title="Les conteneurs en Python"
+              >previous</a> |
+            <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours4_chaine_caractere_cours.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
