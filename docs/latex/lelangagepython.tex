@@ -9,40 +9,53 @@
 \fi
 %% let collapsable pdf bookmarks panel have high depth per default
 \PassOptionsToPackage{bookmarksdepth=5}{hyperref}
+%% turn off hyperref patch of \index as sphinx.xdy xindy module takes care of
+%% suitable \hyperpage mark-up, working around hyperref-xindy incompatibility
+\PassOptionsToPackage{hyperindex=false}{hyperref}
+%% memoir class requires extra handling
+\makeatletter\@ifclassloaded{memoir}
+{\ifdefined\memhyperindexfalse\memhyperindexfalse\fi}{}\makeatother
 
 \PassOptionsToPackage{warn}{textcomp}
-\usepackage[utf8]{inputenc}
-\ifdefined\DeclareUnicodeCharacter
-% support both utf8 and utf8x syntaxes
-  \ifdefined\DeclareUnicodeCharacterAsOptional
-    \def\sphinxDUC#1{\DeclareUnicodeCharacter{"#1}}
-  \else
-    \let\sphinxDUC\DeclareUnicodeCharacter
-  \fi
-  \sphinxDUC{00A0}{\nobreakspace}
-  \sphinxDUC{2500}{\sphinxunichar{2500}}
-  \sphinxDUC{2502}{\sphinxunichar{2502}}
-  \sphinxDUC{2514}{\sphinxunichar{2514}}
-  \sphinxDUC{251C}{\sphinxunichar{251C}}
-  \sphinxDUC{2572}{\textbackslash}
-\fi
+
+\catcode`^^^^00a0\active\protected\def^^^^00a0{\leavevmode\nobreak\ }
 \usepackage{cmap}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\defaultfontfeatures[\rmfamily,\sffamily,\ttfamily]{}
 \usepackage{amsmath,amssymb,amstext}
-\usepackage{babel}
+\usepackage{polyglossia}
+\setmainlanguage{english}
 
 
 
-\usepackage{tgtermes}
-\usepackage{tgheros}
-\renewcommand{\ttdefault}{txtt}
+\setmainfont{FreeSerif}[
+  Extension      = .otf,
+  UprightFont    = *,
+  ItalicFont     = *Italic,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldItalic
+]
+\setsansfont{FreeSans}[
+  Extension      = .otf,
+  UprightFont    = *,
+  ItalicFont     = *Oblique,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldOblique,
+]
+\setmonofont{FreeMono}[
+  Extension      = .otf,
+  UprightFont    = *,
+  ItalicFont     = *Oblique,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldOblique,
+]
 
 
 
 \usepackage[Bjarne]{fncychap}
 \usepackage{sphinx}
 
-\fvset{fontsize=auto}
+\fvset{fontsize=\small}
 \usepackage{geometry}
 
 
@@ -205,7 +218,7 @@ Pour renvoyer une valeur, il faut utiliser l’instruction \sphinxcode{\sphinxup
 Python quitte la fonction imédiatement après le return. Il peut y avoir plusieurs return dans une fonction. Python quitte la fonction après le premier return executé. Si il arrive à la fin de la fonction, alors il y a un return implicite. La valeur renvoyée est \sphinxcode{\sphinxupquote{None}}.
 
 \sphinxAtStartPar
-Dans cet exemple, le \sphinxcode{\sphinxupquote{print(\textquotesingle{}B\textquotesingle{})}} ne sera jamais executé
+Dans cet exemple, le \sphinxcode{\sphinxupquote{print('B')}} ne sera jamais executé
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
@@ -550,7 +563,7 @@ puissance : \sphinxcode{\sphinxupquote{**}} (par exemple \sphinxcode{\sphinxupqu
 Il existe deux valeurs : \sphinxcode{\sphinxupquote{True}} et \sphinxcode{\sphinxupquote{False}} (attention à la casse).
 
 \sphinxAtStartPar
-Les comparaisons se font à l’aide des symboles \sphinxcode{\sphinxupquote{\textless{}}}, \sphinxcode{\sphinxupquote{\textless{}=}}, \sphinxcode{\sphinxupquote{==}}, \sphinxcode{\sphinxupquote{\textgreater{}}} et \sphinxcode{\sphinxupquote{\textgreater{}=}}. Pour savoir si deux valeurs sont différentes, on utilise \sphinxcode{\sphinxupquote{!=}}.
+Les comparaisons se font à l’aide des symboles \sphinxcode{\sphinxupquote{<}}, \sphinxcode{\sphinxupquote{<=}}, \sphinxcode{\sphinxupquote{==}}, \sphinxcode{\sphinxupquote{>}} et \sphinxcode{\sphinxupquote{>=}}. Pour savoir si deux valeurs sont différentes, on utilise \sphinxcode{\sphinxupquote{!=}}.
 
 \sphinxAtStartPar
 Les opérations sont par ordre de priorité : \sphinxcode{\sphinxupquote{not}}, \sphinxcode{\sphinxupquote{and}} et \sphinxcode{\sphinxupquote{or}}.
@@ -1062,9 +1075,9 @@ Le \sphinxcode{\sphinxupquote{+}} permet la concaténation
 \subsubsection{Création d’une chaine}
 \label{\detokenize{cours4_chaine_caractere_cours:creation-d-une-chaine}}
 \sphinxAtStartPar
-On peut les créer avec des \sphinxcode{\sphinxupquote{\textquotesingle{}}} ou \sphinxcode{\sphinxupquote{"}}.  Ces caractères servent à délimiter les
+On peut les créer avec des \sphinxcode{\sphinxupquote{'}} ou \sphinxcode{\sphinxupquote{"}}.  Ces caractères servent à délimiter les
 début et la fin du texte de la chaîne de caractère. Les guillemets
-simples \sphinxcode{\sphinxupquote{\textquotesingle{}}} et doubles \sphinxcode{\sphinxupquote{"}} sont équivalents. On pourra choisir l’un ou
+simples \sphinxcode{\sphinxupquote{'}} et doubles \sphinxcode{\sphinxupquote{"}} sont équivalents. On pourra choisir l’un ou
 l’autre. Il sera cependant judicieux, si une chaîne de caractère doit contenir
 un de ces guillemets, d’utiliser l’autre pour le début et la fin de la chaîne.
 
@@ -1075,7 +1088,7 @@ un de ces guillemets, d’utiliser l’autre pour le début et la fin de la cha�
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-Pour créer une chaîne de caractère sur plus d’une ligne on utilise \sphinxcode{\sphinxupquote{\textquotesingle{}\textquotesingle{}\textquotesingle{}}} ou \sphinxcode{\sphinxupquote{"""}}
+Pour créer une chaîne de caractère sur plus d’une ligne on utilise \sphinxcode{\sphinxupquote{'''}} ou \sphinxcode{\sphinxupquote{"""}}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{s} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{l+s+s2}{Bonjour, }
@@ -1130,7 +1143,7 @@ er
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-Cependant, il n’est pas possible de modifier une chaîne de caractères (l’opération \sphinxcode{\sphinxupquote{s{[}0{]}=\textquotesingle{}p\textquotesingle{}}} échoue).
+Cependant, il n’est pas possible de modifier une chaîne de caractères (l’opération \sphinxcode{\sphinxupquote{s{[}0{]}='p'}} échoue).
 
 \sphinxAtStartPar
 L’opérateur \sphinxcode{\sphinxupquote{+}} permet de concaténer des chaînes de caractères. L’opérateur \sphinxcode{\sphinxupquote{*}} permet de répeter \sphinxcode{\sphinxupquote{n}} fois la même chaîne de caractère
@@ -1300,8 +1313,8 @@ Rayon γ
 Il est possible de convertir un caractère en nombre et vice\sphinxhyphen{}versa
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\texteuro{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{hex}\PYG{p}{(}\PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\texteuro{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{€}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{hex}\PYG{p}{(}\PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{€}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
