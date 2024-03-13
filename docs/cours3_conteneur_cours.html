@@ -182,6 +182,26 @@ Bnor
 <p>Une liste, c’est comme un classeur, on peut rajouter ou suprimer des feuilles. Ce sera toujours le même classeur. Un objet non modifiable ne possède par la méthode append, insert. On ne peut pas faire objet[i] = qqc. C’est comme un livre, il n’est pas possible de le modifier. La seule chose que l’on peut faire, c’est imprimer un nouveau livre avec une modification.</p>
 <p>Si vous acheter deux livres identiques, il seront toujours identiques. Si vous achetez deux classeurs identiques, leur contenu pourra être différent.</p>
 <p>En Python, la plupart des objets sont modifiables. Les exceptions sont les nombres, les n-uplets et les chaines de caractères.</p>
+<p>Attention : lorsque l’on passe un objet à une fonction, il n’est pas dupliqué. Si la fonction modifie l’objet, alors l’objet est modifié.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dans cet exemple, il n&#39;y a qu&#39;une seule liste</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="conteneurs-iterables">
 <h3>Conteneurs iterables<a class="headerlink" href="#conteneurs-iterables" title="Permalink to this headline">¶</a></h3>
@@ -251,6 +271,24 @@ key1 123.45
 L&#39;item numero 1 est 2
 L&#39;item numero 2 est bonjour
 L&#39;item numero 3 est [1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si on souhaite parcourir deux listes en même temps, on peut utiliser la fonction zip</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+<span class="n">liste2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">lettre</span><span class="p">,</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">liste1</span><span class="p">,</span> <span class="n">liste2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lettre</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A 10
+B 4
+C 24
 </pre></div>
 </div>
 </div>
@@ -418,7 +456,7 @@ L&#39;item numero 3 est [1, 2]
 </div>
 </div>
 </div>
-<p>Seules les méthode count et index existent (et font la même chose que pour une liste)
+<p>Seules les méthode count et index existent (et font la même chose que pour une liste).
 Le <code class="docutils literal notranslate"><span class="pre">+</span></code> permet la concaténation</p>
 </section>
 </section>

@@ -240,7 +240,34 @@
     "\n",
     "Si vous acheter deux livres identiques, il seront toujours identiques. Si vous achetez deux classeurs identiques, leur contenu pourra être différent. \n",
     "\n",
-    "En Python, la plupart des objets sont modifiables. Les exceptions sont les nombres, les n-uplets et les chaines de caractères. "
+    "En Python, la plupart des objets sont modifiables. Les exceptions sont les nombres, les n-uplets et les chaines de caractères. \n",
+    "\n",
+    "Attention : lorsque l'on passe un objet à une fonction, il n'est pas dupliqué. Si la fonction modifie l'objet, alors l'objet est modifié."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "cf9efda4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Dans cet exemple, il n'y a qu'une seule liste\n",
+    "def f(c):\n",
+    "    c.append(3)\n",
+    "\n",
+    "a = [1, 2]\n",
+    "b = a\n",
+    "f(b)\n",
+    "print(a)"
    ]
   },
   {
@@ -352,6 +379,37 @@
    "source": [
     "for i, item in enumerate(l):\n",
     "    print(f\"L'item numero {i} est {item}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "23bd2688",
+   "metadata": {},
+   "source": [
+    "Si on souhaite parcourir deux listes en même temps, on peut utiliser la fonction zip"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2ddd82a0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A 10\n",
+      "B 4\n",
+      "C 24\n"
+     ]
+    }
+   ],
+   "source": [
+    "liste1 = ['A', 'B', 'C']\n",
+    "liste2 = [10, 4, 24]\n",
+    "for lettre, nombre in zip(liste1, liste2):\n",
+    "    print(lettre, nombre)"
    ]
   },
   {
@@ -648,33 +706,9 @@
    "id": "e3a4dc77",
    "metadata": {},
    "source": [
-    "Seules les méthode count et index existent (et font la même chose que pour une liste)\n",
+    "Seules les méthode count et index existent (et font la même chose que pour une liste).\n",
     "Le ``+`` permet la concaténation "
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "a7eb13f2",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "be96ba95",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "936e34df",
-   "metadata": {},
-   "outputs": [],
-   "source": []
   },
   {
    "cell_type": "code",
