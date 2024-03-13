@@ -5,7 +5,7 @@
    "id": "9f153808",
    "metadata": {},
    "source": [
-    "# Chaine de caractère\n",
+    "# Chaînes de caractères\n",
     "\n",
     "## Création d'une chaine\n",
     "\n",
