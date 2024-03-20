@@ -1,0 +1,328 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "88a3ddef",
+   "metadata": {},
+   "source": [
+    "# Exercices sur les conteneurs\n",
+    "\n",
+    "## Manipulation des listes\n",
+    "\n",
+    "On considère la liste [1, 5, 3, 5, 6, 2]\n",
+    "\n",
+    "1. Écrire une fonction 'somme' qui renvoie la somme des éléments d'une liste de nombres. On fera explicitement la boucle for. \n",
+    "\n",
+    "2. Écrire une fonction 'maximum' qui renvoie le maximum des éléments d'une liste de nombres. On fera explicitement la boucle for. \n",
+    "\n",
+    "3. Écrire une fonction 'arg_maximum' qui renvoie l'indice du maximum d'une liste de nombres. On fera explicitement la boucle for. \n",
+    "\n",
+    "\n",
+    "4. Écrire une fonction 'trouve' qui renvoie l'indice correspondant à l'argument. On fera explicitement la boucle for. \n",
+    "\n",
+    "5. Comment répondre aux questions 1, 2, 3, 4 en utilisant des fonctions déjà existantes ?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "59583d4d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "l = [1, 5, 3, 5, 6, 2]\n",
+    "\n",
+    "def somme(l):\n",
+    "    output = 0\n",
+    "    for val in l:\n",
+    "        output += val\n",
+    "    return output\n",
+    "\n",
+    "def maximum(l):\n",
+    "    if len(l)==0:\n",
+    "        return None\n",
+    "    output = l[0]\n",
+    "    for val in l[1:]:\n",
+    "        if val>output:\n",
+    "            output = val\n",
+    "    return output\n",
+    "\n",
+    "def arg_maximum(l):\n",
+    "    if len(l)==0:\n",
+    "        return None\n",
+    "    output = l[0]\n",
+    "    i_max = 0\n",
+    "    for i, val in enumerate(l):\n",
+    "        if val>output:\n",
+    "            output = val\n",
+    "            i_max = i\n",
+    "    return i_max\n",
+    " \n",
+    "def trouve(l, valeur_a_trouver):\n",
+    "    for i, val in enumerate(l):\n",
+    "        if valeur_a_trouver==val:\n",
+    "            return i\n",
+    "    else:\n",
+    "        return None\n",
+    "    \n",
+    "# On peut utiliser sum, max et l.index"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d3e1be94",
+   "metadata": {},
+   "source": [
+    "## Liste comprehension\n",
+    "\n",
+    "1. Créer une liste nomée ``nombres`` contenant les entiers de 0 à 9 inclus\n",
+    "\n",
+    "2. Créer une liste contenant la racine carré des éléments de ``nombres`` (on utilisera une comprehension de liste)\n",
+    "\n",
+    "3. Créer une liste contenant tous les nombres pairs de la listes ``nombres`` (on utilisera une comprehension de liste)\n",
+    "\n",
+    "4. Toujours en utilisant un comprehension de liste, considérant deux listes ``l1`` et ``l2``, créer une nouvelle liste contenant les couples pris deux à deux de l1 et l2. On supposera que les deux liste ont la même longueur. Quelle fonction python fait la même chose ?\n",
+    "\n",
+    "5. En utilisant la fonction de la question 4 et la liste de la question 2 vérifier que l'on a bien $y=x^2$ pour chaque élément. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "40e696cf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import math\n",
+    "nombres = list(range(10))\n",
+    "racine_nombres = [math.sqrt(nb) for nb in nombres]\n",
+    "nb_pairs = [nb for nb in nombres if nb%2==0]\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "0102796d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('A', 10), ('B', 4), ('C', 24)]"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "liste1 = ['A', 'B', 'C']\n",
+    "liste2 = [10, 4, 24]\n",
+    "def f(l1, l2):\n",
+    "    return [(l1[i], l2[i]) for i in range(len(l1))]\n",
+    "\n",
+    "f(liste1, liste2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "362e29b1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for a, racine_a in f(nombres, racine_nombres):\n",
+    "    if not math.isclose(a, racine_a**2):\n",
+    "        print(f'Problème avec {a} et {racine_a}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bf83c877",
+   "metadata": {},
+   "source": [
+    "## Exercice de base sur les dictionnaires\n",
+    "\n",
+    "1. Tout d'abord, nous allons créer un petit dictionnaire qui contient des informations sur un étudiant. Utilisons les clés et valeurs suivantes en exemple :\n",
+    "   - 'nom': 'Jean Dupont'\n",
+    "   - 'âge': 20\n",
+    "   - 'filière': 'Informatique'\n",
+    "\n",
+    "2. Modifier l'age pour qu'il soit égal à 21\n",
+    "\n",
+    "3. Afficher le genre de l'étudiant si il possède une telle clé sinon afficher un message inquant que l'on ne connait pas son genre."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "f4f4cbd3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "L'étudiant n'a pas de genre spécifié\n"
+     ]
+    }
+   ],
+   "source": [
+    "etudiant = {\"nom\": \"Jean Dupont\", \n",
+    "           \"age\": 20,\n",
+    "           \"filière\": \"Informatique\"}\n",
+    "\n",
+    "etudiant['age'] = 21\n",
+    "\n",
+    "if 'genre' in etudiant:\n",
+    "    print(\"Le gende de l'étudiant est\", etudiant['genre'])\n",
+    "else:\n",
+    "    print(\"L'étudiant n'a pas de genre spécifié\")\n",
+    "    \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0bf74319",
+   "metadata": {},
+   "source": [
+    "## Exercice sur les ensembles\n",
+    "\n",
+    "La fonction chr permet de convertir un code ASCII en un caractère. La liste des lettres majuscules peut être obtenue à partir de la commande suivante : "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "f0c73a7a",
+   "metadata": {
+    "tags": [
+     "keep"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "liste_majuscules = [chr(65+i) for i in range(26)]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "548a21f1",
+   "metadata": {},
+   "source": [
+    "On souhaite vérifier qu'un mot de passe entré par un utilisateur est sufisament compliqué. Voici les règles : \n",
+    "* Il doit contenir 12 caractères différents\n",
+    "* Il doit contenir au moins 2 majuscules différentes\n",
+    "* Il doit contenir au moins un caractère de ponctuation ``.,;:!?``\n",
+    "* Il ne doit pas contenir d'espace\n",
+    "\n",
+    "Ecrire une fonction qui renvoie True si toutes les conditions sont vérifiées et False sinon"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "00034eee",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "majuscules = set(majuscules)\n",
+    "ponctuations = set(',.;:!?')\n",
+    "\n",
+    "def verifie_mot_de_passe(mdp):\n",
+    "    mdp = set(mdp)\n",
+    "    if len(mdp)<12:\n",
+    "        return False\n",
+    "    if len(mdp&majuscules)<2:\n",
+    "        return False\n",
+    "    if not ponctuations&mdp:\n",
+    "        return False\n",
+    "    if ' ' in mdp:\n",
+    "        return False\n",
+    "    return True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "866bf676",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "verifie_mot_de_passe('edsfJe:;ZErb_4')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "940e4801",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Tags",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

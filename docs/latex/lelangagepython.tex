@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{Mar 13, 2024}
+\date{Mar 20, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1283,7 +1283,7 @@ Le ‘f’ indique que l’on veut une notation a virgule fixe, le ‘e’ une n
 \label{\detokenize{cours4_chaine_caractere_cours:quelques-methodes-utiles}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{strip}} (enlève les espaces blanc au début et fin de la chaîne)
+\sphinxcode{\sphinxupquote{strip}} (enlève les espaces blancs au début et fin de la chaîne)
 
 \item {} 
 \sphinxAtStartPar
@@ -2785,6 +2785,337 @@ Ecrire une fonction qui calcule le module d’un nombre complexe \(z\)
 Ecrire une fonction qui à partir de \(r\) et \(\theta\) renvoie le nombre \(z = re^{i\theta} = r\cos(\theta) + ir\sin(\theta)\)
 
 \end{itemize}
+
+
+\subsection{Exercices sur les conteneurs}
+\label{\detokenize{cours3_conteneur_corr_exercices:exercices-sur-les-conteneurs}}\label{\detokenize{cours3_conteneur_corr_exercices::doc}}
+
+\subsubsection{Manipulation des listes}
+\label{\detokenize{cours3_conteneur_corr_exercices:manipulation-des-listes}}
+\sphinxAtStartPar
+On considère la liste {[}1, 5, 3, 5, 6, 2{]}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction ‘somme’ qui renvoie la somme des éléments d’une liste de nombres. On fera explicitement la boucle for.
+
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction ‘maximum’ qui renvoie le maximum des éléments d’une liste de nombres. On fera explicitement la boucle for.
+
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction ‘arg\_maximum’ qui renvoie l’indice du maximum d’une liste de nombres. On fera explicitement la boucle for.
+
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction ‘trouve’ qui renvoie l’indice correspondant à l’argument. On fera explicitement la boucle for.
+
+\item {} 
+\sphinxAtStartPar
+Comment répondre aux questions 1, 2, 3, 4 en utilisant des fonctions déjà existantes ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{l} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}
+
+\PYG{k}{def} \PYG{n+nf}{somme}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{output} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n}{l}\PYG{p}{:}
+        \PYG{n}{output} \PYG{o}{+}\PYG{o}{=} \PYG{n}{val}
+    \PYG{k}{return} \PYG{n}{output}
+
+\PYG{k}{def} \PYG{n+nf}{maximum}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+    \PYG{n}{output} \PYG{o}{=} \PYG{n}{l}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n}{l}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{val}\PYG{o}{\PYGZgt{}}\PYG{n}{output}\PYG{p}{:}
+            \PYG{n}{output} \PYG{o}{=} \PYG{n}{val}
+    \PYG{k}{return} \PYG{n}{output}
+
+\PYG{k}{def} \PYG{n+nf}{arg\PYGZus{}maximum}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+    \PYG{n}{output} \PYG{o}{=} \PYG{n}{l}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{i\PYGZus{}max} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{val}\PYG{o}{\PYGZgt{}}\PYG{n}{output}\PYG{p}{:}
+            \PYG{n}{output} \PYG{o}{=} \PYG{n}{val}
+            \PYG{n}{i\PYGZus{}max} \PYG{o}{=} \PYG{n}{i}
+    \PYG{k}{return} \PYG{n}{i\PYGZus{}max}
+ 
+\PYG{k}{def} \PYG{n+nf}{trouve}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{n}{valeur\PYGZus{}a\PYGZus{}trouver}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{valeur\PYGZus{}a\PYGZus{}trouver}\PYG{o}{==}\PYG{n}{val}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{i}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+    
+\PYG{c+c1}{\PYGZsh{} On peut utiliser sum, max et l.index}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Liste comprehension}
+\label{\detokenize{cours3_conteneur_corr_exercices:liste-comprehension}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Créer une liste nomée \sphinxcode{\sphinxupquote{nombres}} contenant les entiers de 0 à 9 inclus
+
+\item {} 
+\sphinxAtStartPar
+Créer une liste contenant la racine carré des éléments de \sphinxcode{\sphinxupquote{nombres}} (on utilisera une comprehension de liste)
+
+\item {} 
+\sphinxAtStartPar
+Créer une liste contenant tous les nombres pairs de la listes \sphinxcode{\sphinxupquote{nombres}} (on utilisera une comprehension de liste)
+
+\item {} 
+\sphinxAtStartPar
+Toujours en utilisant un comprehension de liste, considérant deux listes \sphinxcode{\sphinxupquote{l1}} et \sphinxcode{\sphinxupquote{l2}}, créer une nouvelle liste contenant les couples pris deux à deux de l1 et l2. On supposera que les deux liste ont la même longueur. Quelle fonction python fait la même chose ?
+
+\item {} 
+\sphinxAtStartPar
+En utilisant la fonction de la question 4 et la liste de la question 2 vérifier que l’on a bien \(y=x^2\) pour chaque élément.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{n}{nombres} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{racine\PYGZus{}nombres} \PYG{o}{=} \PYG{p}{[}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{nb}\PYG{p}{)} \PYG{k}{for} \PYG{n}{nb} \PYG{o+ow}{in} \PYG{n}{nombres}\PYG{p}{]}
+\PYG{n}{nb\PYGZus{}pairs} \PYG{o}{=} \PYG{p}{[}\PYG{n}{nb} \PYG{k}{for} \PYG{n}{nb} \PYG{o+ow}{in} \PYG{n}{nombres} \PYG{k}{if} \PYG{n}{nb}\PYG{o}{\PYGZpc{}}\PYG{k}{2}==0]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{liste1} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{B}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\PYG{n}{liste2} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{24}\PYG{p}{]}
+\PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{n}{l1}\PYG{p}{,} \PYG{n}{l2}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{p}{[}\PYG{p}{(}\PYG{n}{l1}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,} \PYG{n}{l2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{l1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{]}
+
+\PYG{n}{f}\PYG{p}{(}\PYG{n}{liste1}\PYG{p}{,} \PYG{n}{liste2}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[(\PYGZsq{}A\PYGZsq{}, 10), (\PYGZsq{}B\PYGZsq{}, 4), (\PYGZsq{}C\PYGZsq{}, 24)]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{a}\PYG{p}{,} \PYG{n}{racine\PYGZus{}a} \PYG{o+ow}{in} \PYG{n}{f}\PYG{p}{(}\PYG{n}{nombres}\PYG{p}{,} \PYG{n}{racine\PYGZus{}nombres}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{math}\PYG{o}{.}\PYG{n}{isclose}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{racine\PYGZus{}a}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Problème avec }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{a}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ et }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{racine\PYGZus{}a}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Exercice de base sur les dictionnaires}
+\label{\detokenize{cours3_conteneur_corr_exercices:exercice-de-base-sur-les-dictionnaires}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Tout d’abord, nous allons créer un petit dictionnaire qui contient des informations sur un étudiant. Utilisons les clés et valeurs suivantes en exemple :
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+‘nom’: ‘Jean Dupont’
+
+\item {} 
+\sphinxAtStartPar
+‘âge’: 20
+
+\item {} 
+\sphinxAtStartPar
+‘filière’: ‘Informatique’
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+Modifier l’age pour qu’il soit égal à 21
+
+\item {} 
+\sphinxAtStartPar
+Afficher le genre de l’étudiant si il possède une telle clé sinon afficher un message inquant que l’on ne connait pas son genre.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{etudiant} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{nom}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Jean Dupont}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} 
+           \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{age}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{20}\PYG{p}{,}
+           \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{filière}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Informatique}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{etudiant}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{21}
+
+\PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{genre}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{etudiant}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Le gende de l}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{étudiant est}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{etudiant}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{genre}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{L}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{étudiant n}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{a pas de genre spécifié}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+L\PYGZsq{}étudiant n\PYGZsq{}a pas de genre spécifié
+\end{sphinxVerbatim}
+
+
+\subsubsection{Exercice sur les ensembles}
+\label{\detokenize{cours3_conteneur_corr_exercices:exercice-sur-les-ensembles}}
+\sphinxAtStartPar
+La fonction chr permet de convertir un code ASCII en un caractère. La liste des lettres majuscules peut être obtenue à partir de la commande suivante :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{liste\PYGZus{}majuscules} \PYG{o}{=} \PYG{p}{[}\PYG{n+nb}{chr}\PYG{p}{(}\PYG{l+m+mi}{65}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{26}\PYG{p}{)}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+On souhaite vérifier qu’un mot de passe entré par un utilisateur est sufisament compliqué. Voici les règles :
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Il doit contenir 12 caractères différents
+
+\item {} 
+\sphinxAtStartPar
+Il doit contenir au moins 2 majuscules différentes
+
+\item {} 
+\sphinxAtStartPar
+Il doit contenir au moins un caractère de ponctuation \sphinxcode{\sphinxupquote{.,;:!?}}
+
+\item {} 
+\sphinxAtStartPar
+Il ne doit pas contenir d’espace
+
+\end{itemize}
+
+\sphinxAtStartPar
+Ecrire une fonction qui renvoie True si toutes les conditions sont vérifiées et False sinon
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{majuscules} \PYG{o}{=} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{majuscules}\PYG{p}{)}
+\PYG{n}{ponctuations} \PYG{o}{=} \PYG{n+nb}{set}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{,.;:!?}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{verifie\PYGZus{}mot\PYGZus{}de\PYGZus{}passe}\PYG{p}{(}\PYG{n}{mdp}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{mdp} \PYG{o}{=} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{mdp}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{mdp}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{12}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{mdp}\PYG{o}{\PYGZam{}}\PYG{n}{majuscules}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{2}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{ponctuations}\PYG{o}{\PYGZam{}}\PYG{n}{mdp}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{mdp}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{k}{return} \PYG{k+kc}{True}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{verifie\PYGZus{}mot\PYGZus{}de\PYGZus{}passe}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{edsfJe:;ZErb\PYGZus{}4}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+True
+\end{sphinxVerbatim}
+
+
+\subsection{Chaînes de caractères}
+\label{\detokenize{cours4_chaine_caractere_corr_exercices:chaines-de-caracteres}}\label{\detokenize{cours4_chaine_caractere_corr_exercices::doc}}
+
+\subsubsection{Liste de prix}
+\label{\detokenize{cours4_chaine_caractere_corr_exercices:liste-de-prix}}
+\sphinxAtStartPar
+Voici un liste de prix sous forme d’un dictionnaire. Afficher la liste de prix de la façon suivante :
+
+
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{price\PYGZus{}liste} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{tomates}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{3.4}\PYG{p}{,}
+     \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{pommes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{2.49}\PYG{p}{,}
+     \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{oignons}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.45}\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{nom}\PYG{p}{,} \PYG{n}{prix} \PYG{o+ow}{in} \PYG{n}{price\PYGZus{}liste}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{prix}\PYG{l+s+si}{:}\PYG{l+s+s1}{5.2f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{n}{prix}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{€}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{nom}\PYG{l+s+si}{:}\PYG{l+s+s1}{\PYGZgt{}10s}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{prix}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+   tomates:  3€40
+    pommes:  2€49
+   oignons:  1€45
+\end{sphinxVerbatim}
+
+
+\subsubsection{Unicode}
+\label{\detokenize{cours4_chaine_caractere_corr_exercices:unicode}}
+\sphinxAtStartPar
+Afficher toutes les lettres greques de α à ω. (On pourra copier coller ces lettres pour avoir leurs unicodes)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{debut} \PYG{o}{=} \PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{α}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{fin} \PYG{o}{=} \PYG{n+nb}{ord}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ω}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{[}\PYG{n+nb}{chr}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{debut}\PYG{p}{,} \PYG{n}{fin}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ ς σ τ υ φ χ ψ ω
+\end{sphinxVerbatim}
+
+
+\subsubsection{Combien La Fontaine a t\sphinxhyphen{}il utilisé de mots différents dans ses fables ?}
+\label{\detokenize{cours4_chaine_caractere_corr_exercices:combien-la-fontaine-a-t-il-utilise-de-mots-differents-dans-ses-fables}}
+\sphinxAtStartPar
+Les lignes suivantes permettent de télécharger l’ensemble des fables de la Fontaine.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Combien y a\sphinxhyphen{}t\sphinxhyphen{}il de mots différents ? On pourra d’abord remplacer toutes les ponctuations par des espaces, puis créer une liste de mots que l’on mettra en minuscule. On créera ensuite un ensemble dont on regardera la taille.
+
+\item {} 
+\sphinxAtStartPar
+Quelle est le mot le plus long ?
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{requests}
+
+\PYG{n}{s} \PYG{o}{=} \PYG{n}{requests}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{https://www.gutenberg.org/cache/epub/56327/pg56327.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{text}
+
+\PYG{n}{ponctutation\PYGZus{}list} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{?,.;:!}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+s1}{\PYGZhy{}[]()/«»}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{ponctuation} \PYG{o+ow}{in} \PYG{n}{ponctutation\PYGZus{}list}\PYG{p}{:}
+    \PYG{n}{s} \PYG{o}{=} \PYG{n}{s}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{n}{ponctuation}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    
+\PYG{n}{liste\PYGZus{}mots} \PYG{o}{=} \PYG{n}{s}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{liste\PYGZus{}mots} \PYG{o}{=} \PYG{p}{[}\PYG{n}{item}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{lower}\PYG{p}{(}\PYG{p}{)} \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{liste\PYGZus{}mots}\PYG{p}{]}
+\PYG{n}{ensemble\PYGZus{}mots} \PYG{o}{=} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{liste\PYGZus{}mots}\PYG{p}{)}
+
+\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{ensemble\PYGZus{}mots}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+10496
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ensemble\PYGZus{}mots} \PYG{o}{=} \PYG{n+nb}{sorted}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{ensemble\PYGZus{}mots}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{tailles} \PYG{o}{=} \PYG{p}{[}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{mot}\PYG{p}{)} \PYG{k}{for} \PYG{n}{mot} \PYG{o+ow}{in} \PYG{n}{ensemble\PYGZus{}mots}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{taille\PYGZus{}max} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{tailles}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{mot} \PYG{k}{for} \PYG{n}{mot}\PYG{p}{,} \PYG{n}{taille} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{ensemble\PYGZus{}mots}\PYG{p}{,} \PYG{n}{tailles}\PYG{p}{)} \PYG{k}{if} \PYG{n}{taille}\PYG{o}{==}\PYG{n}{taille\PYGZus{}max}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[\PYGZsq{}batrachomyomachie\PYGZsq{}]
+\end{sphinxVerbatim}
 
 
 

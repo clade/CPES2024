@@ -6,3 +6,5 @@ Correction
 
    cours1_fonctions_corr_exercices.ipynb
    cours2_nombres_corr_exercices.ipynb
+   cours3_conteneur_corr_exercices.ipynb
+   cours4_chaine_caractere_corr_exercices.ipynb
