@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Programmation orientée objet &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feuilles d’exercices" href="feuilles_d_exercices.html" />
+    <link rel="prev" title="Chaînes de caractères" href="cours4_chaine_caractere_cours.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours4_chaine_caractere_cours.html" title="Chaînes de caractères"
+             accesskey="P">previous</a> |
+          <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="programmation-orientee-objet">
+<h1>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h1>
+<p>Comment créer se propres objets en Python.</p>
+<section id="vocabulaire">
+<h2>Vocabulaire<a class="headerlink" href="#vocabulaire" title="Permalink to this headline">¶</a></h2>
+<p>En python tout ce que l’on manipule est un objet :</p>
+<ul class="simple">
+<li><p>Nombre, liste, dictionnaire, …</p></li>
+<li><p>Tableau numpy</p></li>
+<li><p>Fonction, module, ….</p></li>
+</ul>
+<p>Un objet possède des <strong>attributs</strong>. Exemple :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>z = 1.1J
+z.real
+a = np.array([1, 2, 4])
+a.shape
+</pre></div>
+</div>
+<p>Un objet possède des <strong>méthodes</strong>. Exemple :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a.mean()
+a.conjugate()
+z.conjugate()
+</pre></div>
+</div>
+<p>Les méthodes sont des fonctions attachées à l’objet. La méthode conjugate d’un tableau n’est pas la même fonction que la méthode conjugate d’un complexe.</p>
+</section>
+<section id="comment-creer-un-objet">
+<h2>Comment créer un objet<a class="headerlink" href="#comment-creer-un-objet" title="Permalink to this headline">¶</a></h2>
+<section id="creer-un-object-vecteur">
+<h3>Créer un object vecteur<a class="headerlink" href="#creer-un-object-vecteur" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Vecteur(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="si">}</span><span class="s1">)&#39;</span>
+    
+    <span class="k">def</span> <span class="nf">norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Vecteur</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Vecteur</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+    
+    
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vecteur(4, 7, 4)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="attributs-d-objet-et-de-class">
+<h3>Attributs d’objet et de class<a class="headerlink" href="#attributs-d-objet-et-de-class" title="Permalink to this headline">¶</a></h3>
+<p>Les classes sont des objets comme les autres. Elles ont des attributs. Ce sont tous les objets définis dans la classe. Si un objet ne possède pas l’attribut auquel ou souhaite accéder, c’est l’attribut de la classe qui est renvoyée si celui ci existe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+    
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Ici on va chercher l&#39;attribut de Test</span>
+<span class="n">t</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># A est maintenant un attribut de l&#39;objet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Test</span><span class="o">.</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Test possède toujours sont attribut a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les méthodes sont des fonctions qui sont des attributs de la classe. C’est lorsque l’on accède à cette attribut par l’objet, une transformation se passe et Python rajoute automatiquement l’objet comme premier argument.</p>
+</section>
+<section id="instance-et-heritage">
+<h3>Instance et héritage<a class="headerlink" href="#instance-et-heritage" title="Permalink to this headline">¶</a></h3>
+<p>L’héritage est un mécanisme qui permet, lors de la déclaration d’une nouvelle classe, d’y inclure les caractéristiques d’une autre classe.</p>
+<p>Un objet est une instance de sa classe. On peut le tester avec la méthode <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>. Il est aussi une instance de toutes les classes dont hérite sa classe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">FormeGeometrique</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Polygone</span><span class="p">(</span><span class="n">FormeGeometrique</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Cercle</span><span class="p">(</span><span class="n">FormeGeometrique</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        
+    <span class="k">def</span> <span class="nf">surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Polygone</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">largeur</span><span class="p">,</span> <span class="n">longueur</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">largeur</span> <span class="o">=</span> <span class="n">largeur</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">longueur</span> <span class="o">=</span> <span class="n">longueur</span>
+        
+    <span class="k">def</span> <span class="nf">surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">largeur</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">longueur</span>
+    
+<span class="n">objet</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">objet</span><span class="o">.</span><span class="n">surface</span><span class="p">())</span>
+
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">Polygone</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">volume_prisme</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">hauteur</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">base</span><span class="o">.</span><span class="n">surface</span><span class="p">()</span><span class="o">*</span><span class="n">hauteur</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’utilsation de classes permet d’écrire des méthodes ayant le même nom, mais différentes pour chaque objet. La fonction volume_prisme fonctionne pour tout type de FormeGeometrique possédant une méthode surface.</p>
+</section>
+<section id="methodes-speciales">
+<h3>Méthodes spéciales<a class="headerlink" href="#methodes-speciales" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, <code class="docutils literal notranslate"><span class="pre">__str__</span></code></p></li>
+</ul>
+<p>Lorsque c’est possible, <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> doit représenter au mieux l’objet. Souvent il s’agit d’une chaine de caractère qui en étant évaluée renvoie un objet similaire. La méthode <code class="docutils literal notranslate"><span class="pre">__str__</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> par défaut. Sinon, elle doit être plus simple.</p>
+<p>Opérateur unaire et binaire</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__neg__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__add__</span></code>, <code class="docutils literal notranslate"><span class="pre">__sub__</span></code>, <code class="docutils literal notranslate"><span class="pre">__mul__</span></code>, <code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>, <code class="docutils literal notranslate"><span class="pre">__mod__</span></code>, <code class="docutils literal notranslate"><span class="pre">__pow__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__radd__</span></code>, …</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__eq__</span></code> (==), <code class="docutils literal notranslate"><span class="pre">__ne__</span></code> (!=), <code class="docutils literal notranslate"><span class="pre">__lt__</span></code> (&lt;), <code class="docutils literal notranslate"><span class="pre">__le__</span></code> (&lt;=), <code class="docutils literal notranslate"><span class="pre">__gt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__ge__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__or__</span></code> (|), <code class="docutils literal notranslate"><span class="pre">__and__</span></code> (&amp;), <code class="docutils literal notranslate"><span class="pre">__xor__</span></code>(^)</p></li>
+</ul>
+<p>Emulateur de contenu</p>
+<ul class="simple">
+<li><p>a[key] =&gt; <code class="docutils literal notranslate"><span class="pre">a.__getitem__(key)</span></code></p></li>
+<li><p>a[key] = val =&gt; <code class="docutils literal notranslate"><span class="pre">a.__setitem__(key,</span> <span class="pre">val)</span></code></p></li>
+<li><p>del a[key] =&gt; <code class="docutils literal notranslate"><span class="pre">a.__delitem__(key)</span></code></p></li>
+<li><p>len(a) =&gt; <code class="docutils literal notranslate"><span class="pre">a.__len__()</span></code></p></li>
+<li><p>for elm in a =&gt; <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">elm</span> <span class="pre">in</span> <span class="pre">a.__iter__()</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_cours.html">Les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_cours.html">Les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_cours.html">Les conteneurs en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_cours.html">Chaînes de caractères</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Programmation orientée objet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours4_chaine_caractere_cours.html" title="Chaînes de caractères"
+              >previous</a> |
+            <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours6_objet_cours.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

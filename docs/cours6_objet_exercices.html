@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Vecteur &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Correction" href="correction.html" />
+    <link rel="prev" title="Chaînes de caractères" href="cours4_chaine_caractere_exercices.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours4_chaine_caractere_exercices.html" title="Chaînes de caractères"
+             accesskey="P">previous</a> |
+          <a href="correction.html" title="Correction"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="vecteur">
+<h1>Vecteur<a class="headerlink" href="#vecteur" title="Permalink to this headline">¶</a></h1>
+<p>Créer une classe Vecteur3D. Chaque vecteur aura 3 attributs : x, y, z</p>
+<ul class="simple">
+<li><p>Écrire une méthode norme qui renvoie la norme.</p></li>
+<li><p>Écrire la méthode <code class="docutils literal notranslate"><span class="pre">__add__</span></code> pour faire la somme entre deux veteurs</p></li>
+<li><p>Écrire la méthode <code class="docutils literal notranslate"><span class="pre">__mul__</span></code> pour faire soit le produit par un scalaire (<span class="math notranslate nohighlight">\(2\vec{u}\)</span>) ou le produit scalaire (<span class="math notranslate nohighlight">\(\vec{u}\cdot\vec{v}\)</span>).</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bibliographie">
+<h1>Bibliographie<a class="headerlink" href="#bibliographie" title="Permalink to this headline">¶</a></h1>
+<p>Un livre est décrit par son titre, auteur et année de publication (pour faire les choses simplements). Écrire une classe <code class="docutils literal notranslate"><span class="pre">Livre</span></code> qui enregistre ces informations. Ecrire la méthode <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> et <code class="docutils literal notranslate"><span class="pre">__str__</span></code>.</p>
+<p>Une bibliographe est une liste de livre. Écrire la classe <code class="docutils literal notranslate"><span class="pre">Bibliographie</span></code> qui enregistre une liste de livre (on stockera la liste de livre sous forme d’une liste qui sera un attribut de la bibliographie).</p>
+<p>L’objectif final est de pouvoir faire ceci ::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>livre1 = Livre(&quot;A very nice book&quot;, &quot;F. Dupont&quot;, 2014)
+livre2 = Livre(&quot;A very smart book&quot;, &quot;A. Einstein&quot;, 1923)
+livre3 = Livre(&quot;A very stupid comic&quot;, &quot;D. Duck&quot;, 1937)
+
+bibliographie = Bibliographie([book1, book2, book3])
+</pre></div>
+</div>
+<p>Maintenant que tout est fait sous forme d’objet, on peut imaginer écrire plusieurs méthode :</p>
+<ul class="simple">
+<li><p>Écrire une méthode <code class="docutils literal notranslate"><span class="pre">filter_by_year</span></code> qui fait une nouvelle bibliographie ne contenant que les livres d’une année donée.</p></li>
+<li><p>Écrire une méthode <code class="docutils literal notranslate"><span class="pre">to_html</span></code> qui formate correctement la bibliographie. La méthode de la classe Bibliographie devra appeler une méthode pour chaque Livre.</p></li>
+</ul>
+<p>Et en HTML ::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt; &lt;th&gt;Auteur&lt;/th&gt;&lt;th&gt;Titre&lt;/th&gt;&lt;th&gt;Année&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+       &lt;tr&gt;&lt;td&gt;F. Dupont&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;A very nice book&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;&lt;td&gt;A. Einstein&lt;/td&gt;&lt;td&gt;1923&lt;/td&gt;&lt;td&gt;A very smart book&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;&lt;td&gt;D. Duck&lt;/td&gt;&lt;td&gt;1937&lt;/td&gt;&lt;td&gt;A very stupid comic&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre></div>
+</div>
+<p>Remarque : si un objet possède une méthode <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code>, alors le jupyter notebook utilsera automatiquement la représentation en HTML. Rajouter cette méthode (qui appelera to_html).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="systeme-de-calcul-formel">
+<h1>Système de calcul formel<a class="headerlink" href="#systeme-de-calcul-formel" title="Permalink to this headline">¶</a></h1>
+<p><em>Cet exercice est à but purement pédagogique. Pour utiliser un système de calcul formel sous Python, la librairie <code class="docutils literal notranslate"><span class="pre">sympy</span></code> existe et fonctionnera bien mieux que ce que l’on va faire !</em></p>
+<p>L’objectif de ce TD est de réaliser un système de calcul formel qui permettra de manipuler des expressions algébriques simples et de réaliser des opérations simples. Par exemple, on souhaite pouvoir effectuer ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># Dérivée par rapport à x</span>
+</pre></div>
+</div>
+<p>Chaque expression sera représentée par un arbre. Les feuilles de l’arbre seront soit les symboles soit les constantes numériques. Les noeuds seront des fonctions à un ou plusieurs argument (sinus, somme, opposé, …). Le nom de la classe du noeud désignera la fonction. Les “enfants” du noeud seront les arguments de la fonction. Par exemple l’expression ci dessus correspondra à l’objet suivant ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sA : 2*x*y</span>
+<span class="n">sA</span> <span class="o">=</span> <span class="n">Prod</span><span class="p">(</span><span class="n">Prod</span><span class="p">(</span><span class="n">Number</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)),</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
+<span class="c1"># sB : sin(x)*y</span>
+<span class="n">sB</span> <span class="o">=</span> <span class="n">Prod</span><span class="p">(</span><span class="n">Sin</span><span class="p">(</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)),</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="n">sA</span><span class="p">,</span> <span class="n">sB</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="structure-du-programme">
+<h2>Structure du programme<a class="headerlink" href="#structure-du-programme" title="Permalink to this headline">¶</a></h2>
+<p>Voici la structure de base ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Expr</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Leave</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Pour les feuilles ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Symbol</span><span class="p">(</span><span class="n">Leave</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Number</span><span class="p">(</span><span class="n">Leave</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Ensuite on définit les fonctions ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Function</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Function with an arbitrary number of arguments &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Les opérateurs sont des fonctions comme les autres, mais elle seront simplement affichées différemment ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BinaryOperator</span><span class="p">(</span><span class="n">Function</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="n">BinaryOperator</span><span class="p">):</span>
+    <span class="k">pass</span> 
+<span class="c1"># Idem pour Sub, Div, Prod, Pow</span>
+
+<span class="k">class</span> <span class="nc">UnitaryOperator</span><span class="p">(</span><span class="n">Function</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Neg</span><span class="p">(</span><span class="n">UnitaryOperateor</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Les fonction mathématiques, qui prennent un seul argument ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MathFunction</span><span class="p">(</span><span class="n">Function</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Sin</span><span class="p">(</span><span class="n">MathFunction</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<p>On va procéder étape par étape. Il sera plus facile de commencer par les feuilles avant d’écrire la structure globale.</p>
+<ol class="arabic simple">
+<li><p>Ecrire le <code class="docutils literal notranslate"><span class="pre">__init__</span></code> de la classe Symbol et Number</p></li>
+<li><p>Ecrire une méthode <code class="docutils literal notranslate"><span class="pre">display</span></code> sur ces classes afin de renvoyer une chaîne de caractère contenant le symbole ou le nombre</p></li>
+<li><p>Ecrire le <code class="docutils literal notranslate"><span class="pre">__init__</span></code> de la class Sin ainsi que le display. Le display devra appeler le display de l’argument. Par exemple ceci devra fonctionner ::</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="go">sin(x)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sin</span><span class="p">(</span><span class="n">Sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="go">sin(sin(x))</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Généraliser le <strong>init</strong> et le display de <code class="docutils literal notranslate"><span class="pre">Sin</span></code> afin de le mettre dans la class MathFunction. On rajoutera un attribut de classe à chaque sous classe de MathFunction ::</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sin</span><span class="p">(</span><span class="n">MathFunction</span><span class="p">):</span>
+    <span class="n">funtion_name</span> <span class="o">=</span> <span class="s1">&#39;sin&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Faire de même pour les opérateurs binaires. On pourra commencer par simplement le faire pour Sum, puis généraliser avec un attribut de classe ::</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="n">BinaryOperator</span><span class="p">):</span>
+    <span class="n">operator_name</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>A ce stade quelque chose comme ceci devrait fonctionner ::</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">Sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Sin</span><span class="p">(</span><span class="n">Prod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Rajouter les méthodes <code class="docutils literal notranslate"><span class="pre">__add__</span></code>, <code class="docutils literal notranslate"><span class="pre">__mul__</span></code>, etc à la classe Expr afin de pouvoir écrire :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">Sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Ecrire les méthodes <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> afin de calculer la valeur numérique d’une expression. Cette méthode fonctionnera de la sorte :</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">Sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expr</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On aura donc le protocole suivant ::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwd</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Le dictionnaire kwd sera passé récursivement jusqu’aux feuilles et sera utilisé pour évaluer les symboles.</p>
+<p>Les opérateurs binaires numériques sont définis dans le module <code class="docutils literal notranslate"><span class="pre">operator</span></code> et les fonctions dans le module <code class="docutils literal notranslate"><span class="pre">math</span></code>. Afin de factoriser le code, on rajoutera donc simplement un attribut de classe du type <code class="docutils literal notranslate"><span class="pre">operator_function</span> <span class="pre">=</span> <span class="pre">operator.add</span></code> pour les opérateurs binaires et <code class="docutils literal notranslate"><span class="pre">math_function</span> <span class="pre">=</span> <span class="pre">math.sin</span></code> pour les fonctions.</p>
+<ol class="arabic simple" start="8">
+<li><p>Maintenant que vous avez compris le principe, il devrait être facile d’écrire une méthode <code class="docutils literal notranslate"><span class="pre">diff</span></code> qui effectue la dérivée par rapport à une variable !</p></li>
+<li><p>Reste à simplifier les expressions. Une technique consiste à créer des règles de simplifications sous forme de méthode que l’on regroupe ensuite dans une liste ::</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="n">BinaryOperator</span><span class="p">):</span>
+    <span class="n">operator_name</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span>
+    <span class="n">operator_function</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span>
+
+    <span class="k">def</span> <span class="nf">simplication_de_deux_nombres</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arg1</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span> <span class="ow">and</span> 
+                        <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arg2</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arg1</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">arg2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">simplication_addition_avec_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="n">liste_simplication</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;simplication_de_deux_nombres&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;simplication_addition_avec_zero&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+<p>Ensuite, il faut réussir à appeler correctement et de façon recursive ces méthodes…</p>
+<ol class="arabic simple" start="10">
+<li><p>Pour l’affichage des opérateurs binaires, les règles de priorité peuvent être utilisées pour éviter de mettre trop de parenthèses. Par exemple, dans le cas <code class="docutils literal notranslate"><span class="pre">a*(b+c)</span></code>, la multiplication appelle le display de l’addition. Comme elle est prioritaire, l’addition va renvoyer le résulat avec des parenthèses. Dans le cas inverse <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b*c</span></code>, c’est inutile. Il faut donc que le display d’un opérateur passe sa priorité à ses enfants lors de l’appel de display. Implémenter ce principe.</p></li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_exercices.html">Exercices sur les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_exercices.html">Exercices sur les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_exercices.html">Exercices sur les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_exercices.html">Chaînes de caractères</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Vecteur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bibliographie">Bibliographie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#systeme-de-calcul-formel">Système de calcul formel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours4_chaine_caractere_exercices.html" title="Chaînes de caractères"
+              >previous</a> |
+            <a href="correction.html" title="Correction"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours6_objet_exercices.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

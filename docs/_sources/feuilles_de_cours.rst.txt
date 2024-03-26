@@ -8,3 +8,4 @@ Feuilles de cours
    cours2_nombres_cours.ipynb
    cours3_conteneur_cours.ipynb
    cours4_chaine_caractere_cours.ipynb
+   cours6_objet_cours.ipynb

@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{Mar 20, 2024}
+\date{Mar 26, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1392,6 +1392,233 @@ On peut aussi utilier le nom unicode
 \end{sphinxVerbatim}
 
 
+\subsection{Programmation orientée objet}
+\label{\detokenize{cours6_objet_cours:programmation-orientee-objet}}\label{\detokenize{cours6_objet_cours::doc}}
+\sphinxAtStartPar
+Comment créer se propres objets en Python.
+
+
+\subsubsection{Vocabulaire}
+\label{\detokenize{cours6_objet_cours:vocabulaire}}
+\sphinxAtStartPar
+En python tout ce que l’on manipule est un objet :
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Nombre, liste, dictionnaire, …
+
+\item {} 
+\sphinxAtStartPar
+Tableau numpy
+
+\item {} 
+\sphinxAtStartPar
+Fonction, module, ….
+
+\end{itemize}
+
+\sphinxAtStartPar
+Un objet possède des \sphinxstylestrong{attributs}. Exemple :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+z = 1.1J
+z.real
+a = np.array([1, 2, 4])
+a.shape
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Un objet possède des \sphinxstylestrong{méthodes}. Exemple :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+a.mean()
+a.conjugate()
+z.conjugate()
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les méthodes sont des fonctions attachées à l’objet. La méthode conjugate d’un tableau n’est pas la même fonction que la méthode conjugate d’un complexe.
+
+
+\subsubsection{Comment créer un objet}
+\label{\detokenize{cours6_objet_cours:comment-creer-un-objet}}
+
+\paragraph{Créer un object vecteur}
+\label{\detokenize{cours6_objet_cours:creer-un-object-vecteur}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{sqrt}
+
+\PYG{k}{class} \PYG{n+nc}{Vecteur}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x} \PYG{o}{=} \PYG{n}{x}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y} \PYG{o}{=} \PYG{n}{y}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{z} \PYG{o}{=} \PYG{n}{z}
+        
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}repr\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Vecteur(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{z}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+    
+    \PYG{k}{def} \PYG{n+nf}{norme}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{sqrt}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{z}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}add\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Vecteur}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Vecteur}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x} \PYG{o}{+} \PYG{n}{other}\PYG{o}{.}\PYG{n}{x}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y}\PYG{o}{+}\PYG{n}{other}\PYG{o}{.}\PYG{n}{y}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{z}\PYG{o}{+}\PYG{n}{other}\PYG{o}{.}\PYG{n}{z}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n+nb+bp}{NotImplemented}
+    
+    
+\PYG{n}{v1} \PYG{o}{=} \PYG{n}{Vecteur}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}
+\PYG{n}{v2} \PYG{o}{=} \PYG{n}{Vecteur}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{v1} \PYG{o}{+} \PYG{n}{v2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Vecteur(4, 7, 4)
+\end{sphinxVerbatim}
+
+
+\paragraph{Attributs d’objet et de class}
+\label{\detokenize{cours6_objet_cours:attributs-d-objet-et-de-class}}
+\sphinxAtStartPar
+Les classes sont des objets comme les autres. Elles ont des attributs. Ce sont tous les objets définis dans la classe. Si un objet ne possède pas l’attribut auquel ou souhaite accéder, c’est l’attribut de la classe qui est renvoyée si celui ci existe.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Test}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{1}
+    
+\PYG{n}{t} \PYG{o}{=} \PYG{n}{Test}\PYG{p}{(}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{t}\PYG{o}{.}\PYG{n}{a}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Ici on va chercher l\PYGZsq{}attribut de Test}
+\PYG{n}{t}\PYG{o}{.}\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{c+c1}{\PYGZsh{} A est maintenant un attribut de l\PYGZsq{}objet}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Test}\PYG{o}{.}\PYG{n}{a}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Test possède toujours sont attribut a}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+1
+1
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les méthodes sont des fonctions qui sont des attributs de la classe. C’est lorsque l’on accède à cette attribut par l’objet, une transformation se passe et Python rajoute automatiquement l’objet comme premier argument.
+
+
+\paragraph{Instance et héritage}
+\label{\detokenize{cours6_objet_cours:instance-et-heritage}}
+\sphinxAtStartPar
+L’héritage est un mécanisme qui permet, lors de la déclaration d’une nouvelle classe, d’y inclure les caractéristiques d’une autre classe.
+
+\sphinxAtStartPar
+Un objet est une instance de sa classe. On peut le tester avec la méthode \sphinxcode{\sphinxupquote{isinstance}}. Il est aussi une instance de toutes les classes dont hérite sa classe.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+
+\PYG{k}{class} \PYG{n+nc}{FormeGeometrique}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Polygone}\PYG{p}{(}\PYG{n}{FormeGeometrique}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Cercle}\PYG{p}{(}\PYG{n}{FormeGeometrique}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{r}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{r} \PYG{o}{=} \PYG{n}{r}
+        
+    \PYG{k}{def} \PYG{n+nf}{surface}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{math}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{r}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
+
+\PYG{k}{class} \PYG{n+nc}{Rectangle}\PYG{p}{(}\PYG{n}{Polygone}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{largeur}\PYG{p}{,} \PYG{n}{longueur}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{largeur} \PYG{o}{=} \PYG{n}{largeur}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{longueur} \PYG{o}{=} \PYG{n}{longueur}
+        
+    \PYG{k}{def} \PYG{n+nf}{surface}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{largeur} \PYG{o}{*} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{longueur}
+    
+\PYG{n}{objet} \PYG{o}{=} \PYG{n}{Rectangle}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{objet}\PYG{o}{.}\PYG{n}{surface}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{rect}\PYG{p}{,} \PYG{n}{Polygone}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{volume\PYGZus{}prisme}\PYG{p}{(}\PYG{n}{base}\PYG{p}{,} \PYG{n}{hauteur}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{base}\PYG{o}{.}\PYG{n}{surface}\PYG{p}{(}\PYG{p}{)}\PYG{o}{*}\PYG{n}{hauteur}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+6
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+True
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+L’utilsation de classes permet d’écrire des méthodes ayant le même nom, mais différentes pour chaque objet. La fonction volume\_prisme fonctionne pour tout type de FormeGeometrique possédant une méthode surface.
+
+
+\paragraph{Méthodes spéciales}
+\label{\detokenize{cours6_objet_cours:methodes-speciales}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_init\_\_}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_repr\_\_}}, \sphinxcode{\sphinxupquote{\_\_str\_\_}}
+
+\end{itemize}
+
+\sphinxAtStartPar
+Lorsque c’est possible, \sphinxcode{\sphinxupquote{\_\_repr\_\_}} doit représenter au mieux l’objet. Souvent il s’agit d’une chaine de caractère qui en étant évaluée renvoie un objet similaire. La méthode \sphinxcode{\sphinxupquote{\_\_str\_\_}} renvoie \sphinxcode{\sphinxupquote{\_\_repr\_\_}} par défaut. Sinon, elle doit être plus simple.
+
+\sphinxAtStartPar
+Opérateur unaire et binaire
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_neg\_\_}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_add\_\_}}, \sphinxcode{\sphinxupquote{\_\_sub\_\_}}, \sphinxcode{\sphinxupquote{\_\_mul\_\_}}, \sphinxcode{\sphinxupquote{\_\_truediv\_\_}}, \sphinxcode{\sphinxupquote{\_\_mod\_\_}}, \sphinxcode{\sphinxupquote{\_\_pow\_\_}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_radd\_\_}}, …
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_eq\_\_}} (==), \sphinxcode{\sphinxupquote{\_\_ne\_\_}} (!=), \sphinxcode{\sphinxupquote{\_\_lt\_\_}} (<), \sphinxcode{\sphinxupquote{\_\_le\_\_}} (<=), \sphinxcode{\sphinxupquote{\_\_gt\_\_}}, \sphinxcode{\sphinxupquote{\_\_ge\_\_}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\_\_or\_\_}} (|), \sphinxcode{\sphinxupquote{\_\_and\_\_}} (\&), \sphinxcode{\sphinxupquote{\_\_xor\_\_}}(\textasciicircum{})
+
+\end{itemize}
+
+\sphinxAtStartPar
+Emulateur de contenu
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+a{[}key{]} => \sphinxcode{\sphinxupquote{a.\_\_getitem\_\_(key)}}
+
+\item {} 
+\sphinxAtStartPar
+a{[}key{]} = val => \sphinxcode{\sphinxupquote{a.\_\_setitem\_\_(key, val)}}
+
+\item {} 
+\sphinxAtStartPar
+del a{[}key{]} => \sphinxcode{\sphinxupquote{a.\_\_delitem\_\_(key)}}
+
+\item {} 
+\sphinxAtStartPar
+len(a) => \sphinxcode{\sphinxupquote{a.\_\_len\_\_()}}
+
+\item {} 
+\sphinxAtStartPar
+for elm in a => \sphinxcode{\sphinxupquote{for elm in a.\_\_iter\_\_()}}
+
+\end{itemize}
+
+
 \section{Feuilles d’exercices}
 \label{\detokenize{feuilles_d_exercices:feuilles-d-exercices}}\label{\detokenize{feuilles_d_exercices::doc}}
 
@@ -2004,6 +2231,317 @@ Combien y a\sphinxhyphen{}t\sphinxhyphen{}il de mots différents ? On pourra d�
 Quelle est le mot le plus long ?
 
 \end{itemize}
+
+
+\subsection{Vecteur}
+\label{\detokenize{cours6_objet_exercices:vecteur}}\label{\detokenize{cours6_objet_exercices::doc}}
+\sphinxAtStartPar
+Créer une classe Vecteur3D. Chaque vecteur aura 3 attributs : x, y, z
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode norme qui renvoie la norme.
+
+\item {} 
+\sphinxAtStartPar
+Écrire la méthode \sphinxcode{\sphinxupquote{\_\_add\_\_}} pour faire la somme entre deux veteurs
+
+\item {} 
+\sphinxAtStartPar
+Écrire la méthode \sphinxcode{\sphinxupquote{\_\_mul\_\_}} pour faire soit le produit par un scalaire (\(2\vec{u}\)) ou le produit scalaire (\(\vec{u}\cdot\vec{v}\)).
+
+\end{itemize}
+
+
+\subsection{Bibliographie}
+\label{\detokenize{cours6_objet_exercices:bibliographie}}
+\sphinxAtStartPar
+Un livre est décrit par son titre, auteur et année de publication (pour faire les choses simplements). Écrire une classe \sphinxcode{\sphinxupquote{Livre}} qui enregistre ces informations. Ecrire la méthode \sphinxcode{\sphinxupquote{\_\_repr\_\_}} et \sphinxcode{\sphinxupquote{\_\_str\_\_}}.
+
+\sphinxAtStartPar
+Une bibliographe est une liste de livre. Écrire la classe \sphinxcode{\sphinxupquote{Bibliographie}} qui enregistre une liste de livre (on stockera la liste de livre sous forme d’une liste qui sera un attribut de la bibliographie).
+
+\sphinxAtStartPar
+L’objectif final est de pouvoir faire ceci ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+livre1 = Livre(\PYGZdq{}A very nice book\PYGZdq{}, \PYGZdq{}F. Dupont\PYGZdq{}, 2014)
+livre2 = Livre(\PYGZdq{}A very smart book\PYGZdq{}, \PYGZdq{}A. Einstein\PYGZdq{}, 1923)
+livre3 = Livre(\PYGZdq{}A very stupid comic\PYGZdq{}, \PYGZdq{}D. Duck\PYGZdq{}, 1937)
+
+bibliographie = Bibliographie([book1, book2, book3])
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Maintenant que tout est fait sous forme d’objet, on peut imaginer écrire plusieurs méthode :
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode \sphinxcode{\sphinxupquote{filter\_by\_year}} qui fait une nouvelle bibliographie ne contenant que les livres d’une année donée.
+
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode \sphinxcode{\sphinxupquote{to\_html}} qui formate correctement la bibliographie. La méthode de la classe Bibliographie devra appeler une méthode pour chaque Livre.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Et en HTML ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}table\PYGZgt{}
+    \PYGZlt{}thead\PYGZgt{}
+        \PYGZlt{}tr\PYGZgt{} \PYGZlt{}th\PYGZgt{}Auteur\PYGZlt{}/th\PYGZgt{}\PYGZlt{}th\PYGZgt{}Titre\PYGZlt{}/th\PYGZgt{}\PYGZlt{}th\PYGZgt{}Année\PYGZlt{}/th\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+    \PYGZlt{}/thead\PYGZgt{}
+    \PYGZlt{}tbody\PYGZgt{}
+       \PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}F. Dupont\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}2014\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}A very nice book\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+       \PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}A. Einstein\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}1923\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}A very smart book\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+       \PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}D. Duck\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}1937\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}A very stupid comic\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+    \PYGZlt{}/tbody\PYGZgt{}
+\PYGZlt{}/table\PYGZgt{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Remarque : si un objet possède une méthode \sphinxcode{\sphinxupquote{\_repr\_html\_}}, alors le jupyter notebook utilsera automatiquement la représentation en HTML. Rajouter cette méthode (qui appelera to\_html).
+
+
+\subsection{Système de calcul formel}
+\label{\detokenize{cours6_objet_exercices:systeme-de-calcul-formel}}
+\sphinxAtStartPar
+\sphinxstyleemphasis{Cet exercice est à but purement pédagogique. Pour utiliser un système de calcul formel sous Python, la librairie \sphinxcode{\sphinxupquote{sympy}} existe et fonctionnera bien mieux que ce que l’on va faire !}
+
+\sphinxAtStartPar
+L’objectif de ce TD est de réaliser un système de calcul formel qui permettra de manipuler des expressions algébriques simples et de réaliser des opérations simples. Par exemple, on souhaite pouvoir effectuer ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y} \PYG{o}{+} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{y}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{o}{.}\PYG{n}{diff}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Dérivée par rapport à x}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Chaque expression sera représentée par un arbre. Les feuilles de l’arbre seront soit les symboles soit les constantes numériques. Les noeuds seront des fonctions à un ou plusieurs argument (sinus, somme, opposé, …). Le nom de la classe du noeud désignera la fonction. Les “enfants” du noeud seront les arguments de la fonction. Par exemple l’expression ci dessus correspondra à l’objet suivant ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} sA : 2*x*y}
+\PYG{n}{sA} \PYG{o}{=} \PYG{n}{Prod}\PYG{p}{(}\PYG{n}{Prod}\PYG{p}{(}\PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} sB : sin(x)*y}
+\PYG{n}{sB} \PYG{o}{=} \PYG{n}{Prod}\PYG{p}{(}\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{s} \PYG{o}{=} \PYG{n}{Sum}\PYG{p}{(}\PYG{n}{sA}\PYG{p}{,} \PYG{n}{sB}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Structure du programme}
+\label{\detokenize{cours6_objet_exercices:structure-du-programme}}
+\sphinxAtStartPar
+Voici la structure de base ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Expr}\PYG{p}{(}\PYG{n+nb}{object}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Node}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Leave}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Pour les feuilles ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Ensuite on définit les fonctions ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Function}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Function with an arbitrary number of arguments \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les opérateurs sont des fonctions comme les autres, mais elle seront simplement affichées différemment ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{BinaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass} 
+\PYG{c+c1}{\PYGZsh{} Idem pour Sub, Div, Prod, Pow}
+
+\PYG{k}{class} \PYG{n+nc}{UnitaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Neg}\PYG{p}{(}\PYG{n}{UnitaryOperateor}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les fonction mathématiques, qui prennent un seul argument ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{MathFunction}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Questions}
+\label{\detokenize{cours6_objet_exercices:questions}}
+\sphinxAtStartPar
+On va procéder étape par étape. Il sera plus facile de commencer par les feuilles avant d’écrire la structure globale.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire le \sphinxcode{\sphinxupquote{\_\_init\_\_}} de la classe Symbol et Number
+
+\item {} 
+\sphinxAtStartPar
+Ecrire une méthode \sphinxcode{\sphinxupquote{display}} sur ces classes afin de renvoyer une chaîne de caractère contenant le symbole ou le nombre
+
+\item {} 
+\sphinxAtStartPar
+Ecrire le \sphinxcode{\sphinxupquote{\_\_init\_\_}} de la class Sin ainsi que le display. Le display devra appeler le display de l’argument. Par exemple ceci devra fonctionner ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{sin(x)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{sin(sin(x))}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Généraliser le \sphinxstylestrong{init} et le display de \sphinxcode{\sphinxupquote{Sin}} afin de le mettre dans la class MathFunction. On rajoutera un attribut de classe à chaque sous classe de MathFunction ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{funtion\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sin}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+Faire de même pour les opérateurs binaires. On pourra commencer par simplement le faire pour Sum, puis généraliser avec un attribut de classe ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{5}
+\item {} 
+\sphinxAtStartPar
+A ce stade quelque chose comme ceci devrait fonctionner ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{Sum}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Prod}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Rajouter les méthodes \sphinxcode{\sphinxupquote{\_\_add\_\_}}, \sphinxcode{\sphinxupquote{\_\_mul\_\_}}, etc à la classe Expr afin de pouvoir écrire :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{x} \PYG{o}{+} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{6}
+\item {} 
+\sphinxAtStartPar
+Ecrire les méthodes \sphinxcode{\sphinxupquote{evaluate}} afin de calculer la valeur numérique d’une expression. Cette méthode fonctionnera de la sorte :
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{expr} \PYG{o}{=} \PYG{n}{x} \PYG{o}{+} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{expr}\PYG{o}{.}\PYG{n}{evaluate}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{y}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+On aura donc le protocole suivant ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Le dictionnaire kwd sera passé récursivement jusqu’aux feuilles et sera utilisé pour évaluer les symboles.
+
+\sphinxAtStartPar
+Les opérateurs binaires numériques sont définis dans le module \sphinxcode{\sphinxupquote{operator}} et les fonctions dans le module \sphinxcode{\sphinxupquote{math}}. Afin de factoriser le code, on rajoutera donc simplement un attribut de classe du type \sphinxcode{\sphinxupquote{operator\_function = operator.add}} pour les opérateurs binaires et \sphinxcode{\sphinxupquote{math\_function = math.sin}} pour les fonctions.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{7}
+\item {} 
+\sphinxAtStartPar
+Maintenant que vous avez compris le principe, il devrait être facile d’écrire une méthode \sphinxcode{\sphinxupquote{diff}} qui effectue la dérivée par rapport à une variable !
+
+\item {} 
+\sphinxAtStartPar
+Reste à simplifier les expressions. Une technique consiste à créer des règles de simplifications sous forme de méthode que l’on regroupe ensuite dans une liste ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{operator\PYGZus{}function} \PYG{o}{=} \PYG{n}{operator}\PYG{o}{.}\PYG{n}{add}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg1}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)} \PYG{o+ow}{and} 
+                        \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg2}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg1}\PYG{o}{.}\PYG{n}{value} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg2}\PYG{o}{.}\PYG{n}{value}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}addition\PYGZus{}avec\PYGZus{}zero}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{pass}
+
+    \PYG{n}{liste\PYGZus{}simplication} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} 
+                    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}addition\PYGZus{}avec\PYGZus{}zero}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} 
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Ensuite, il faut réussir à appeler correctement et de façon recursive ces méthodes…
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{9}
+\item {} 
+\sphinxAtStartPar
+Pour l’affichage des opérateurs binaires, les règles de priorité peuvent être utilisées pour éviter de mettre trop de parenthèses. Par exemple, dans le cas \sphinxcode{\sphinxupquote{a*(b+c)}}, la multiplication appelle le display de l’addition. Comme elle est prioritaire, l’addition va renvoyer le résulat avec des parenthèses. Dans le cas inverse \sphinxcode{\sphinxupquote{a + b*c}}, c’est inutile. Il faut donc que le display d’un opérateur passe sa priorité à ses enfants lors de l’appel de display. Implémenter ce principe.
+
+\end{enumerate}
 
 
 \section{Correction}
