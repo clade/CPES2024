@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tableaux de nombre &#8212; Le langage Python</title>
+    <title>Tableaux de nombres &#8212; Le langage Python</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -45,8 +45,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="tableaux-de-nombre">
-<h1>Tableaux de nombre<a class="headerlink" href="#tableaux-de-nombre" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tableaux-de-nombres">
+<h1>Tableaux de nombres<a class="headerlink" href="#tableaux-de-nombres" title="Permalink to this headline">¶</a></h1>
 <p>La librairie numpy permet de traiter de façon efficace des tableaux numpy. Nous découvrirons cette librairie, sachant que la librairie Pandas repose sur numpy.</p>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> est la librairie qui permet de manipuler de larges tableaux de données. Elle offre plusieurs avantages par rapport aux listes : elle est beaucoup plus rapide et surtout permet de faire des calculs sans utiliser de boucles for. Il est indispensable de savoir manipuler correctement les tableaux numpy pour d’une part gagner du temps lors de l’exécution du programme, mais surtout gagner du temps lors de l’écriture du programme.</p>
 <p>Contrairement aux listes, la taille et le type de donnée est fixé à la création d’un tableau numpy, ce qui fait que la mémoire est immédiatement allouée au tableau.</p>
@@ -220,6 +220,79 @@ Valeur théorique 55.0
 </div>
 </div>
 </section>
+<section id="indexer-un-tableau-numpy">
+<h2>Indexer un tableau numpy<a class="headerlink" href="#indexer-un-tableau-numpy" title="Permalink to this headline">¶</a></h2>
+<p>On peut indexer un tableau numpy de plusieurs façon différentes</p>
+<ul class="simple">
+<li><p>Comme les listes, avec des entier ou des slices</p></li>
+<li><p>Avec un tableau d’entier</p></li>
+<li><p>Avec un tableau de booléens (les deux tableaux doivent avoir la même taille)</p></li>
+</ul>
+<p>Les tableaux numpy sont modifiables. On peut aussi écrire de la même façon à condition que les tableaux aient une taille compatible</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="n">indx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">indx</span><span class="p">])</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+
+<span class="n">a</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6 5]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remaquons qu’il est possible de créer un tableau de booleen avec les opérateurs de comparaison</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.90777979 -0.27021906  0.20357936 -1.01244181  0.48567974  0.10253538
+  1.8550102   1.14398201  0.3825322  -0.31723682]
+[ True False  True False  True  True  True  True  True False]
+[1.90777979 0.20357936 0.48567974 0.10253538 1.8550102  1.14398201
+ 0.3825322 ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Exemple : créer une fonction valeu absolue compatible numpy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">abs_np</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">output</span><span class="p">[</span><span class="n">output</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="n">abs_np</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.90777979, 0.27021906, 0.20357936, 1.01244181, 0.48567974,
+       0.10253538, 1.8550102 , 1.14398201, 0.3825322 , 0.31723682])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -238,7 +311,7 @@ Valeur théorique 55.0
 <li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_cours.html">Les conteneurs en Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_cours.html">Chaînes de caractères</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours6_objet_cours.html">Programmation orientée objet</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Tableaux de nombre</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tableaux de nombres</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>

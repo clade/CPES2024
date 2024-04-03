@@ -1619,8 +1619,8 @@ for elm in a => \sphinxcode{\sphinxupquote{for elm in a.\_\_iter\_\_()}}
 \end{itemize}
 
 
-\subsection{Tableaux de nombre}
-\label{\detokenize{cours5_numpy_cours:tableaux-de-nombre}}\label{\detokenize{cours5_numpy_cours::doc}}
+\subsection{Tableaux de nombres}
+\label{\detokenize{cours5_numpy_cours:tableaux-de-nombres}}\label{\detokenize{cours5_numpy_cours::doc}}
 \sphinxAtStartPar
 La librairie numpy permet de traiter de façon efficace des tableaux numpy. Nous découvrirons cette librairie, sachant que la librairie Pandas repose sur numpy.
 
@@ -1793,6 +1793,85 @@ Remarquons que l’instruction \sphinxcode{\sphinxupquote{if}} n’est pas une f
 \PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3}     \PYG{n}{y} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{x}
 
 \PYG{n+ne}{ValueError}: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+\end{sphinxVerbatim}
+
+
+\subsubsection{Indexer un tableau numpy}
+\label{\detokenize{cours5_numpy_cours:indexer-un-tableau-numpy}}
+\sphinxAtStartPar
+On peut indexer un tableau numpy de plusieurs façon différentes
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Comme les listes, avec des entier ou des slices
+
+\item {} 
+\sphinxAtStartPar
+Avec un tableau d’entier
+
+\item {} 
+\sphinxAtStartPar
+Avec un tableau de booléens (les deux tableaux doivent avoir la même taille)
+
+\end{itemize}
+
+\sphinxAtStartPar
+Les tableaux numpy sont modifiables. On peut aussi écrire de la même façon à condition que les tableaux aient une taille compatible
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{indx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{indx}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{mask} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{k+kc}{True}\PYG{p}{,} \PYG{k+kc}{False}\PYG{p}{,} \PYG{k+kc}{False}\PYG{p}{,} \PYG{k+kc}{True}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{a}\PYG{p}{[}\PYG{n}{mask}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[6 5]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+array([1, 6])
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Remaquons qu’il est possible de créer un tableau de booleen avec les opérateurs de comparaison
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{normal}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{a}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[ 1.90777979 \PYGZhy{}0.27021906  0.20357936 \PYGZhy{}1.01244181  0.48567974  0.10253538
+  1.8550102   1.14398201  0.3825322  \PYGZhy{}0.31723682]
+[ True False  True False  True  True  True  True  True False]
+[1.90777979 0.20357936 0.48567974 0.10253538 1.8550102  1.14398201
+ 0.3825322 ]
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Exemple : créer une fonction valeu absolue compatible numpy
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{abs\PYGZus{}np}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{output} \PYG{o}{=} \PYG{n}{x}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{output}\PYG{p}{[}\PYG{n}{output}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{output}
+
+\PYG{n}{abs\PYGZus{}np}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+    
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+array([1.90777979, 0.27021906, 0.20357936, 1.01244181, 0.48567974,
+       0.10253538, 1.8550102 , 1.14398201, 0.3825322 , 0.31723682])
 \end{sphinxVerbatim}
 
 
