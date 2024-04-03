@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tableaux de nombre &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feuilles d’exercices" href="feuilles_d_exercices.html" />
+    <link rel="prev" title="Programmation orientée objet" href="cours6_objet_cours.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours6_objet_cours.html" title="Programmation orientée objet"
+             accesskey="P">previous</a> |
+          <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="tableaux-de-nombre">
+<h1>Tableaux de nombre<a class="headerlink" href="#tableaux-de-nombre" title="Permalink to this headline">¶</a></h1>
+<p>La librairie numpy permet de traiter de façon efficace des tableaux numpy. Nous découvrirons cette librairie, sachant que la librairie Pandas repose sur numpy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> est la librairie qui permet de manipuler de larges tableaux de données. Elle offre plusieurs avantages par rapport aux listes : elle est beaucoup plus rapide et surtout permet de faire des calculs sans utiliser de boucles for. Il est indispensable de savoir manipuler correctement les tableaux numpy pour d’une part gagner du temps lors de l’exécution du programme, mais surtout gagner du temps lors de l’écriture du programme.</p>
+<p>Contrairement aux listes, la taille et le type de donnée est fixé à la création d’un tableau numpy, ce qui fait que la mémoire est immédiatement allouée au tableau.</p>
+<p>Voici quelques exemples :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0  1  4  9 16 25 36 49 64 81]
+[ 0.          0.84147098  0.90929743  0.14112001 -0.7568025  -0.95892427
+ -0.2794155   0.6569866   0.98935825  0.41211849]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creation-d-un-tableau">
+<h2>Création d’un tableau<a class="headerlink" href="#creation-d-un-tableau" title="Permalink to this headline">¶</a></h2>
+<p>Il existe plusieurs fonctions pour créer un tableau.</p>
+<ul class="simple">
+<li><p>Création d’un tableau à partir d’une liste :</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> 
+
+<span class="c1"># data type is calculated automatically</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># all numbers are float </span>
+
+<span class="c1"># data type can be forced</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int64
+float64
+float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Création d’un tableau uniforme</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Créer un range</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valeur calculée&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valeur théorique&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valeur calculée 45
+Valeur théorique 55.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Répartition uniforme de points:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Répartition sur une échelle logarithmique:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  1.           1.58489319   2.51188643   3.98107171   6.30957344
+  10.          15.84893192  25.11886432  39.81071706  63.09573445
+ 100.        ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fonctions-numpy">
+<h2>Fonctions numpy<a class="headerlink" href="#fonctions-numpy" title="Permalink to this headline">¶</a></h2>
+<p>Le fonctions arithmétiques ainsi que toutes les fonctions mathématiques de la librairie numpy (ce sont plus ou moins les mêmes que la librairie math) fonctionnent avec des tableaux, c’est à dire qu’il n’est pas nécéssaire d’utiliser une boucle for pour créer un nouveau tableau.</p>
+<p>Une fonction pourra être utilisée avec un tableau à condition que toutes les fonctions qu’elle utilise fonctionnent avec un tableau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussienne</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">moyenne</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ecart_type</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">moyenne</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ecart_type</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">gaussienne</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.011109  , 0.05613476, 0.1978987 , 0.48675226, 0.83527021,
+       1.        , 0.83527021, 0.48675226, 0.1978987 , 0.05613476,
+       0.011109  ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans cet exemple, le boucle for est réalisée au niveau de chaque opération élémentaire. Comme toutes les fonctions sont compatible avec numpy, la fonction <code class="docutils literal notranslate"><span class="pre">gaussienne</span></code> l’est. Si on remplace np.exp par math.exp, alors il y a une erreur.</p>
+<p>Les fonctions de base de statistiques existent soit sous forme de fonction dans la librairie numpy soit sous forme de méthode sur les tableaux. Il s’agit de <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, <code class="docutils literal notranslate"><span class="pre">np.var</span></code>. Il existe aussi d’autre fonction de reductions (elle prennent un tableau est renvoie un nombre) : <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.min</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># ou print(np.mean(x))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4999435020786929
+0.2886119645283682
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remarquons que l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> n’est pas une fonction. Il n’y a pas de sens à l’utiliser avec un tableau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;.</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">85</span><span class="n">ec1d204b32</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;.</span><span class="mi">5</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">x</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_cours.html">Les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_cours.html">Les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_cours.html">Les conteneurs en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_cours.html">Chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours6_objet_cours.html">Programmation orientée objet</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tableaux de nombre</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours6_objet_cours.html" title="Programmation orientée objet"
+              >previous</a> |
+            <a href="feuilles_d_exercices.html" title="Feuilles d’exercices"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours5_numpy_cours.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{Mar 26, 2024}
+\date{Apr 03, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1619,6 +1619,183 @@ for elm in a => \sphinxcode{\sphinxupquote{for elm in a.\_\_iter\_\_()}}
 \end{itemize}
 
 
+\subsection{Tableaux de nombre}
+\label{\detokenize{cours5_numpy_cours:tableaux-de-nombre}}\label{\detokenize{cours5_numpy_cours::doc}}
+\sphinxAtStartPar
+La librairie numpy permet de traiter de façon efficace des tableaux numpy. Nous découvrirons cette librairie, sachant que la librairie Pandas repose sur numpy.
+
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{numpy}} est la librairie qui permet de manipuler de larges tableaux de données. Elle offre plusieurs avantages par rapport aux listes : elle est beaucoup plus rapide et surtout permet de faire des calculs sans utiliser de boucles for. Il est indispensable de savoir manipuler correctement les tableaux numpy pour d’une part gagner du temps lors de l’exécution du programme, mais surtout gagner du temps lors de l’écriture du programme.
+
+\sphinxAtStartPar
+Contrairement aux listes, la taille et le type de donnée est fixé à la création d’un tableau numpy, ce qui fait que la mémoire est immédiatement allouée au tableau.
+
+\sphinxAtStartPar
+Voici quelques exemples :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[ 0  1  4  9 16 25 36 49 64 81]
+[ 0.          0.84147098  0.90929743  0.14112001 \PYGZhy{}0.7568025  \PYGZhy{}0.95892427
+ \PYGZhy{}0.2794155   0.6569866   0.98935825  0.41211849]
+\end{sphinxVerbatim}
+
+
+\subsubsection{Création d’un tableau}
+\label{\detokenize{cours5_numpy_cours:creation-d-un-tableau}}
+\sphinxAtStartPar
+Il existe plusieurs fonctions pour créer un tableau.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Création d’un tableau à partir d’une liste :
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{dtype}\PYG{p}{)} 
+
+\PYG{c+c1}{\PYGZsh{} data type is calculated automatically}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{1.2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{dtype}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} all numbers are float }
+
+\PYG{c+c1}{\PYGZsh{} data type can be forced}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{,} \PYG{n}{dtype}\PYG{o}{=}\PYG{n+nb}{float}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{dtype}\PYG{p}{)} 
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+int64
+float64
+float64
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Création d’un tableau uniforme
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+\PYG{n}{b} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Créer un range
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Valeur calculée}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{a}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Valeur théorique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{N}\PYG{o}{*}\PYG{p}{(}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Valeur calculée 45
+Valeur théorique 55.0
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Répartition uniforme de points:
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{300}
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{p}{,} \PYG{n}{num}\PYG{o}{=}\PYG{n}{N}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Répartition sur une échelle logarithmique:
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{logspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[  1.           1.58489319   2.51188643   3.98107171   6.30957344
+  10.          15.84893192  25.11886432  39.81071706  63.09573445
+ 100.        ]
+\end{sphinxVerbatim}
+
+
+\subsubsection{Fonctions numpy}
+\label{\detokenize{cours5_numpy_cours:fonctions-numpy}}
+\sphinxAtStartPar
+Le fonctions arithmétiques ainsi que toutes les fonctions mathématiques de la librairie numpy (ce sont plus ou moins les mêmes que la librairie math) fonctionnent avec des tableaux, c’est à dire qu’il n’est pas nécéssaire d’utiliser une boucle for pour créer un nouveau tableau.
+
+\sphinxAtStartPar
+Une fonction pourra être utilisée avec un tableau à condition que toutes les fonctions qu’elle utilise fonctionnent avec un tableau.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{gaussienne}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{moyenne}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{ecart\PYGZus{}type}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{n}{moyenne}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{ecart\PYGZus{}type}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{gaussienne}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+array([0.011109  , 0.05613476, 0.1978987 , 0.48675226, 0.83527021,
+       1.        , 0.83527021, 0.48675226, 0.1978987 , 0.05613476,
+       0.011109  ])
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Dans cet exemple, le boucle for est réalisée au niveau de chaque opération élémentaire. Comme toutes les fonctions sont compatible avec numpy, la fonction \sphinxcode{\sphinxupquote{gaussienne}} l’est. Si on remplace np.exp par math.exp, alors il y a une erreur.
+
+\sphinxAtStartPar
+Les fonctions de base de statistiques existent soit sous forme de fonction dans la librairie numpy soit sous forme de méthode sur les tableaux. Il s’agit de \sphinxcode{\sphinxupquote{np.mean}}, \sphinxcode{\sphinxupquote{np.std}}, \sphinxcode{\sphinxupquote{np.var}}. Il existe aussi d’autre fonction de reductions (elle prennent un tableau est renvoie un nombre) : \sphinxcode{\sphinxupquote{np.sum}}, \sphinxcode{\sphinxupquote{np.mean}}, \sphinxcode{\sphinxupquote{np.max}}, \sphinxcode{\sphinxupquote{np.min}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{l+m+mi}{1\PYGZus{}000\PYGZus{}000}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} ou print(np.mean(x))}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0.4999435020786929
+0.2886119645283682
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Remarquons que l’instruction \sphinxcode{\sphinxupquote{if}} n’est pas une fonction. Il n’y a pas de sens à l’utiliser avec un tableau.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}
+\PYG{k}{if} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZgt{}}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{y} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{x}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+ne}{ValueError}\PYG{g+gWhitespace}{                                }Traceback (most recent call last)
+\PYG{o}{\PYGZlt{}}\PYG{n}{ipython}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{input}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{13}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{85}\PYG{n}{ec1d204b32}\PYG{o}{\PYGZgt{}} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{1} \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{2} \PYG{k}{if} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZgt{}}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{:}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3}     \PYG{n}{y} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{x}
+
+\PYG{n+ne}{ValueError}: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+\end{sphinxVerbatim}
+
+
 \section{Feuilles d’exercices}
 \label{\detokenize{feuilles_d_exercices:feuilles-d-exercices}}\label{\detokenize{feuilles_d_exercices::doc}}
 
@@ -2233,10 +2410,10 @@ Quelle est le mot le plus long ?
 \end{itemize}
 
 
-\subsection{}
-\label{\detokenize{cours6_objet_exercices:id1}}\label{\detokenize{cours6_objet_exercices::doc}}
+\subsection{Objets}
+\label{\detokenize{cours6_objet_exercices:objets}}\label{\detokenize{cours6_objet_exercices::doc}}
 
-\subsection{Vecteur}
+\subsubsection{Vecteur}
 \label{\detokenize{cours6_objet_exercices:vecteur}}
 \sphinxAtStartPar
 Créer une classe Vecteur3D. Chaque vecteur aura 3 attributs : x, y, z
@@ -2256,7 +2433,7 @@ Créer une classe Vecteur3D. Chaque vecteur aura 3 attributs : x, y, z
 \end{itemize}
 
 
-\subsection{Bibliographie}
+\subsubsection{Bibliographie}
 \label{\detokenize{cours6_objet_exercices:bibliographie}}
 \sphinxAtStartPar
 Un livre est décrit par son titre, auteur et année de publication (pour faire les choses simplements). Écrire une classe \sphinxcode{\sphinxupquote{Livre}} qui enregistre ces informations. Ecrire la méthode \sphinxcode{\sphinxupquote{\_\_repr\_\_}} et \sphinxcode{\sphinxupquote{\_\_str\_\_}}.
@@ -2308,7 +2485,7 @@ Et en HTML ::
 Remarque : si un objet possède une méthode \sphinxcode{\sphinxupquote{\_repr\_html\_}}, alors le jupyter notebook utilsera automatiquement la représentation en HTML. Rajouter cette méthode (qui appelera to\_html).
 
 
-\subsection{Système de calcul formel}
+\subsubsection{Système de calcul formel}
 \label{\detokenize{cours6_objet_exercices:systeme-de-calcul-formel}}
 \sphinxAtStartPar
 \sphinxstyleemphasis{Cet exercice est à but purement pédagogique. Pour utiliser un système de calcul formel sous Python, la librairie \sphinxcode{\sphinxupquote{sympy}} existe et fonctionnera bien mieux que ce que l’on va faire !}
@@ -2338,7 +2515,7 @@ Chaque expression sera représentée par un arbre. Les feuilles de l’arbre ser
 \end{sphinxVerbatim}
 
 
-\subsubsection{Structure du programme}
+\paragraph{Structure du programme}
 \label{\detokenize{cours6_objet_exercices:structure-du-programme}}
 \sphinxAtStartPar
 Voici la structure de base ::
@@ -2404,7 +2581,7 @@ Les fonction mathématiques, qui prennent un seul argument ::
 \end{sphinxVerbatim}
 
 
-\subsubsection{Questions}
+\paragraph{Questions}
 \label{\detokenize{cours6_objet_exercices:questions}}
 \sphinxAtStartPar
 On va procéder étape par étape. Il sera plus facile de commencer par les feuilles avant d’écrire la structure globale.
@@ -2543,6 +2720,60 @@ Ensuite, il faut réussir à appeler correctement et de façon recursive ces mé
 \item {} 
 \sphinxAtStartPar
 Pour l’affichage des opérateurs binaires, les règles de priorité peuvent être utilisées pour éviter de mettre trop de parenthèses. Par exemple, dans le cas \sphinxcode{\sphinxupquote{a*(b+c)}}, la multiplication appelle le display de l’addition. Comme elle est prioritaire, l’addition va renvoyer le résulat avec des parenthèses. Dans le cas inverse \sphinxcode{\sphinxupquote{a + b*c}}, c’est inutile. Il faut donc que le display d’un opérateur passe sa priorité à ses enfants lors de l’appel de display. Implémenter ce principe.
+
+\end{enumerate}
+
+
+\subsection{Utilisation de numpy}
+\label{\detokenize{cours5_numpy_exercices:utilisation-de-numpy}}\label{\detokenize{cours5_numpy_exercices::doc}}
+
+\subsubsection{Calcul Monte\sphinxhyphen{}Carlo de la surface d’un disque}
+\label{\detokenize{cours5_numpy_exercices:calcul-monte-carlo-de-la-surface-d-un-disque}}
+\sphinxAtStartPar
+On rappelle que la fonction np.random.rand permet de créer une distribution uniforme de points entre 0 et 1.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Créer des tableaux X et Y de variables uniforméments réparties entre \sphinxhyphen{}1 et 1
+
+\item {} 
+\sphinxAtStartPar
+Evaluer la probabilité que le point de coordonnées (x, y) soit dans le cercle unité ?
+
+\item {} 
+\sphinxAtStartPar
+En déduire une estimation ed \(\pi\)
+
+\item {} 
+\sphinxAtStartPar
+De la même façon, évaluer le volume d’une sphère en dimension 13
+
+\end{enumerate}
+
+
+\subsubsection{Calcul de la moyenne}
+\label{\detokenize{cours5_numpy_exercices:calcul-de-la-moyenne}}
+\sphinxAtStartPar
+Un tableau numpy contient les notes d’une classe. Chaque ligne correspond à un élève et chaque colone à un examen.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+
+\PYG{n}{N\PYGZus{}eleves} \PYG{o}{=} \PYG{l+m+mi}{35}
+\PYG{n}{N\PYGZus{}examens} \PYG{o}{=} \PYG{l+m+mi}{3}
+
+\PYG{n}{notes} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{N\PYGZus{}eleves}\PYG{p}{,} \PYG{n}{N\PYGZus{}examens}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Calculer la moyenne de chaque élève. Calculer la moyenne pour chaque examen.
+
+\item {} 
+\sphinxAtStartPar
+Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 examens sont de 1, 3 et 2.
 
 \end{enumerate}
 

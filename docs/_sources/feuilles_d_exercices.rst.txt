@@ -9,3 +9,4 @@ Feuilles d'exercices
    cours3_conteneur_exercices.ipynb
    cours4_chaine_caractere_exercices.ipynb
    cours6_objet_exercices.ipynb
+   cours5_numpy_exercices.ipynb

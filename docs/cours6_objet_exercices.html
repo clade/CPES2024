@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title> &#8212; Le langage Python</title>
+    <title>Objets &#8212; Le langage Python</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -21,7 +21,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Correction" href="correction.html" />
+    <link rel="next" title="Utilisation de numpy" href="cours5_numpy_exercices.html" />
     <link rel="prev" title="Chaînes de caractères" href="cours4_chaine_caractere_exercices.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
@@ -31,7 +31,7 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="cours4_chaine_caractere_exercices.html" title="Chaînes de caractères"
              accesskey="P">previous</a> |
-          <a href="correction.html" title="Correction"
+          <a href="cours5_numpy_exercices.html" title="Utilisation de numpy"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -47,11 +47,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="vecteur">
-<h1>Vecteur<a class="headerlink" href="#vecteur" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="objets">
+<h1>Objets<a class="headerlink" href="#objets" title="Permalink to this headline">¶</a></h1>
+<section id="vecteur">
+<h2>Vecteur<a class="headerlink" href="#vecteur" title="Permalink to this headline">¶</a></h2>
 <p>Créer une classe Vecteur3D. Chaque vecteur aura 3 attributs : x, y, z</p>
 <ul class="simple">
 <li><p>Écrire une méthode norme qui renvoie la norme.</p></li>
@@ -59,8 +58,8 @@
 <li><p>Écrire la méthode <code class="docutils literal notranslate"><span class="pre">__mul__</span></code> pour faire soit le produit par un scalaire (<span class="math notranslate nohighlight">\(2\vec{u}\)</span>) ou le produit scalaire (<span class="math notranslate nohighlight">\(\vec{u}\cdot\vec{v}\)</span>).</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="bibliographie">
-<h1>Bibliographie<a class="headerlink" href="#bibliographie" title="Permalink to this headline">¶</a></h1>
+<section id="bibliographie">
+<h2>Bibliographie<a class="headerlink" href="#bibliographie" title="Permalink to this headline">¶</a></h2>
 <p>Un livre est décrit par son titre, auteur et année de publication (pour faire les choses simplements). Écrire une classe <code class="docutils literal notranslate"><span class="pre">Livre</span></code> qui enregistre ces informations. Ecrire la méthode <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> et <code class="docutils literal notranslate"><span class="pre">__str__</span></code>.</p>
 <p>Une bibliographe est une liste de livre. Écrire la classe <code class="docutils literal notranslate"><span class="pre">Bibliographie</span></code> qui enregistre une liste de livre (on stockera la liste de livre sous forme d’une liste qui sera un attribut de la bibliographie).</p>
 <p>L’objectif final est de pouvoir faire ceci ::</p>
@@ -91,8 +90,8 @@ bibliographie = Bibliographie([book1, book2, book3])
 </div>
 <p>Remarque : si un objet possède une méthode <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code>, alors le jupyter notebook utilsera automatiquement la représentation en HTML. Rajouter cette méthode (qui appelera to_html).</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="systeme-de-calcul-formel">
-<h1>Système de calcul formel<a class="headerlink" href="#systeme-de-calcul-formel" title="Permalink to this headline">¶</a></h1>
+<section id="systeme-de-calcul-formel">
+<h2>Système de calcul formel<a class="headerlink" href="#systeme-de-calcul-formel" title="Permalink to this headline">¶</a></h2>
 <p><em>Cet exercice est à but purement pédagogique. Pour utiliser un système de calcul formel sous Python, la librairie <code class="docutils literal notranslate"><span class="pre">sympy</span></code> existe et fonctionnera bien mieux que ce que l’on va faire !</em></p>
 <p>L’objectif de ce TD est de réaliser un système de calcul formel qui permettra de manipuler des expressions algébriques simples et de réaliser des opérations simples. Par exemple, on souhaite pouvoir effectuer ::</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
@@ -113,7 +112,7 @@ bibliographie = Bibliographie([book1, book2, book3])
 </pre></div>
 </div>
 <section id="structure-du-programme">
-<h2>Structure du programme<a class="headerlink" href="#structure-du-programme" title="Permalink to this headline">¶</a></h2>
+<h3>Structure du programme<a class="headerlink" href="#structure-du-programme" title="Permalink to this headline">¶</a></h3>
 <p>Voici la structure de base ::</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Expr</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
@@ -164,7 +163,7 @@ bibliographie = Bibliographie([book1, book2, book3])
 </div>
 </section>
 <section id="questions">
-<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
 <p>On va procéder étape par étape. Il sera plus facile de commencer par les feuilles avant d’écrire la structure globale.</p>
 <ol class="arabic simple">
 <li><p>Ecrire le <code class="docutils literal notranslate"><span class="pre">__init__</span></code> de la classe Symbol et Number</p></li>
@@ -244,6 +243,7 @@ bibliographie = Bibliographie([book1, book2, book3])
 </ol>
 </section>
 </section>
+</section>
 
 
             <div class="clearer"></div>
@@ -261,10 +261,8 @@ bibliographie = Bibliographie([book1, book2, book3])
 <li class="toctree-l2"><a class="reference internal" href="cours2_nombres_exercices.html">Exercices sur les nombres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_exercices.html">Exercices sur les conteneurs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_exercices.html">Chaînes de caractères</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vecteur">Vecteur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bibliographie">Bibliographie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#systeme-de-calcul-formel">Système de calcul formel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours5_numpy_exercices.html">Utilisation de numpy</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
@@ -289,7 +287,7 @@ bibliographie = Bibliographie([book1, book2, book3])
           <div role="navigation" aria-label="related navigaton">
             <a href="cours4_chaine_caractere_exercices.html" title="Chaînes de caractères"
               >previous</a> |
-            <a href="correction.html" title="Correction"
+            <a href="cours5_numpy_exercices.html" title="Utilisation de numpy"
               >next</a> |
             <a href="genindex.html" title="General Index"
               >index</a>
