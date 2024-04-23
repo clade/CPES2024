@@ -10,3 +10,4 @@ Feuilles d'exercices
    cours4_chaine_caractere_exercices.ipynb
    cours6_objet_exercices.ipynb
    cours5_numpy_exercices.ipynb
+   cours7_graphiques_exercices.ipynb

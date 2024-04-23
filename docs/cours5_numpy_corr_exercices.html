@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Utilisation de numpy &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Objets" href="cours6_objet_corr_exercices.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours6_objet_corr_exercices.html" title="Objets"
+             accesskey="P">previous</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="utilisation-de-numpy">
+<h1>Utilisation de numpy<a class="headerlink" href="#utilisation-de-numpy" title="Permalink to this headline">¶</a></h1>
+<section id="calcul-monte-carlo-de-la-surface-d-un-disque">
+<h2>Calcul Monte-Carlo de la surface d’un disque<a class="headerlink" href="#calcul-monte-carlo-de-la-surface-d-un-disque" title="Permalink to this headline">¶</a></h2>
+<p>On rappelle que la fonction np.random.rand permet de créer une distribution uniforme de points entre 0 et 1.</p>
+<ol class="arabic simple">
+<li><p>Créer des tableaux X et Y de variables uniforméments réparties entre -1 et 1</p></li>
+<li><p>Evaluer la probabilité que le point de coordonnées (x, y) soit dans le cercle unité ?</p></li>
+<li><p>En déduire une estimation ed <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p>De la même façon, évaluer le volume d’une sphère en dimension 13</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Estimation de pi&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">R</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimation de pi 3.143348
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span><span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">R</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00011
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calcul-de-la-moyenne">
+<h2>Calcul de la moyenne<a class="headerlink" href="#calcul-de-la-moyenne" title="Permalink to this headline">¶</a></h2>
+<p>Un tableau numpy contient les notes d’une classe. Chaque ligne correspond à un élève et chaque colone à un examen.</p>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">N_eleves</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">N_examens</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">notes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_eleves</span><span class="p">,</span> <span class="n">N_examens</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Calculer la moyenne de chaque élève. Calculer la moyenne pour chaque examen.</p></li>
+<li><p>Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 examens sont de 1, 3 et 2.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moyenne_eleve</span> <span class="o">=</span> <span class="n">notes</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">moyenne_exams</span> <span class="o">=</span> <span class="n">notes</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Moyenne eleves : </span><span class="si">{</span><span class="n">moyenne_eleve</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Moyenne exams : </span><span class="si">{</span><span class="n">moyenne_exams</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne eleves : [ 4.86475764 13.87157763 16.63133782 12.54131626  7.78354896 14.91060888
+ 11.49341153  7.40491898  7.7408721  12.83294063  5.19142779  7.16174387
+ 11.72812901 16.37947513 13.78278386  9.49417344 14.78770611 10.32141726
+  7.73516296 12.93635595 12.0172946   6.32059816 14.24920113  7.9846933
+  9.34793038  4.97840815  0.93303272 11.61755392  4.74755408  6.75401493
+  7.58238456 12.39258674 16.24376983  8.61322578  9.22967243]
+Moyenne exams : [10.51405794 10.77392961  8.93534844]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moyenne_ponderee</span> <span class="o">=</span> <span class="p">(</span><span class="n">notes</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Moyenne eleves : </span><span class="si">{</span><span class="n">moyenne_ponderee</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne eleves : [ 4.8469425  14.99684316 17.5957476  13.28084804  7.38128184 14.16213389
+ 10.37123986  5.34245749  7.19795841 14.43345158  6.1073791   5.54566383
+ 10.46290838 15.54873099 12.71400994  7.05525354 13.60650382 12.16244485
+ 10.58650973 14.71984854 13.36255598  4.45639921 14.35210974  9.04184847
+ 10.33807833  3.32534396  0.65691568 10.95163956  3.27687672  7.73253324
+  8.73697947 12.65795077 16.75820541  8.44130762 11.91460335]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="correction.html">Correction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_corr_exercices.html">Exercices sur les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_corr_exercices.html">Exercices sur les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_corr_exercices.html">Exercices sur les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_corr_exercices.html">Chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours6_objet_corr_exercices.html">Objets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Utilisation de numpy</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours6_objet_corr_exercices.html" title="Objets"
+              >previous</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours5_numpy_corr_exercices.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

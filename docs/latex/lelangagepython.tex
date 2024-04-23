@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{Apr 03, 2024}
+\date{Apr 23, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1857,7 +1857,7 @@ Remaquons qu’il est possible de créer un tableau de booleen avec les opérate
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-Exemple : créer une fonction valeu absolue compatible numpy
+Exemple : créer une fonction valeur absolue compatible numpy
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{k}{def} \PYG{n+nf}{abs\PYGZus{}np}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
@@ -1873,6 +1873,269 @@ Exemple : créer une fonction valeu absolue compatible numpy
 array([1.90777979, 0.27021906, 0.20357936, 1.01244181, 0.48567974,
        0.10253538, 1.8550102 , 1.14398201, 0.3825322 , 0.31723682])
 \end{sphinxVerbatim}
+
+
+\subsection{Tracer des graphiques}
+\label{\detokenize{cours7_graphiques_cours:tracer-des-graphiques}}\label{\detokenize{cours7_graphiques_cours::doc}}
+\sphinxAtStartPar
+Nous utiliserons la librairie matplotlib. La page \sphinxurl{https://matplotlib.org/stable/gallery/index.html} contient de nombreux exemples.
+
+\sphinxAtStartPar
+Les fonctions sont dans le module \sphinxcode{\sphinxupquote{matplotlib.pyplot}} qu’il est courant d’importer sous le nom de \sphinxcode{\sphinxupquote{plt}}.
+
+
+\subsubsection{Exemples}
+\label{\detokenize{cours7_graphiques_cours:exemples}}
+\sphinxAtStartPar
+Le plus simple est d’étudier des exemples.
+
+
+\paragraph{Graphiques simples}
+\label{\detokenize{cours7_graphiques_cours:graphiques-simples}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+
+\PYG{n}{X} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{)}
+\PYG{n}{Y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{X}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{Y\PYGZus{}noise} \PYG{o}{=} \PYG{n}{Y} \PYG{o}{+} \PYG{o}{.}\PYG{l+m+mi}{1}\PYG{o}{*}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,}\PYG{n}{Y}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Theory}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,}\PYG{n}{Y\PYGZus{}noise}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Experiment}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Voltage [V]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{zeta\PYGZdl{} [m]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Nonsense graph}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{upper left}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mafigure.pdf}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{fb2b7815fbff78285e102b3336a15f8b7b845fbd5fdb8545394300b76778e621}.png}
+
+\sphinxAtStartPar
+Il existe deux syntaxes pour matplotlib, la syntaxe ci\sphinxhyphen{}dessus à base de fonctions (syntaxe historiquement utilisée par beaucoup de personnes) et une syntaxe utilisant sur des objets. L’idée est d’utiliser des méthodes des objets figure ainsi que des graphiques (appelé \sphinxcode{\sphinxupquote{axes}}, il peut y avoir plusieurs \sphinxcode{\sphinxupquote{axes}}, à ne pas confondre avec \sphinxcode{\sphinxupquote{axis}} qui sont les abscisses et ordonnées).
+
+\sphinxAtStartPar
+Voici le même exemple en orienté objet:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k+kn}{import} \PYG{n}{figure}
+
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Création d\PYGZsq{}un graphique}
+
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Theory}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y\PYGZus{}noise}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Experiment}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Voltage [V]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{zeta\PYGZdl{} [m]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Nonsense graph}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{upper left}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{2fab1ee2139501aed0000431084c14a7d92c381dfe3c4aee9f11ee7f09e1593c}.png}
+
+\sphinxAtStartPar
+Le syntaxe orientée objet est plus simple lorsque l’on veut mettre plusieurs graphs dans une même figure.
+
+
+\paragraph{Graphiques multiples}
+\label{\detokenize{cours7_graphiques_cours:graphiques-multiples}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{jours} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{temperature} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{20}\PYG{p}{,} \PYG{l+m+mi}{21}\PYG{p}{,} \PYG{l+m+mi}{23}\PYG{p}{,} \PYG{l+m+mi}{21}\PYG{p}{,} \PYG{l+m+mi}{19}\PYG{p}{,} \PYG{l+m+mi}{19}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{pression} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1015}\PYG{p}{,} \PYG{l+m+mi}{1020}\PYG{p}{,} \PYG{l+m+mi}{1021}\PYG{p}{,} \PYG{l+m+mi}{1023}\PYG{p}{,} \PYG{l+m+mi}{1025}\PYG{p}{,} \PYG{l+m+mi}{1024}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{jours}\PYG{p}{,} \PYG{n}{temperature}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Temperature [°]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{jours}\PYG{p}{,} \PYG{n}{pression}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Jour}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pression [mbar]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0, 0.5, \PYGZsq{}Pression [mbar]\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{de5cb0795943aeb8aad2d12895db53343837635b0b8f7d5e954b8c7a98ad8bcf}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{figure}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax1}\PYG{p}{,} \PYG{n}{ax2} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{sharex}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{ax1}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{jours}\PYG{p}{,} \PYG{n}{temperature}\PYG{p}{)}
+\PYG{n}{ax1}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Temperature [°]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{ax2}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{jours}\PYG{p}{,} \PYG{n}{pression}\PYG{p}{)}
+
+\PYG{n}{ax2}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Jour}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax2}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pression [mbar]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0, 0.5, \PYGZsq{}Pression [mbar]\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{a01fb7a72cc0e4fb019dfc5b25d6bbdce73fa7dd3608011e3d49f2792412ea6f}.png}
+
+
+\paragraph{Barres d’erreur}
+\label{\detokenize{cours7_graphiques_cours:barres-d-erreur}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mf}{5.5}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{erreurs\PYGZus{}y} \PYG{o}{=} \PYG{l+m+mf}{0.1} \PYG{o}{*} \PYG{n}{y}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{errorbar}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{erreurs\PYGZus{}y}\PYG{p}{,} \PYG{n}{fmt}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{données+barres}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{l}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{axe des x}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{l}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{axe des y}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{n}{loc}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Le titre}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0.5, 1.0, \PYGZsq{}Le titre\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{fada908cf77fc5c71a0e13d297b52ce2ffb0c80f35a315cca40220a0a4010b11}.png}
+
+
+\paragraph{Inset}
+\label{\detokenize{cours7_graphiques_cours:inset}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{k}{def} \PYG{n+nf}{fermi\PYGZus{}dirac}\PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{,} \PYG{n}{mu}\PYG{p}{,} \PYG{n}{beta}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{beta}\PYG{o}{*}\PYG{p}{(}\PYG{n}{epsilon} \PYG{o}{\PYGZhy{}} \PYG{n}{mu}\PYG{p}{)}\PYG{p}{)}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{num}\PYG{o}{=}\PYG{l+m+mi}{1000}\PYG{p}{)}
+\PYG{n}{x\PYGZus{}zoom} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mf}{0.9}\PYG{p}{,} \PYG{l+m+mf}{1.1}\PYG{p}{,} \PYG{n}{num}\PYG{o}{=}\PYG{l+m+mi}{1000}\PYG{p}{)}
+
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{fermi\PYGZus{}dirac}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{mu}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{beta}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{axins} \PYG{o}{=} \PYG{n}{ax}\PYG{o}{.}\PYG{n}{inset\PYGZus{}axes}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{0.5}\PYG{p}{,} \PYG{l+m+mf}{0.35}\PYG{p}{,} \PYG{l+m+mf}{0.47}\PYG{p}{,} \PYG{l+m+mf}{0.47}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{axins}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}zoom}\PYG{p}{,} \PYG{n}{fermi\PYGZus{}dirac}\PYG{p}{(}\PYG{n}{x\PYGZus{}zoom}\PYG{p}{,} \PYG{n}{mu}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{beta}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{indicate\PYGZus{}inset\PYGZus{}zoom}\PYG{p}{(}\PYG{n}{axins}\PYG{p}{,} \PYG{n}{edgecolor}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{black}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{a} \PYG{o+ow}{in} \PYG{p}{[}\PYG{n}{ax}\PYG{p}{,} \PYG{n}{axins}\PYG{p}{]}\PYG{p}{:}
+    \PYG{n}{a}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{epsilon\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{a}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{bar n\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{a}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{14baca4c8704092e3525fc5fd5e53b6711ca49c35fb98a3b8f75682aeb8780a3}.png}
+
+
+\paragraph{Echelle logarithmique}
+\label{\detokenize{cours7_graphiques_cours:echelle-logarithmique}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{logspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{x}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{3} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{figure}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{figure}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{loglog}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{n}{which}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{both}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{7705830571333180493a463ae3bfedfd09d979171f604da2c5bed44ca3d9de1a}.png}
+
+\noindent\sphinxincludegraphics{{09f2661937d6b73de41a1a1a7c9c991084093bd87c3da0f03d46c08a67555eb4}.png}
+
+
+\subsubsection{Les commandes}
+\label{\detokenize{cours7_graphiques_cours:les-commandes}}
+
+\paragraph{Créer le graphique}
+\label{\detokenize{cours7_graphiques_cours:creer-le-graphique}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{plt.figure(figsize=(w, h))}} : Permet de créer la figure. Largeur et hauteur en pouce (2.54 cm)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{fig.subplots(n, m)}} : découpe la figure en n (verticalement) et m (horizontalement) graphiques. Cette commander renvoie une matrice de n par m axes. Avec la méthode fonctionnel, la commande \sphinxcode{\sphinxupquote{plt.subplot(n, m, i)}} créer le ième axe de la matrice et le sélectionne pour le prochain plot.
+
+\end{itemize}
+
+
+\paragraph{Tracer des données}
+\label{\detokenize{cours7_graphiques_cours:tracer-des-donnees}}
+\sphinxAtStartPar
+Toutes ces fonctions sont les mêmes en mode fonctionnel ou objet.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{plot(X, Y)}} trace avec une ligne
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{plot(X, Y, fmt)}} pour contrôler la forme et la couleur. Couleurs : blue (b), red (r), black (k), green (g). Forme : disque (o), diamand (d), ligne pointillée (:), …
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{plot(X, Y, color=..., linestyle=..., linewidth=...)}}, syntaxe plus explicite. Les couleurs peuvent être en tout lettre (red, blue, orange, ..) suivre le cycle par défaut (C0, C1, C2, C3), ou être définie par l’intensité RGB. Le style des lignes : solid, dotted, dashed, dashdot. La linewidth est en point.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{loglog}}, \sphinxcode{\sphinxupquote{semilogy}}, \sphinxcode{\sphinxupquote{semilogx}} : pour tracer avec des échelles logarithmique. On peut aussi changer avec \sphinxcode{\sphinxupquote{plt.xscale('log')}} ou \sphinxcode{\sphinxupquote{ax.set\_xscale}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{errorbar(x, y, yerr=..., xerr=...)}}: pour tracer des points avec des barres d’erreur.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{scatter(x, y, s=..., c=...)}} pour tracer un nuage de points avec des tailles (s) ou des couleurs (c) sous forme d’un tableau.
+
+\end{itemize}
+
+
+\paragraph{Légendes,…}
+\label{\detokenize{cours7_graphiques_cours:legendes}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Toutes les fonctions ci\sphinxhyphen{}dessus ont un argument optionel \sphinxcode{\sphinxupquote{label}}. On peut alors utiler la fonction plt.legend (ou ax.legend) pour afficher la légende.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{xlabel}}, \sphinxcode{\sphinxupquote{ylabel}} : ne jamais oublier les unités
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{grid}} : Tracer une grille en arrière plan
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{text}} : rajoute un texte
+
+\end{itemize}
+
+\sphinxAtStartPar
+Remarques : pour les chaînes de caractère, il est possible d’utiliser des formules latex en utilisant des \sphinxcode{\sphinxupquote{\$}}. Il faut alors faire attention aux \sphinxcode{\sphinxupquote{\textbackslash{}}} : en effet il est possible qu’ils soient interprété comme des caractères spéciaux (par exemple \sphinxcode{\sphinxupquote{\textbackslash{}n}} est un retour à la ligne). Pour éviter ceci, on utilise des chaîne brutes (raw string), préfixées par un \sphinxcode{\sphinxupquote{r}}.
 
 
 \section{Feuilles d’exercices}
@@ -2670,10 +2933,18 @@ On va procéder étape par étape. Il sera plus facile de commencer par les feui
 \sphinxAtStartPar
 Ecrire le \sphinxcode{\sphinxupquote{\_\_init\_\_}} de la classe Symbol et Number
 
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
 \item {} 
 \sphinxAtStartPar
 Ecrire une méthode \sphinxcode{\sphinxupquote{display}} sur ces classes afin de renvoyer une chaîne de caractère contenant le symbole ou le nombre
 
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
 \item {} 
 \sphinxAtStartPar
 Ecrire le \sphinxcode{\sphinxupquote{\_\_init\_\_}} de la class Sin ainsi que le display. Le display devra appeler le display de l’argument. Par exemple ceci devra fonctionner ::
@@ -2842,7 +3113,7 @@ Un tableau numpy contient les notes d’une classe. Chaque ligne correspond à u
 \PYG{n}{N\PYGZus{}eleves} \PYG{o}{=} \PYG{l+m+mi}{35}
 \PYG{n}{N\PYGZus{}examens} \PYG{o}{=} \PYG{l+m+mi}{3}
 
-\PYG{n}{notes} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{N\PYGZus{}eleves}\PYG{p}{,} \PYG{n}{N\PYGZus{}examens}\PYG{p}{)}
+\PYG{n}{notes} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{N\PYGZus{}eleves}\PYG{p}{,} \PYG{n}{N\PYGZus{}examens}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mi}{20}
 \end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
@@ -2853,6 +3124,112 @@ Calculer la moyenne de chaque élève. Calculer la moyenne pour chaque examen.
 \item {} 
 \sphinxAtStartPar
 Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 examens sont de 1, 3 et 2.
+
+\end{enumerate}
+
+
+\subsection{Exercices sur les graphiques}
+\label{\detokenize{cours7_graphiques_exercices:exercices-sur-les-graphiques}}\label{\detokenize{cours7_graphiques_exercices::doc}}
+
+\subsubsection{Population}
+\label{\detokenize{cours7_graphiques_exercices:population}}
+\sphinxAtStartPar
+À partir de la page {[}https://fr.wikipedia.org/wiki/D\%C3\%A9mographie\_de\_l\%27Europe\}(https://fr.wikipedia.org/wiki/D\%C3\%A9mographie\_de\_l\%27Europe) et de la page \sphinxurl{https://en.wikipedia.org/wiki/Demographics\_of\_France} tracer sur un même graph la population du monde, de l’europe et de la france depuis 1800.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{europe\PYGZus{}annees} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1800}\PYG{p}{,} \PYG{l+m+mi}{1850}\PYG{p}{,} \PYG{l+m+mi}{1900}\PYG{p}{,} \PYG{l+m+mi}{1950}\PYG{p}{,} \PYG{l+m+mi}{1960}\PYG{p}{,} \PYG{l+m+mi}{1970}\PYG{p}{,} \PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{1990}\PYG{p}{,} \PYG{l+m+mi}{2000}\PYG{p}{,} \PYG{l+m+mi}{2010}\PYG{p}{,} \PYG{l+m+mi}{2019}\PYG{p}{]}
+\PYG{n}{europe\PYGZus{}population} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{187000000} \PYG{p}{,} \PYG{l+m+mi}{266000000} \PYG{p}{,} \PYG{l+m+mi}{420000000} \PYG{p}{,} \PYG{l+m+mi}{549329000} \PYG{p}{,} \PYG{l+m+mi}{605407000} \PYG{p}{,} \PYG{l+m+mi}{656919000} \PYG{p}{,} \PYG{l+m+mi}{693567000} \PYG{p}{,} \PYG{l+m+mi}{720858000} \PYG{p}{,} \PYG{l+m+mi}{725558000} \PYG{p}{,} \PYG{l+m+mi}{736413000} \PYG{p}{,} \PYG{l+m+mi}{747183000}\PYG{p}{]}
+\PYG{n}{monde\PYGZus{}population} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{813000000}\PYG{p}{,} \PYG{l+m+mi}{1128000000}\PYG{p}{,} \PYG{l+m+mi}{1550000000}\PYG{p}{,} \PYG{l+m+mi}{2536431000} \PYG{p}{,} \PYG{l+m+mi}{3034950000} \PYG{p}{,} \PYG{l+m+mi}{3700437000} \PYG{p}{,} \PYG{l+m+mi}{4458004000} \PYG{p}{,} \PYG{l+m+mi}{5327231000} \PYG{p}{,} \PYG{l+m+mi}{6143494000} \PYG{p}{,} \PYG{l+m+mi}{6956824000} \PYG{p}{,} \PYG{l+m+mi}{7713468000} \PYG{p}{,} \PYG{p}{]}
+
+\PYG{n}{france\PYGZus{}annees} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1806}\PYG{p}{,} \PYG{l+m+mi}{1821}\PYG{p}{,} \PYG{l+m+mi}{1831}\PYG{p}{,} \PYG{l+m+mi}{1841}\PYG{p}{,} \PYG{l+m+mi}{1851}\PYG{p}{,} \PYG{l+m+mi}{1872}\PYG{p}{,} \PYG{l+m+mi}{1881}\PYG{p}{,} \PYG{l+m+mi}{1891}\PYG{p}{,} \PYG{l+m+mi}{1901}\PYG{p}{,} \PYG{l+m+mi}{1911}\PYG{p}{,} \PYG{l+m+mi}{1921}\PYG{p}{,} \PYG{l+m+mi}{1931}\PYG{p}{,} \PYG{l+m+mi}{1946}\PYG{p}{,} \PYG{l+m+mi}{1950}\PYG{p}{,} \PYG{l+m+mi}{1960}\PYG{p}{,} \PYG{l+m+mi}{1970}\PYG{p}{,} \PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{1990}\PYG{p}{,} \PYG{l+m+mi}{2000}\PYG{p}{,} \PYG{l+m+mi}{2010}\PYG{p}{,} \PYG{l+m+mi}{2020}\PYG{p}{,} \PYG{l+m+mi}{2022}\PYG{p}{]}
+\PYG{n}{france\PYGZus{}population} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{29107000}\PYG{p}{,} \PYG{l+m+mi}{30462000}\PYG{p}{,} \PYG{l+m+mi}{32569000}\PYG{p}{,} \PYG{l+m+mi}{34230000}\PYG{p}{,} \PYG{l+m+mi}{35783000}\PYG{p}{,} \PYG{l+m+mi}{36103000}\PYG{p}{,} \PYG{l+m+mi}{37672000}\PYG{p}{,} \PYG{l+m+mi}{38343000}\PYG{p}{,} \PYG{l+m+mi}{38962000}\PYG{p}{,} \PYG{l+m+mi}{39605000}\PYG{p}{,} \PYG{l+m+mi}{39108000}\PYG{p}{,} \PYG{l+m+mi}{41524000}\PYG{p}{,} \PYG{l+m+mi}{40125230}\PYG{p}{,} \PYG{l+m+mi}{41647258}\PYG{p}{,} \PYG{l+m+mi}{45464797}\PYG{p}{,} \PYG{l+m+mi}{50528219}\PYG{p}{,} \PYG{l+m+mi}{53731387}\PYG{p}{,} \PYG{l+m+mi}{56577000}\PYG{p}{,} \PYG{l+m+mi}{58858198}\PYG{p}{,} \PYG{l+m+mi}{62765235}\PYG{p}{,} \PYG{l+m+mi}{67287241}\PYG{p}{,} \PYG{l+m+mi}{67813396}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+
+\subsection{Statistiques sur le COVID\sphinxhyphen{}19}
+\label{\detokenize{cours7_graphiques_exercices:statistiques-sur-le-covid-19}}
+\sphinxAtStartPar
+Le fichier \sphinxcode{\sphinxupquote{data\_covid.dat}} contient trois colonnes : la première est la date, la seconde le nombre cumulé de décès en hôpital liés au COVID\sphinxhyphen{}19 et la troisième le nombre cumulé de décès en EHPAD liés au COVID\sphinxhyphen{}19.
+
+\sphinxAtStartPar
+Le fichier commence le lundi 2 mars 2020. C’est l’origine de nos dates (jour 0). Dans la suite, on entend par date ou numéro du jour le nombre de jours écoulés depuis le 2 mars 2020. Ce fichier a été extrait de la base de donnée en janvier 2021 (il ne comprend donc que la première et début de la deuxième vague).
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Lire ce fichier à l’aide de la commande loadtxt, et extraire les trois colonnes dans trois variables.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+Tracer le graphe du nombre de décès cumulé en hôpital et en EHPAD en fonction de la date.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+Ajouter sur le même graph le nombre total de décés cumulé
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Au cours des 30 premiers jours, le nombre cumulé de décès en hôpital suit une loi proche d’une exponentielle. Tracer cette courbe en échelle semi\sphinxhyphen{}logarithmique.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+Au cours de ces 30 premiers jours, le nombre de décès peut s’écrire \(N(j) = N_0(1+a)^{j-j_0}\). Tracer cette courbe avec les paramètres pour lesquels elle s’ajuste bien à l’œil. Quelle est la valeur de \(a\)? (Nous ne demandons pas dans cette question de faire un ajustement, mais simplement de superposer les deux courbes).
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{5}
+\item {} 
+\sphinxAtStartPar
+Calculer le tableau du nombre quotidien de décès en hôpital et en EHPAD en fonction de la date. Et tracer la courbe pour l’hôpital. (Remarque, il est possible de faire cette opération sans boucle )
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{6}
+\item {} 
+\sphinxAtStartPar
+Quel jour a connu le plus grand nombre de décès en hôpital ? (on utilisera la fonction \sphinxcode{\sphinxupquote{argmax}})
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{7}
+\item {} 
+\sphinxAtStartPar
+Combien de jours ont connu plus de 50 décés en EHPAD ?
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{8}
+\item {} 
+\sphinxAtStartPar
+Comment extraire en une ligne le nombre de décés pour un jour de la semaine donné ?
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{9}
+\item {} 
+\sphinxAtStartPar
+Calculer et tracer le nombre total de décès en hôpital par jour de la semaine. Pour quel jour de la semaine enregistre\sphinxhyphen{}t\sphinxhyphen{}on le moins de décès ?
 
 \end{enumerate}
 
@@ -3966,6 +4343,1027 @@ Quelle est le mot le plus long ?
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 [\PYGZsq{}batrachomyomachie\PYGZsq{}]
+\end{sphinxVerbatim}
+
+
+\subsection{Objets}
+\label{\detokenize{cours6_objet_corr_exercices:objets}}\label{\detokenize{cours6_objet_corr_exercices::doc}}
+
+\subsubsection{Vecteur}
+\label{\detokenize{cours6_objet_corr_exercices:vecteur}}
+\sphinxAtStartPar
+Créer une classe Vecteur3D. Chaque vecteur aura 3 attributs : x, y, z
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode norme qui renvoie la norme.
+
+\item {} 
+\sphinxAtStartPar
+Écrire la méthode \sphinxcode{\sphinxupquote{\_\_add\_\_}} pour faire la somme entre deux veteurs
+
+\item {} 
+\sphinxAtStartPar
+Écrire la méthode \sphinxcode{\sphinxupquote{\_\_mul\_\_}} pour faire soit le produit par un scalaire (\(2\vec{u}\)) ou le produit scalaire (\(\vec{u}\cdot\vec{v}\)).
+
+\end{itemize}
+
+
+\subsubsection{Bibliographie}
+\label{\detokenize{cours6_objet_corr_exercices:bibliographie}}
+\sphinxAtStartPar
+Un livre est décrit par son titre, auteur et année de publication (pour faire les choses simplements). Écrire une classe \sphinxcode{\sphinxupquote{Livre}} qui enregistre ces informations. Ecrire la méthode \sphinxcode{\sphinxupquote{\_\_repr\_\_}} et \sphinxcode{\sphinxupquote{\_\_str\_\_}}.
+
+\sphinxAtStartPar
+Une bibliographe est une liste de livre. Écrire la classe \sphinxcode{\sphinxupquote{Bibliographie}} qui enregistre une liste de livre (on stockera la liste de livre sous forme d’une liste qui sera un attribut de la bibliographie).
+
+\sphinxAtStartPar
+L’objectif final est de pouvoir faire ceci ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+livre1 = Livre(\PYGZdq{}A very nice book\PYGZdq{}, \PYGZdq{}F. Dupont\PYGZdq{}, 2014)
+livre2 = Livre(\PYGZdq{}A very smart book\PYGZdq{}, \PYGZdq{}A. Einstein\PYGZdq{}, 1923)
+livre3 = Livre(\PYGZdq{}A very stupid comic\PYGZdq{}, \PYGZdq{}D. Duck\PYGZdq{}, 1937)
+
+bibliographie = Bibliographie([book1, book2, book3])
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Maintenant que tout est fait sous forme d’objet, on peut imaginer écrire plusieurs méthode :
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode \sphinxcode{\sphinxupquote{filter\_by\_year}} qui fait une nouvelle bibliographie ne contenant que les livres d’une année donée.
+
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode \sphinxcode{\sphinxupquote{to\_html}} qui formate correctement la bibliographie. La méthode de la classe Bibliographie devra appeler une méthode pour chaque Livre.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Et en HTML ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}table\PYGZgt{}
+    \PYGZlt{}thead\PYGZgt{}
+        \PYGZlt{}tr\PYGZgt{} \PYGZlt{}th\PYGZgt{}Auteur\PYGZlt{}/th\PYGZgt{}\PYGZlt{}th\PYGZgt{}Titre\PYGZlt{}/th\PYGZgt{}\PYGZlt{}th\PYGZgt{}Année\PYGZlt{}/th\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+    \PYGZlt{}/thead\PYGZgt{}
+    \PYGZlt{}tbody\PYGZgt{}
+       \PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}F. Dupont\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}2014\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}A very nice book\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+       \PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}A. Einstein\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}1923\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}A very smart book\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+       \PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}D. Duck\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}1937\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}A very stupid comic\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}
+    \PYGZlt{}/tbody\PYGZgt{}
+\PYGZlt{}/table\PYGZgt{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Remarque : si un objet possède une méthode \sphinxcode{\sphinxupquote{\_repr\_html\_}}, alors le jupyter notebook utilsera automatiquement la représentation en HTML. Rajouter cette méthode (qui appelera to\_html).
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Livre}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{titre}\PYG{p}{,} \PYG{n}{auteur}\PYG{p}{,} \PYG{n}{annee}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{titre} \PYG{o}{=} \PYG{n}{titre}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{auteur} \PYG{o}{=} \PYG{n}{auteur}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{annee} \PYG{o}{=} \PYG{n}{annee}
+    
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}repr\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Livre(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{titre}\PYG{l+s+si}{!r\PYGZcb{}}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{auteur}\PYG{l+s+si}{!r\PYGZcb{}}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{annee}\PYG{l+s+si}{!r\PYGZcb{}}\PYG{l+s+s2}{)}\PYG{l+s+s2}{\PYGZdq{}}
+
+    \PYG{k}{def} \PYG{n+nf}{to\PYGZus{}html\PYGZus{}table\PYGZus{}line}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZlt{}tr\PYGZgt{}\PYGZlt{}td\PYGZgt{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{auteur}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{titre}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZlt{}/td\PYGZgt{}\PYGZlt{}td\PYGZgt{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{annee}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZlt{}/td\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}}\PYG{l+s+s2}{\PYGZdq{}}
+    
+    
+\PYG{n}{bibio\PYGZus{}html\PYGZus{}template}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{l+s+s2}{\PYGZlt{}table\PYGZgt{}}
+\PYG{l+s+s2}{\PYGZlt{}thead\PYGZgt{}}
+\PYG{l+s+s2}{\PYGZlt{}tr\PYGZgt{}\PYGZlt{}th\PYGZgt{}Auteur\PYGZlt{}/th\PYGZgt{}\PYGZlt{}th\PYGZgt{}Titre\PYGZlt{}/th\PYGZgt{}\PYGZlt{}th\PYGZgt{}Année\PYGZlt{}/th\PYGZgt{}\PYGZlt{}/tr\PYGZgt{}}
+\PYG{l+s+s2}{\PYGZlt{}/thead\PYGZgt{}}
+\PYG{l+s+s2}{\PYGZlt{}tbody\PYGZgt{}}
+\PYG{l+s+si}{\PYGZob{}content\PYGZcb{}}
+\PYG{l+s+s2}{\PYGZlt{}/tbody\PYGZgt{}}
+\PYG{l+s+s2}{\PYGZlt{}/table\PYGZgt{}}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+
+\PYG{k}{class} \PYG{n+nc}{Bibliographie}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{liste\PYGZus{}des\PYGZus{}livres}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}liste\PYGZus{}livres} \PYG{o}{=} \PYG{n}{liste\PYGZus{}des\PYGZus{}livres}
+        
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}getitem\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{key}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}liste\PYGZus{}livres}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]}
+        
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}repr\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Bibliographie(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}liste\PYGZus{}livres}\PYG{l+s+si}{!r\PYGZcb{}}\PYG{l+s+s2}{)}\PYG{l+s+s2}{\PYGZdq{}}
+        
+    \PYG{k}{def} \PYG{n+nf}{to\PYGZus{}html\PYGZus{}table}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{content} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{[}\PYG{n}{livre}\PYG{o}{.}\PYG{n}{to\PYGZus{}html\PYGZus{}table\PYGZus{}line}\PYG{p}{(}\PYG{p}{)} \PYG{k}{for} \PYG{n}{livre} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}liste\PYGZus{}livres}\PYG{p}{]}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{bibio\PYGZus{}html\PYGZus{}template}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{content}\PYG{o}{=}\PYG{n}{content}\PYG{p}{)}
+        
+    \PYG{n}{\PYGZus{}repr\PYGZus{}html\PYGZus{}} \PYG{o}{=} \PYG{n}{to\PYGZus{}html\PYGZus{}table}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{livre1} \PYG{o}{=} \PYG{n}{Livre}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{A very nice book}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{F. Dupont}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{2014}\PYG{p}{)}
+\PYG{n}{livre2} \PYG{o}{=} \PYG{n}{Livre}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{A very smart book}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{A. Einstein}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1923}\PYG{p}{)}
+\PYG{n}{livre3} \PYG{o}{=} \PYG{n}{Livre}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{A very stupid comic}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{D. Duck}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1937}\PYG{p}{)}
+
+\PYG{n}{bibliographie} \PYG{o}{=} \PYG{n}{Bibliographie}\PYG{p}{(}\PYG{p}{[}\PYG{n}{livre1}\PYG{p}{,} \PYG{n}{livre2}\PYG{p}{,} \PYG{n}{livre3}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{bibliographie}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Bibliographie([Livre(\PYGZsq{}A very nice book\PYGZsq{}, \PYGZsq{}F. Dupont\PYGZsq{}, 2014), Livre(\PYGZsq{}A very smart book\PYGZsq{}, \PYGZsq{}A. Einstein\PYGZsq{}, 1923), Livre(\PYGZsq{}A very stupid comic\PYGZsq{}, \PYGZsq{}D. Duck\PYGZsq{}, 1937)])
+\end{sphinxVerbatim}
+
+
+\subsubsection{Système de calcul formel}
+\label{\detokenize{cours6_objet_corr_exercices:systeme-de-calcul-formel}}
+\sphinxAtStartPar
+\sphinxstyleemphasis{Cet exercice est à but purement pédagogique. Pour utiliser un système de calcul formel sous Python, la librairie \sphinxcode{\sphinxupquote{sympy}} existe et fonctionnera bien mieux que ce que l’on va faire !}
+
+\sphinxAtStartPar
+L’objectif de ce TD est de réaliser un système de calcul formel qui permettra de manipuler des expressions algébriques simples et de réaliser des opérations simples. Par exemple, on souhaite pouvoir effectuer ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y} \PYG{o}{+} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{y}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{o}{.}\PYG{n}{diff}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Dérivée par rapport à x}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Chaque expression sera représentée par un arbre. Les feuilles de l’arbre seront soit les symboles soit les constantes numériques. Les noeuds seront des fonctions à un ou plusieurs argument (sinus, somme, opposé, …). Le nom de la classe du noeud désignera la fonction. Les “enfants” du noeud seront les arguments de la fonction. Par exemple l’expression ci dessus correspondra à l’objet suivant ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} sA : 2*x*y}
+\PYG{n}{sA} \PYG{o}{=} \PYG{n}{Prod}\PYG{p}{(}\PYG{n}{Prod}\PYG{p}{(}\PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} sB : sin(x)*y}
+\PYG{n}{sB} \PYG{o}{=} \PYG{n}{Prod}\PYG{p}{(}\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{s} \PYG{o}{=} \PYG{n}{Sum}\PYG{p}{(}\PYG{n}{sA}\PYG{p}{,} \PYG{n}{sB}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\paragraph{Structure du programme}
+\label{\detokenize{cours6_objet_corr_exercices:structure-du-programme}}
+\sphinxAtStartPar
+Voici la structure de base ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Expr}\PYG{p}{(}\PYG{n+nb}{object}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Node}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Leave}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Pour les feuilles ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Ensuite on définit les fonctions ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Function}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Function with an arbitrary number of arguments \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les opérateurs sont des fonctions comme les autres, mais elle seront simplement affichées différemment ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{BinaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass} 
+\PYG{c+c1}{\PYGZsh{} Idem pour Sub, Div, Prod, Pow}
+
+\PYG{k}{class} \PYG{n+nc}{UnitaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Neg}\PYG{p}{(}\PYG{n}{UnitaryOperateor}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Les fonction mathématiques, qui prennent un seul argument ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{MathFunction}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+
+\paragraph{Questions}
+\label{\detokenize{cours6_objet_corr_exercices:questions}}
+\sphinxAtStartPar
+On va procéder étape par étape. Il sera plus facile de commencer par les feuilles avant d’écrire la structure globale.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ecrire le \sphinxcode{\sphinxupquote{\_\_init\_\_}} de la classe Symbol et Number
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Expr}\PYG{p}{(}\PYG{n+nb}{object}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}add\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Sum}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}
+        
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}mul\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Prod}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}repr\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Node}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Leave}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Function}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Function with an arbitrary number of arguments \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{BinaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass} 
+\PYG{c+c1}{\PYGZsh{} Idem pour Sub, Div, Prod, Pow}
+
+\PYG{k}{class} \PYG{n+nc}{UnitaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Neg}\PYG{p}{(}\PYG{n}{UnitaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{MathFunction}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numbers}
+
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{symbole}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb} \PYG{o}{=} \PYG{n}{symbole}
+        
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{nombre}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{ValueError}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre} \PYG{o}{=} \PYG{n}{nombre}
+        
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+Ecrire une méthode \sphinxcode{\sphinxupquote{display}} sur ces classes afin de renvoyer une chaîne de caractère contenant le symbole ou le nombre
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{symbole}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb} \PYG{o}{=} \PYG{n}{symbole}
+
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}
+
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{nombre}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{ValueError}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre} \PYG{o}{=} \PYG{n}{nombre}
+        
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre}\PYG{p}{)}
+        
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+Ecrire le \sphinxcode{\sphinxupquote{\_\_init\_\_}} de la class Sin ainsi que le display. Le display devra appeler le display de l’argument. Par exemple ceci devra fonctionner ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{sin(x)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{sin(sin(x))}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{arg}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg} \PYG{o}{=} \PYG{n}{arg}
+        
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sin(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+    
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}Sin(Sin(x))\PYGZsq{}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Généraliser le \sphinxstylestrong{init} et le display de \sphinxcode{\sphinxupquote{Sin}} afin de le mettre dans la class MathFunction. On rajoutera un attribut de classe à chaque sous classe de MathFunction ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{funtion\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sin}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{MathFunction}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{function\PYGZus{}name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+
+
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{function\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sin}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{arg}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg} \PYG{o}{=} \PYG{n}{arg}
+        
+    
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}sin(sin(x))\PYGZsq{}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+Faire de même pour les opérateurs binaires. On pourra commencer par simplement le faire pour Sum, puis généraliser avec un attribut de classe ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Function}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Function with an arbitrary number of arguments \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args} \PYG{o}{=} \PYG{n}{args}
+
+\PYG{k}{class} \PYG{n+nc}{BinaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{arg1}\PYG{p}{,} \PYG{n}{arg2}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args} \PYG{o}{=} \PYG{p}{(}\PYG{n}{arg1}\PYG{p}{,} \PYG{n}{arg2}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{) }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{operator\PYGZus{}name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ (}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+    
+\PYG{k}{class} \PYG{n+nc}{Prod}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{*}\PYG{l+s+s1}{\PYGZsq{}}
+
+    
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{Sum}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Prod}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}    
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZsq{}(x) + (sin((x) * (y)))\PYGZsq{}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{5}
+\item {} 
+\sphinxAtStartPar
+A ce stade quelque chose comme ceci devrait fonctionner ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{Sum}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{Prod}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Rajouter les méthodes \sphinxcode{\sphinxupquote{\_\_add\_\_}}, \sphinxcode{\sphinxupquote{\_\_mul\_\_}}, etc à la classe Expr afin de pouvoir écrire :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{x} \PYG{o}{+} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{+} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+(x) + (sin((x) * (y)))
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{6}
+\item {} 
+\sphinxAtStartPar
+Ecrire les méthodes \sphinxcode{\sphinxupquote{evaluate}} afin de calculer la valeur numérique d’une expression. Cette méthode fonctionnera de la sorte :
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{expr} \PYG{o}{=} \PYG{n}{x} \PYG{o}{+} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{expr}\PYG{o}{.}\PYG{n}{evaluate}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{y}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+On aura donc le protocole suivant ::
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Le dictionnaire kwd sera passé récursivement jusqu’aux feuilles et sera utilisé pour évaluer les symboles.
+
+\sphinxAtStartPar
+Les opérateurs binaires numériques sont définis dans le module \sphinxcode{\sphinxupquote{operator}} et les fonctions dans le module \sphinxcode{\sphinxupquote{math}}. Afin de factoriser le code, on rajoutera donc simplement un attribut de classe du type \sphinxcode{\sphinxupquote{operator\_function = operator.add}} pour les opérateurs binaires et \sphinxcode{\sphinxupquote{math\_function = math.sin}} pour les fonctions.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{k+kn}{import} \PYG{n+nn}{numbers} 
+\PYG{k+kn}{import} \PYG{n+nn}{operator}
+
+\PYG{k}{class} \PYG{n+nc}{Expr}\PYG{p}{(}\PYG{n+nb}{object}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}add\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Sum}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}
+        
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}mul\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Prod}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}repr\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Node}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Leave}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+
+\PYG{k}{class} \PYG{n+nc}{UnitaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Neg}\PYG{p}{(}\PYG{n}{UnitaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{symbole}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb} \PYG{o}{=} \PYG{n}{symbole}
+
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}
+    
+    \PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{try}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{kwd}\PYG{p}{[}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}\PYG{p}{]}
+        \PYG{k}{except} \PYG{n+ne}{KeyError}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{Exception}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{La valeur de }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{ n}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{est pas définie}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{nombre}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{ValueError}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre} \PYG{o}{=} \PYG{n}{nombre}
+        
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre}
+            
+\PYG{k}{class} \PYG{n+nc}{Function}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Function with an arbitrary number of arguments \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args} \PYG{o}{=} \PYG{n}{args}
+
+    \PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{evaluated\PYGZus{}args} \PYG{o}{=} \PYG{p}{[}\PYG{n}{elm}\PYG{o}{.}\PYG{n}{evaluate}\PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)} \PYG{k}{for} \PYG{n}{elm} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{]}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{math\PYGZus{}function}\PYG{p}{(}\PYG{o}{*}\PYG{n}{evaluated\PYGZus{}args}\PYG{p}{)}
+        
+\PYG{k}{class} \PYG{n+nc}{BinaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{arg1}\PYG{p}{,} \PYG{n}{arg2}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args} \PYG{o}{=} \PYG{p}{(}\PYG{n}{arg1}\PYG{p}{,} \PYG{n}{arg2}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{) }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{operator\PYGZus{}name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ (}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+    
+\PYG{k}{class} \PYG{n+nc}{Prod}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{*}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function} \PYG{o}{=} \PYG{n}{operator}\PYG{o}{.}\PYG{n}{mul}
+    
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function} \PYG{o}{=} \PYG{n}{operator}\PYG{o}{.}\PYG{n}{add}
+
+\PYG{k}{class} \PYG{n+nc}{MathFunction}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{function\PYGZus{}name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+
+
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{function\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sin}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sin}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{arg}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args} \PYG{o}{=} \PYG{p}{(}\PYG{n}{arg}\PYG{p}{,}\PYG{p}{)}
+    
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{expr} \PYG{o}{=} \PYG{n}{x} \PYG{o}{+} \PYG{n}{Sin}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{expr}\PYG{p}{)}
+\PYG{n}{expr}\PYG{o}{.}\PYG{n}{evaluate}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{y}\PYG{o}{=}\PYG{l+m+mf}{4.5}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+(x) + (sin((x) * (y)))
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+2.4121184852417565
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{7}
+\item {} 
+\sphinxAtStartPar
+Maintenant que vous avez compris le principe, il devrait être facile d’écrire une méthode \sphinxcode{\sphinxupquote{diff}} qui effectue la dérivée par rapport à une variable !
+
+\item {} 
+\sphinxAtStartPar
+Reste à simplifier les expressions. Une technique consiste à créer des règles de simplifications sous forme de méthode que l’on regroupe ensuite dans une liste ::
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{operator\PYGZus{}function} \PYG{o}{=} \PYG{n}{operator}\PYG{o}{.}\PYG{n}{add}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg1}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)} \PYG{o+ow}{and} 
+                        \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg2}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg1}\PYG{o}{.}\PYG{n}{value} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{arg2}\PYG{o}{.}\PYG{n}{value}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}addition\PYGZus{}avec\PYGZus{}zero}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{pass}
+
+    \PYG{n}{liste\PYGZus{}simplication} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} 
+                    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}addition\PYGZus{}avec\PYGZus{}zero}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} 
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Ensuite, il faut réussir à appeler correctement et de façon recursive ces méthodes…
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{9}
+\item {} 
+\sphinxAtStartPar
+Pour l’affichage des opérateurs binaires, les règles de priorité peuvent être utilisées pour éviter de mettre trop de parenthèses. Par exemple, dans le cas \sphinxcode{\sphinxupquote{a*(b+c)}}, la multiplication appelle le display de l’addition. Comme elle est prioritaire, l’addition va renvoyer le résulat avec des parenthèses. Dans le cas inverse \sphinxcode{\sphinxupquote{a + b*c}}, c’est inutile. Il faut donc que le display d’un opérateur passe sa priorité à ses enfants lors de l’appel de display. Implémenter ce principe.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numbers}
+\PYG{k+kn}{import} \PYG{n+nn}{operator}
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+
+\PYG{k}{class} \PYG{n+nc}{Expr}\PYG{p}{(}\PYG{n+nb}{object}\PYG{p}{)}\PYG{p}{:}
+
+    \PYG{k}{def} \PYG{n+nf}{binary\PYGZus{}operator}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{,} \PYG{n}{operator}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{other} \PYG{o}{=} \PYG{n}{Number}\PYG{p}{(}\PYG{n}{other}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{operator}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n+nb+bp}{NotImplemented}
+
+    \PYG{k}{def} \PYG{n+nf}{reversed\PYGZus{}binary\PYGZus{}operator}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{,} \PYG{n}{operator}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{other} \PYG{o}{=} \PYG{n}{Number}\PYG{p}{(}\PYG{n}{other}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n+nb+bp}{NotImplemented}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}add\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Sum}\PYG{p}{)}
+        
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}mul\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Prod}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}truediv\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Div}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}sub\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Sub}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}radd\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{reversed\PYGZus{}binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Sum}\PYG{p}{)}
+ 
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}rmul\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{reversed\PYGZus{}binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Prod}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}rtruediv\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{reversed\PYGZus{}binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Div}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}rsub\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{reversed\PYGZus{}binary\PYGZus{}operator}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Sub}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}neg\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Neg}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}repr\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}
+
+
+    \PYG{k}{def} \PYG{n+nf}{diff}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{var}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{out} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}diff}\PYG{p}{(}\PYG{n}{var}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{out}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Node}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Leave}\PYG{p}{(}\PYG{n}{Expr}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf}{simplify}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}
+
+\PYG{k}{class} \PYG{n+nc}{Symbol}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{symbole}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb} \PYG{o}{=} \PYG{n}{symbole}
+        
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}
+    
+    \PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{try}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{kwd}\PYG{p}{[}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}\PYG{p}{]}
+        \PYG{k}{except} \PYG{n+ne}{KeyError}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{Exception}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{La valeur de }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{ n}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{est pas définie}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}eq\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{o}{==}\PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{k+kc}{False}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{symb}\PYG{o}{==}\PYG{n}{other}\PYG{o}{.}\PYG{n}{symb}
+
+    \PYG{k}{def} \PYG{n+nf}{\PYGZus{}diff}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{var}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{==}\PYG{n}{var}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Number}\PYG{p}{(}\PYG{n}{Leave}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{nombre}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{ValueError}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre} \PYG{o}{=} \PYG{n}{nombre}
+        
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}eq\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{numbers}\PYG{o}{.}\PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{other} \PYG{o}{=} \PYG{n}{Number}\PYG{p}{(}\PYG{n}{other}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{other}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{other}\PYG{o}{.}\PYG{n}{nbre}\PYG{o}{==}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nbre}
+        \PYG{k}{return} \PYG{k+kc}{False}
+
+    \PYG{k}{def} \PYG{n+nf}{\PYGZus{}diff}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{var}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Function}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Function with an arbitrary number of arguments \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args} \PYG{o}{=} \PYG{n}{args}
+
+    \PYG{k}{def} \PYG{n+nf}{evaluate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{evaluated\PYGZus{}args} \PYG{o}{=} \PYG{p}{[}\PYG{n}{elm}\PYG{o}{.}\PYG{n}{evaluate}\PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{n}{kwd}\PYG{p}{)} \PYG{k}{for} \PYG{n}{elm} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{]}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{math\PYGZus{}function}\PYG{p}{(}\PYG{o}{*}\PYG{n}{evaluated\PYGZus{}args}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}eq\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{o}{==}\PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{k+kc}{False}        
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{o}{==}\PYG{n}{other}\PYG{o}{.}\PYG{n}{args}
+
+    \PYG{k}{def} \PYG{n+nf}{\PYGZus{}diff}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{var}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{n+nb}{getattr}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{partial\PYGZus{}derivative}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{k+kc}{None}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n}{partial\PYGZus{}derivative} \PYG{o+ow}{is} \PYG{k+kc}{None}\PYG{p}{:}
+            \PYG{k}{raise} \PYG{n+ne}{NotImplementedError}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Cannot derivate function }\PYG{l+s+si}{\PYGZob{}self.\PYGZus{}\PYGZus{}class\PYGZus{}\PYGZus{}\PYGZcb{}}\PYG{l+s+s1}{.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{)}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+        \PYG{n}{out} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{diff}\PYG{p}{(}\PYG{n}{var}\PYG{p}{)}\PYG{o}{*}\PYG{n}{partial\PYGZus{}derivative}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{deriv}\PYG{p}{,} \PYG{n}{arg} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{partial\PYGZus{}derivative}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{out} \PYG{o}{=} \PYG{n}{out} \PYG{o}{+} \PYG{n}{arg}\PYG{o}{.}\PYG{n}{diff}\PYG{p}{(}\PYG{n}{var}\PYG{p}{)}\PYG{o}{*}\PYG{n}{deriv}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{out}
+
+    \PYG{n}{liste\PYGZus{}simplification} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+    \PYG{k}{def} \PYG{n+nf}{simplify}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{out} \PYG{o}{=} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{(}\PYG{o}{*}\PYG{p}{[}\PYG{n}{elm}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(}\PYG{p}{)} \PYG{k}{for} \PYG{n}{elm} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{]}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{elm} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{liste\PYGZus{}simplification}\PYG{p}{:}
+            \PYG{n}{tmp} \PYG{o}{=} \PYG{n+nb}{getattr}\PYG{p}{(}\PYG{n}{out}\PYG{p}{,} \PYG{n}{elm}\PYG{p}{)}\PYG{p}{(}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{tmp} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+                \PYG{k}{return} \PYG{n}{tmp}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{out}
+
+
+\PYG{k}{class} \PYG{n+nc}{BinaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{commutative}\PYG{o}{=}\PYG{k+kc}{False}
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{parent\PYGZus{}priority}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{parent\PYGZus{}priority}\PYG{o}{\PYGZgt{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{priority}\PYG{p}{:}
+            \PYG{n}{fmt\PYGZus{}str} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{fmt\PYGZus{}str} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}
+        \PYG{k}{return} \PYG{n}{fmt\PYGZus{}str}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{priority}\PYG{p}{)}\PYG{p}{,} 
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{operator\PYGZus{}name}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{priority}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}eq\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{o}{==}\PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{other}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{k+kc}{False}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{o}{==}\PYG{n}{other}\PYG{o}{.}\PYG{n}{args}\PYG{p}{:}
+            \PYG{k}{return} \PYG{k+kc}{True}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{commutative}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{o}{==}\PYG{n}{other}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{p}{:}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{k}{return} \PYG{k+kc}{False}
+
+\PYG{k}{class} \PYG{n+nc}{Sum}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{priority} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function}\PYG{o}{=}\PYG{n}{operator}\PYG{o}{.}\PYG{n}{add}
+    \PYG{n}{commutative}\PYG{o}{=}\PYG{k+kc}{True}    
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)} \PYG{o+ow}{and} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nbre} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nbre}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}addition\PYGZus{}avec\PYGZus{}zero}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+
+    \PYG{k}{def} \PYG{n+nf}{simplification\PYGZus{}identique}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{:}
+            \PYG{k}{return} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+
+    \PYG{n}{liste\PYGZus{}simplification} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}addition\PYGZus{}avec\PYGZus{}zero}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplification\PYGZus{}identique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+
+\PYG{k}{class} \PYG{n+nc}{Prod}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{priority} \PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{*}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function}\PYG{o}{=}\PYG{n}{operator}\PYG{o}{.}\PYG{n}{mul}
+    \PYG{n}{commutative}\PYG{o}{=}\PYG{k+kc}{True}    
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{n}{y}\PYG{p}{,} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{n}{x}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)} \PYG{o+ow}{and} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{Number}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nbre} \PYG{o}{*} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nbre}\PYG{p}{)}
+
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}multiplication\PYGZus{}par\PYGZus{}un}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+
+    \PYG{k}{def} \PYG{n+nf}{simplication\PYGZus{}multiplication\PYGZus{}par\PYGZus{}zero}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{0} \PYG{o+ow}{or} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{Number}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+        
+    \PYG{n}{liste\PYGZus{}simplification} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}de\PYGZus{}deux\PYGZus{}nombres}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}multiplication\PYGZus{}par\PYGZus{}un}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{simplication\PYGZus{}multiplication\PYGZus{}par\PYGZus{}zero}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+
+
+\PYG{k}{class} \PYG{n+nc}{Div}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{priority} \PYG{o}{=} \PYG{l+m+mi}{2}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{/}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function}\PYG{o}{=}\PYG{n}{operator}\PYG{o}{.}\PYG{n}{truediv}
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{y}\PYG{p}{,} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{o}{/}\PYG{p}{(}\PYG{n}{y}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Sub}\PYG{p}{(}\PYG{n}{BinaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{priority} \PYG{o}{=} \PYG{l+m+mf}{0.5}
+    \PYG{n}{operator\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function}\PYG{o}{=}\PYG{n}{operator}\PYG{o}{.}\PYG{n}{sub}
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+
+\PYG{k}{class} \PYG{n+nc}{UnitaryOperator}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}    
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{parent\PYGZus{}priority}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{parent\PYGZus{}priority}\PYG{o}{\PYGZgt{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{priority}\PYG{p}{:}
+            \PYG{n}{fmt\PYGZus{}str} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{fmt\PYGZus{}str} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}
+        \PYG{k}{return} \PYG{n}{fmt\PYGZus{}str}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{unitary\PYGZus{}symbol}\PYG{p}{,} 
+                              \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{priority}\PYG{p}{)}\PYG{p}{)}
+            
+\PYG{k}{class} \PYG{n+nc}{Neg}\PYG{p}{(}\PYG{n}{UnitaryOperator}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{priority} \PYG{o}{=} \PYG{l+m+mf}{0.5}
+    \PYG{n}{unitary\PYGZus{}symbol} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZhy{}}\PYG{l+s+s2}{\PYGZdq{}}
+    \PYG{n}{math\PYGZus{}function} \PYG{o}{=} \PYG{n}{operator}\PYG{o}{.}\PYG{n}{neg}
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{p}{)}
+    
+\PYG{k}{class} \PYG{n+nc}{MathFunction}\PYG{p}{(}\PYG{n}{Function}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{o}{*}\PYG{n}{args}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{(}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{function\PYGZus{}name}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{args}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{display}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+
+\PYG{k}{class} \PYG{n+nc}{Sin}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}     
+    \PYG{n}{function\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sin}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sin}
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+
+\PYG{k}{class} \PYG{n+nc}{Cos}\PYG{p}{(}\PYG{n}{MathFunction}\PYG{p}{)}\PYG{p}{:}     
+    \PYG{n}{function\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{cos}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{math\PYGZus{}function} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{cos}
+    \PYG{n}{partial\PYGZus{}derivative} \PYG{o}{=} \PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+
+\PYG{n}{sin} \PYG{o}{=} \PYG{n}{Sin}
+\PYG{n}{cos} \PYG{o}{=} \PYG{n}{Cos}    
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{sin}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{x}\PYG{p}{)}\PYG{o}{.}\PYG{n}{diff}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+2 * cos(2 * x)
+\end{sphinxVerbatim}
+
+
+\subsection{Utilisation de numpy}
+\label{\detokenize{cours5_numpy_corr_exercices:utilisation-de-numpy}}\label{\detokenize{cours5_numpy_corr_exercices::doc}}
+
+\subsubsection{Calcul Monte\sphinxhyphen{}Carlo de la surface d’un disque}
+\label{\detokenize{cours5_numpy_corr_exercices:calcul-monte-carlo-de-la-surface-d-un-disque}}
+\sphinxAtStartPar
+On rappelle que la fonction np.random.rand permet de créer une distribution uniforme de points entre 0 et 1.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Créer des tableaux X et Y de variables uniforméments réparties entre \sphinxhyphen{}1 et 1
+
+\item {} 
+\sphinxAtStartPar
+Evaluer la probabilité que le point de coordonnées (x, y) soit dans le cercle unité ?
+
+\item {} 
+\sphinxAtStartPar
+En déduire une estimation ed \(\pi\)
+
+\item {} 
+\sphinxAtStartPar
+De la même façon, évaluer le volume d’une sphère en dimension 13
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1000000}
+
+\PYG{n}{X} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{p}{)}
+\PYG{n}{Y} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{p}{)}
+
+\PYG{n}{R} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{X}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{Y}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Estimation de pi}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{R}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Estimation de pi 3.143348
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dim} \PYG{o}{=} \PYG{l+m+mi}{13}
+
+\PYG{n}{X} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{dim}\PYG{p}{,} \PYG{n}{N}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{p}{)}
+
+\PYG{n}{R} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{X}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{R}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0.00011
+\end{sphinxVerbatim}
+
+
+\subsubsection{Calcul de la moyenne}
+\label{\detokenize{cours5_numpy_corr_exercices:calcul-de-la-moyenne}}
+\sphinxAtStartPar
+Un tableau numpy contient les notes d’une classe. Chaque ligne correspond à un élève et chaque colone à un examen.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+
+\PYG{n}{N\PYGZus{}eleves} \PYG{o}{=} \PYG{l+m+mi}{35}
+\PYG{n}{N\PYGZus{}examens} \PYG{o}{=} \PYG{l+m+mi}{3}
+
+\PYG{n}{notes} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{N\PYGZus{}eleves}\PYG{p}{,} \PYG{n}{N\PYGZus{}examens}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mi}{20}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Calculer la moyenne de chaque élève. Calculer la moyenne pour chaque examen.
+
+\item {} 
+\sphinxAtStartPar
+Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 examens sont de 1, 3 et 2.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{moyenne\PYGZus{}eleve} \PYG{o}{=} \PYG{n}{notes}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{moyenne\PYGZus{}exams} \PYG{o}{=} \PYG{n}{notes}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Moyenne eleves : }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{moyenne\PYGZus{}eleve}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Moyenne exams : }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{moyenne\PYGZus{}exams}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Moyenne eleves : [ 4.86475764 13.87157763 16.63133782 12.54131626  7.78354896 14.91060888
+ 11.49341153  7.40491898  7.7408721  12.83294063  5.19142779  7.16174387
+ 11.72812901 16.37947513 13.78278386  9.49417344 14.78770611 10.32141726
+  7.73516296 12.93635595 12.0172946   6.32059816 14.24920113  7.9846933
+  9.34793038  4.97840815  0.93303272 11.61755392  4.74755408  6.75401493
+  7.58238456 12.39258674 16.24376983  8.61322578  9.22967243]
+Moyenne exams : [10.51405794 10.77392961  8.93534844]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{moyenne\PYGZus{}ponderee} \PYG{o}{=} \PYG{p}{(}\PYG{n}{notes}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{newaxis}\PYG{p}{,} \PYG{p}{:}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{6}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Moyenne eleves : }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{moyenne\PYGZus{}ponderee}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Moyenne eleves : [ 4.8469425  14.99684316 17.5957476  13.28084804  7.38128184 14.16213389
+ 10.37123986  5.34245749  7.19795841 14.43345158  6.1073791   5.54566383
+ 10.46290838 15.54873099 12.71400994  7.05525354 13.60650382 12.16244485
+ 10.58650973 14.71984854 13.36255598  4.45639921 14.35210974  9.04184847
+ 10.33807833  3.32534396  0.65691568 10.95163956  3.27687672  7.73253324
+  8.73697947 12.65795077 16.75820541  8.44130762 11.91460335]
 \end{sphinxVerbatim}
 
 

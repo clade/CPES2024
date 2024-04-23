@@ -1,0 +1,217 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "738f7de0",
+   "metadata": {},
+   "source": [
+    "# Utilisation de numpy\n",
+    "\n",
+    "## Calcul Monte-Carlo de la surface d'un disque\n",
+    "\n",
+    "On rappelle que la fonction np.random.rand permet de créer une distribution uniforme de points entre 0 et 1.\n",
+    "\n",
+    "1. Créer des tableaux X et Y de variables uniforméments réparties entre -1 et 1\n",
+    "2. Evaluer la probabilité que le point de coordonnées (x, y) soit dans le cercle unité ?\n",
+    "3. En déduire une estimation ed $\\pi$\n",
+    "4. De la même façon, évaluer le volume d'une sphère en dimension 13"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "b8b9b882",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Estimation de pi 3.143348\n"
+     ]
+    }
+   ],
+   "source": [
+    "N = 1000000\n",
+    "\n",
+    "X = 2*(np.random.rand(N)-.5)\n",
+    "Y = 2*(np.random.rand(N)-.5)\n",
+    "\n",
+    "R = np.sqrt(X**2 + Y**2)\n",
+    "print('Estimation de pi', np.mean(R<1)*4)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "ace289cc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.00011\n"
+     ]
+    }
+   ],
+   "source": [
+    "dim = 13\n",
+    "\n",
+    "X = 2*(np.random.rand(dim, N)-.5)\n",
+    "\n",
+    "R = np.sqrt(np.sum(X**2, axis=0))\n",
+    "print(np.mean(R<1))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "67d2282f",
+   "metadata": {},
+   "source": [
+    "## Calcul de la moyenne \n",
+    "\n",
+    "Un tableau numpy contient les notes d'une classe. Chaque ligne correspond à un élève et chaque colone à un examen. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "2558b2be",
+   "metadata": {
+    "tags": [
+     "keep"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "N_eleves = 35\n",
+    "N_examens = 3\n",
+    "\n",
+    "notes = np.random.rand(N_eleves, N_examens)*20"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "084010e3",
+   "metadata": {},
+   "source": [
+    "1. Calculer la moyenne de chaque élève. Calculer la moyenne pour chaque examen. \n",
+    "2. Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 examens sont de 1, 3 et 2. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "f46d07cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Moyenne eleves : [ 4.86475764 13.87157763 16.63133782 12.54131626  7.78354896 14.91060888\n",
+      " 11.49341153  7.40491898  7.7408721  12.83294063  5.19142779  7.16174387\n",
+      " 11.72812901 16.37947513 13.78278386  9.49417344 14.78770611 10.32141726\n",
+      "  7.73516296 12.93635595 12.0172946   6.32059816 14.24920113  7.9846933\n",
+      "  9.34793038  4.97840815  0.93303272 11.61755392  4.74755408  6.75401493\n",
+      "  7.58238456 12.39258674 16.24376983  8.61322578  9.22967243]\n",
+      "Moyenne exams : [10.51405794 10.77392961  8.93534844]\n"
+     ]
+    }
+   ],
+   "source": [
+    "moyenne_eleve = notes.mean(axis=1)\n",
+    "moyenne_exams = notes.mean(axis=0)\n",
+    "\n",
+    "print(f'Moyenne eleves : {moyenne_eleve}')\n",
+    "print(f'Moyenne exams : {moyenne_exams}')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "b07a5f31",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Moyenne eleves : [ 4.8469425  14.99684316 17.5957476  13.28084804  7.38128184 14.16213389\n",
+      " 10.37123986  5.34245749  7.19795841 14.43345158  6.1073791   5.54566383\n",
+      " 10.46290838 15.54873099 12.71400994  7.05525354 13.60650382 12.16244485\n",
+      " 10.58650973 14.71984854 13.36255598  4.45639921 14.35210974  9.04184847\n",
+      " 10.33807833  3.32534396  0.65691568 10.95163956  3.27687672  7.73253324\n",
+      "  8.73697947 12.65795077 16.75820541  8.44130762 11.91460335]\n"
+     ]
+    }
+   ],
+   "source": [
+    "moyenne_ponderee = (notes*np.array([1, 3, 2])[np.newaxis, :]).sum(axis=1)/6\n",
+    "print(f'Moyenne eleves : {moyenne_ponderee}')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f22c756d",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Tags",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

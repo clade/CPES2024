@@ -10,3 +10,4 @@ Feuilles de cours
    cours4_chaine_caractere_cours.ipynb
    cours6_objet_cours.ipynb
    cours5_numpy_cours.ipynb
+   cours7_graphiques_cours.ipynb

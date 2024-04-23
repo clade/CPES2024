@@ -384,7 +384,7 @@
    "id": "e6220ecf",
    "metadata": {},
    "source": [
-    "Exemple : créer une fonction valeu absolue compatible numpy"
+    "Exemple : créer une fonction valeur absolue compatible numpy"
    ]
   },
   {

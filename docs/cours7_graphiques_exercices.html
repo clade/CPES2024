@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exercices sur les graphiques &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Correction" href="correction.html" />
+    <link rel="prev" title="Utilisation de numpy" href="cours5_numpy_exercices.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="cours5_numpy_exercices.html" title="Utilisation de numpy"
+             accesskey="P">previous</a> |
+          <a href="correction.html" title="Correction"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-les-graphiques">
+<h1>Exercices sur les graphiques<a class="headerlink" href="#exercices-sur-les-graphiques" title="Permalink to this headline">¶</a></h1>
+<section id="population">
+<h2>Population<a class="headerlink" href="#population" title="Permalink to this headline">¶</a></h2>
+<p>À partir de la page [https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_l%27Europe}(https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_l%27Europe) et de la page <a class="reference external" href="https://en.wikipedia.org/wiki/Demographics_of_France">https://en.wikipedia.org/wiki/Demographics_of_France</a> tracer sur un même graph la population du monde, de l’europe et de la france depuis 1800.</p>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">europe_annees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">1850</span><span class="p">,</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">1950</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1980</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2019</span><span class="p">]</span>
+<span class="n">europe_population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">187000000</span> <span class="p">,</span> <span class="mi">266000000</span> <span class="p">,</span> <span class="mi">420000000</span> <span class="p">,</span> <span class="mi">549329000</span> <span class="p">,</span> <span class="mi">605407000</span> <span class="p">,</span> <span class="mi">656919000</span> <span class="p">,</span> <span class="mi">693567000</span> <span class="p">,</span> <span class="mi">720858000</span> <span class="p">,</span> <span class="mi">725558000</span> <span class="p">,</span> <span class="mi">736413000</span> <span class="p">,</span> <span class="mi">747183000</span><span class="p">]</span>
+<span class="n">monde_population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">813000000</span><span class="p">,</span> <span class="mi">1128000000</span><span class="p">,</span> <span class="mi">1550000000</span><span class="p">,</span> <span class="mi">2536431000</span> <span class="p">,</span> <span class="mi">3034950000</span> <span class="p">,</span> <span class="mi">3700437000</span> <span class="p">,</span> <span class="mi">4458004000</span> <span class="p">,</span> <span class="mi">5327231000</span> <span class="p">,</span> <span class="mi">6143494000</span> <span class="p">,</span> <span class="mi">6956824000</span> <span class="p">,</span> <span class="mi">7713468000</span> <span class="p">,</span> <span class="p">]</span>
+
+<span class="n">france_annees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1806</span><span class="p">,</span> <span class="mi">1821</span><span class="p">,</span> <span class="mi">1831</span><span class="p">,</span> <span class="mi">1841</span><span class="p">,</span> <span class="mi">1851</span><span class="p">,</span> <span class="mi">1872</span><span class="p">,</span> <span class="mi">1881</span><span class="p">,</span> <span class="mi">1891</span><span class="p">,</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">1911</span><span class="p">,</span> <span class="mi">1921</span><span class="p">,</span> <span class="mi">1931</span><span class="p">,</span> <span class="mi">1946</span><span class="p">,</span> <span class="mi">1950</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1980</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2022</span><span class="p">]</span>
+<span class="n">france_population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">29107000</span><span class="p">,</span> <span class="mi">30462000</span><span class="p">,</span> <span class="mi">32569000</span><span class="p">,</span> <span class="mi">34230000</span><span class="p">,</span> <span class="mi">35783000</span><span class="p">,</span> <span class="mi">36103000</span><span class="p">,</span> <span class="mi">37672000</span><span class="p">,</span> <span class="mi">38343000</span><span class="p">,</span> <span class="mi">38962000</span><span class="p">,</span> <span class="mi">39605000</span><span class="p">,</span> <span class="mi">39108000</span><span class="p">,</span> <span class="mi">41524000</span><span class="p">,</span> <span class="mi">40125230</span><span class="p">,</span> <span class="mi">41647258</span><span class="p">,</span> <span class="mi">45464797</span><span class="p">,</span> <span class="mi">50528219</span><span class="p">,</span> <span class="mi">53731387</span><span class="p">,</span> <span class="mi">56577000</span><span class="p">,</span> <span class="mi">58858198</span><span class="p">,</span> <span class="mi">62765235</span><span class="p">,</span> <span class="mi">67287241</span><span class="p">,</span> <span class="mi">67813396</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="statistiques-sur-le-covid-19">
+<h1>Statistiques sur le COVID-19<a class="headerlink" href="#statistiques-sur-le-covid-19" title="Permalink to this headline">¶</a></h1>
+<p>Le fichier <a class="reference download internal" download="" href="_downloads/e94ebb9f15087f39abe786bf12a5af6c/data_covid.dat"><code class="xref download docutils literal notranslate"><span class="pre">data_covid.dat</span></code></a> contient trois colonnes : la première est la date, la seconde le nombre cumulé de décès en hôpital liés au COVID-19 et la troisième le nombre cumulé de décès en EHPAD liés au COVID-19.</p>
+<p>Le fichier commence le lundi 2 mars 2020. C’est l’origine de nos dates (jour 0). Dans la suite, on entend par date ou numéro du jour le nombre de jours écoulés depuis le 2 mars 2020. Ce fichier a été extrait de la base de donnée en janvier 2021 (il ne comprend donc que la première et début de la deuxième vague).</p>
+<ol class="arabic simple">
+<li><p>Lire ce fichier à l’aide de la commande loadtxt, et extraire les trois colonnes dans trois variables.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Tracer le graphe du nombre de décès cumulé en hôpital et en EHPAD en fonction de la date.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Ajouter sur le même graph le nombre total de décés cumulé</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Au cours des 30 premiers jours, le nombre cumulé de décès en hôpital suit une loi proche d’une exponentielle. Tracer cette courbe en échelle semi-logarithmique.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Au cours de ces 30 premiers jours, le nombre de décès peut s’écrire <span class="math notranslate nohighlight">\(N(j) = N_0(1+a)^{j-j_0}\)</span>. Tracer cette courbe avec les paramètres pour lesquels elle s’ajuste bien à l’œil. Quelle est la valeur de <span class="math notranslate nohighlight">\(a\)</span>? (Nous ne demandons pas dans cette question de faire un ajustement, mais simplement de superposer les deux courbes).</p></li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p>Calculer le tableau du nombre quotidien de décès en hôpital et en EHPAD en fonction de la date. Et tracer la courbe pour l’hôpital. (Remarque, il est possible de faire cette opération sans boucle )</p></li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p>Quel jour a connu le plus grand nombre de décès en hôpital ? (on utilisera la fonction <code class="docutils literal notranslate"><span class="pre">argmax</span></code>)</p></li>
+</ol>
+<ol class="arabic simple" start="8">
+<li><p>Combien de jours ont connu plus de 50 décés en EHPAD ?</p></li>
+</ol>
+<ol class="arabic simple" start="9">
+<li><p>Comment extraire en une ligne le nombre de décés pour un jour de la semaine donné ?</p></li>
+</ol>
+<ol class="arabic simple" start="10">
+<li><p>Calculer et tracer le nombre total de décès en hôpital par jour de la semaine. Pour quel jour de la semaine enregistre-t-on le moins de décès ?</p></li>
+</ol>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_exercices.html">Exercices sur les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_exercices.html">Exercices sur les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_exercices.html">Exercices sur les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_exercices.html">Chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours6_objet_exercices.html">Objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours5_numpy_exercices.html">Utilisation de numpy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercices sur les graphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statistiques-sur-le-covid-19">Statistiques sur le COVID-19</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="cours5_numpy_exercices.html" title="Utilisation de numpy"
+              >previous</a> |
+            <a href="correction.html" title="Correction"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/cours7_graphiques_exercices.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
