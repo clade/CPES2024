@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{Apr 23, 2024}
+\date{Apr 24, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1875,6 +1875,175 @@ array([1.90777979, 0.27021906, 0.20357936, 1.01244181, 0.48567974,
 \end{sphinxVerbatim}
 
 
+\subsubsection{Quelques opérations courantes}
+\label{\detokenize{cours5_numpy_cours:quelques-operations-courantes}}
+\sphinxAtStartPar
+Il existe beaucoup de fonction numpy permettant de faire simplement des opérations sur les tableaux :
+
+\sphinxAtStartPar
+Voici quelques exemples. Parfois les fonctions numpy existent sous forme d’une méthode (\sphinxcode{\sphinxupquote{objet.method}}).
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{normal}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{10000}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Sous forme d\PYGZsq{}une méthode}
+
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{var}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{min}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+4.3373002062093935
+4.3373002062093935
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+4.3373002062093935
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Lorsque l’on a un tableau 2D (ou plus), il est possible d’éxecuter l’opération ligne par ligne (ou colonne par colonne).
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n}{m} \PYG{o}{=} \PYG{l+m+mi}{4}
+
+\PYG{c+c1}{\PYGZsh{} Tableau 2D avec les notes}
+\PYG{c+c1}{\PYGZsh{} Les notes sont aléatoires !}
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{)}  
+
+\PYG{n}{moyenne\PYGZus{}A} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{data}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Sum\PYGZus{}i a\PYGZus{}ij}
+\PYG{n}{moyenne\PYGZus{}B} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{data}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Sum\PYGZus{}j a\PYGZus{}ij}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Opération de tri :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}
+\PYG{n}{b} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sort}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.08764322 0.1230581  0.17004889 0.18385438 0.45941352 0.55188637
+ 0.61358225 0.70715072 0.73755352 0.95182282]
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Il est parfois utile de connaître l’indice du maximum ou minimum ou de connaître l’ordre du tri. Cela s’obtient avec les fonctions \sphinxcode{\sphinxupquote{argmax}}, \sphinxcode{\sphinxupquote{argmin}} ou \sphinxcode{\sphinxupquote{argsort}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{i\PYGZus{}max} \PYG{o}{=} \PYG{n}{moyenne\PYGZus{}eleves}\PYG{o}{.}\PYG{n}{argmax}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Le meilleur élève est le numéro }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{i\PYGZus{}max}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+ne}{NameError}\PYG{g+gWhitespace}{                                 }Traceback (most recent call last)
+\PYG{o}{\PYGZlt{}}\PYG{n}{ipython}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{input}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{7}\PYG{o}{\PYGZhy{}}\PYG{n}{fa5dcea6eb43}\PYG{o}{\PYGZgt{}} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{1} \PYG{n}{i\PYGZus{}max} \PYG{o}{=} \PYG{n}{moyenne\PYGZus{}eleves}\PYG{o}{.}\PYG{n}{argmax}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{2} 
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Le meilleur élève est le numéro }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{i\PYGZus{}max}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n+ne}{NameError}: name \PYGZsq{}moyenne\PYGZus{}eleves\PYGZsq{} is not defined
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Autres fonctions utiles:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{normal}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{n}{N}\PYG{p}{)}    
+\PYG{c+c1}{\PYGZsh{} Différence entre deux éléments}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{diff}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)} 
+
+\PYG{c+c1}{\PYGZsh{} Marche aléatoire}
+\PYG{n}{b} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cumsum}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Lire et écrire dans un fichier}
+\label{\detokenize{cours5_numpy_cours:lire-et-ecrire-dans-un-fichier}}
+\sphinxAtStartPar
+Il existe deux type d’enregistrement : l’enregistrement sous forme d’un fichier texte et celui sous forme binaire. Dans un fichier texte, le tableau doit être de dimension un ou deux. Il est écrit ligne par ligne sous forme de nombre décimaux. Dans un fichier binaire, c’est la mémoire de l’ordinateur qui est recopier dans le fichier. Les fichiers textes ont l’avantage d’être lisible par un humain et d’être compatible avec beaucoup de logiciel, cependant l’écriture et surtout la lecture du fichier prend beaucoup de temps. Les fichiers binaire seront beaucoup plus rapide.
+
+\sphinxAtStartPar
+Pour enregistrer au format texte :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{test.dat}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{savetxt}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)}
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{f}\PYG{o}{.}\PYG{n}{read}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Numbers are converted to float}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+1.000000000000000000e+00
+2.000000000000000000e+00
+4.000000000000000000e+00
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Il est possible de lire des fichiers au format ‘csv’ tels que ceux exportés par un tableur. Voici un exemple.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Création du fichier }
+\PYG{n}{csv\PYGZus{}content} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{l+s+s2}{\PYGZsh{} Tension; courant}
+\PYG{l+s+s2}{1; 2.3}
+\PYG{l+s+s2}{2; 4.5}
+\PYG{l+s+s2}{3; 7.0}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{test.csv}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+    \PYG{n}{f}\PYG{o}{.}\PYG{n}{write}\PYG{p}{(}\PYG{n}{csv\PYGZus{}content}\PYG{p}{)}
+
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{loadtxt}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{delimiter}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{;}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{data}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[2.3 4.5 7. ]
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Dans le cas présent, il est aussi possible de lire chaque colonne dans une variable directement :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Utilisation de l\PYGZsq{}argument unpack}
+\PYG{n}{tension}\PYG{p}{,} \PYG{n}{courant} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{loadtxt}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{delimiter}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{;}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{unpack}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{tension}\PYG{o}{/}\PYG{n}{courant}\PYG{p}{)}        
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.43478261 0.44444444 0.42857143]
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Pour les fichiers binaires, on utilise la fonction \sphinxcode{\sphinxupquote{np.load}} et \sphinxcode{\sphinxupquote{np.save}}. Le tableau sera strictement identique après relecture.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{filename}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{test.npy}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{save}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)}
+\PYG{n}{new\PYGZus{}a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{load}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{new\PYGZus{}a}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} a est toujours un tableau d\PYGZsq{}entier}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[1 2 4]
+\end{sphinxVerbatim}
+
+
 \subsection{Tracer des graphiques}
 \label{\detokenize{cours7_graphiques_cours:tracer-des-graphiques}}\label{\detokenize{cours7_graphiques_cours::doc}}
 \sphinxAtStartPar
@@ -3146,7 +3315,7 @@ Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 ex
 \end{sphinxVerbatim}
 
 
-\subsection{Statistiques sur le COVID\sphinxhyphen{}19}
+\subsubsection{Statistiques sur le COVID\sphinxhyphen{}19}
 \label{\detokenize{cours7_graphiques_exercices:statistiques-sur-le-covid-19}}
 \sphinxAtStartPar
 Le fichier \sphinxcode{\sphinxupquote{data\_covid.dat}} contient trois colonnes : la première est la date, la seconde le nombre cumulé de décès en hôpital liés au COVID\sphinxhyphen{}19 et la troisième le nombre cumulé de décès en EHPAD liés au COVID\sphinxhyphen{}19.
