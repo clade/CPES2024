@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Utilisation de numpy &#8212; Le langage Python</title>
+    <title>Exercices sur les objets &#8212; Le langage Python</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -17,21 +17,19 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exercices sur les graphiques" href="cours7_graphiques_exercices.html" />
-    <link rel="prev" title="Objets" href="cours6_objet_exercices.html" /> 
+    <link rel="next" title="Correction" href="correction.html" />
+    <link rel="prev" title="Exercices sur les graphiques" href="cours7_graphiques_exercices.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="index.html">Le langage Python</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="cours6_objet_exercices.html" title="Objets"
-             accesskey="P">previous</a> |
           <a href="cours7_graphiques_exercices.html" title="Exercices sur les graphiques"
+             accesskey="P">previous</a> |
+          <a href="correction.html" title="Correction"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -47,36 +45,24 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="utilisation-de-numpy">
-<h1>Utilisation de numpy<a class="headerlink" href="#utilisation-de-numpy" title="Permalink to this headline">¶</a></h1>
-<section id="calcul-monte-carlo-de-la-surface-d-un-disque">
-<h2>Calcul Monte-Carlo de la surface d’un disque<a class="headerlink" href="#calcul-monte-carlo-de-la-surface-d-un-disque" title="Permalink to this headline">¶</a></h2>
-<p>On rappelle que la fonction np.random.rand permet de créer une distribution uniforme de points entre 0 et 1.</p>
-<ol class="arabic simple">
-<li><p>Créer des tableaux X et Y de variables uniforméments réparties entre -1 et 1</p></li>
-<li><p>Evaluer la probabilité que le point de coordonnées (x, y) soit dans le cercle unité ?</p></li>
-<li><p>En déduire une estimation ed <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
-<li><p>De la même façon, évaluer le volume d’une sphère en dimension 13</p></li>
-</ol>
-</section>
-<section id="calcul-de-la-moyenne">
-<h2>Calcul de la moyenne<a class="headerlink" href="#calcul-de-la-moyenne" title="Permalink to this headline">¶</a></h2>
-<p>Un tableau numpy contient les notes d’une classe. Chaque ligne correspond à un élève et chaque colone à un examen.</p>
-<div class="cell tag_keep docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">N_eleves</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="n">N_examens</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="n">notes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_eleves</span><span class="p">,</span> <span class="n">N_examens</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple">
-<li><p>Calculer la moyenne de chaque élève. Calculer la moyenne pour chaque examen.</p></li>
-<li><p>Calculer la moyenne de chaque élève, sachant que les coeficients pour les 3 examens sont de 1, 3 et 2.</p></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-les-objets">
+<h1>Exercices sur les objets<a class="headerlink" href="#exercices-sur-les-objets" title="Permalink to this headline">¶</a></h1>
+<section id="repertoire-des-pays">
+<h2>Repertoire des pays<a class="headerlink" href="#repertoire-des-pays" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Créer un objet représentant un pays. Celui-ci aura plusieurs attributs :</p>
+<ul class="simple">
+<li><p>Nom du pays</p></li>
+<li><p>Nom de la capitale</p></li>
+<li><p>Superficie</p></li>
+<li><p>Population</p></li>
+<li><p>PIB</p></li>
+</ul>
+<p>(il faudra bien entenu écrire une méthode <strong>repr</strong> de l’objet)</p>
+</li>
+<li><p>Rajouter à cet objet une méthode permettant de calculer la densité de population et la PIB par habitant.</p></li>
+<li><p>Créer un objet représentant un ensemble des pays. Le remplir avec quelque pays. Il faudra bien entenu écrire une méthode <strong>repr</strong> de l’objet.</p></li>
+<li><p>Créer une méthode qui renvoie la liste des pays classés par ordre de population (on pourra utiliser la fonction sorted avec l’arguemnt optionnel key)</p></li>
 </ol>
 </section>
 </section>
@@ -98,9 +84,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_exercices.html">Exercices sur les conteneurs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_exercices.html">Chaînes de caractères</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours6_objet_exercices.html">Objets</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Utilisation de numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours5_numpy_exercices.html">Utilisation de numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours7_graphiques_exercices.html">Exercices sur les graphiques</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercices_objets.html">Exercices sur les objets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercices sur les objets</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
@@ -123,16 +109,16 @@
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="cours6_objet_exercices.html" title="Objets"
-              >previous</a> |
             <a href="cours7_graphiques_exercices.html" title="Exercices sur les graphiques"
+              >previous</a> |
+            <a href="correction.html" title="Correction"
               >next</a> |
             <a href="genindex.html" title="General Index"
               >index</a>
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/cours5_numpy_exercices.ipynb.txt"
+              <a href="_sources/exercices_objets.ipynb.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>

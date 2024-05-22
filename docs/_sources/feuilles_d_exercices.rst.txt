@@ -11,4 +11,4 @@ Feuilles d'exercices
    cours6_objet_exercices.ipynb
    cours5_numpy_exercices.ipynb
    cours7_graphiques_exercices.ipynb
-   exercices_geographie.ipynb
+   exercices_objets.ipynb
