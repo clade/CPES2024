@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{Apr 24, 2024}
+\date{May 22, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2085,7 +2085,7 @@ Le plus simple est d’étudier des exemples.
 \PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mafigure.pdf}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{fb2b7815fbff78285e102b3336a15f8b7b845fbd5fdb8545394300b76778e621}.png}
+\noindent\sphinxincludegraphics{{45321c9acbe53ca639b0c10838c7af365275378cc567a6e88ae417b4bee30871}.png}
 
 \sphinxAtStartPar
 Il existe deux syntaxes pour matplotlib, la syntaxe ci\sphinxhyphen{}dessus à base de fonctions (syntaxe historiquement utilisée par beaucoup de personnes) et une syntaxe utilisant sur des objets. L’idée est d’utiliser des méthodes des objets figure ainsi que des graphiques (appelé \sphinxcode{\sphinxupquote{axes}}, il peut y avoir plusieurs \sphinxcode{\sphinxupquote{axes}}, à ne pas confondre avec \sphinxcode{\sphinxupquote{axis}} qui sont les abscisses et ordonnées).
@@ -2108,7 +2108,7 @@ Voici le même exemple en orienté objet:
 \PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{2fab1ee2139501aed0000431084c14a7d92c381dfe3c4aee9f11ee7f09e1593c}.png}
+\noindent\sphinxincludegraphics{{45321c9acbe53ca639b0c10838c7af365275378cc567a6e88ae417b4bee30871}.png}
 
 \sphinxAtStartPar
 Le syntaxe orientée objet est plus simple lorsque l’on veut mettre plusieurs graphs dans une même figure.
@@ -3399,6 +3399,54 @@ Comment extraire en une ligne le nombre de décés pour un jour de la semaine do
 \item {} 
 \sphinxAtStartPar
 Calculer et tracer le nombre total de décès en hôpital par jour de la semaine. Pour quel jour de la semaine enregistre\sphinxhyphen{}t\sphinxhyphen{}on le moins de décès ?
+
+\end{enumerate}
+
+
+\subsection{Géographie}
+\label{\detokenize{exercices_geographie:geographie}}\label{\detokenize{exercices_geographie::doc}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Créer un objet représentant un pays. Celui\sphinxhyphen{}ci aura plusieurs attributs :
+
+\end{enumerate}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Nom du pays
+
+\item {} 
+\sphinxAtStartPar
+Nom de la capitale
+
+\item {} 
+\sphinxAtStartPar
+Superficie
+
+\item {} 
+\sphinxAtStartPar
+Population
+
+\item {} 
+\sphinxAtStartPar
+PIB
+
+\end{itemize}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+Rajouter à cet objet une méthode permettant de calculer la densité de population et la PIB par habitant.
+
+\item {} 
+\sphinxAtStartPar
+Créer un objet représentant un ensemble des pays. Le remplir avec quelque pays.
+
+\item {} 
+\sphinxAtStartPar
+Créer une méthode qui renvoie la liste des pays classés par ordre de population (on utilisera la fonction sorted avec l’arguemnt optionnel key)
 
 \end{enumerate}
 
@@ -5534,6 +5582,296 @@ Moyenne eleves : [ 4.8469425  14.99684316 17.5957476  13.28084804  7.38128184 14
  10.33807833  3.32534396  0.65691568 10.95163956  3.27687672  7.73253324
   8.73697947 12.65795077 16.75820541  8.44130762 11.91460335]
 \end{sphinxVerbatim}
+
+
+\subsection{Exercices sur les graphiques}
+\label{\detokenize{cours7_graphiques_corr_exercices:exercices-sur-les-graphiques}}\label{\detokenize{cours7_graphiques_corr_exercices::doc}}
+
+\subsubsection{Population}
+\label{\detokenize{cours7_graphiques_corr_exercices:population}}
+\sphinxAtStartPar
+À partir de la page {[}https://fr.wikipedia.org/wiki/D\%C3\%A9mographie\_de\_l\%27Europe\}(https://fr.wikipedia.org/wiki/D\%C3\%A9mographie\_de\_l\%27Europe) et de la page \sphinxurl{https://en.wikipedia.org/wiki/Demographics\_of\_France} tracer sur un même graph la population du monde, de l’europe et de la france depuis 1800.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{europe\PYGZus{}annees} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1800}\PYG{p}{,} \PYG{l+m+mi}{1850}\PYG{p}{,} \PYG{l+m+mi}{1900}\PYG{p}{,} \PYG{l+m+mi}{1950}\PYG{p}{,} \PYG{l+m+mi}{1960}\PYG{p}{,} \PYG{l+m+mi}{1970}\PYG{p}{,} \PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{1990}\PYG{p}{,} \PYG{l+m+mi}{2000}\PYG{p}{,} \PYG{l+m+mi}{2010}\PYG{p}{,} \PYG{l+m+mi}{2019}\PYG{p}{]}
+\PYG{n}{europe\PYGZus{}population} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{187000000} \PYG{p}{,} \PYG{l+m+mi}{266000000} \PYG{p}{,} \PYG{l+m+mi}{420000000} \PYG{p}{,} \PYG{l+m+mi}{549329000} \PYG{p}{,} \PYG{l+m+mi}{605407000} \PYG{p}{,} \PYG{l+m+mi}{656919000} \PYG{p}{,} \PYG{l+m+mi}{693567000} \PYG{p}{,} \PYG{l+m+mi}{720858000} \PYG{p}{,} \PYG{l+m+mi}{725558000} \PYG{p}{,} \PYG{l+m+mi}{736413000} \PYG{p}{,} \PYG{l+m+mi}{747183000}\PYG{p}{]}
+\PYG{n}{monde\PYGZus{}population} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{813000000}\PYG{p}{,} \PYG{l+m+mi}{1128000000}\PYG{p}{,} \PYG{l+m+mi}{1550000000}\PYG{p}{,} \PYG{l+m+mi}{2536431000} \PYG{p}{,} \PYG{l+m+mi}{3034950000} \PYG{p}{,} \PYG{l+m+mi}{3700437000} \PYG{p}{,} \PYG{l+m+mi}{4458004000} \PYG{p}{,} \PYG{l+m+mi}{5327231000} \PYG{p}{,} \PYG{l+m+mi}{6143494000} \PYG{p}{,} \PYG{l+m+mi}{6956824000} \PYG{p}{,} \PYG{l+m+mi}{7713468000} \PYG{p}{,} \PYG{p}{]}
+
+\PYG{n}{france\PYGZus{}annees} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1806}\PYG{p}{,} \PYG{l+m+mi}{1821}\PYG{p}{,} \PYG{l+m+mi}{1831}\PYG{p}{,} \PYG{l+m+mi}{1841}\PYG{p}{,} \PYG{l+m+mi}{1851}\PYG{p}{,} \PYG{l+m+mi}{1872}\PYG{p}{,} \PYG{l+m+mi}{1881}\PYG{p}{,} \PYG{l+m+mi}{1891}\PYG{p}{,} \PYG{l+m+mi}{1901}\PYG{p}{,} \PYG{l+m+mi}{1911}\PYG{p}{,} \PYG{l+m+mi}{1921}\PYG{p}{,} \PYG{l+m+mi}{1931}\PYG{p}{,} \PYG{l+m+mi}{1946}\PYG{p}{,} \PYG{l+m+mi}{1950}\PYG{p}{,} \PYG{l+m+mi}{1960}\PYG{p}{,} \PYG{l+m+mi}{1970}\PYG{p}{,} \PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{1990}\PYG{p}{,} \PYG{l+m+mi}{2000}\PYG{p}{,} \PYG{l+m+mi}{2010}\PYG{p}{,} \PYG{l+m+mi}{2020}\PYG{p}{,} \PYG{l+m+mi}{2022}\PYG{p}{]}
+\PYG{n}{france\PYGZus{}population} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{29107000}\PYG{p}{,} \PYG{l+m+mi}{30462000}\PYG{p}{,} \PYG{l+m+mi}{32569000}\PYG{p}{,} \PYG{l+m+mi}{34230000}\PYG{p}{,} \PYG{l+m+mi}{35783000}\PYG{p}{,} \PYG{l+m+mi}{36103000}\PYG{p}{,} \PYG{l+m+mi}{37672000}\PYG{p}{,} \PYG{l+m+mi}{38343000}\PYG{p}{,} \PYG{l+m+mi}{38962000}\PYG{p}{,} \PYG{l+m+mi}{39605000}\PYG{p}{,} \PYG{l+m+mi}{39108000}\PYG{p}{,} \PYG{l+m+mi}{41524000}\PYG{p}{,} \PYG{l+m+mi}{40125230}\PYG{p}{,} \PYG{l+m+mi}{41647258}\PYG{p}{,} \PYG{l+m+mi}{45464797}\PYG{p}{,} \PYG{l+m+mi}{50528219}\PYG{p}{,} \PYG{l+m+mi}{53731387}\PYG{p}{,} \PYG{l+m+mi}{56577000}\PYG{p}{,} \PYG{l+m+mi}{58858198}\PYG{p}{,} \PYG{l+m+mi}{62765235}\PYG{p}{,} \PYG{l+m+mi}{67287241}\PYG{p}{,} \PYG{l+m+mi}{67813396}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k+kn}{import} \PYG{n}{figure}
+
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{figure}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{europe\PYGZus{}annees}\PYG{p}{,} \PYG{n}{monde\PYGZus{}population}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Monde}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{europe\PYGZus{}annees}\PYG{p}{,} \PYG{n}{europe\PYGZus{}population}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Europe}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{france\PYGZus{}annees}\PYG{p}{,} \PYG{n}{france\PYGZus{}population}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{France}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}yscale}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{log}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{n}{which}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{both}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}matplotlib.legend.Legend at 0x7027be8c4fd0\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{f387c045c6a2bc1400c3509ad6df0a9def384825d8b321ce5a92cc0b17acc64f}.png}
+
+
+\subsubsection{Statistiques sur le COVID\sphinxhyphen{}19}
+\label{\detokenize{cours7_graphiques_corr_exercices:statistiques-sur-le-covid-19}}
+\sphinxAtStartPar
+Le fichier \sphinxcode{\sphinxupquote{data\_covid.dat}} contient trois colonnes : la première est la date, la seconde le nombre cumulé de décès en hôpital liés au COVID\sphinxhyphen{}19 et la troisième le nombre cumulé de décès en EHPAD liés au COVID\sphinxhyphen{}19.
+
+\sphinxAtStartPar
+Le fichier commence le lundi 2 mars 2020. C’est l’origine de nos dates (jour 0). Dans la suite, on entend par date ou numéro du jour le nombre de jours écoulés depuis le 2 mars 2020. Ce fichier a été extrait de la base de donnée en janvier 2021 (il ne comprend donc que la première et début de la deuxième vague).
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Lire ce fichier à l’aide de la commande loadtxt, et extraire les trois colonnes dans trois variables.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{date}\PYG{p}{,} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{,} \PYG{n}{deces\PYGZus{}ehpad} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{loadtxt}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data/data\PYGZus{}covid.dat}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{unpack}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+Tracer le graphe du nombre de décès cumulé en hôpital et en EHPAD en fonction de la date.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{date}\PYG{p}{,} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{hopital}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{date}\PYG{p}{,} \PYG{n}{deces\PYGZus{}ehpad}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ehpad}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{date}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{deces}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}matplotlib.legend.Legend at 0x7fb3f83444c0\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{5fa4be9c6a014ec6ae26070e210b766debae1e00f9759bf57359c82116eeed33}.png}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+Ajouter sur le même graph le nombre total de décés cumulé
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{date}\PYG{p}{,} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{hopital}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{date}\PYG{p}{,} \PYG{n}{deces\PYGZus{}ehpad}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ehpad}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{date}\PYG{p}{,} \PYG{n}{deces\PYGZus{}hopital} \PYG{o}{+} \PYG{n}{deces\PYGZus{}ehpad}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{date}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{deces}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}matplotlib.legend.Legend at 0x7fb3f5efac40\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{bd8f637bd1c3968f24fbb65c823c060c4aa823fed3def9921972301157701709}.png}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Au cours des 30 premiers jours, le nombre cumulé de décès en hôpital suit une loi proche d’une exponentielle. Tracer cette courbe en échelle semi\sphinxhyphen{}logarithmique.
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{semilogy}\PYG{p}{(}\PYG{n}{date}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{30}\PYG{p}{]}\PYG{p}{,} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{30}\PYG{p}{]}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{date}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{deces}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}matplotlib.legend.Legend at 0x7fb3f5ea84f0\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{673a5efaae812cc99776ccc0bf7b749bf07982087da2d8401881ad213247ba13}.png}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+Au cours de ces 30 premiers jours, le nombre de décès peut s’écrire \(N(j) = N_0(1+a)^{j-j_0}\). Tracer cette courbe avec les paramètres pour lesquels elle s’ajuste bien à l’œil. Quelle est la valeur de \(a\)? (Nous ne demandons pas dans cette question de faire un ajustement, mais simplement de superposer les deux courbes).
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{semilogy}\PYG{p}{(}\PYG{n}{date}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{30}\PYG{p}{]}\PYG{p}{,} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{30}\PYG{p}{]}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ok}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{N0} \PYG{o}{=} \PYG{l+m+mi}{200}
+\PYG{n}{j0} \PYG{o}{=} \PYG{l+m+mi}{15}
+\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{0.27}
+\PYG{n}{j} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{j}\PYG{p}{,} \PYG{n}{N0}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{a}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{n}{j0}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{fit}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{date}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{deces}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}matplotlib.legend.Legend at 0x7fb3f5c84e20\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{db880c5017f5520fec65ac1d7718bb554649255525059875b48077a56b05f5a9}.png}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{5}
+\item {} 
+\sphinxAtStartPar
+Calculer le tableau du nombre quotidien de décès en hôpital et en EHPAD en fonction de la date. Et tracer la courbe pour l’hôpital. (Remarque, il est possible de faire cette opération sans boucle )
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital} \PYG{o}{=} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{deces\PYGZus{}hopital}\PYG{p}{[}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{date\PYGZus{}quot} \PYG{o}{=} \PYG{n}{date}\PYG{p}{[}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{date\PYGZus{}quot}\PYG{p}{,} \PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{date}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{deces}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}matplotlib.legend.Legend at 0x7fb3f5bb81c0\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{8b4661d287f8ebe1ec134491b2c9b0ccbb460e308211c82dcf4604ea562e90f9}.png}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{6}
+\item {} 
+\sphinxAtStartPar
+Quel jour a connu le plus grand nombre de décès en hôpital ? (on utilisera la fonction \sphinxcode{\sphinxupquote{argmax}})
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{p}{)}
+\PYG{n}{argmax}\PYG{p}{(}\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+34
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{7}
+\item {} 
+\sphinxAtStartPar
+Combien de jours ont connu plus de 50 décés en EHPAD ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{o}{\PYGZgt{}}\PYG{o}{=}\PYG{l+m+mi}{50}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+186
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{8}
+\item {} 
+\sphinxAtStartPar
+Comment extraire en une ligne le nombre de décés pour un jour de la semaine donné ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{p}{:}\PYG{l+m+mi}{7}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+8778.0
+\end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{9}
+\item {} 
+\sphinxAtStartPar
+Calculer et tracer le nombre total de décès en hôpital par jour de la semaine. Pour quel jour de la semaine enregistre\sphinxhyphen{}t\sphinxhyphen{}on le moins de décès ?
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{list\PYGZus{}result}\PYG{o}{=}\PYG{p}{[}\PYG{p}{]}
+
+\PYG{k}{for} \PYG{n}{jour} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{res} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{p}{[}\PYG{n}{jour}\PYG{p}{:}\PYG{p}{:}\PYG{l+m+mi}{7}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{list\PYGZus{}result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{res}\PYG{p}{)}
+    
+\PYG{n}{list\PYGZus{}result}    
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[8778.0, 7444.0, 7209.0, 6957.0, 5220.0, 4245.0, 8454.0]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital\PYGZus{}bis} \PYG{o}{=} \PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital}\PYG{p}{[}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} multiple de 7}
+\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital\PYGZus{}bis}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{deces\PYGZus{}quot\PYGZus{}hopital\PYGZus{}bis}\PYG{p}{)}\PYG{o}{/}\PYG{o}{/}\PYG{l+m+mi}{7}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{)}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+array([187.17777778, 160.33333333, 153.93333333, 154.6       ,
+       116.        ,  94.33333333, 187.86666667])
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{list\PYGZus{}result}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Nombre total de décés par jour}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{jour de la semaine}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{deces}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0, 0.5, \PYGZsq{}deces\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{28f827857476a5688172517f7a60c031d0b3f8899f18a981cf5227123c055bd4}.png}
 
 
 
