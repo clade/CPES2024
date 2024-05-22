@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.4.6)  22 MAY 2024 08:00
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.4.6)  22 MAY 2024 08:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,47 +1027,47 @@ Overfull \hbox (161.51752pt too wide) in paragraph at lines 3305--3307
 
 [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60]
 [61] [62] [63] [64] [65] [66] [67]
-Underfull \vbox (badness 10000) detected at line 5144
+Underfull \vbox (badness 10000) detected at line 5147
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5144
+Underfull \vbox (badness 10000) detected at line 5147
  []
 
 [68]
-Overfull \vbox (1.7859pt too high) detected at line 5189
+Overfull \vbox (1.7859pt too high) detected at line 5192
  []
 
 [69]
-Overfull \vbox (2.78595pt too high) detected at line 5462
+Overfull \vbox (2.78595pt too high) detected at line 5465
  []
 
 [70]
-Underfull \vbox (badness 10000) detected at line 5462
+Underfull \vbox (badness 10000) detected at line 5465
  []
 
 
-Overfull \vbox (2.78596pt too high) detected at line 5462
+Overfull \vbox (2.78596pt too high) detected at line 5465
  []
 
 [71]
-Underfull \vbox (badness 10000) detected at line 5462
+Underfull \vbox (badness 10000) detected at line 5465
  []
 
 
-Overfull \vbox (2.78596pt too high) detected at line 5462
+Overfull \vbox (2.78596pt too high) detected at line 5465
  []
 
 [72]
-Underfull \vbox (badness 10000) detected at line 5462
+Underfull \vbox (badness 10000) detected at line 5465
  []
 
 
-Overfull \vbox (2.78596pt too high) detected at line 5462
+Overfull \vbox (2.78596pt too high) detected at line 5465
  []
 
 [73] [74] [75]
-Overfull \hbox (161.51752pt too wide) in paragraph at lines 5592--5594
+Overfull \hbox (161.51752pt too wide) in paragraph at lines 5595--5597
 \TU/FreeSerif(0)/m/n/10 À partir de la page [https://fr.wikipedia.org/wiki/D%C3
 %A9mographie_de_l%27Europe}(https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_l
 %27Europe)
@@ -1142,13 +1142,13 @@ LaTeX Info: Redefining \sffamily on input line 19.
 LaTeX Info: Redefining \ttfamily on input line 19.
 )
 Package rerunfilecheck Info: File `lelangagepython.out' has not changed.
-(rerunfilecheck)             Checksum: 4C7CD5FC4CC4A201ACB07651CA260B6D;24105.
+(rerunfilecheck)             Checksum: E51CF27ABD818F48F3C8D838CD18ABBA;24350.
  ) 
 Here is how much of TeX's memory you used:
- 17111 strings out of 478135
- 345028 string characters out of 5852427
- 928785 words of memory out of 5000000
- 37360 multiletter control sequences out of 15000+600000
+ 17113 strings out of 478135
+ 345100 string characters out of 5852427
+ 929120 words of memory out of 5000000
+ 37362 multiletter control sequences out of 15000+600000
  473215 words of font info for 87 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  73i,15n,85p,822b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
