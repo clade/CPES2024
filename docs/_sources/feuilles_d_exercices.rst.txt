@@ -12,3 +12,4 @@ Feuilles d'exercices
    cours5_numpy_exercices.ipynb
    cours7_graphiques_exercices.ipynb
    exercices_objets.ipynb
+   ../devoir_maison_Devoir Maison.ipynb
