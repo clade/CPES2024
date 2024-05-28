@@ -3453,6 +3453,178 @@ Créer une méthode qui renvoie la liste des pays classés par ordre de populati
 \end{enumerate}
 
 
+\subsection{Calcul des dates}
+\label{\detokenize{devoir_maison_Devoir Maison:calcul-des-dates}}\label{\detokenize{devoir_maison_Devoir Maison::doc}}
+\sphinxAtStartPar
+Dans cette exercice, nous allons écrire des fonctions pour traiter des dates. Il est interdit d’utiliser la librairie python “datetime” ou tout autre librairie permettant de traiter les dates automatiquement.
+
+\sphinxAtStartPar
+Pour simplifier l’exercice, nous considérerons que le calendrier est inchangé depuis son origine. Nous rappelons que les années bisextiles ont lieu tous les 4 ans, sauf tous les 100 ans, sauf tous les 400 ans. Ainsi, 1900, n’était pas bisextile, mais 2000 l’était.
+
+\sphinxAtStartPar
+Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois zero de l’an zero). C’est le premier jour du calendrier.
+
+
+\subsubsection{Années bisextiles}
+\label{\detokenize{devoir_maison_Devoir Maison:annees-bisextiles}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction qui prend l’année comme argument et renvoie True ou False suivant que l’année est bisextile ou pas.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulé jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an I, 365 pour l’an II, \(3\times365\) pour l’an IV, \(4\times365+1\) pour l’an V. Pour l’an CI, ce sera \(100\times 365 + 24\), etc…
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction qui a partir du chiffre du mois (janvier=1, février=2, …) et du jour du mois renvoie le nombre de jour écoulé depuis le premier janvier de cette année. Cette fonction prendra un argument optionnel qui indique si l’année est bisextile.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{3}
+\item {} 
+\sphinxAtStartPar
+Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d’une liste qui contiendra le nombre de jours successif de chaque mois (31, 28, 31, 30, 31, …)
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction qui prend comme argument la date sous forme de nombre et renvoie le nombre de jours écoulés depuis le premier janvier de l’an I. Cette fonction utilisera bien entendu les fonctions écrites précédement ! Combien de jour se sont écoulés entre le 1/1/1 et votre date de naissance ?
+
+\end{enumerate}
+
+
+\subsubsection{Programmation orientée objet}
+\label{\detokenize{devoir_maison_Devoir Maison:programmation-orientee-objet}}
+\sphinxAtStartPar
+Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la votre.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+Définir un objet \sphinxcode{\sphinxupquote{Date}} qui s’initialise avec trois arguments (année, jour, mois).
+
+\item {} 
+\sphinxAtStartPar
+Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_repr\_\_}} qui renvoie la chaîne de caractère permettant de créer l’objet.
+
+\item {} 
+\sphinxAtStartPar
+Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_str\_\_}} qui renvoie la date sous forme humaine (“14 juillet 1789”). Le nom des mois sera rentré sous forme d’une liste
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{7}
+\item {} 
+\sphinxAtStartPar
+Ajouter une méthode qui renvoie le nombre de jour écoulés depuis le premier janvier de l’an I.
+
+\item {} 
+\sphinxAtStartPar
+En utilisant la méthode de la question précédente, définir la méthode spéciale \sphinxcode{\sphinxupquote{\_\_sub\_\_}} qui renvoie le nombre de jour qui s’est écoulé entre deux dates données.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{9}
+\item {} 
+\sphinxAtStartPar
+Écrire une méthode qui renvoie le jour de la semaine sous forme d’un nombre (lundi\sphinxhyphen{}>0, mardi\sphinxhyphen{}>1, …) et une autre méthode qui renvoie ce jour sous forme d’une chaîne de caractère.
+
+\end{enumerate}
+
+
+\subsubsection{Manipulation de chaînes de caractères}
+\label{\detokenize{devoir_maison_Devoir Maison:manipulation-de-chaines-de-caracteres}}
+\sphinxAtStartPar
+Dans les questions suivantes, il est conseillé d’utiliser la méthode split des chaînes de caractères.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{10}
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction qui à partir d’une chaine de caractère du type \sphinxcode{\sphinxupquote{"11/02/1890"}} renvoie les trois chiffres du jours, du mois et de l’année.
+
+\item {} 
+\sphinxAtStartPar
+Écrire une fonction qui créer un objet \sphinxcode{\sphinxupquote{Date}} à partir d’une telle chaine de caractère.
+
+\end{enumerate}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{12}
+\item {} 
+\sphinxAtStartPar
+Mêmes questions, mais avec une date du type “11 février 1980”. La conversion de nom du mois vers le numéro sera faite grâce à un dictionnaire : \sphinxcode{\sphinxupquote{\{"janvier":1, "février":2, ...\}}}
+
+\item {} 
+\sphinxAtStartPar
+Créer le dictionnaire mois\sphinxhyphen{}>numéro du mois à l’aide d’une boucle for à partir de la liste des mois.
+
+\end{enumerate}
+
+
+\subsubsection{Statistiques sur les jours de la semaine}
+\label{\detokenize{devoir_maison_Devoir Maison:statistiques-sur-les-jours-de-la-semaine}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{14}
+\item {} 
+\sphinxAtStartPar
+Le calendrier a une période de 400 ans, soit en tout 4800 mois. Pour chacun de ces mois, calculer le jour de la semaine où tombe le 13. Montrer que le 13 a le plus de chance de tomber un vendredi.
+
+\end{enumerate}
+
+
+\subsubsection{Insee}
+\label{\detokenize{devoir_maison_Devoir Maison:insee}}
+\sphinxAtStartPar
+L’insee publie les données sur les personnes décédées régulièrement. Elle se trouvent sur la page suivante : https://www.insee.fr/fr/information/4769950
+
+\sphinxAtStartPar
+Téléchargez le fichier correspondant à votre année de naissance. Utiliser la commange \sphinxcode{\sphinxupquote{pandas.read\_csv}} pour l’ouvrir (avec l’option \sphinxcode{\sphinxupquote{delimiter=';'}})
+
+\sphinxAtStartPar
+Les dates sont enregistrée sous la forme d’un nombre dont l’écriture décimale correspond à AAAAMMJJ, où AAAA est l’année, MM le mois et JJ le jour.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{15}
+\item {} 
+\sphinxAtStartPar
+Calculer l’age en jour de toutes les personnes décés cette année là.
+
+\item {} 
+\sphinxAtStartPar
+Calculer l’age moyen des décés.
+
+\item {} 
+\sphinxAtStartPar
+Comment s’appelle la personne la plus agée qui est décédée, quel est son age ?
+
+\item {} 
+\sphinxAtStartPar
+Tracer l’histogramme de l’age au moment du décés
+
+\end{enumerate}
+
+\sphinxAtStartPar
+\sphinxincludegraphics{{histogramme}.jpg}
+
+
 \section{Correction}
 \label{\detokenize{correction:correction}}\label{\detokenize{correction::doc}}
 

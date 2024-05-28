@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Calcul des dates &#8212; Le langage Python</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Correction" href="correction.html" />
+    <link rel="prev" title="Exercices sur les objets" href="exercices_objets.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Le langage Python</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="exercices_objets.html" title="Exercices sur les objets"
+             accesskey="P">previous</a> |
+          <a href="correction.html" title="Correction"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="calcul-des-dates">
+<h1>Calcul des dates<a class="headerlink" href="#calcul-des-dates" title="Permalink to this headline">¶</a></h1>
+<p>Dans cette exercice, nous allons écrire des fonctions pour traiter des dates. Il est interdit d’utiliser la librairie python “datetime” ou tout autre librairie permettant de traiter les dates automatiquement.</p>
+<p>Pour simplifier l’exercice, nous considérerons que le calendrier est inchangé depuis son origine. Nous rappelons que les années bisextiles ont lieu tous les 4 ans, sauf tous les 100 ans, sauf tous les 400 ans. Ainsi, 1900, n’était pas bisextile, mais 2000 l’était.</p>
+<p>Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois zero de l’an zero). C’est le premier jour du calendrier.</p>
+<section id="annees-bisextiles">
+<h2>Années bisextiles<a class="headerlink" href="#annees-bisextiles" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Écrire une fonction qui prend l’année comme argument et renvoie True ou False suivant que l’année est bisextile ou pas.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulé jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an I, 365 pour l’an II, <span class="math notranslate nohighlight">\(3\times365\)</span> pour l’an IV, <span class="math notranslate nohighlight">\(4\times365+1\)</span> pour l’an V. Pour l’an CI, ce sera <span class="math notranslate nohighlight">\(100\times 365 + 24\)</span>, etc…</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Écrire une fonction qui a partir du chiffre du mois (janvier=1, février=2, …) et du jour du mois renvoie le nombre de jour écoulé depuis le premier janvier de cette année. Cette fonction prendra un argument optionnel qui indique si l’année est bisextile.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d’une liste qui contiendra le nombre de jours successif de chaque mois (31, 28, 31, 30, 31, …)</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Écrire une fonction qui prend comme argument la date sous forme de nombre et renvoie le nombre de jours écoulés depuis le premier janvier de l’an I. Cette fonction utilisera bien entendu les fonctions écrites précédement ! Combien de jour se sont écoulés entre le 1/1/1 et votre date de naissance ?</p></li>
+</ol>
+</section>
+<section id="programmation-orientee-objet">
+<h2>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h2>
+<p>Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la votre.</p>
+<ol class="arabic simple" start="5">
+<li><p>Définir un objet <code class="docutils literal notranslate"><span class="pre">Date</span></code> qui s’initialise avec trois arguments (année, jour, mois).</p></li>
+<li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> qui renvoie la chaîne de caractère permettant de créer l’objet.</p></li>
+<li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">__str__</span></code> qui renvoie la date sous forme humaine (“14 juillet 1789”). Le nom des mois sera rentré sous forme d’une liste</p></li>
+</ol>
+<ol class="arabic simple" start="8">
+<li><p>Ajouter une méthode qui renvoie le nombre de jour écoulés depuis le premier janvier de l’an I.</p></li>
+<li><p>En utilisant la méthode de la question précédente, définir la méthode spéciale <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> qui renvoie le nombre de jour qui s’est écoulé entre deux dates données.</p></li>
+</ol>
+<ol class="arabic simple" start="10">
+<li><p>Écrire une méthode qui renvoie le jour de la semaine sous forme d’un nombre (lundi-&gt;0, mardi-&gt;1, …) et une autre méthode qui renvoie ce jour sous forme d’une chaîne de caractère.</p></li>
+</ol>
+</section>
+<section id="manipulation-de-chaines-de-caracteres">
+<h2>Manipulation de chaînes de caractères<a class="headerlink" href="#manipulation-de-chaines-de-caracteres" title="Permalink to this headline">¶</a></h2>
+<p>Dans les questions suivantes, il est conseillé d’utiliser la méthode split des chaînes de caractères.</p>
+<ol class="arabic simple" start="11">
+<li><p>Écrire une fonction qui à partir d’une chaine de caractère du type <code class="docutils literal notranslate"><span class="pre">&quot;11/02/1890&quot;</span></code> renvoie les trois chiffres du jours, du mois et de l’année.</p></li>
+<li><p>Écrire une fonction qui créer un objet <code class="docutils literal notranslate"><span class="pre">Date</span></code> à partir d’une telle chaine de caractère.</p></li>
+</ol>
+<ol class="arabic simple" start="13">
+<li><p>Mêmes questions, mais avec une date du type “11 février 1980”. La conversion de nom du mois vers le numéro sera faite grâce à un dictionnaire : <code class="docutils literal notranslate"><span class="pre">{&quot;janvier&quot;:1,</span> <span class="pre">&quot;février&quot;:2,</span> <span class="pre">...}</span></code></p></li>
+<li><p>Créer le dictionnaire mois-&gt;numéro du mois à l’aide d’une boucle for à partir de la liste des mois.</p></li>
+</ol>
+</section>
+<section id="statistiques-sur-les-jours-de-la-semaine">
+<h2>Statistiques sur les jours de la semaine<a class="headerlink" href="#statistiques-sur-les-jours-de-la-semaine" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" start="15">
+<li><p>Le calendrier a une période de 400 ans, soit en tout 4800 mois. Pour chacun de ces mois, calculer le jour de la semaine où tombe le 13. Montrer que le 13 a le plus de chance de tomber un vendredi.</p></li>
+</ol>
+</section>
+<section id="insee">
+<h2>Insee<a class="headerlink" href="#insee" title="Permalink to this headline">¶</a></h2>
+<p>L’insee publie les données sur les personnes décédées régulièrement. Elle se trouvent sur la page suivante : https://www.insee.fr/fr/information/4769950</p>
+<p>Téléchargez le fichier correspondant à votre année de naissance. Utiliser la commange <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> pour l’ouvrir (avec l’option <code class="docutils literal notranslate"><span class="pre">delimiter=';'</span></code>)</p>
+<p>Les dates sont enregistrée sous la forme d’un nombre dont l’écriture décimale correspond à AAAAMMJJ, où AAAA est l’année, MM le mois et JJ le jour.</p>
+<ol class="arabic simple" start="16">
+<li><p>Calculer l’age en jour de toutes les personnes décés cette année là.</p></li>
+<li><p>Calculer l’age moyen des décés.</p></li>
+<li><p>Comment s’appelle la personne la plus agée qui est décédée, quel est son age ?</p></li>
+<li><p>Tracer l’histogramme de l’age au moment du décés</p></li>
+</ol>
+<p><img alt="Texte alternatif" src="histogramme.jpg" /></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feuilles_de_cours.html">Feuilles de cours</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="feuilles_d_exercices.html">Feuilles d’exercices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cours1_fonctions_exercices.html">Exercices sur les fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours2_nombres_exercices.html">Exercices sur les nombres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours3_conteneur_exercices.html">Exercices sur les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours4_chaine_caractere_exercices.html">Chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours6_objet_exercices.html">Objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours5_numpy_exercices.html">Utilisation de numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cours7_graphiques_exercices.html">Exercices sur les graphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercices_objets.html">Exercices sur les objets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Calcul des dates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="exercices_objets.html" title="Exercices sur les objets"
+              >previous</a> |
+            <a href="correction.html" title="Correction"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/devoir_maison_Devoir Maison.ipynb.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pierre Cladé.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
