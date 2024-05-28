@@ -3453,8 +3453,8 @@ Créer une méthode qui renvoie la liste des pays classés par ordre de populati
 \end{enumerate}
 
 
-\subsection{Calcul des dates}
-\label{\detokenize{devoir_maison_Devoir Maison:calcul-des-dates}}\label{\detokenize{devoir_maison_Devoir Maison::doc}}
+\subsection{Devoir Maison \sphinxhyphen{} Calcul des dates}
+\label{\detokenize{devoir_maison_Devoir Maison:devoir-maison-calcul-des-dates}}\label{\detokenize{devoir_maison_Devoir Maison::doc}}
 \sphinxAtStartPar
 Dans cette exercice, nous allons écrire des fonctions pour traiter des dates. Il est interdit d’utiliser la librairie python “datetime” ou tout autre librairie permettant de traiter les dates automatiquement.
 
@@ -3465,7 +3465,7 @@ Pour simplifier l’exercice, nous considérerons que le calendrier est inchang�
 Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois zero de l’an zero). C’est le premier jour du calendrier.
 
 
-\subsubsection{Années bisextiles}
+\subsection{Années bisextiles}
 \label{\detokenize{devoir_maison_Devoir Maison:annees-bisextiles}}\begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
@@ -3473,6 +3473,13 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 Écrire une fonction qui prend l’année comme argument et renvoie True ou False suivant que l’année est bisextile ou pas.
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{est\PYGZus{}bisextile}\PYG{p}{(}\PYG{l+m+mi}{2024}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{est\PYGZus{}bisextile}\PYG{p}{(}\PYG{l+m+mi}{2000}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{est\PYGZus{}bisextile}\PYG{p}{(}\PYG{l+m+mi}{2021}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{est\PYGZus{}bisextile}\PYG{p}{(}\PYG{l+m+mi}{1900}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{1}
@@ -3481,6 +3488,13 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulé jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an I, 365 pour l’an II, \(3\times365\) pour l’an IV, \(4\times365+1\) pour l’an V. Pour l’an CI, ce sera \(100\times 365 + 24\), etc…
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{101}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{2}
@@ -3489,6 +3503,12 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 Écrire une fonction qui a partir du chiffre du mois (janvier=1, février=2, …) et du jour du mois renvoie le nombre de jour écoulé depuis le premier janvier de cette année. Cette fonction prendra un argument optionnel qui indique si l’année est bisextile.
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}jours\PYGZus{}depuis\PYGZus{}premier\PYGZus{}janvier}\PYG{p}{(}\PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{bisextile}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}jours\PYGZus{}depuis\PYGZus{}premier\PYGZus{}janvier}\PYG{p}{(}\PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{31}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{n}{bisextile}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}jours\PYGZus{}depuis\PYGZus{}premier\PYGZus{}janvier}\PYG{p}{(}\PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{11}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{bisextile}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{3}
@@ -3497,6 +3517,11 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d’une liste qui contiendra le nombre de jours successif de chaque mois (31, 28, 31, 30, 31, …)
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{jours\PYGZus{}par\PYGZus{}mois\PYGZus{}normal} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{28}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{]}
+\PYG{n}{jours\PYGZus{}par\PYGZus{}mois\PYGZus{}bisextile} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{29}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{]}
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{4}
@@ -3506,8 +3531,13 @@ Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d�
 
 \end{enumerate}
 
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}de\PYGZus{}jours}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}de\PYGZus{}jours}\PYG{p}{(}\PYG{n}{annee}\PYG{o}{=}\PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{11}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 
-\subsubsection{Programmation orientée objet}
+
+\subsection{Programmation orientée objet}
 \label{\detokenize{devoir_maison_Devoir Maison:programmation-orientee-objet}}
 \sphinxAtStartPar
 Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la votre.
@@ -3527,6 +3557,13 @@ Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_repr\_\_}} qui renvoie la ch
 Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_str\_\_}} qui renvoie la date sous forme humaine (“14 juillet 1789”). Le nom des mois sera rentré sous forme d’une liste
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance} \PYG{o}{=} \PYG{n}{Date}\PYG{p}{(}\PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{p}{)}
+\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{7}
@@ -3539,6 +3576,17 @@ Ajouter une méthode qui renvoie le nombre de jour écoulés depuis le premier j
 En utilisant la méthode de la question précédente, définir la méthode spéciale \sphinxcode{\sphinxupquote{\_\_sub\_\_}} qui renvoie le nombre de jour qui s’est écoulé entre deux dates données.
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance} \PYG{o}{=} \PYG{n}{Date}\PYG{p}{(}\PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{)}
+
+\PYG{n}{aujourdhui} \PYG{o}{=} \PYG{n}{Date}\PYG{p}{(}\PYG{l+m+mi}{2024}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{27}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{o}{.}\PYG{n}{nombre\PYGZus{}de\PYGZus{}jours}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{age} \PYG{o}{=} \PYG{n}{aujourdhui} \PYG{o}{\PYGZhy{}} \PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{age}\PYG{p}{)}
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{9}
@@ -3548,8 +3596,17 @@ En utilisant la méthode de la question précédente, définir la méthode spéc
 
 \end{enumerate}
 
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance} \PYG{o}{=} \PYG{n}{Date}\PYG{p}{(}\PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{)}
 
-\subsubsection{Manipulation de chaînes de caractères}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{o}{.}\PYG{n}{jour\PYGZus{}semaine\PYGZus{}nombre}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{o}{.}\PYG{n}{jour\PYGZus{}semaine\PYGZus{}str}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsection{Manipulation de chaînes de caractères}
 \label{\detokenize{devoir_maison_Devoir Maison:manipulation-de-chaines-de-caracteres}}
 \sphinxAtStartPar
 Dans les questions suivantes, il est conseillé d’utiliser la méthode split des chaînes de caractères.
@@ -3579,7 +3636,7 @@ Créer le dictionnaire mois\sphinxhyphen{}>numéro du mois à l’aide d’une b
 \end{enumerate}
 
 
-\subsubsection{Statistiques sur les jours de la semaine}
+\subsection{Statistiques sur les jours de la semaine}
 \label{\detokenize{devoir_maison_Devoir Maison:statistiques-sur-les-jours-de-la-semaine}}\begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{14}
@@ -3590,7 +3647,7 @@ Le calendrier a une période de 400 ans, soit en tout 4800 mois. Pour chacun de 
 \end{enumerate}
 
 
-\subsubsection{Insee}
+\subsection{Insee}
 \label{\detokenize{devoir_maison_Devoir Maison:insee}}
 \sphinxAtStartPar
 L’insee publie les données sur les personnes décédées régulièrement. Elle se trouvent sur la page suivante : https://www.insee.fr/fr/information/4769950

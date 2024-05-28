@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Calcul des dates &#8212; Le langage Python</title>
+    <title>Devoir Maison - Calcul des dates &#8212; Le langage Python</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -47,47 +47,129 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="calcul-des-dates">
-<h1>Calcul des dates<a class="headerlink" href="#calcul-des-dates" title="Permalink to this headline">¶</a></h1>
+  <section id="devoir-maison-calcul-des-dates">
+<h1>Devoir Maison - Calcul des dates<a class="headerlink" href="#devoir-maison-calcul-des-dates" title="Permalink to this headline">¶</a></h1>
 <p>Dans cette exercice, nous allons écrire des fonctions pour traiter des dates. Il est interdit d’utiliser la librairie python “datetime” ou tout autre librairie permettant de traiter les dates automatiquement.</p>
 <p>Pour simplifier l’exercice, nous considérerons que le calendrier est inchangé depuis son origine. Nous rappelons que les années bisextiles ont lieu tous les 4 ans, sauf tous les 100 ans, sauf tous les 400 ans. Ainsi, 1900, n’était pas bisextile, mais 2000 l’était.</p>
 <p>Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois zero de l’an zero). C’est le premier jour du calendrier.</p>
+</section>
 <section id="annees-bisextiles">
-<h2>Années bisextiles<a class="headerlink" href="#annees-bisextiles" title="Permalink to this headline">¶</a></h2>
+<h1>Années bisextiles<a class="headerlink" href="#annees-bisextiles" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li><p>Écrire une fonction qui prend l’année comme argument et renvoie True ou False suivant que l’année est bisextile ou pas.</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">est_bisextile</span><span class="p">(</span><span class="mi">2024</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">est_bisextile</span><span class="p">(</span><span class="mi">2000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">est_bisextile</span><span class="p">(</span><span class="mi">2021</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">est_bisextile</span><span class="p">(</span><span class="mi">1900</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="2">
 <li><p>Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulé jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an I, 365 pour l’an II, <span class="math notranslate nohighlight">\(3\times365\)</span> pour l’an IV, <span class="math notranslate nohighlight">\(4\times365+1\)</span> pour l’an V. Pour l’an CI, ce sera <span class="math notranslate nohighlight">\(100\times 365 + 24\)</span>, etc…</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nombres_jours_annees_precedentes</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombres_jours_annees_precedentes</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombres_jours_annees_precedentes</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombres_jours_annees_precedentes</span><span class="p">(</span><span class="mi">101</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="3">
 <li><p>Écrire une fonction qui a partir du chiffre du mois (janvier=1, février=2, …) et du jour du mois renvoie le nombre de jour écoulé depuis le premier janvier de cette année. Cette fonction prendra un argument optionnel qui indique si l’année est bisextile.</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nombre_jours_depuis_premier_janvier</span><span class="p">(</span><span class="n">jour</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bisextile</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre_jours_depuis_premier_janvier</span><span class="p">(</span><span class="n">jour</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">bisextile</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre_jours_depuis_premier_janvier</span><span class="p">(</span><span class="n">jour</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">bisextile</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="4">
 <li><p>Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d’une liste qui contiendra le nombre de jours successif de chaque mois (31, 28, 31, 30, 31, …)</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jours_par_mois_normal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
+<span class="n">jours_par_mois_bisextile</span> <span class="o">=</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="5">
 <li><p>Écrire une fonction qui prend comme argument la date sous forme de nombre et renvoie le nombre de jours écoulés depuis le premier janvier de l’an I. Cette fonction utilisera bien entendu les fonctions écrites précédement ! Combien de jour se sont écoulés entre le 1/1/1 et votre date de naissance ?</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nombre_de_jours</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre_de_jours</span><span class="p">(</span><span class="n">annee</span><span class="o">=</span><span class="mi">1980</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">jour</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="programmation-orientee-objet">
-<h2>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h2>
+<h1>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h1>
 <p>Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la votre.</p>
 <ol class="arabic simple" start="5">
 <li><p>Définir un objet <code class="docutils literal notranslate"><span class="pre">Date</span></code> qui s’initialise avec trois arguments (année, jour, mois).</p></li>
 <li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> qui renvoie la chaîne de caractère permettant de créer l’objet.</p></li>
 <li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">__str__</span></code> qui renvoie la date sous forme humaine (“14 juillet 1789”). Le nom des mois sera rentré sous forme d’une liste</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_date_de_naissance</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="p">)</span>
+<span class="n">ma_date_de_naissance</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="8">
 <li><p>Ajouter une méthode qui renvoie le nombre de jour écoulés depuis le premier janvier de l’an I.</p></li>
 <li><p>En utilisant la méthode de la question précédente, définir la méthode spéciale <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> qui renvoie le nombre de jour qui s’est écoulé entre deux dates données.</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_date_de_naissance</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
+<span class="n">aujourdhui</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="o">.</span><span class="n">nombre_de_jours</span><span class="p">())</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="n">aujourdhui</span> <span class="o">-</span> <span class="n">ma_date_de_naissance</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="10">
 <li><p>Écrire une méthode qui renvoie le jour de la semaine sous forme d’un nombre (lundi-&gt;0, mardi-&gt;1, …) et une autre méthode qui renvoie ce jour sous forme d’une chaîne de caractère.</p></li>
 </ol>
+<div class="cell tag_keep docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_date_de_naissance</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="o">.</span><span class="n">jour_semaine_nombre</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="o">.</span><span class="n">jour_semaine_str</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="manipulation-de-chaines-de-caracteres">
-<h2>Manipulation de chaînes de caractères<a class="headerlink" href="#manipulation-de-chaines-de-caracteres" title="Permalink to this headline">¶</a></h2>
+<h1>Manipulation de chaînes de caractères<a class="headerlink" href="#manipulation-de-chaines-de-caracteres" title="Permalink to this headline">¶</a></h1>
 <p>Dans les questions suivantes, il est conseillé d’utiliser la méthode split des chaînes de caractères.</p>
 <ol class="arabic simple" start="11">
 <li><p>Écrire une fonction qui à partir d’une chaine de caractère du type <code class="docutils literal notranslate"><span class="pre">&quot;11/02/1890&quot;</span></code> renvoie les trois chiffres du jours, du mois et de l’année.</p></li>
@@ -99,13 +181,13 @@
 </ol>
 </section>
 <section id="statistiques-sur-les-jours-de-la-semaine">
-<h2>Statistiques sur les jours de la semaine<a class="headerlink" href="#statistiques-sur-les-jours-de-la-semaine" title="Permalink to this headline">¶</a></h2>
+<h1>Statistiques sur les jours de la semaine<a class="headerlink" href="#statistiques-sur-les-jours-de-la-semaine" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple" start="15">
 <li><p>Le calendrier a une période de 400 ans, soit en tout 4800 mois. Pour chacun de ces mois, calculer le jour de la semaine où tombe le 13. Montrer que le 13 a le plus de chance de tomber un vendredi.</p></li>
 </ol>
 </section>
 <section id="insee">
-<h2>Insee<a class="headerlink" href="#insee" title="Permalink to this headline">¶</a></h2>
+<h1>Insee<a class="headerlink" href="#insee" title="Permalink to this headline">¶</a></h1>
 <p>L’insee publie les données sur les personnes décédées régulièrement. Elle se trouvent sur la page suivante : https://www.insee.fr/fr/information/4769950</p>
 <p>Téléchargez le fichier correspondant à votre année de naissance. Utiliser la commange <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> pour l’ouvrir (avec l’option <code class="docutils literal notranslate"><span class="pre">delimiter=';'</span></code>)</p>
 <p>Les dates sont enregistrée sous la forme d’un nombre dont l’écriture décimale correspond à AAAAMMJJ, où AAAA est l’année, MM le mois et JJ le jour.</p>
@@ -115,8 +197,7 @@
 <li><p>Comment s’appelle la personne la plus agée qui est décédée, quel est son age ?</p></li>
 <li><p>Tracer l’histogramme de l’age au moment du décés</p></li>
 </ol>
-<p><img alt="Texte alternatif" src="histogramme.jpg" /></p>
-</section>
+<p><img alt="Texte alternatif" src="_images/histogramme.jpg" /></p>
 </section>
 
 
@@ -139,7 +220,12 @@
 <li class="toctree-l2"><a class="reference internal" href="cours5_numpy_exercices.html">Utilisation de numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cours7_graphiques_exercices.html">Exercices sur les graphiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercices_objets.html">Exercices sur les objets</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Calcul des dates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Devoir Maison - Calcul des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annees-bisextiles">Années bisextiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programmation-orientee-objet">Programmation orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manipulation-de-chaines-de-caracteres">Manipulation de chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statistiques-sur-les-jours-de-la-semaine">Statistiques sur les jours de la semaine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insee">Insee</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
