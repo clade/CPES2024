@@ -58,7 +58,7 @@
 <ol class="arabic simple">
 <li><p>Écrire une fonction qui prend l’année comme argument et renvoie True ou False suivant que l’année est bisextile ou pas.</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">est_bisextile</span><span class="p">(</span><span class="mi">2024</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">est_bisextile</span><span class="p">(</span><span class="mi">2000</span><span class="p">))</span>
@@ -67,11 +67,19 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+False
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulé jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an I, 365 pour l’an II, <span class="math notranslate nohighlight">\(3\times365\)</span> pour l’an IV, <span class="math notranslate nohighlight">\(4\times365+1\)</span> pour l’an V. Pour l’an CI, ce sera <span class="math notranslate nohighlight">\(100\times 365 + 24\)</span>, etc…</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nombres_jours_annees_precedentes</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nombres_jours_annees_precedentes</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
@@ -80,15 +88,30 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+365
+1095
+36524
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Écrire une fonction qui a partir du chiffre du mois (janvier=1, février=2, …) et du jour du mois renvoie le nombre de jour écoulé depuis le premier janvier de cette année. Cette fonction prendra un argument optionnel qui indique si l’année est bisextile.</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nombre_jours_depuis_premier_janvier</span><span class="p">(</span><span class="n">jour</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bisextile</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nombre_jours_depuis_premier_janvier</span><span class="p">(</span><span class="n">jour</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">bisextile</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nombre_jours_depuis_premier_janvier</span><span class="p">(</span><span class="n">jour</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">bisextile</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+364
+70
 </pre></div>
 </div>
 </div>
@@ -107,10 +130,16 @@
 <ol class="arabic simple" start="5">
 <li><p>Écrire une fonction qui prend comme argument la date sous forme de nombre et renvoie le nombre de jours écoulés depuis le premier janvier de l’an I. Cette fonction utilisera bien entendu les fonctions écrites précédement ! Combien de jour se sont écoulés entre le 1/1/1 et votre date de naissance ?</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nombre_de_jours</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nombre_de_jours</span><span class="p">(</span><span class="n">annee</span><span class="o">=</span><span class="mi">1980</span><span class="p">,</span> <span class="n">mois</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">jour</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+722855
 </pre></div>
 </div>
 </div>
@@ -124,7 +153,7 @@
 <li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> qui renvoie la chaîne de caractère permettant de créer l’objet.</p></li>
 <li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">__str__</span></code> qui renvoie la date sous forme humaine (“14 juillet 1789”). Le nom des mois sera rentré sous forme d’une liste</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_date_de_naissance</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 
@@ -133,12 +162,20 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11 février 1980
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date(annee=1980, mois=2, jour=11)
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="8">
 <li><p>Ajouter une méthode qui renvoie le nombre de jour écoulés depuis le premier janvier de l’an I.</p></li>
 <li><p>En utilisant la méthode de la question précédente, définir la méthode spéciale <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> qui renvoie le nombre de jour qui s’est écoulé entre deux dates données.</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_date_de_naissance</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 
@@ -151,11 +188,17 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>722855
+16177
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="10">
 <li><p>Écrire une méthode qui renvoie le jour de la semaine sous forme d’un nombre (lundi-&gt;0, mardi-&gt;1, …) et une autre méthode qui renvoie ce jour sous forme d’une chaîne de caractère.</p></li>
 </ol>
-<div class="cell tag_keep docutils container">
+<div class="cell tag_keep tag_dispres docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_date_de_naissance</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 
@@ -163,6 +206,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="o">.</span><span class="n">jour_semaine_nombre</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="o">.</span><span class="n">jour_semaine_str</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ma_date_de_naissance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+lundi
+lundi 11 février 1980
 </pre></div>
 </div>
 </div>
@@ -175,10 +225,42 @@
 <li><p>Écrire une fonction qui à partir d’une chaine de caractère du type <code class="docutils literal notranslate"><span class="pre">&quot;11/02/1890&quot;</span></code> renvoie les trois chiffres du jours, du mois et de l’année.</p></li>
 <li><p>Écrire une fonction qui créer un objet <code class="docutils literal notranslate"><span class="pre">Date</span></code> à partir d’une telle chaine de caractère.</p></li>
 </ol>
+<div class="cell tag_keep tag_dispres docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">split_date</span><span class="p">(</span><span class="s2">&quot;11/02/1980&quot;</span><span class="p">))</span>
+<span class="n">date_from_str</span><span class="p">(</span><span class="s2">&quot;11/02/1980&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 2, 1980)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date(annee=1980, mois=2, jour=11)
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="13">
 <li><p>Mêmes questions, mais avec une date du type “11 février 1980”. La conversion de nom du mois vers le numéro sera faite grâce à un dictionnaire : <code class="docutils literal notranslate"><span class="pre">{&quot;janvier&quot;:1,</span> <span class="pre">&quot;février&quot;:2,</span> <span class="pre">...}</span></code></p></li>
 <li><p>Créer le dictionnaire mois-&gt;numéro du mois à l’aide d’une boucle for à partir de la liste des mois.</p></li>
 </ol>
+<div class="cell tag_keep tag_dispres docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">split_explicit_date</span><span class="p">(</span><span class="s2">&quot;11 février 1980&quot;</span><span class="p">))</span>
+<span class="n">date_from_explicit_str</span><span class="p">(</span><span class="s2">&quot;11 février 1980&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11, 2, 1980)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date(annee=1980, mois=2, jour=11)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="statistiques-sur-les-jours-de-la-semaine">
 <h1>Statistiques sur les jours de la semaine<a class="headerlink" href="#statistiques-sur-les-jours-de-la-semaine" title="Permalink to this headline">¶</a></h1>

@@ -2359,6 +2359,19 @@ On souhaite calculer \(\sum \frac{1}{i}\). Quelle est la différence entre les d
 
 \PYG{n}{serie\PYGZus{}4}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+1.0
+1.5
+1.8333333333333333
+2.083333333333333
+2.283333333333333
+2.283333333333333
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+2.283333333333333
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{1}
@@ -2422,6 +2435,32 @@ Qu’est il affiché ? Dans quels fonction \sphinxcode{\sphinxupquote{x}} est un
 \PYG{n}{f3}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
 \PYG{n}{f4}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Attention, il y a un piège ici.}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+3
+3
+16
+5
+3
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+ne}{UnboundLocalError}\PYG{g+gWhitespace}{                         }Traceback (most recent call last)
+\PYG{o}{\PYGZlt{}}\PYG{n}{ipython}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{input}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{o}{\PYGZhy{}}\PYG{n}{bf7078096a9a}\PYG{o}{\PYGZgt{}} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{21} \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{22} \PYG{n}{f3}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{23} \PYG{n}{f4}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{n+nn}{\PYGZlt{}ipython\PYGZhy{}input\PYGZhy{}3\PYGZhy{}bf7078096a9a\PYGZgt{}} in \PYG{n+ni}{f4}\PYG{n+nt}{(y)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{11} 
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{12} \PYG{k}{def} \PYG{n+nf}{f4}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{13}     \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{14}     \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{15}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{15} 
+
+\PYG{n+ne}{UnboundLocalError}: local variable \PYGZsq{}x\PYGZsq{} referenced before assignment
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{3}
@@ -2449,6 +2488,13 @@ Qu’est il affiché ?
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{g}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0.0
+1.0
+0.0
+0.0
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{3}
@@ -2469,6 +2515,13 @@ Qu’est il affiché ?
 \PYG{n}{f}\PYG{p}{(}\PYG{n}{c}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)}
 \PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{o}{=}\PYG{n}{c}\PYG{p}{,} \PYG{n}{c}\PYG{o}{=}\PYG{n}{b}\PYG{p}{)}
 \PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{o}{=}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{o}{=}\PYG{n}{a}\PYG{p}{,} \PYG{n}{c}\PYG{o}{=}\PYG{n}{a}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+123
+321
+132
+111
 \end{sphinxVerbatim}
 
 
@@ -3480,6 +3533,13 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{est\PYGZus{}bisextile}\PYG{p}{(}\PYG{l+m+mi}{2021}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{est\PYGZus{}bisextile}\PYG{p}{(}\PYG{l+m+mi}{1900}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+True
+True
+False
+False
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{1}
@@ -3495,6 +3555,13 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{101}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0
+365
+1095
+36524
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{2}
@@ -3508,6 +3575,12 @@ Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}jours\PYGZus{}depuis\PYGZus{}premier\PYGZus{}janvier}\PYG{p}{(}\PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{bisextile}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}jours\PYGZus{}depuis\PYGZus{}premier\PYGZus{}janvier}\PYG{p}{(}\PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{31}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{n}{bisextile}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}jours\PYGZus{}depuis\PYGZus{}premier\PYGZus{}janvier}\PYG{p}{(}\PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{11}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{bisextile}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0
+364
+70
 \end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
@@ -3534,6 +3607,11 @@ Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d�
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}de\PYGZus{}jours}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}de\PYGZus{}jours}\PYG{p}{(}\PYG{n}{annee}\PYG{o}{=}\PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{n}{mois}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{jour}\PYG{o}{=}\PYG{l+m+mi}{11}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0
+722855
 \end{sphinxVerbatim}
 
 
@@ -3564,6 +3642,14 @@ Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_str\_\_}} qui renvoie la dat
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{p}{)}
 \PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+11 février 1980
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Date(annee=1980, mois=2, jour=11)
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{7}
@@ -3587,6 +3673,11 @@ En utilisant la méthode de la question précédente, définir la méthode spéc
 \PYG{n}{age} \PYG{o}{=} \PYG{n}{aujourdhui} \PYG{o}{\PYGZhy{}} \PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{age}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+722855
+16177
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{9}
@@ -3603,6 +3694,12 @@ En utilisant la méthode de la question précédente, définir la méthode spéc
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{o}{.}\PYG{n}{jour\PYGZus{}semaine\PYGZus{}nombre}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{o}{.}\PYG{n}{jour\PYGZus{}semaine\PYGZus{}str}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+0
+lundi
+lundi 11 février 1980
 \end{sphinxVerbatim}
 
 
@@ -3622,6 +3719,19 @@ Dans les questions suivantes, il est conseillé d’utiliser la méthode split d
 Écrire une fonction qui créer un objet \sphinxcode{\sphinxupquote{Date}} à partir d’une telle chaine de caractère.
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{split\PYGZus{}date}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{11/02/1980}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{date\PYGZus{}from\PYGZus{}str}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{11/02/1980}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+(11, 2, 1980)
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Date(annee=1980, mois=2, jour=11)
+\end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{12}
@@ -3634,6 +3744,19 @@ Mêmes questions, mais avec une date du type “11 février 1980”. La conversi
 Créer le dictionnaire mois\sphinxhyphen{}>numéro du mois à l’aide d’une boucle for à partir de la liste des mois.
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{split\PYGZus{}explicit\PYGZus{}date}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{11 février 1980}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{date\PYGZus{}from\PYGZus{}explicit\PYGZus{}str}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{11 février 1980}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+(11, 2, 1980)
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Date(annee=1980, mois=2, jour=11)
+\end{sphinxVerbatim}
 
 
 \subsection{Statistiques sur les jours de la semaine}

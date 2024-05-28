@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.4.6)  28 MAY 2024 19:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.4.6)  28 MAY 2024 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1018,88 +1018,92 @@ hic file (type bmp)
 File: 09f2661937d6b73de41a1a1a7c9c991084093bd87c3da0f03d46c08a67555eb4.png Grap
 hic file (type bmp)
 <09f2661937d6b73de41a1a1a7c9c991084093bd87c3da0f03d46c08a67555eb4.png>
- [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
-Overfull \hbox (161.51752pt too wide) in paragraph at lines 3305--3307
+ [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46]
+Overfull \hbox (161.51752pt too wide) in paragraph at lines 3358--3360
 \TU/FreeSerif(0)/m/n/10 À partir de la page [https://fr.wikipedia.org/wiki/D%C3
 %A9mographie_de_l%27Europe}(https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_l
 %27Europe)
  []
 
-[46] [47] [48] [49]
+[47] [48] [49] [50]
 File: histogramme.jpg Graphic file (type bmp)
 <histogramme.jpg>
- [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60]
-[61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
-Underfull \vbox (badness 10000) detected at line 5375
+ [51]
+Overfull \vbox (0.5373pt too high) detected at line 3859
+ []
+
+[52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66]
+[67] [68] [69] [70] [71] [72]
+Underfull \vbox (badness 10000) detected at line 5498
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5375
- []
-
-[71]
-Overfull \vbox (1.7859pt too high) detected at line 5420
- []
-
-[72]
-Overfull \vbox (2.78595pt too high) detected at line 5693
+Underfull \vbox (badness 10000) detected at line 5498
  []
 
 [73]
-Underfull \vbox (badness 10000) detected at line 5693
- []
-
-
-Overfull \vbox (2.78596pt too high) detected at line 5693
+Overfull \vbox (1.7859pt too high) detected at line 5543
  []
 
 [74]
-Underfull \vbox (badness 10000) detected at line 5693
- []
-
-
-Overfull \vbox (2.78596pt too high) detected at line 5693
+Overfull \vbox (2.78595pt too high) detected at line 5816
  []
 
 [75]
-Underfull \vbox (badness 10000) detected at line 5693
+Underfull \vbox (badness 10000) detected at line 5816
  []
 
 
-Overfull \vbox (2.78596pt too high) detected at line 5693
+Overfull \vbox (2.78596pt too high) detected at line 5816
  []
 
-[76] [77] [78]
-Overfull \hbox (161.51752pt too wide) in paragraph at lines 5823--5825
+[76]
+Underfull \vbox (badness 10000) detected at line 5816
+ []
+
+
+Overfull \vbox (2.78596pt too high) detected at line 5816
+ []
+
+[77]
+Underfull \vbox (badness 10000) detected at line 5816
+ []
+
+
+Overfull \vbox (2.78596pt too high) detected at line 5816
+ []
+
+[78] [79] [80]
+Overfull \hbox (161.51752pt too wide) in paragraph at lines 5946--5948
 \TU/FreeSerif(0)/m/n/10 À partir de la page [https://fr.wikipedia.org/wiki/D%C3
 %A9mographie_de_l%27Europe}(https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_l
 %27Europe)
  []
 
-[79]
+[81]
 File: f387c045c6a2bc1400c3509ad6df0a9def384825d8b321ce5a92cc0b17acc64f.png Grap
 hic file (type bmp)
 <f387c045c6a2bc1400c3509ad6df0a9def384825d8b321ce5a92cc0b17acc64f.png>
 File: 5fa4be9c6a014ec6ae26070e210b766debae1e00f9759bf57359c82116eeed33.png Grap
 hic file (type bmp)
 <5fa4be9c6a014ec6ae26070e210b766debae1e00f9759bf57359c82116eeed33.png>
- [80]
+ [82]
 File: bd8f637bd1c3968f24fbb65c823c060c4aa823fed3def9921972301157701709.png Grap
 hic file (type bmp)
 <bd8f637bd1c3968f24fbb65c823c060c4aa823fed3def9921972301157701709.png>
- [81]
+ [83]
 File: 673a5efaae812cc99776ccc0bf7b749bf07982087da2d8401881ad213247ba13.png Grap
 hic file (type bmp)
 <673a5efaae812cc99776ccc0bf7b749bf07982087da2d8401881ad213247ba13.png>
- [82]
+ [84]
 File: db880c5017f5520fec65ac1d7718bb554649255525059875b48077a56b05f5a9.png Grap
 hic file (type bmp)
 <db880c5017f5520fec65ac1d7718bb554649255525059875b48077a56b05f5a9.png>
- [83]
+ [85]
 File: 8b4661d287f8ebe1ec134491b2c9b0ccbb460e308211c82dcf4604ea562e90f9.png Grap
 hic file (type bmp)
 <8b4661d287f8ebe1ec134491b2c9b0ccbb460e308211c82dcf4604ea562e90f9.png>
- [84] [85]
+ [86] [87]
 File: 28f827857476a5688172517f7a60c031d0b3f8899f18a981cf5227123c055bd4.png Grap
 hic file (type bmp)
 <28f827857476a5688172517f7a60c031d0b3f8899f18a981cf5227123c055bd4.png>
@@ -1138,7 +1142,7 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
- [86]
+ [88]
 (./lelangagepython.aux
 LaTeX Info: Redefining \rmfamily on input line 19.
 LaTeX Info: Redefining \sffamily on input line 19.
@@ -1156,4 +1160,4 @@ Here is how much of TeX's memory you used:
  15 hyphenation exceptions out of 8191
  73i,15n,85p,822b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on lelangagepython.pdf (86 pages).
+Output written on lelangagepython.pdf (88 pages).
