@@ -73,7 +73,7 @@
 
 
 \title{Le langage Python}
-\date{May 28, 2024}
+\date{May 29, 2024}
 \release{}
 \author{Pierre Cladé}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -3517,6 +3517,12 @@ Pour simplifier l’exercice, nous considérerons que le calendrier est inchang�
 \sphinxAtStartPar
 Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois zero de l’an zero). C’est le premier jour du calendrier.
 
+\sphinxAtStartPar
+Afin de vous aider, j’ai indiqué le résultat d’un certain nombre de fonction. Il faudra tester votre code avec mes examples.
+
+\sphinxAtStartPar
+J’ai pris ma date de naissance pour une exemple de date, merci d’indiquer la votre en début de fichier (la mienne est le 11 février 1980).
+
 
 \subsection{Années bisextiles}
 \label{\detokenize{devoir_maison_Devoir Maison:annees-bisextiles}}\begin{enumerate}
@@ -3545,7 +3551,7 @@ False
 \setcounter{enumi}{1}
 \item {} 
 \sphinxAtStartPar
-Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulé jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an I, 365 pour l’an II, \(3\times365\) pour l’an IV, \(4\times365+1\) pour l’an V. Pour l’an CI, ce sera \(100\times 365 + 24\), etc…
+Écrire une fonction qui à partir de l’année renvoie le nombre de jour écoulés jusqu’au premier janvier de cette année. Cette fonction renverra donc 0 pour l’an 1, 365 pour l’an 2, \(3\times365\) pour l’an 4, \(4\times365+1\) pour l’an 5. Pour l’an 101, ce sera \(100\times 365 + 24\), etc…
 
 \end{enumerate}
 
@@ -3554,6 +3560,7 @@ False
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{101}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{nombres\PYGZus{}jours\PYGZus{}annees\PYGZus{}precedentes}\PYG{p}{(}\PYG{l+m+mi}{401}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -3561,6 +3568,7 @@ False
 365
 1095
 36524
+146097
 \end{sphinxVerbatim}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
@@ -3618,7 +3626,7 @@ Si ce n’est pas déjà le cas, écrire la fonction précédente à l’aide d�
 \subsection{Programmation orientée objet}
 \label{\detokenize{devoir_maison_Devoir Maison:programmation-orientee-objet}}
 \sphinxAtStartPar
-Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la votre.
+Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la vôtre.
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{4}
@@ -3635,6 +3643,13 @@ Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_repr\_\_}} qui renvoie la ch
 Ajouter une méthode \sphinxcode{\sphinxupquote{\_\_str\_\_}} qui renvoie la date sous forme humaine (“14 juillet 1789”). Le nom des mois sera rentré sous forme d’une liste
 
 \end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{nom\PYGZus{}mois} \PYG{o}{=} \PYG{p}{[}
+    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{janvier}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{février}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{mars}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{avril}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{mai}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{juin}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{juillet}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{août}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{septembre}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{octobre}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{novembre}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{décembre}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{p}{]}
+\end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{ma\PYGZus{}date\PYGZus{}de\PYGZus{}naissance} \PYG{o}{=} \PYG{n}{Date}\PYG{p}{(}\PYG{l+m+mi}{1980}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{)}
@@ -3712,7 +3727,7 @@ Dans les questions suivantes, il est conseillé d’utiliser la méthode split d
 \setcounter{enumi}{10}
 \item {} 
 \sphinxAtStartPar
-Écrire une fonction qui à partir d’une chaine de caractère du type \sphinxcode{\sphinxupquote{"11/02/1890"}} renvoie les trois chiffres du jours, du mois et de l’année.
+Écrire une fonction qui à partir d’une chaine de caractère du type \sphinxcode{\sphinxupquote{"11/02/1890"}} renvoie les trois nombres du jours, du mois et de l’année.
 
 \item {} 
 \sphinxAtStartPar
@@ -3741,7 +3756,7 @@ Mêmes questions, mais avec une date du type “11 février 1980”. La conversi
 
 \item {} 
 \sphinxAtStartPar
-Créer le dictionnaire mois\sphinxhyphen{}>numéro du mois à l’aide d’une boucle for à partir de la liste des mois.
+Créer le dictionnaire précédent à l’aide d’une boucle for à partir de la liste des mois.
 
 \end{enumerate}
 
