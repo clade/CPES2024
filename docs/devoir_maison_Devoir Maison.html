@@ -47,16 +47,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="devoir-maison-calcul-des-dates">
+  <section class="tex2jax_ignore mathjax_ignore" id="devoir-maison-calcul-des-dates">
 <h1>Devoir Maison - Calcul des dates<a class="headerlink" href="#devoir-maison-calcul-des-dates" title="Permalink to this headline">¶</a></h1>
 <p>Dans cette exercice, nous allons écrire des fonctions pour traiter des dates. Il est interdit d’utiliser la librairie python “datetime” ou tout autre librairie permettant de traiter les dates automatiquement.</p>
 <p>Pour simplifier l’exercice, nous considérerons que le calendrier est inchangé depuis son origine. Nous rappelons que les années bisextiles ont lieu tous les 4 ans, sauf tous les 100 ans, sauf tous les 400 ans. Ainsi, 1900, n’était pas bisextile, mais 2000 l’était.</p>
 <p>Le calendrier comment le 1er janvier de l’an I (il n’y a pas de zero du mois zero de l’an zero). C’est le premier jour du calendrier.</p>
 <p>Afin de vous aider, j’ai indiqué le résultat d’un certain nombre de fonction. Il faudra tester votre code avec mes examples.</p>
 <p>J’ai pris ma date de naissance pour une exemple de date, merci d’indiquer la votre en début de fichier (la mienne est le 11 février 1980).</p>
-</section>
 <section id="annees-bisextiles">
-<h1>Années bisextiles<a class="headerlink" href="#annees-bisextiles" title="Permalink to this headline">¶</a></h1>
+<h2>Années bisextiles<a class="headerlink" href="#annees-bisextiles" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Écrire une fonction qui prend l’année comme argument et renvoie True ou False suivant que l’année est bisextile ou pas.</p></li>
 </ol>
@@ -150,7 +149,7 @@ False
 </div>
 </section>
 <section id="programmation-orientee-objet">
-<h1>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h1>
+<h2>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h2>
 <p>Dans ce qui suit, merci de toujours tester vos fonctions/méthodes avec ma date de naissance (le 11 février 1980) et la vôtre.</p>
 <ol class="arabic simple" start="5">
 <li><p>Définir un objet <code class="docutils literal notranslate"><span class="pre">Date</span></code> qui s’initialise avec trois arguments (année, jour, mois).</p></li>
@@ -233,7 +232,7 @@ lundi 11 février 1980
 </div>
 </section>
 <section id="manipulation-de-chaines-de-caracteres">
-<h1>Manipulation de chaînes de caractères<a class="headerlink" href="#manipulation-de-chaines-de-caracteres" title="Permalink to this headline">¶</a></h1>
+<h2>Manipulation de chaînes de caractères<a class="headerlink" href="#manipulation-de-chaines-de-caracteres" title="Permalink to this headline">¶</a></h2>
 <p>Dans les questions suivantes, il est conseillé d’utiliser la méthode split des chaînes de caractères.</p>
 <ol class="arabic simple" start="11">
 <li><p>Écrire une fonction qui à partir d’une chaine de caractère du type <code class="docutils literal notranslate"><span class="pre">&quot;11/02/1890&quot;</span></code> renvoie les trois nombres du jours, du mois et de l’année.</p></li>
@@ -277,13 +276,13 @@ lundi 11 février 1980
 </div>
 </section>
 <section id="statistiques-sur-les-jours-de-la-semaine">
-<h1>Statistiques sur les jours de la semaine<a class="headerlink" href="#statistiques-sur-les-jours-de-la-semaine" title="Permalink to this headline">¶</a></h1>
+<h2>Statistiques sur les jours de la semaine<a class="headerlink" href="#statistiques-sur-les-jours-de-la-semaine" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple" start="15">
 <li><p>Le calendrier a une période de 400 ans, soit en tout 4800 mois. Pour chacun de ces mois, calculer le jour de la semaine où tombe le 13. Montrer que le 13 a le plus de chance de tomber un vendredi.</p></li>
 </ol>
 </section>
 <section id="insee">
-<h1>Insee<a class="headerlink" href="#insee" title="Permalink to this headline">¶</a></h1>
+<h2>Insee<a class="headerlink" href="#insee" title="Permalink to this headline">¶</a></h2>
 <p>L’insee publie les données sur les personnes décédées régulièrement. Elle se trouvent sur la page suivante : https://www.insee.fr/fr/information/4769950</p>
 <p>Téléchargez le fichier correspondant à votre année de naissance. Utiliser la commange <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> pour l’ouvrir (avec l’option <code class="docutils literal notranslate"><span class="pre">delimiter=';'</span></code>)</p>
 <p>Les dates sont enregistrée sous la forme d’un nombre dont l’écriture décimale correspond à AAAAMMJJ, où AAAA est l’année, MM le mois et JJ le jour.</p>
@@ -294,6 +293,7 @@ lundi 11 février 1980
 <li><p>Tracer l’histogramme de l’age au moment du décés</p></li>
 </ol>
 <p><img alt="Texte alternatif" src="_images/histogramme.jpg" /></p>
+</section>
 </section>
 
 
@@ -317,11 +317,6 @@ lundi 11 février 1980
 <li class="toctree-l2"><a class="reference internal" href="cours7_graphiques_exercices.html">Exercices sur les graphiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercices_objets.html">Exercices sur les objets</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Devoir Maison - Calcul des dates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annees-bisextiles">Années bisextiles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#programmation-orientee-objet">Programmation orientée objet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manipulation-de-chaines-de-caracteres">Manipulation de chaînes de caractères</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#statistiques-sur-les-jours-de-la-semaine">Statistiques sur les jours de la semaine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#insee">Insee</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="correction.html">Correction</a></li>
